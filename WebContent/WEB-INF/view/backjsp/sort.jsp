@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>商品</title>
+    <title>商品分类</title>
 
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@
             <ol class="breadcrumb">
                 <li><a href="file:///C:/Users/Administrator/Desktop/管理/index.html"><span
                             class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
-                <li class="active">商品管理</li>
+                <li class="active">商品分类</li>
             </ol>
             <div>
                 <nav class="navbar navbar-default">
@@ -93,34 +93,29 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand"><span class="glyphicon glyphicon-globe"
-                                    aria-hidden="true"></span><b>商品管理</b></a>
+                                    aria-hidden="true"></span><b>商品分类</b></a>
                         </div>
                 </nav>
                 <div>
                     <div class="btn-group col-xs-6" role="group" aria-label="">
                     </div>
                     <div class="col-xs-6 text-right">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"
-                                aria-hidden="true"></span>上架</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-down"
-                                aria-hidden="true"></span>下架</button>
-                        <a href="file:///C:/Users/Administrator/Desktop/管理/商品详情.html"><button type="button"
-                                class="btn btn-default"><span class="glyphicon glyphicon-plus"
-                                    aria-hidden="true"></span>新增</button></a>
-                        <a href="file:///C:/Users/Administrator/Desktop/管理/商品详情.html"><button type="button"
-                                class="btn btn-default"><span class="glyphicon glyphicon-pencil"
-                                    aria-hidden="true"></span>编辑</button></a>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"
+                                aria-hidden="true"></span>新增</button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"
+                                aria-hidden="true"></span>编辑</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"
+                                aria-hidden="true"></span>刷新</button>
                     </div>
                 </div>&nbsp;&nbsp;
                 <div class="container">
                     <form class="form-inline">
                         <div class="form-group">
-                            <label for="exampleInputName2">商品编号:</label>
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入商品编号">
+                            <label for="exampleInputName2">入库编号:</label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入入库编号">
                         </div>
-
                         <div class="form-group">
                         </div>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"
@@ -133,29 +128,18 @@
                     <table class="table table-striped table-bordered table-hover" id="mydiv">
                         <thead>
                             <tr>
-
                                 <th>编号</th>
-                                <th>商品名称</th>
-                                <th>价格</th>
-                                <th>详情</th>
-                                <th>规格</th>
-                                <th>数量</th>
-                                <th>分类</th>
-                                <th>上架</th>
+                                <th>分类名称</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="i in items">
-
-                                <td>{{i.number}}</td>
+                                <td>{{i.id}}</td>
                                 <td>{{i.name}}</td>
-                                <td>{{i.price}}</td>
-                                <td>{{i.details}}</td>
-                                <td>{{i.specs}}</td>
-                                <td>{{i.acount}}</td>
-                                <td>{{i.sort}}</td>
-                                <td v-if="i.flag==1" class="bg-success">{{i.upshelf}}</td>
-                                <td v-else class="bg-danger">{{i.upshelf}}</td>
+
+
                             </tr>
                         </tbody>
                     </table>
@@ -218,28 +202,11 @@
         var app = new Vue({
             el: '#mydiv',
             data: {
+
                 items: [
                     {
-                        number: '00009',
-                        name: 'iphone8',
-                        price: '6530.00',
-                        details: '',
-                        specs: '128G 星空灰',
-                        acount: '445',
-                        sort: '手机',
-                        upshelf: '是',
-                        flag: 1
-                    },
-                    {
-                        number: '00009',
-                        name: 'iphone8',
-                        price: '6530.00',
-                        details: '',
-                        specs: '128G 玫瑰金',
-                        acount: '445',
-                        sort: '手机',
-                        upshelf: '是',
-                        flag: 1
+                        id: '01',
+                        name: '手机'
                     }
                 ]
             }
