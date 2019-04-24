@@ -18,7 +18,7 @@ public class UserController {
 	UserServiceInterface userService;
 	@RequestMapping("/index")
 	public String get() {
-		return "register";
+		return "index";
 	}
 	@RequestMapping("/login")
 	public String login() {
