@@ -1,15 +1,11 @@
 package com.jk1603.apple.user.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.jk1603.apple.user.pojo.User;
 import com.jk1603.apple.user.service.UserServiceInterface;
 
@@ -18,20 +14,17 @@ import com.jk1603.apple.user.service.UserServiceInterface;
 public class UserController {
 	@Autowired
 	UserServiceInterface userService;
-	@RequestMapping(value = "/get",method = RequestMethod.GET)
-	public String getuser() {
-		
-		return "test";
+	@RequestMapping("/apple")
+	public String get() {
+		return "register";
 	}
-	@RequestMapping("/addUserAjax")
-    @ResponseBody
-    public String addUserAjax(User user){
-        try {
-            userService.addUser(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-            
-        }
-        return "success";
+	
+	@RequestMapping("/register")
+    public String addUserAjax(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password){
+		User user = new User();
+		user.setUserName(username);
+		user.setUserPassword(password);
+		userService.addUser(user);
+		return "login";
     }
 }

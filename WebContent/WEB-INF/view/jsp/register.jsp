@@ -57,16 +57,15 @@
 				<h6 style="color: #003366">欢迎成为手机商城新用户</h6>
 
 				<div class="form-group" v-bind></div>
-				<form id="userInfo" method="post" action="">
+				<form action="register">
 				    <input type="text" name="username" class="form-control" placeholder="用户名">
 	                <div class="hi"></div>
 	                <input type="password" name="password" class="form-control" placeholder="密码">
 	                <div class="hi"></div>
-	                <input type="password" name="password" class="form-control" placeholder="请再一次输入密码">
+	                
 	                <div style="height: 30px"></div>
-	                <button id="commit" type="button" class="btn btn-primary btn-block">注册</button>
+	                <button id="submit" type="submit" class="btn btn-primary btn-block">注册</button>
 				</form>
-				
 			</div>
 			<div class="col-xs-3 col-sm-4"></div>
 		</div>
@@ -97,23 +96,6 @@
 					}
 				}
 			})
-		</script>
-		<script type="text/javascript">
-		  $(function(){
-			  $("#commit").click(function(){
-				  $.ajax({
-					  url:"/add",
-					  type:"post",
-					  data:$("#userInfo").serialize(),
-					  dataType:"json",
-					  success:function(result){
-						  if(result!="success"){
-							  alert("注册失败");
-						  }
-					  }
-				  })
-			  })
-		  })
 		</script>
 </body>
 </html>
