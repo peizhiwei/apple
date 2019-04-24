@@ -11,11 +11,8 @@
 	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
-    
-    
-    <style>
-    	.container-fulid{
+<style>
+.container-fulid{
     width:100%;
     text-align:center;          
 }
@@ -41,7 +38,7 @@
     color: white;  
 }
     	
-    </style>
+</style>
 </head>
 <body>
 	<body>
@@ -50,8 +47,6 @@
             <nav class="navbar navbar-default">
                 <div class="col-md-12">
                     <div class="row">
-
-
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
                             style="background:rgb(51, 51, 51);">
@@ -79,7 +74,7 @@
                                     <a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color:white;">
                                         </span></a></li>
                                 <li style="float:right;display:inline-block;margin:0em;"><a
-                                        href="/apple/login">
+                                        href="/apple/user/login">
                                         <font color="white">登录/注册</font>
                                     </a></li>
 
@@ -91,8 +86,6 @@
 
             <div class="row size">
                 <div class="col-md-12">
-
-
                     <div id="myCarousel" class="carousel slide" style="width:1000px;">
                         <!-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
@@ -248,7 +241,6 @@
             </div>
         </div>
     </div><!-- /.container-fluid -->
-
 
 </body>
 </body>
