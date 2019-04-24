@@ -9,7 +9,7 @@ import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.service.AdminiServiceInterface;
 
 @Controller
-@RequestMapping("admini")
+@RequestMapping("/admini")
 public class AdminiController {
 	@Autowired
 	AdminiServiceInterface adminiservice;
