@@ -35,6 +35,7 @@
 	border: 1px solid #fff;
 	position: relative;
 	left: 10px;
+	
 }
 
 .hi {
