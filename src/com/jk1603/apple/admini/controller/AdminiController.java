@@ -1,12 +1,17 @@
 package com.jk1603.apple.admini.controller;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.service.AdminiServiceInterface;
+import com.jk1603.apple.user.pojo.ajaxresponse;
 
 @Controller
 @RequestMapping("/admini")
@@ -59,11 +64,26 @@ public class AdminiController {
 	public String sort() {
 		return "sort";
 	}
-	@RequestMapping(value = "/add",method = RequestMethod.GET)
-	public void addgoods(Goods param) {
-		adminiservice.addGoods(param);
-		System.out.println("≤Â»Î≥…π¶");
-				
+	@RequestMapping("/addgoods")
+	@ResponseBody
+	public ajaxresponse addgoods(@RequestParam(value = "number",required = false) String number,
+						 @RequestParam(value = "name",required = false) String name,
+						 @RequestParam(value = "price",required = false) BigDecimal price ,
+						 @RequestParam(value = "specs",required = false) String specs,
+						 @RequestParam(value = "amount",required = false) int amount,
+						 @RequestParam(value = "details",required = false) String details) {
+		Goods goods = new Goods();
+		goods.setNumber(number);
+		goods.setName(name);
+		goods.setPrice(price);
+		goods.setSpecs(specs);
+		goods.setAmount(amount);
+		goods.setDetails(details);
+		adminiservice.addGoods(goods);
+		ajaxresponse ajaxgoods = new ajaxresponse();
+		ajaxgoods.setFlag(true);
+		ajaxgoods.setMsg("/apple/admini/Goodsdetails");
+		return ajaxgoods;
 	}
 	
 }

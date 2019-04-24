@@ -8,14 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>商品详情</title>
 
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 
-<link rel="stylesheet"
-	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 </head>
@@ -78,8 +75,8 @@
 					onclick="window.location.href='/apple/admini/Goods'">
 					<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>取消
 				</button>
-				<button type="button" class="btn btn-default">
-					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>确认
+				<button type="button" class="btn btn-default" id="sure">
+					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true">确认</span>
 				</button>
 			</div>
 		</div>
@@ -92,34 +89,35 @@
 					<div class="blank-line"></div>
 					<div class="blank-line"></div>
 					<div class="form-group">
-						<label for="number"> 编号： </label> <input type="text"
+						<label for="number"> 编号： </label> <input name="number" type="text"
 							class="form-control" id="number">
 					</div>
 					<div class="form-group">
-						<label for="name"> 名称： </label> <input type="text"
+						<label for="name"> 名称： </label> <input name="name" type="text"
 							class="form-control" id="name">
 					</div>
 					<div class="form-group">
-						<label for="price"> 价格： </label> <input type="text"
+						<label for="price"> 价格： </label> <input name="price" type="text"
 							class="form-control" id="price">
 					</div>
 					<div class="form-group">
-						<label for="specs"> 规格： </label> <input type="text"
+						<label for="specs"> 规格： </label> <input name="specs" type="text"
 							class="form-control" id="specs">
 					</div>
 					<div class="form-group">
-						<label for="amount"> 数量 ： </label> <input type="text"
+						<label for="amount"> 数量 ： </label> <input name="amount" type="text"
 							class="form-control" id="amount">
 					</div>
 					<div class="form-group">
-						<label for="sort"> 分类： </label> <input type="text"
-							class="form-control" id="sort">
+						<label for="sort"> 备注： </label> <input name="details" type="text"
+							class="form-control" id="details">
 					</div>
 
 					<div class="form-group">
-						<label for="details"> 商品详情图： </label> <input type="text"
+						<label for="details"> 商品详情图： </label> <input name="details" type="text"
 							class="form-control" id="details">
 					</div>
+					
 					<div class="form-group">
 						<input type="file" id="exampleInputFile">
 					</div>
@@ -127,5 +125,38 @@
 				<div class="col-xs-2 col-sm-3 col-md-3"></div>
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+	$(document).ready(function(){
+        $("#sure").click(function(){
+        	var number = $("#number").val();
+            var price = $("#price").val();
+            var specs = $("#specs").val();
+            var name = $("#name").val();
+            var amount = $("#amount").val();
+            var details = $("#details").val();
+            if(number==""||price==""||specs==""||name==""||amount==""||details==""){
+            	alert("内容不能为空");
+            }else{
+            	$.ajax({
+                    type:'POST',
+                    async:false,
+                    dataType:"json",
+                    url:"/apple/admini/addgoods",
+                    data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details},
+                    success:function(result){
+                        if(result.flag==true){
+                            alert("添加商品成功！");
+                            window.location.href = result.msg;
+                        }else{
+                            alert("添加商品失败！");
+                        }
+                    }
+                });
+            }
+        	 
+        });
+    }); 
+	</script>
 </body>
 </html>

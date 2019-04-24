@@ -61,7 +61,7 @@
 				<h3>登录</h3>
 				<h6 style="color: #003366">欢迎登陆您的手机商城</h6>
 				<div style="height: 10px"></div>
-                <form action="">
+                
 	                <input type="text" name="username" id="username" class="form-control" placeholder="请输入您的用户名">
 	                <div class="hi"></div>
 	                <div class="hi"></div>
@@ -77,7 +77,7 @@
 	                    <button id="login" class="btn btn-primary btn-block " style="position: relative; left: 10px" type="button" class="btn btn-primary btn-block">登录</button>
 	                </div>
 	                
-                </form>
+               
 			</div>
 			<div class="col-xs-3 col-sm-4"></div>
 		</div>
