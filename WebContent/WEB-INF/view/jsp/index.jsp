@@ -72,10 +72,9 @@
                                 <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
                                     <a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color:white;">
                                         </span></a></li>
-                                <li style="float:right;display:inline-block;margin:0em;"><a
-                                        href="#" >
+                                <li style="float:right;display:inline-block;margin:0em;padding-top:14px;">
                                         <font color="white" onclick="window.location.href='/apple/user/login'">登录/注册</font>
-                                    </a></li>
+                                    </li>
 
                             </ul>
                         </div><!-- /.navbar-collapse -->
