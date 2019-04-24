@@ -43,8 +43,8 @@
                             <span class="caret"></span></a>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </nav>
 
     <div class="container-fliud">
