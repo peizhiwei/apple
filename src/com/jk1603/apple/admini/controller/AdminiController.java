@@ -13,9 +13,18 @@ import com.jk1603.apple.admini.service.AdminiServiceInterface;
 public class AdminiController {
 	@Autowired
 	AdminiServiceInterface adminiservice;
+	
+	@RequestMapping("/backindex")
+	public String backindex() {
+		return "/backindex";
+		
+	}
+	
 	@RequestMapping(value = "/add",method = RequestMethod.GET)
 	public void addgoods(Goods param) {
 		adminiservice.addGoods(param);
 		System.out.println("≤Â»Î≥…π¶");
+				
 	}
+	
 }
