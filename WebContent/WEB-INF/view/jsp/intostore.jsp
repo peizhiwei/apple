@@ -103,10 +103,10 @@
                     <div class="btn-group col-xs-6" role="group" aria-label="">
                     </div>
                     <div class="col-xs-6 text-right">
-                        <a href="file:///C:/Users/Administrator/Desktop/管理/入库详情（增改）.html"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"
-                                aria-hidden="true"></span>新增</button></a>
-                        <a href="file:///C:/Users/Administrator/Desktop/管理/入库详情（增改）.html"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"
-                                aria-hidden="true"></span>编辑</button></a>
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Intostoredetails'"><span class="glyphicon glyphicon-plus"
+                                aria-hidden="true"></span>新增</button>
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Intostoredetails'"><span class="glyphicon glyphicon-pencil"
+                                aria-hidden="true"></span>编辑</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"
