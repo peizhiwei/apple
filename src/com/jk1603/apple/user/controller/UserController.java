@@ -19,11 +19,15 @@ public class UserController {
 	
 	@RequestMapping("/index")
 	public String index() {
+		return "index";
+	}
+	@RequestMapping("/login")
+	public String login() {
 		return "login";
 	}
-	@RequestMapping("/test")
-	public String test() {
-		return "test";
+	@RequestMapping("/register")
+	public String register() {
+		return "register";
 	}
 	@RequestMapping("/checkLogin")
 	@ResponseBody
@@ -32,7 +36,7 @@ public class UserController {
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
 			rs.setFlag(true);
-			rs.setMsg("/apple/user/test");
+			rs.setMsg("/apple/user/index");
 		}else {
 			rs.setFlag(false);
 			rs.setMsg("用户名或密码错误");
@@ -40,7 +44,7 @@ public class UserController {
 		return rs;
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping("/checkregister")
 	@ResponseBody
     public ajaxresponse addUserAjax(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password){
 		User user = new User();

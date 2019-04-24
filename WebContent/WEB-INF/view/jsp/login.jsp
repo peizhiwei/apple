@@ -70,7 +70,7 @@
 	                
 	                <div class="col-xs-6 col-sm-6">
 	                    <button class="btn btn-primary btn-block" type="button"
-	                        style="position: relative; right: 10px" onclick="window.location.href='/apple/user/index'">注册</button>
+	                        style="position: relative; right: 10px" onclick="window.location.href='/apple/user/register'">注册</button>
 	                </div>
 	                <div class="col-xs-6 col-sm-6">
 	                    <button id="login" class="btn btn-primary btn-block " style="position: relative; left: 10px" type="button" class="btn btn-primary btn-block">登录</button>

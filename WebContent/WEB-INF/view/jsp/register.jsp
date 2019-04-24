@@ -112,7 +112,7 @@
 	                    type:'POST',
 	                    async:false,
 	                    dataType:"json",
-	                    url:"/apple/user/register",
+	                    url:"/apple/user/checkregister",
 	                    data:{"username":username,"password":password,"password2":password2},
 	                    success:function(result){
 	                    	if(result.flag==true){
