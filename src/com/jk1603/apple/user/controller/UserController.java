@@ -14,7 +14,7 @@ import com.jk1603.apple.user.service.UserServiceInterface;
 public class UserController {
 	@Autowired
 	UserServiceInterface userService;
-	@RequestMapping("/apple")
+	@RequestMapping("/index")
 	public String get() {
 		return "register";
 	}
