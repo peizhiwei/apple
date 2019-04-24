@@ -1,6 +1,6 @@
 package com.jk1603.apple.user.pojo;
 
-public class response {
+public class ajaxresponse {
 	private boolean flag;
 	private String msg;
 	public boolean isFlag() {

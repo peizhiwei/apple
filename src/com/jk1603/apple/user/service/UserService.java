@@ -15,13 +15,28 @@ public class UserService implements UserServiceInterface{
 	UserDao userdao;
 	
 	@Override
-	public List<User> getUser(User user) {
-		List<User> result = userdao.getUser(user);
-		return result;
-	}
-
-	@Override
 	public void addUser(User user) {
 		userdao.addUser(user);		
 	}
+
+	@Override
+	public User checkLogin(String username,String password) {
+		User user = new User();
+		user = userdao.findByUsername(username);
+		if(user!=null&&user.getUserPassword().equals(password)) {
+			return user;
+		}
+		return null;
+	}
+
+	@Override
+	public User checkUser(String username) {
+		User user = new User();
+		user = userdao.findByUsername(username);
+		if(user!=null) {
+			return user;
+		}
+		return null;
+	}
+	
 }

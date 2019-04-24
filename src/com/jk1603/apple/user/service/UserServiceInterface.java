@@ -5,6 +5,9 @@ import java.util.List;
 import com.jk1603.apple.user.pojo.User;
 
 public interface UserServiceInterface {
-	List<User> getUser(User user);
 	void addUser(User user);
+	
+	User checkLogin(String username,String password);
+	
+	User checkUser(String username);
 }

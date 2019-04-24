@@ -59,7 +59,7 @@
 				<h6 style="color: #003366">欢迎成为手机商城新用户</h6>
 
 				<div class="form-group"></div>
-				<form action="register">
+				<form action="">
 					<input type="text" name="username" class="form-control" id="username" placeholder="用户名">
 					<div class="hi"></div>
 					<input type="password" name="password" class="form-control" id="password" placeholder="密码">
@@ -118,6 +118,8 @@
 	                    	if(result.flag==true){
 	                    		alert("注册成功");
 	                    		window.location.href = result.msg;
+	                    	}else{
+	                    		alert(result.msg);
 	                    	}
 	                    }
 	                });
