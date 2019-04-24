@@ -14,6 +14,4 @@ public interface UserDao {
 	@Update("INSERT INTO user (`user_name`,`user_password`)\r\n" + 
 			"VALUES(#{userName},#{userPassword})")
 	void addUser(User user);
-	
-	
 }

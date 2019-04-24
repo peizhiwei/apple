@@ -115,14 +115,15 @@
 	                    url:"/apple/user/register",
 	                    data:{"username":username,"password":password,"password2":password2},
 	                    success:function(result){
-	                        if(result=="login"){
-	                        	alert("注册成功");
-	                        }
+	                    	if(result.flag==true){
+	                    		alert("注册成功");
+	                    		window.location.href = result.msg;
+	                    	}
 	                    }
 	                });
 	            }
 	        });
-	    });
+	    }); 
 	</script>
 </body>
 </html>
