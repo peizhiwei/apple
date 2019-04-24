@@ -28,7 +28,10 @@ public class AdminiController {
 	public String goodsdetails() {
 		return "goodsdetails";
 	}
-	
+	@RequestMapping("/Sort")
+	public String sort() {
+		return "sort";
+	}
 	@RequestMapping(value = "/add",method = RequestMethod.GET)
 	public void addgoods(Goods param) {
 		adminiservice.addGoods(param);
