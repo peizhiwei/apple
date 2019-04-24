@@ -52,7 +52,7 @@
                             <ul class="nav navbar-nav" style="float:none;text-align:center;">
                                 <li style="float:none;display:inline-block;margin:0em;margin:0px 100px;"><a
                                         href="/apple/apple">
-                                        <font color="white">首页</font>
+                                        <font color="white" onclick="window.location.href='/apple/user/index'">首页</font>
                                     </a></li>
                                 <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
                                         <font color="white">Mac</font>

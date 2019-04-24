@@ -45,8 +45,8 @@
 			<div class="col-xs-12 col-sm-12">
 				<div class="top">
 					<p class="top1" style="color: white">
-						<span class="glyphicon glyphicon-th-large slit"
-							style="color: white"></span>&nbsp;&nbsp;&nbsp;&nbsp;手机商城
+						<a onclick="window.location.href='/apple/user/index'" style="color:white;text-decoration: none;"><span
+                class="glyphicon glyphicon-th-large slit"></span>&nbsp;&nbsp;&nbsp;&nbsp;手机商城</a><span style="float:right;color:white;text-decoration: none;" onclick="window.location.href='/apple/user/index'">返回首页</span>
 					</p>
 				</div>
 			</div>
@@ -66,7 +66,14 @@
 					<div class="hi"></div>
 					<input type="password" name="password2" class="form-control" id="password2" placeholder="请确认密码">
 					<div style="height: 30px"></div>
-					<button id="sure" type="button" class="btn btn-primary btn-block">注册</button>
+					<div class="col-xs-6 col-sm-6">
+	                    <button class="btn btn-primary btn-block" type="button"
+	                        style="position: relative; right: 10px" onclick="window.location.href='/apple/user/register'">注册</button>
+	                </div>
+	                <div class="col-xs-6 col-sm-6">
+	                    <button class="btn btn-primary btn-block " style="position: relative; left: 10px" type="button" class="btn btn-primary btn-block" 
+	                    onclick="window.location.href='/apple/user/login'">登录</button>
+	                </div>
 				</form>
 
 			</div>
