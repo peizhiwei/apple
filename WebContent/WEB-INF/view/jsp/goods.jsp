@@ -107,11 +107,11 @@
                                 aria-hidden="true"></span>上架</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-down"
                                 aria-hidden="true"></span>下架</button>
-                        <a href="file:///C:/Users/Administrator/Desktop/管理/商品详情.html"><button type="button"
-                                class="btn btn-default"><span class="glyphicon glyphicon-plus"
+                        <a><button type="button"
+                                class="btn btn-default" onclick="window.location.href='/apple/admini/Goodsdetails'"><span class="glyphicon glyphicon-plus"
                                     aria-hidden="true"></span>新增</button></a>
                         <a href="file:///C:/Users/Administrator/Desktop/管理/商品详情.html"><button type="button"
-                                class="btn btn-default"><span class="glyphicon glyphicon-pencil"
+                                class="btn btn-default" onclick="window.location.href='/apple/admini/Goodsdetails'"><span class="glyphicon glyphicon-pencil"
                                     aria-hidden="true"></span>编辑</button></a>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>

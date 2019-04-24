@@ -70,10 +70,10 @@
 		<div>
 			<div class="btn-group col-xs-6" role="group" aria-label=""></div>
 			<div class="col-xs-6 text-right">
-				<a href="file:///C:/Users/Administrator/Desktop/管理/商品.html"><button
-						type="button" class="btn btn-default">
+				<button
+						type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Goods'">
 						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>取消
-					</button></a>
+					</button>
 				<button type="button" class="btn btn-default">
 					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>确认
 				</button>

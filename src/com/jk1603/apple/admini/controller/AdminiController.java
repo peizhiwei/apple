@@ -16,8 +16,17 @@ public class AdminiController {
 	
 	@RequestMapping("/backindex")
 	public String backindex() {
-		return "/backindex";
+		return "backindex";
 		
+	}
+	@RequestMapping("/Goods")
+	public String goods() {
+		return "goods";
+		
+	}
+	@RequestMapping("/Goodsdetails")
+	public String goodsdetails() {
+		return "goodsdetails";
 	}
 	
 	@RequestMapping(value = "/add",method = RequestMethod.GET)
