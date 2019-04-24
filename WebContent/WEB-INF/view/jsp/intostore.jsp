@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>统计</title>
+    <title>入库</title>
 
-    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 </head>
@@ -79,7 +81,7 @@
             <ol class="breadcrumb">
                 <li><a href="file:///C:/Users/Administrator/Desktop/管理/index.html"><span
                             class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
-                <li class="active">统计查询</li>
+                <li class="active">入库管理</li>
             </ol>
             <div>
                 <nav class="navbar navbar-default">
@@ -94,15 +96,17 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand"><span class="glyphicon glyphicon-globe"
-                                    aria-hidden="true"></span><b>统计查询</b></a>
+                                    aria-hidden="true"></span><b>入库管理</b></a>
                         </div>
                 </nav>
                 <div>
                     <div class="btn-group col-xs-6" role="group" aria-label="">
                     </div>
                     <div class="col-xs-6 text-right">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"
-                                aria-hidden="true"></span>新增</button>
+                        <a href="file:///C:/Users/Administrator/Desktop/管理/入库详情（增改）.html"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"
+                                aria-hidden="true"></span>新增</button></a>
+                        <a href="file:///C:/Users/Administrator/Desktop/管理/入库详情（增改）.html"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"
+                                aria-hidden="true"></span>编辑</button></a>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"
@@ -112,8 +116,8 @@
                 <div class="container">
                     <form class="form-inline">
                         <div class="form-group">
-                            <label for="exampleInputName2">商品编号:</label>
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入商品编号">
+                            <label for="exampleInputName2">入库编号:</label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入入库编号">
                         </div>
                         <div class="form-group">
                         </div>
@@ -129,8 +133,6 @@
                             <tr>
                                 <th>编号</th>
                                 <th>商品名称</th>
-                                <th>出库数量</th>
-                                <th>入库数量</th>
                                 <th>货品总数</th>
                                 <th>创建时间</th>
                                 <th>创建人</th>
@@ -140,8 +142,6 @@
                             <tr v-for="i in items">
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>
-                                <td>{{i.outstore_acount}}</td>
-                                <td>{{i.intostore_acount}}</td>
                                 <td>{{i.acount}}</td>
                                 <td>{{i.date}}</td>
                                 <td>{{i.ad_name}}</td>
@@ -152,8 +152,9 @@
             </div>
         </div>
     </div>
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	
     <script>
         $(function () {
             function initTableCheckbox() {
@@ -200,9 +201,9 @@
         });
     </script>
 
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/vue.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script>
         var app = new Vue({
             el: '#mydiv',
@@ -210,13 +211,7 @@
 
                 items: [
                     {
-                        number: '00009',
-                        name: 'iphone8',
-                        outstore_acount: '100',
-                        intostore_acount: '0',
-                        acount: '354',
-                        date: '2019-3-25',
-                        ad_name: '111'
+                       
                     }
                 ]
             }
@@ -224,5 +219,4 @@
         })
     </script>
 </body>
-
 </html>
