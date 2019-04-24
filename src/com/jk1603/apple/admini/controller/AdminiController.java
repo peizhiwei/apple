@@ -28,6 +28,33 @@ public class AdminiController {
 	public String goodsdetails() {
 		return "goodsdetails";
 	}
+	@RequestMapping("/IntoStore")
+	public String intostore() {
+		return "intostore";
+	}
+	@RequestMapping("/OutStore")
+	public String outstore() {
+		return "outstore";
+		
+	}
+	@RequestMapping("/Stock")
+	public String stock() {
+		return "stock";
+	}
+	@RequestMapping("/Management")
+	public String management() {
+		return "management";
+	}
+	
+	@RequestMapping("/Statistics")
+	public String statistics() {
+		return "statistics";
+	}
+	@RequestMapping("/Intostoredetails")
+	public String intostoredetails() {
+		return "intostoredetails";
+		
+	}
 	@RequestMapping("/Sort")
 	public String sort() {
 		return "sort";

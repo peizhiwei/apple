@@ -59,20 +59,20 @@
     <div class="container-fliud">
         <div class="col-lg-1 col-sm-2 col-xs-3">
             <div class="btn-group-vertical" role="group" aria-label="...">
-                <a href="file:///C:/Users/Administrator/Desktop/管理/商品.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">商品</button></a>
-                <a href="file:///C:/Users/Administrator/Desktop/管理/入库.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">入库</button></a>
-                <a href="file:///C:/Users/Administrator/Desktop/管理/库存.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">库存</button></a>
-                <a href="file:///C:/Users/Administrator/Desktop/管理/出库.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">出库</button></a>
-                <a href="file:///C:/Users/Administrator/Desktop/管理/用户管理.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">用户管理</button></a>
-                <a href="file:///C:/Users/Administrator/Desktop/管理/商品分类.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">商品分类</button></a>
-                <a href="file:///C:/Users/Administrator/Desktop/管理/统计.html"><button type="button"
-                        class="btn btn-default" style="height:50px;width:100px">统计</button></a>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Goods'">商品</button>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/IntoStore'">入库</button>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Stock'">库存</button>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/OutStore'">出库</button>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Management'">用户管理</button>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
+                <button type="button"
+                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Statistics'">统计</button>
             </div>
         </div>
         <div div class="col-lg-11 col-sm-10 col-xs-9">
