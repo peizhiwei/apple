@@ -97,5 +97,4 @@ public class AdminiController {
 		System.out.println(listgoods);
 		return "goods";
 	}
-	
 }

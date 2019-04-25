@@ -250,7 +250,6 @@
             data: {
                 goods;
             }
-
         })
     </script>
 </body>
