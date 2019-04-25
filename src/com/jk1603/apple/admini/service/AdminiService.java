@@ -1,5 +1,7 @@
 package com.jk1603.apple.admini.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,10 @@ public class AdminiService implements AdminiServiceInterface {
 	public void addGoods(Goods g) {
 		adminidao.addGoods(g);
 	}
-	
+
+	@Override
+	public List<Goods> getGoods(String number) {
+		List<Goods> listgoods = adminidao.getGoods(number);
+		return listgoods;
+	}
 }

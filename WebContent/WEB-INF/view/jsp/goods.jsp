@@ -121,13 +121,13 @@
                     <form class="form-inline">
                         <div class="form-group">
                             <label for="exampleInputName2">商品编号:</label>
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入商品编号">
+                            <input type="text" class="form-control" id="exampleInputName2" name="exampleInputName2" placeholder="请输入商品编号">
                         </div>
 
                         <div class="form-group">
                         </div>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"
-                                aria-hidden="true"></span>搜索</button>
+                                aria-hidden="true" id="search" name="search"></span>搜索</button>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-random"
                                 aria-hidden="true"></span>清空搜索条件</button>
                     </form>
@@ -148,17 +148,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="i in items">
+                            <tr v-for="i in goods">
 
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>
                                 <td>{{i.price}}</td>
                                 <td>{{i.details}}</td>
                                 <td>{{i.specs}}</td>
-                                <td>{{i.acount}}</td>
+                                <td>{{i.amount}}</td>
                                 <td>{{i.sort}}</td>
-                                <td v-if="i.flag==1" class="bg-success">{{i.upshelf}}</td>
-                                <td v-else class="bg-danger">{{i.upshelf}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -168,6 +166,35 @@
     </div>
    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#search").click(function(){
+        	var exampleInputName2 = $("exampleInputName2").val();
+            
+            if(exampleInputName2==""){
+            	alert("内容不能为空");
+            }else{
+            	$.ajax({
+                    type:'POST',
+                    async:false,
+                    dataType:"json",
+                    url:"/apple/admini/addgoods",
+                    data:{"exampleInputName2":exampleInputName2},
+                    success:function(result){
+                        if(result.flag==true){
+                            alert("添加商品成功！");
+                            
+                        }else{
+                            alert("添加商品失败！");
+                        }
+                    }
+                });
+            }
+        	 
+        });
+    }); 
+	</script>
+    
     <script>
         $(function () {
             function initTableCheckbox() {
@@ -221,30 +248,7 @@
         var app = new Vue({
             el: '#mydiv',
             data: {
-                items: [
-                    {
-                        number: '00009',
-                        name: 'iphone8',
-                        price: '6530.00',
-                        details: '',
-                        specs: '128G 星空灰',
-                        acount: '445',
-                        sort: '手机',
-                        upshelf: '是',
-                        flag: 1
-                    },
-                    {
-                        number: '00009',
-                        name: 'iphone8',
-                        price: '6530.00',
-                        details: '',
-                        specs: '128G 玫瑰金',
-                        acount: '445',
-                        sort: '手机',
-                        upshelf: '是',
-                        flag: 1
-                    }
-                ]
+                goods;
             }
 
         })
