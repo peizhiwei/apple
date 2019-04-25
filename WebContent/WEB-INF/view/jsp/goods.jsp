@@ -222,6 +222,7 @@
                 items:[]
             },
             methods:{
+            	
             	getlist:function(data){
                     //发送get请求
                     this.$http.get("http://localhost:8080/apple/admini/getgoods?number="+this.inputNumber).then(function(res){
