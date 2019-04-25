@@ -186,7 +186,7 @@
                 },{
                     name:'MacBook Air 13.3英寸',
                     specs:'i7/8GB/128GB',
-                    specs2:'i7/8GB/128GB',
+                    specs2:'Z0UU00022',
                     price:'￥6899'
                 },{
                     name:'MacBook Pro 13.3英寸',
