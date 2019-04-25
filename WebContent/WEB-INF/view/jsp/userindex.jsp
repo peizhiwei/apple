@@ -101,11 +101,11 @@
                                             <font style="color:rgb(105, 105, 105)">没有好名字了</font><span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">我的中心</a></li>
+                                            <li><a href="#" onclick="window.location.href = '/apple/user/selfcenter'">我的中心</a></li>
                                             <li><a href="#">我的收藏</a></li>
                                             <li><a href="#">我看过的</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="#">退出登录</a></li>
+                                            <li><a href="#" onclick="window.location.href = '/apple/user/index'">退出登录</a></li>
                                         </ul>
                                     </li>
                                     </ul>
