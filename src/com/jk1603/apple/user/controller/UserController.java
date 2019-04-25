@@ -35,6 +35,10 @@ public class UserController {
 	public String register() {
 		return "register";
 	}
+	@RequestMapping("/selfcenter")
+	public String selfcenter() {
+		return "selfcenter";
+	}
 	@RequestMapping("/checkLogin")
 	@ResponseBody
 	public ajaxresponse login(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password) {
