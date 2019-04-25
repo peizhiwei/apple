@@ -145,7 +145,7 @@
                                 <th>分类</th>
                             </tr>
                         </thead>
-                        <tbody>{{items.length}}
+                        <tbody>
                             <tr v-for="i in items">
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>
