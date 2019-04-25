@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.service.AdminiServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
@@ -66,6 +67,7 @@ public class AdminiController {
 	public String sort() {
 		return "sort";
 	}
+	
 	@RequestMapping("/addgoods")
 	@ResponseBody
 	public ajaxresponse addgoods(@RequestParam(value = "number",required = false) String number,
@@ -95,4 +97,24 @@ public class AdminiController {
 		System.out.println("Êä³ö:"+listgoods);
 		return listgoods;
 	}
+	@RequestMapping("/addad")
+	public String addad() {
+		return "addaduser";
+	}
+	@RequestMapping("/addAdmini")
+    @ResponseBody
+	public ajaxresponse addAdmini(
+			 @RequestParam(value = "adminiName",required = false) String adminiName,
+			 @RequestParam(value = "adPassword",required = false) String adPassword)
+			 {
+		     Admini admini = new Admini();
+		     admini.setAdminiName(adminiName);
+		     admini.setAdPassword(adPassword);
+		     adminiservice.addAdmini(admini);
+		     ajaxresponse ajaxadmini = new ajaxresponse();
+		     ajaxadmini.setFlag(true);
+		     ajaxadmini.setMsg("/apple/admini/addad");
+		     return  ajaxadmini;
+ }
+
 }

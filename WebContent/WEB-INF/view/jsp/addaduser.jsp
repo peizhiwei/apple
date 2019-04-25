@@ -75,7 +75,7 @@
 					onclick="window.location.href='/apple/admini/Management'">
 					<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>取消
 				</button>
-				<button type="button" class="btn btn-default" id="sure">
+				<button type="button" class="btn btn-default"  id="sure">
 					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true">确认</span>
 				</button>
 			</div>
@@ -89,56 +89,49 @@
 					<div class="blank-line"></div>
 					<div class="blank-line"></div>
 					<div class="form-group">
-						<label for="id"> ID： </label> <input name="id" type="text"
-							class="form-control" id="id">
+						<label for="adminiName"> 用户名： </label> <input name="adminiName" type="text"
+							class="form-control" id="adminiName">
 					</div>
 					<div class="form-group">
-						<label for="admini_name"> 用户名： </label> <input name="admini_name" type="text"
-							class="form-control" id="admini_name">
-					</div>
-					<div class="form-group">
-						<label for="ad_password"> 用户密码： </label> <input name="ad_password" type="password"
-							class="form-control" id="ad_password">
+						<label for="adPassword"> 用户密码： </label> <input name="adPassword" type="password"
+							class="form-control" id="adPassword">
                     </div>
-                    <div class="form-group">
-                            <label for="ad_password"> 确认用户密码： </label> <input name="ad_password" type="password"
-                                class="form-control" id="ad_password">
-                        </div>
+                   <div class="form-group">
+						<label for="adPassword1"> 确认密码： </label> <input name="adPassword1" type="password"
+							class="form-control" id="adPassword1">
+                    </div>
 				</div>
 				<div class="col-xs-2 col-sm-3 col-md-3"></div>
 			</div>
 		</div>
 		
 		<script type="text/javascript">
-	$(document).ready(function(){
-        $("#sure").click(function(){
-        	var number = $("#id").val();
-            var price = $("#admini_name").val();
-            var specs = $("#ad_password").val();
-            if(id==""||admini_name==""||ad_password==""){
-            	alert("内容不能为空");
-            }else{
-            	$.ajax({
-                    type:'POST',
-                    async:false,
-                    dataType:"json",
-                    url:"/apple/admini/addgoods",
-                    data:{"id":ID,"admini_name":用户名,"ad_password":用户名密码},
-                    success:function(result){
-                        if(result.flag==true){
-                            alert("添加用户成功！");
-                            
-                            window.location.href = result.msg;
-                        }else{
-                            alert("添加用户失败！");
-                            
-                        }
-                    }
-                });
-            }
-        	 
-        });
-    }); 
+		$(document).ready(function(){
+	        $("#sure").click(function(){
+	        	 var adminiName = $("#adminiName").val();
+	             var adPassword = $("#adPassword").val();
+	             if(adminiName=='' || adPassword==''){
+	            	 alert("用户名或密码为空");
+	             }else{
+	            	 $.ajax({
+	                     type:'POST',
+	                     async:false,
+	                     dataType:"json",
+	                     url:"/apple/admini/addAdmini",
+	                     data:{"adminiName":adminiName,"adPassword":adPassword},
+	                     success:function(result){
+	                         if(result.flag==true){
+	                             alert("添加用户成功！");
+	                             window.location.href = result.msg;
+	                         }else{
+	                             alert(result.msg);
+	                         }
+	                     }
+	                 });
+	             }
+	            
+	        });
+	    }); 	
 	</script>
 </body>
 </html>
