@@ -131,6 +131,7 @@
                             window.location.href = result.msg;
                         }else{
                             alert("添加用户失败！");
+                            
                         }
                     }
                 });
