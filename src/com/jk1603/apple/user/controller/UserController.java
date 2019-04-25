@@ -46,7 +46,7 @@ public class UserController {
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
 			rs.setFlag(true);
-			rs.setMsg("/apple/user/index");
+			rs.setMsg("/apple/user/userindex");
 		}else {
 			rs.setFlag(false);
 			rs.setMsg("用户名或密码错误");

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=utf-8">
-<title>登陆</title>
+<title>登录</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 	rel="stylesheet">
