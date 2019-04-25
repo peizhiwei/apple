@@ -41,4 +41,7 @@
     
     <!-- 静态资源路径 -->
     <mvc:resources location="/static/" mapping="/static/**"/>
+    
+    <!-- multipart解析器：用于解析上传文件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 </beans>

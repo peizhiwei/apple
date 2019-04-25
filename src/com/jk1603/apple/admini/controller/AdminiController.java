@@ -1,9 +1,11 @@
 package com.jk1603.apple.admini.controller;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,4 +88,13 @@ public class AdminiController {
 		return ajaxgoods;
 	}
 	
+	@RequestMapping("getgoods")
+	@ResponseBody
+	public String getGoods(@RequestParam(value = "exampleInputName2",required = false) String exampleInputName2,Model m) {
+		
+		List<Goods> listgoods = adminiservice.getGoods(exampleInputName2);
+		m.addAttribute("goods", listgoods);
+		System.out.println("Êä³ö:"+listgoods);
+		return "goods";
+	}
 }

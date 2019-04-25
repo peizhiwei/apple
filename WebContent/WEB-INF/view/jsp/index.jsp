@@ -40,8 +40,7 @@
 </style>
 </head>
 <body>
-    <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="index">
         <div class="row">
             <nav class="navbar navbar-default">
                 <div class="col-md-12">
@@ -51,8 +50,8 @@
                             style="background:rgb(51, 51, 51);">
                             <ul class="nav navbar-nav" style="float:none;text-align:center;">
                                 <li style="float:none;display:inline-block;margin:0em;margin:0px 100px;"><a
-                                        href="/apple/apple">
-                                        <font color="white" onclick="window.location.href='/apple/user/index'">首页</font>
+                                        href="C:\Users\Administrator\Desktop\apple\applepc.html">
+                                        <font color="white">首页</font>
                                     </a></li>
                                 <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
                                         <font color="white">Mac</font>
@@ -72,9 +71,10 @@
                                 <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
                                     <a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color:white;">
                                         </span></a></li>
-                                <li style="float:right;display:inline-block;margin:0em;padding-top:14px;">
-                                        <font color="white" onclick="window.location.href='/apple/user/login'">登录/注册</font>
-                                    </li>
+                                <li style="float:right;display:inline-block;margin:0em;"><a
+                                        href="C:\Users\Administrator\Desktop\apple\denglu.html" >
+                                        <font color="white"onclick="window.location.href = '/apple/user/login'">登录/注册</font>
+                                    </a></li>
 
                             </ul>
                         </div><!-- /.navbar-collapse -->
@@ -84,6 +84,8 @@
 
             <div class="row size">
                 <div class="col-md-12">
+
+
                     <div id="myCarousel" class="carousel slide" style="width:1000px;">
                         <!-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
@@ -96,23 +98,23 @@
                         <!-- 轮播（Carousel）项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <a href="#"><img src="/img/imac.jpg"
+                                <a href="https://item.jd.com/100004311104.html"><img src="./img/imac.jpg"
                                         alt="First slide"></a>
                             </div>
                             <div class="item">
-                                <a href="#"><img src="/img/iphone_xr1.png"
+                                <a href="https://item.jd.com/100000177756.html"><img src="./img/iphone_xr1.png"
                                         alt="Second slide"></a>
                             </div>
                             <div class="item">
-                                <a href="#"><img src="/img/airpods.jpg"
+                                <a href="https://item.jd.com/100004325478.html"><img src="./img/airpods.jpg"
                                         alt="Third slide"></a>
                             </div>
                             <div class="item">
-                                <a href="#"><img src="/img/Watch.jpg"
+                                <a href="https://item.jd.com/100000384103.html"><img src="./img/Watch.jpg"
                                         alt="Four slide"></a>
                             </div>
                             <div class="item">
-                                <a href="#"><img src="/img/ipadmini.jpg"
+                                <a href="https://item.jd.com/100004245972.html"><img src="./img/ipadmini.jpg"
                                         alt="Five slide"></a>
                             </div>
 
@@ -124,121 +126,78 @@
                     </div>
 
                     <div class="row size1">
-                        <a href="#"><img src="/img/ipxs1.png" alt=""></a>
+                        <a href="https://item.jd.com/100001860773.html"><img src="./img/ipxs1.png" alt=""></a>
 
-                        <a href="#"><img src="/img/ipx1.png" alt=""></a>
+                        <a href="https://item.jd.com/5089253.html"><img src="./img/ipx1.png" alt=""></a>
+                        
+                        <div class="col-xs-6 text-center" v-for="details in detailslist">
+                            <a href="https://item.jd.com/100001860773.html" class="size2"
+                                style="text-decoration: none;">
+                                <h3>{{details.name}}</h3>
+                            </a>
+                            <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
+                                <font color="grey">{{details.specs}}</font>
+                            </a><br>
+                            <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
+                                <font color="grey">{{details.specs2}}</font>
+                            </a><br>
+                            <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
+                                <font color="red">
+                                    <h4>{{details.price}}</h4>
+                                </font>
+                            </a>
 
-                        <div class="col-xs-6 text-center">
-                            <a href="#" class="size2"
-                                style="text-decoration: none;">
-                                <h3>iPhone XS MAX</h3>
-                            </a>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">64GB 金色</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">全网通（移动4G优先版）双卡双待</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>￥7599.00</h4>
-                                </font>
-                            </a>
+
                         </div>
-                        <div class="col-xs-6 text-center">
-                            <a href="#" class="size2" style="text-decoration: none;">
-                                <h3>iPhone X</h3>
-                            </a>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">128GB 深空灰色</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">全网通（移动4G优先版）双卡双待</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>￥6349.00</h4>
-                                </font>
-                            </a>
-                        </div>
+                       
                     </div>
-                    <div class="row size1">
-                        <img src="/img/ipad1.png" alt="">
-                        <img src="/img/ipadpro.png" alt="">
-                        <div class="col-xs-6 text-center">
-                            <a href="#" class="size2" style="text-decoration: none;">
-                                <h3>iPad mini4</h3>
-                            </a>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">128GB WLAN/A8 芯片/Touch ID</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">MK9Q2CH</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>￥2598.00</h4>
-                                </font>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 text-center">
-                            <a href="#" class="size2"
-                                style="text-decoration: none;">
-                                <h3>iPad Air</h3>
-                            </a>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">64GB WLAN/A12 芯片/Retina 显示屏</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">MUUL2CH/A</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>￥3896.00</h4>
-                                </font>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row size1">
-                        <img src="/img/Mac_air.png" alt="">
-                        <img src="/img/Mac_pro.png" alt="">
-                        <div class="col-xs-6 text-center">
-                            <a href="#" class="size2" style="text-decoration: none;">
-                                <h3>MacBook Air 13.3英寸</h3>
-                            </a>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">i7/8GB/128GB</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">Z0UU00022</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>￥6899.00</h4>
-                                </font>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 text-center">
-                            <a href="#" class="size2" style="text-decoration: none;">
-                                <h3>MacBook Pro 13.3英寸</h3>
-                            </a>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">i5/8GB/256GB</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="grey">MPXT2CH/A</font>
-                            </a><br>
-                            <a href="#" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>￥10999.00</h4>
-                                </font>
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
-    </div>    
-</body>
+    </div><!-- /.container-fluid -->
+
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#index',
+            data: {
+                detailslist: [{
+                    name:'iPhone XS MAX',
+                    specs:'64GB 金色',
+                    specs2:'全网通（移动4G优先版）双卡双待',
+                    price:'7599'
+                },{
+                    name:'iPhone X',
+                    specs:'128GB 深空灰色',
+                    specs2:'移动联通电信4G手机',
+                    price:'6349'
+                },{
+                    name:'iPad mini4',
+                    specs:'128GB WLAN/A8 芯片/Touch ID',
+                    specs2:'MK9Q2CH',
+                    price:'2598'
+                },{
+                    name:'iPad Air',
+                    specs:'64GB WLAN/A12 芯片/Retina 显示屏',
+                    specs2:'MUUL2CH/A',
+                    price:'3896'
+                },{
+                    name:'MacBook Air 13.3英寸',
+                    specs:'i7/8GB/128GB',
+                    specs2:'i7/8GB/128GB',
+                    price:'6899'
+                },{
+                    name:'MacBook Pro 13.3英寸',
+                    specs:'i5/8GB/256GB',
+                    specs2:'MPXT2CH/A',
+                    price:'10999'
+                }]
+            }
+        })
+    </script>
 </body>
 </html>
