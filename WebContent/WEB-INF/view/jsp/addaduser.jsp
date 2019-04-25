@@ -127,6 +127,7 @@
                     success:function(result){
                         if(result.flag==true){
                             alert("添加用户成功！");
+                            
                             window.location.href = result.msg;
                         }else{
                             alert("添加用户失败！");
