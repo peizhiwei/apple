@@ -94,7 +94,7 @@ public class AdminiController {
 		
 		List<Goods> listgoods = adminiservice.getGoods(exampleInputName2);
 		m.addAttribute("goods", listgoods);
-		System.out.println(listgoods);
+		System.out.println("Êä³ö:"+listgoods);
 		return "goods";
 	}
 }
