@@ -22,7 +22,7 @@ public class AdminiService implements AdminiServiceInterface {
 		List<Goods> listgoods = adminidao.getGoods(number);
 		return listgoods;
 	}
-	
+
 	@Override
 	public void addAdmini(Admini ad) {
 		adminidao.addAdmini(ad);

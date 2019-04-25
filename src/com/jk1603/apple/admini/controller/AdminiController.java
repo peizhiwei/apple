@@ -89,7 +89,7 @@ public class AdminiController {
 		ajaxgoods.setMsg("/apple/admini/Goodsdetails");
 		return ajaxgoods;
 	}
-	
+
 	@RequestMapping("/getgoods")
 	@ResponseBody
 	public List<Goods> getGoods(String number) {

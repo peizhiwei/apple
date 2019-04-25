@@ -10,7 +10,7 @@ public interface AdminiServiceInterface {
 	
 	List<Goods> getGoods(String number);
 	
-	
+
 	void addAdmini(Admini ad);
 
 }

@@ -15,7 +15,7 @@ public interface AdminiDao {
 			"VALUES(#{name},#{price},#{number},\r\n" + 
 			"#{specs},#{details},#{amount})")
 	void addGoods(Goods g);
-	
+
 	//≤È—Ø…Ã∆∑
 	@Select("SELECT `name`,`price`,`number`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
