@@ -167,32 +167,32 @@
                     name:'iPhone XS MAX',
                     specs:'64GB 金色',
                     specs2:'全网通（移动4G优先版）双卡双待',
-                    price:'7599'
+                    price:'￥7599'
                 },{
                     name:'iPhone X',
                     specs:'128GB 深空灰色',
                     specs2:'移动联通电信4G手机',
-                    price:'6349'
+                    price:'￥6349'
                 },{
                     name:'iPad mini4',
                     specs:'128GB WLAN/A8 芯片/Touch ID',
                     specs2:'MK9Q2CH',
-                    price:'2598'
+                    price:'￥2598'
                 },{
                     name:'iPad Air',
                     specs:'64GB WLAN/A12 芯片/Retina 显示屏',
                     specs2:'MUUL2CH/A',
-                    price:'3896'
+                    price:'￥3896'
                 },{
                     name:'MacBook Air 13.3英寸',
                     specs:'i7/8GB/128GB',
                     specs2:'i7/8GB/128GB',
-                    price:'6899'
+                    price:'￥6899'
                 },{
                     name:'MacBook Pro 13.3英寸',
                     specs:'i5/8GB/256GB',
                     specs2:'MPXT2CH/A',
-                    price:'10999'
+                    price:'￥10999'
                 }]
             }
         })
