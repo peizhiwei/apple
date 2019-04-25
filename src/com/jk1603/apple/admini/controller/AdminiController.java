@@ -88,13 +88,11 @@ public class AdminiController {
 		return ajaxgoods;
 	}
 	
-	@RequestMapping("getgoods")
+	@RequestMapping("/getgoods")
 	@ResponseBody
-	public String getGoods(@RequestParam(value = "exampleInputName2",required = false) String exampleInputName2,Model m) {
-		
-		List<Goods> listgoods = adminiservice.getGoods(exampleInputName2);
-		m.addAttribute("goods", listgoods);
+	public List<Goods> getGoods(String number) {
+		List<Goods> listgoods = adminiservice.getGoods(number);
 		System.out.println("Êä³ö:"+listgoods);
-		return "goods";
+		return listgoods;
 	}
 }

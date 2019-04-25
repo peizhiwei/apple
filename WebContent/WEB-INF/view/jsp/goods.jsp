@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<div id="app">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -121,13 +122,12 @@
                     <form class="form-inline">
                         <div class="form-group">
                             <label for="exampleInputName2">商品编号:</label>
-                            <input type="text" class="form-control" id="exampleInputName2" name="exampleInputName2" placeholder="请输入商品编号">
+                            <input type="text" v-model="inputNumber" class="form-control" id="exampleInputName2" name="exampleInputName2" placeholder="请输入商品编号">
                         </div>
-
                         <div class="form-group">
                         </div>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"
-                                aria-hidden="true" id="search" name="search"></span>搜索</button>
+                        <button type="button" class="btn btn-default"  @click="getlist()"><span class="glyphicon glyphicon-search"
+                                aria-hidden="true" name="search"></span>搜索</button>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-random"
                                 aria-hidden="true"></span>清空搜索条件</button>
                     </form>
@@ -145,7 +145,7 @@
                                 <th>分类</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>{{items.length}}
                             <tr v-for="i in items">
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>
@@ -161,37 +161,9 @@
             </div>
         </div>
     </div>
+   </div>
    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $("#search").click(function(){
-        	var exampleInputName2 = $("exampleInputName2").val();
-            
-            if(exampleInputName2==""){
-            	alert("内容不能为空");
-            }else{
-            	$.ajax({
-                    type:'POST',
-                    async:false,
-                    dataType:"json",
-                    url:"/apple/admini/addgoods",
-                    data:{"exampleInputName2":exampleInputName2},
-                    success:function(result){
-                        if(result.flag==true){
-                            alert("添加商品成功！");
-                            
-                        }else{
-                            alert("添加商品失败！");
-                        }
-                    }
-                });
-            }
-        	 
-        });
-    }); 
-	</script>
-    
+   <script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             function initTableCheckbox() {
@@ -241,13 +213,28 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
     <script>
         var app = new Vue({
-            el: '#mydiv',
+            el: '#app',
             data: {
-                items:[goods]
+            	inputNumber:"",
+                items:[]
+            },
+            methods:{
+            	getlist:function(data){
+                    //发送get请求
+                    this.$http.get("http://localhost:8080/apple/admini/getgoods?number="+this.inputNumber).then(function(res){
+                        this.items =  JSON.parse(res.bodyText);
+                    },function(){
+                        console.log('请求失败处理');
+                    });
+                }
+            
             }
-        })
+        });
     </script>
+    
+    
 </body>
 </html>
