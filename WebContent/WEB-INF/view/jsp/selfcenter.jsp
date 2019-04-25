@@ -137,7 +137,7 @@
 
       <!--精品推荐-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="..\html/tuijian.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/img/tuijian.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -152,7 +152,7 @@
 
       <!--我的收藏-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="..\html/collect.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/img/collect.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -168,7 +168,7 @@
 
       <!--邮箱-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="..\html/mailbox.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/img/mailbox.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -184,7 +184,7 @@
 
       <!--购物-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="..\html/shopping.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/img/shopping.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -204,7 +204,7 @@
     <div class="col-xs-2 col-sm-3">
     </div>
     <div class="col-xs-8 col-sm-6 massage" style="height:50px;">
-      <div class="col-xs-2 col-sm-2"><img src="..\\html/set.svg"></div>
+      <div class="col-xs-2 col-sm-2"><img src="/img/set.svg"></div>
       <div class="col-xs-10 col-sm-10">
         <div class="col-xs-12 col-sm-12" style="height:16px"></div>
         <p><a href="#">设置</a></p>
