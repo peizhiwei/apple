@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.user.dao.UserDao;
 import com.jk1603.apple.user.pojo.User;
 @Service
@@ -37,6 +38,12 @@ public class UserService implements UserServiceInterface{
 			return user;
 		}
 		return null;
+	}
+
+	@Override
+	public List<Goods> getGoods() {
+		List<Goods> goodsList = userdao.getGoods();
+		return goodsList;
 	}
 	
 }

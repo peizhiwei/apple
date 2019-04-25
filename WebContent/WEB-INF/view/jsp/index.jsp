@@ -131,17 +131,17 @@
                         <div class="col-xs-6 text-center">
                             <a href="#" class="size2"
                                 style="text-decoration: none;">
-                                <h3>iPhone XS MAX</h3>
+                                <h3>${goods[0].name}</h3>
                             </a>
                             <a href="#" style="text-decoration: none;">
-                                <font color="grey">64GB 金色</font>
+                                <font color="grey">${goods[0].specs}</font>
                             </a><br>
                             <a href="#" style="text-decoration: none;">
-                                <font color="grey">全网通（移动4G优先版）双卡双待</font>
+                                <font color="grey">${goods[0].details}</font>
                             </a><br>
                             <a href="#" style="text-decoration: none;">
                                 <font color="red">
-                                    <h4>￥7599.00</h4>
+                                    <h4>￥ ${goods[0].price}</h4>
                                 </font>
                             </a>
                         </div>

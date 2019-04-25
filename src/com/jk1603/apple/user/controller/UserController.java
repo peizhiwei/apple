@@ -1,12 +1,16 @@
 package com.jk1603.apple.user.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.user.pojo.User;
 import com.jk1603.apple.user.pojo.ajaxresponse;
 import com.jk1603.apple.user.service.UserServiceInterface;
@@ -18,7 +22,9 @@ public class UserController {
 	UserServiceInterface userService;
 	
 	@RequestMapping("/index")
-	public String index() {
+	public String index(Model m) {
+		List<Goods> goodsList = userService.getGoods();
+		m.addAttribute("goods", goodsList);
 		return "index";
 	}
 	@RequestMapping("/login")
