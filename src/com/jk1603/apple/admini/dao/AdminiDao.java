@@ -16,7 +16,7 @@ public interface AdminiDao {
 	void addGoods(Goods g);
 	
 	//≤È—Ø…Ã∆∑
-	@Select("SELECT `name`,`price`,`number`,`specs`,"
+	@Select("SELECT `id`,`name`,`price`,`number`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
 }

@@ -92,7 +92,6 @@ public class AdminiController {
 	@ResponseBody
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiservice.getGoods(number);
-		System.out.println("Êä³ö:"+listgoods);
 		return listgoods;
 	}
 }

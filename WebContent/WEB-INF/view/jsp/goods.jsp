@@ -133,27 +133,27 @@
                     </form>
                 </div>&nbsp;&nbsp;
                 <div class="container">
-                    <table class="table table-striped table-bordered table-hover" id="mydiv">
+                    <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
+                            <th><input type="checkbox" v-model='checked' v-on:click='checkedAll'></th>
                                 <th>编号</th>
                                 <th>商品名称</th>
                                 <th>价格</th>
                                 <th>详情</th>
                                 <th>规格</th>
                                 <th>数量</th>
-                                <th>分类</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="i in items">
+                            <tr v-for="(i,k) in items">{{checkList}}
+                            <td><input type="checkbox" v-model='checkList' :value="i.id"></td>
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>
                                 <td>{{i.price}}</td>
                                 <td>{{i.details}}</td>
                                 <td>{{i.specs}}</td>
                                 <td>{{i.amount}}</td>
-                                <td>{{i.sort}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -162,67 +162,21 @@
         </div>
     </div>
    </div>
-   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-   <script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script>
-        $(function () {
-            function initTableCheckbox() {
-                var $thr = $('table thead tr');
-                var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
-                /*将全选/反选复选框添加到表头最前，即增加一列*/
-                $thr.prepend($checkAllTh);
-                /*“全选/反选”复选框*/
-                var $checkAll = $thr.find('input');
-                $checkAll.click(function (event) {
-                    /*将所有行的选中状态设成全选框的选中状态*/
-                    $tbr.find('input').prop('checked', $(this).prop('checked'));
-                    /*并调整所有选中行的CSS样式*/
-                    if ($(this).prop('checked')) {
-                        $tbr.find('input').parent().parent().addClass('warning');
-                    } else {
-                        $tbr.find('input').parent().parent().removeClass('warning');
-                    }
-                    /*阻止向上冒泡，以防再次触发点击操作*/
-                    event.stopPropagation();
-                });
-                /*点击全选框所在单元格时也触发全选框的点击操作*/
-                $checkAllTh.click(function () {
-                    $(this).find('input').click();
-                });
-                var $tbr = $('table tbody tr');
-                var $checkItemTd = $('<td><input type="checkbox" name="checkItem" /></td>');
-                /*每一行都在最前面插入一个选中复选框的单元格*/
-                $tbr.prepend($checkItemTd);
-                /*点击每一行的选中复选框时*/
-                $tbr.find('input').click(function (event) {
-                    /*调整选中行的CSS样式*/
-                    $(this).parent().parent().toggleClass('warning');
-                    $checkAll.prop('checked', $tbr.find('input:checked').length == $tbr.length ? true : false);
-                    /*阻止向上冒泡，以防再次触发点击操作*/
-                    event.stopPropagation();
-                });
-                /*点击每一行时也触发该行的选中操作*/
-                $tbr.click(function () {
-                    $(this).find('input').click();
-                });
-            }
-            initTableCheckbox();
-        });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
             	inputNumber:"",
-                items:[]
+                items:[],
+                checked: false, //全选框
+                checkList: []
             },
             methods:{
-            	
             	getlist:function(data){
                     //发送get请求
                     this.$http.get("http://localhost:8080/apple/admini/getgoods?number="+this.inputNumber).then(function(res){
@@ -230,12 +184,33 @@
                     },function(){
                         console.log('请求失败处理');
                     });
+                },
+                checkedAll: function () {
+                    var che = this;
+                    if (che.checked) { //实现反选
+                        che.checkList = [];
+                    } else { //实现全选
+                        che.checkList = [];
+                        this.items.forEach(function (item, index) {
+                            che.checkList.push(item.id);
+                        });
+                    }
                 }
             
+            },
+            watch: {
+                'checkList': {
+                    handler: function (val, oldVal) {
+                        if (val.length == this.items.length) {
+                            this.checked = true;
+                        } else {
+                            this.checked = false;
+                        }
+                    },
+                    deep: true
+                }
             }
         });
     </script>
-    
-    
 </body>
 </html>
