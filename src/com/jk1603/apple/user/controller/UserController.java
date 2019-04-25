@@ -27,6 +27,10 @@ public class UserController {
 		m.addAttribute("goods", goodsList);
 		return "index";
 	}
+	@RequestMapping("/userindex")
+	public String userindex() {
+		return "userindex";
+	}
 	@RequestMapping("/login")
 	public String login() {
 		return "login";
