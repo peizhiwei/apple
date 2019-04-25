@@ -98,23 +98,23 @@
                         <!-- 轮播（Carousel）项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <a href="https://item.jd.com/100004311104.html"><img src="./img/imac.jpg"
+                                <a href="https://item.jd.com/100004311104.html"><img src="/apple/static/img/imac.jpg"
                                         alt="First slide"></a>
                             </div>
                             <div class="item">
-                                <a href="https://item.jd.com/100000177756.html"><img src="./img/iphone_xr1.png"
+                                <a href="https://item.jd.com/100000177756.html"><img src="/apple/static/img/iphone_xr1.png"
                                         alt="Second slide"></a>
                             </div>
                             <div class="item">
-                                <a href="https://item.jd.com/100004325478.html"><img src="./img/airpods.jpg"
+                                <a href="https://item.jd.com/100004325478.html"><img src="/apple/static/img/airpods.jpg"
                                         alt="Third slide"></a>
                             </div>
                             <div class="item">
-                                <a href="https://item.jd.com/100000384103.html"><img src="./img/Watch.jpg"
+                                <a href="https://item.jd.com/100000384103.html"><img src="/apple/static/img/Watch.jpg"
                                         alt="Four slide"></a>
                             </div>
                             <div class="item">
-                                <a href="https://item.jd.com/100004245972.html"><img src="./img/ipadmini.jpg"
+                                <a href="https://item.jd.com/100004245972.html"><img src="/apple/static/img/ipadmini.jpg"
                                         alt="Five slide"></a>
                             </div>
 
@@ -126,10 +126,6 @@
                     </div>
 
                     <div class="row size1">
-                        <a href="https://item.jd.com/100001860773.html"><img src="./img/ipxs1.png" alt=""></a>
-
-                        <a href="https://item.jd.com/5089253.html"><img src="./img/ipx1.png" alt=""></a>
-                        
                         <div class="col-xs-6 text-center" v-for="details in detailslist">
                             <a href="https://item.jd.com/100001860773.html" class="size2"
                                 style="text-decoration: none;">
