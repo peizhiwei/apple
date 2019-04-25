@@ -18,6 +18,12 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:dispatcher-servlet.xml</param-value>
         </init-param>
+        <!-- 设置允许multipart（上传文件） -->
+        <multipart-config>
+            <location>C:/Users/xuesinuo/Documents/temp</location><!-- 临时存储：建议使用非项目路径 -->
+            <max-file-size>5242880</max-file-size><!-- 单个文件最大值 -->
+            <max-request-size>10485760</max-request-size><!-- 单个请求最大值 -->
+        </multipart-config>
     </servlet>
     <!-- DispatcherServlet映射 -->
     <servlet-mapping>

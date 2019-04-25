@@ -136,7 +136,6 @@
                     <table class="table table-striped table-bordered table-hover" id="mydiv">
                         <thead>
                             <tr>
-
                                 <th>编号</th>
                                 <th>商品名称</th>
                                 <th>价格</th>
@@ -144,12 +143,10 @@
                                 <th>规格</th>
                                 <th>数量</th>
                                 <th>分类</th>
-                                <th>上架</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="i in goods">
-
+                            <tr v-for="i in items">
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>
                                 <td>{{i.price}}</td>
@@ -248,7 +245,7 @@
         var app = new Vue({
             el: '#mydiv',
             data: {
-                goods;
+                items:[goods]
             }
         })
     </script>
