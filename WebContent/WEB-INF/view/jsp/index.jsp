@@ -134,6 +134,7 @@
                             <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
                                 <font color="grey">{{details.specs}}</font>
                             </a><br>
+                            
                             <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
                                 <font color="grey">{{details.specs2}}</font>
                             </a><br>
