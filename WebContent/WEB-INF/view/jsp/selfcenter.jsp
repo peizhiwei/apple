@@ -122,7 +122,7 @@
     <div class="col-xs-8 col-sm-6 massage">
       <!--我的订单-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="..\html/dingdan.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/dingdan.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -137,7 +137,7 @@
 
       <!--精品推荐-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="/img/tuijian.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/tuijian.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -152,7 +152,7 @@
 
       <!--我的收藏-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="/img/collect.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/collect.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -168,7 +168,7 @@
 
       <!--邮箱-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="/img/mailbox.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/mailbox.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -184,7 +184,7 @@
 
       <!--购物-->
       <div>
-        <div class="col-xs-2 col-sm-2"><img src="/img/shopping.svg"></div>
+        <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/shopping.svg"></div>
         <div class="col-xs-10 col-sm-10">
           <div class="col-xs-12 col-sm-12" style="height:13px"></div>
           <div>
@@ -204,7 +204,7 @@
     <div class="col-xs-2 col-sm-3">
     </div>
     <div class="col-xs-8 col-sm-6 massage" style="height:50px;">
-      <div class="col-xs-2 col-sm-2"><img src="/img/set.svg"></div>
+      <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/set.svg"></div>
       <div class="col-xs-10 col-sm-10">
         <div class="col-xs-12 col-sm-12" style="height:16px"></div>
         <p><a href="#">设置</a></p>
@@ -215,8 +215,6 @@
     </div>
   </div>
   </div>
-
-
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
   <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
