@@ -75,7 +75,7 @@
 					</button>
 					<button type="button" class="btn btn-default">
 						<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>确认
-					</button> 
+					</button>
 				</div>
 			</div>
 			&nbsp;&nbsp;
