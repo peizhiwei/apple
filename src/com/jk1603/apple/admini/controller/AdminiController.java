@@ -76,6 +76,7 @@ public class AdminiController {
 		return "sort";
 	}
 	
+	//添加商品
 	@RequestMapping("/addgoods")
 	@ResponseBody
 	public ajaxresponse addgoods(@RequestParam(value = "number",required = false) String number,
@@ -97,7 +98,8 @@ public class AdminiController {
 		ajaxgoods.setMsg("/apple/admini/Goodsdetails");
 		return ajaxgoods;
 	}
-
+	
+	//查询商品
 	@RequestMapping("/getgoods")
 	@ResponseBody
 	public List<Goods> getGoods(String number) {
@@ -124,7 +126,7 @@ public class AdminiController {
 			ajaxins.setFlag(true);
 			ajaxins.setMsg("/apple/admini/Intostoredetails");
 			return ajaxins;
-		}
+	}
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
@@ -133,6 +135,15 @@ public class AdminiController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为自定义日期编辑器
 	}
 	
+	//查询商品入库详情
+	@RequestMapping("/getintostore")
+	@ResponseBody
+	public List<Intostore> getIntostore(String number){
+		List<Intostore> listis = adminiservice.getIntostore(number);
+		return listis;
+	}
+	
+	//查询商品显示到index页面上
 	@RequestMapping("/getgooodstoindex")
 	@ResponseBody
 	public List<Goods> getGoodstoindex(Model m){

@@ -2,11 +2,17 @@ package com.jk1603.apple.admini.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Intostore {
 	private Integer id;
 	private String rkNumber;//入库编号
 	private String name;//商品名称
 	private int amount;//入库总量
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 	private Date date;//入库日期
 	private String builder;//创建者
 	public Integer getId() {
@@ -44,5 +50,9 @@ public class Intostore {
 	}
 	public void setBuilder(String builder) {
 		this.builder = builder;
+	}
+	public String toString() {
+		return "id="+id+",rkNumber="+rkNumber+",name="+name+",amount="+amount+",date="+date+",builder="+builder;
+		
 	}
 }

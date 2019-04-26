@@ -13,22 +13,26 @@ import com.jk1603.apple.admini.pojo.Intostore;
 public class AdminiService implements AdminiServiceInterface {
 	@Autowired
 	AdminiDao adminidao;
+	//添加商品
 	@Override
 	public void addGoods(Goods g) {
 		adminidao.addGoods(g);
 	}
-
+	
+	//查询商品
 	@Override
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminidao.getGoods(number);
 		return listgoods;
 	}
-
+	
+	//添加管理员
 	@Override
 	public void addAdmini(Admini ad) {
 		adminidao.addAdmini(ad);
 	}
-
+	
+	//查询商品显示到index页面上
 	@Override
 	public List<Goods> getGoodstoindex() {
 		List<Goods> goodsList = adminidao.getGoodstoindex();
@@ -39,5 +43,12 @@ public class AdminiService implements AdminiServiceInterface {
 	@Override
 	public void intoStore(Intostore ins) {
 		adminidao.intoStore(ins);
+	}
+	
+	//查询商品入库详情
+	@Override
+	public List<Intostore> getIntostore(String number) {
+		List<Intostore> listins = adminidao.getIntostore(number);
+		return listins;
 	}
 }

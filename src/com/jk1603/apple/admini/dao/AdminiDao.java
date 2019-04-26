@@ -28,6 +28,11 @@ public interface AdminiDao {
 			"	(#{rkNumber}, #{name}, #{amount}, #{date}, #{builder})")
 	void intoStore(Intostore ins);
 	
+	//查询商品入库详情
+	@Select("SELECT `id`,`rk_number` as rkNumber,`name`,`total` as amount,`date`,`builder` "
+			+ "FROM intostore_goods WHERE `rk_number` = #{rkNumber}")
+	List<Intostore> getIntostore(String number);
+		
 	//查询商品显示到index页面上
 	@Select("SELECT `name`,`specs`,`details`,`price`,`img` FROM goods")
 	List<Goods> getGoodstoindex();
