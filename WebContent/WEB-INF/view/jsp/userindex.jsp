@@ -45,15 +45,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="navbar navbar-default">
-                    <div class="col-md-12">
-                        <div class="row">
-=======
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-default">
@@ -88,10 +79,10 @@
 							<div class="col-md-2">
 								<div>
 									<div class="col-md-3 col-md-push-2">
-										<img src="/apple/static/img/set.svg" alt="头像" class="img-circle" style="height: 35px; width: 35px; margin-top: -5px">
+										<img src="/apple/static/img/set.svg" alt="头像" class="img-circle" style="height: 35px; width: 35px; margin-top: 8px">
 									</div>
 									<div class="col-md-9 col-md-push-1">
-										<ul class="nav navbar-nav navbar-right" style="margin-top: -13px">
+										<ul class="nav navbar-nav navbar-right">
 											<li class="dropdown">
 											    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 													<font style="color: rgb(105, 105, 105)">没有好名字了</font>
@@ -114,95 +105,6 @@
 				</div>
 		      </nav>
 		</div>
-		
-		<div class="row size" id="index">
-			<div class="col-md-12">
-				<div id="myCarousel" class="carousel slide" style="width: 1000px;">
-					<!-- 轮播（Carousel）指标 -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
-						<li data-target="#myCarousel" data-slide-to="4"></li>
-					</ol>
-					<!-- 轮播（Carousel）项目 -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="https://item.jd.com/100004311104.html"><img
-								src="/apple/static/img/imac.jpg" alt="First slide"></a>
-						</div>
-						<div class="item">
-							<a href="https://item.jd.com/100000177756.html"><img
-								src="/apple/static/img/iphone_xr1.png" alt="Second slide"></a>
-						</div>
->>>>>>> branch 'master' of https://github.com/peizhiwei/apple.git
-
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
-                                style="background:rgb(51, 51, 51);">
-                                <div class="col-md-10 col-md-push-1">
-                                    <ul class="nav navbar-nav" style="float:none;text-align:center;margin-right: 40px">
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 100px;"><a
-                                                href="/apple/apple">
-                                                <font color="white">首页</font>
-                                            </a></li>
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a
-                                                href="#">
-                                                <font color="white">Mac</font>
-                                            </a></li>
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a
-                                                href="#">
-                                                <font color="white">iPad</font>
-                                            </a></li>
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a
-                                                href="#">
-                                                <font color="white">iPhone</font>
-                                            </a></li>
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a
-                                                href="#">
-                                                <font color="white">Watch</font>
-                                            </a></li>
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
-                                            <a href="#"><span class="glyphicon glyphicon-search" style="color:white;">
-                                                </span></a></li>
-                                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
-                                            <a href="#"><span class="glyphicon glyphicon-shopping-cart"
-                                                    style="color:white;">
-                                                </span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2">
-                                    <div>
-                                        <div class="col-md-3 col-md-push-2">
-                                            <img src="/apple/static/img/set.svg" alt="头像" class="img-circle"
-                                                style="height: 35px;width: 35px;margin-top: 8px"></div>
-                                        <div class="col-md-9 col-md-push-1">
-                                            <ul class="nav navbar-nav navbar-right">
-                                                <li class="dropdown">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                        role="button" aria-haspopup="true" aria-expanded="false">
-                                                        <font style="color:rgb(105, 105, 105)">没有好名字了</font><span
-                                                            class="caret"></span>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">我的中心</a></li>
-                                                        <li><a href="#">我的收藏</a></li>
-                                                        <li><a href="#">我看过的</a></li>
-                                                        <li role="separator" class="divider"></li>
-                                                        <li><a href="#">退出登录</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div><!-- /.navbar-collapse -->
-                    </div>
-            </div>
-            </nav>
             <div class="row size">
                 <div class="col-md-12">
                     <div id="myCarousel" class="carousel slide" style="width:1000px;">
