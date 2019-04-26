@@ -17,4 +17,6 @@ public interface AdminiServiceInterface {
 	
 	void intoStore(Intostore ins);
 	
+	List<Intostore> getIntostore(String number);
+	
 }

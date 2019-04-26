@@ -73,7 +73,7 @@
                         class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Statistics'">统计</button>
             </div>
         </div>
-        <div div class="col-lg-11 col-sm-10 col-xs-9">
+        <div class="col-lg-11 col-sm-10 col-xs-9">
             <ol class="breadcrumb">
                 <li><a href="file:///C:/Users/Administrator/Desktop/管理/index.html"><span
                             class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
@@ -94,6 +94,7 @@
                             <a class="navbar-brand"><span class="glyphicon glyphicon-globe"
                                     aria-hidden="true"></span><b>商品管理</b></a>
                         </div>
+                       </div>
                 </nav>
                 <div>
                     <div class="btn-group col-xs-6" role="group" aria-label="">
@@ -106,7 +107,7 @@
                         <a><button type="button"
                                 class="btn btn-default" onclick="window.location.href='/apple/admini/Goodsdetails'"><span class="glyphicon glyphicon-plus"
                                     aria-hidden="true"></span>新增</button></a>
-                        <a href="file:///C:/Users/Administrator/Desktop/管理/商品详情.html"><button type="button"
+                        <a><button type="button"
                                 class="btn btn-default" onclick="window.location.href='/apple/admini/Goodsdetails'"><span class="glyphicon glyphicon-pencil"
                                     aria-hidden="true"></span>编辑</button></a>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
@@ -175,7 +176,8 @@
             	getlist:function(data){
                     //发送get请求
                     this.$http.get("http://localhost:8080/apple/admini/getgoods?number="+this.inputNumber).then(function(res){
-                        this.items =  JSON.parse(res.bodyText);
+                        
+                    	this.items =  JSON.parse(res.bodyText);
                     },function(){
                         console.log('请求失败处理');
                     });
