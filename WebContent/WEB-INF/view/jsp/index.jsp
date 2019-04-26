@@ -41,128 +41,144 @@
 </head>
 <body>
     <div class="container-fluid" id="index">
-        <div class="row">
-            <nav class="navbar navbar-default">
-                <div class="col-md-12">
-                    <div class="row">
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
-                            style="background:rgb(51, 51, 51);">
-                            <ul class="nav navbar-nav" style="float:none;text-align:center;">
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 100px;"><a
-                                        href="C:\Users\Administrator\Desktop\apple\applepc.html">
-                                        <font color="white">首页</font>
-                                    </a></li>
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
-                                        <font color="white">Mac</font>
-                                    </a></li>
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
-                                        <font color="white">iPad</font>
-                                    </a></li>
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
-                                        <font color="white">iPhone</font>
-                                    </a></li>
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
-                                        <font color="white">Watch</font>
-                                    </a></li>
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
-                                    <a href="#"><span class="glyphicon glyphicon-search" style="color:white;">
-                                        </span></a></li>
-                                <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
-                                    <a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color:white;">
-                                        </span></a></li>
-                                <li style="float:right;display:inline-block;margin:0em;"><a
-                                        href="C:\Users\Administrator\Desktop\apple\denglu.html" >
-                                        <font color="white"onclick="window.location.href = '/apple/user/login'">登录/注册</font>
-                                    </a></li>
+        <div class="row" id>
+            <nav class="navbar navbar-default" style="background:rgb(51, 51, 51);">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" id="bs-example-navbar-collapse-1"
+                        style="float:none;background:rgb(51, 51, 51);">
+                        <li role="separator" class="divider" style="border:1px solid rgb(68, 68, 68);"></li>
+                        <li><a href="#">
+                                <font color="white">Mac</font>
+                            </a></li>
+                        <li role="separator" class="divider" style="border:1px solid rgb(68, 68, 68);"></li>
+                        <li><a href="#">
+                                <font color="white">iPad</font>
+                            </a></li>
+                        <li role="separator" class="divider" style="border:1px solid rgb(68, 68, 68);"></li>
+                        <li><a href="#">
+                                <font color="white">iPhone</font>
+                            </a></li>
+                        <li role="separator" class="divider" style="border:1px solid rgb(68, 68, 68);"></li>
+                        <li><a href="#">
+                                <font color="white">Watch</font>
+                            </a></li>
+                    </ul>
+                </div>
 
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" style="float:none;text-align:center;">
+
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 60px;"><a
+                                href="#" onclick="window.location.href='/apple/user/index'">
+                                <font color="white">首页</font>
+                            </a></li>
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
+                                <font color="white">Mac</font>
+                            </a></li>
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
+                                <font color="white">iPad</font>
+                            </a></li>
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
+                                <font color="white">iPhone</font>
+                            </a></li>
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
+                                <font color="white">Watch</font>
+                            </a></li>
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
+                            <a href="#"><span class="glyphicon glyphicon-shopping-cart"
+                                    style="color:white;padding-right: 4px;">
+                                </span>
+                                <font color="white">购物车</font>
+                            </a></li>
+
+                        <li style="float: right;"><a href="#" onclick="window.location.href='/apple/user/login'">
+                                <font color="white">登录/注册</font>
+                            </a></li>
+                    </ul>
                 </div>
             </nav>
+        </div>
 
-            <div class="row size">
-                <div class="col-md-12">
-
-
-                    <div id="myCarousel" class="carousel slide" style="width:1000px;">
-                        <!-- 轮播（Carousel）指标 -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>
-                            <li data-target="#myCarousel" data-slide-to="4"></li>
-                        </ol>
-                        <!-- 轮播（Carousel）项目 -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <a href="https://item.jd.com/100004311104.html"><img src="/apple/static/img/imac.jpg"
-                                        alt="First slide"></a>
-                            </div>
-                            <div class="item">
-                                <a href="https://item.jd.com/100000177756.html"><img src="/apple/static/img/iphone_xr1.png"
-                                        alt="Second slide"></a>
-                            </div>
-                            
-                            <div class="item">
-                                <a href="https://item.jd.com/100004325478.html"><img src="/apple/static/img/airpods.jpg"
-                                        alt="Third slide"></a>
-                            </div>
-                            <div class="item">
-                                <a href="https://item.jd.com/100000384103.html"><img src="/apple/static/img/Watch.jpg"
-                                        alt="Four slide"></a>
-                            </div>
-                            <div class="item">
-                                <a href="https://item.jd.com/100004245972.html"><img src="/apple/static/img/ipadmini.jpg"
-                                        alt="Five slide"></a>
-                            </div>
-
+        <div class="row size">
+            <div class="col-md-12">
+                <div id="myCarousel" class="carousel slide" style="width:1000px;">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="https://item.jd.com/100004311104.html"><img src="/apple/static/img/imac.jpg"
+                                    alt="First slide"></a>
                         </div>
-                        <a class="carousel-control left" href="#myCarousel" data-slide="prev"> <span _ngcontent-c3=""
-                                aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span></a>
-                        <a class="carousel-control right" href="#myCarousel" data-slide="next"><span _ngcontent-c3=""
-                                aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
-                    </div>
-
-                    <div class="row size1">
-                        <div class="col-xs-6 text-center" v-for="details in detailslist">
-                            <a href="https://item.jd.com/100001860773.html" class="size2"
-                                style="text-decoration: none;">
-                                <h3>{{details.name}}</h3>
-                            </a>
-                            <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
-                                <font color="grey">{{details.specs}}</font>
-                            </a><br>
-                            
-                            <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
-                                <font color="grey">{{details.specs2}}</font>
-                            </a><br>
-                            <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
-                                <font color="red">
-                                    <h4>{{details.price}}</h4>
-                                </font>
-                            </a>
-
+                        <div class="item">
+                            <a href="https://item.jd.com/100000177756.html"><img src="/apple/static/img/iphone_xr1.png"
+                                    alt="Second slide"></a>
                         </div>
-                       
+                        <div class="item">
+                            <a href="https://item.jd.com/100004325478.html"><img src="/apple/static/img/airpods.jpg"
+                                    alt="Third slide"></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://item.jd.com/100000384103.html"><img src="/apple/static/img/Watch.jpg"
+                                    alt="Four slide"></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://item.jd.com/100004245972.html"><img src="/apple/static/img/ipadmini.jpg"
+                                    alt="Five slide"></a>
+                        </div>
+
                     </div>
-                    
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev"> <span _ngcontent-c3=""
+                            aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next"><span _ngcontent-c3=""
+                            aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
         </div>
-    </div><!-- /.container-fluid -->
 
+        <div class="row size1">
 
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+            <div class="col-xs-6 text-center" v-for="details in detailslist">
+              
+                <a href="https://item.jd.com/100001860773.html" class="size2" style="text-decoration: none;">
+                    <h3>{{details.name}}</h3>
+                </a>
+                <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
+                    <font color="grey">{{details.specs}}</font>
+                </a><br>
+                <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
+                    <font color="grey">{{details.specs2}}</font>
+                </a><br>
+                <a href="https://item.jd.com/100001860773.html" style="text-decoration: none;">
+                    <font color="red">
+                        <h4>{{details.price}}</h4>
+                    </font>
+                </a>
 
+            </div>
+        </div>
+    </div>
 
     <script>
         var app = new Vue({
             el: '#index',
             data: {
+            	
                 detailslist: [{
                     name:'iPhone XS MAX',
                     specs:'64GB 金色',
@@ -186,7 +202,7 @@
                 },{
                     name:'MacBook Air 13.3英寸',
                     specs:'i7/8GB/128GB',
-                    specs2:'i7/8GB/128GB',
+                    specs2:'Z0UU00022',
                     price:'￥6899'
                 },{
                     name:'MacBook Pro 13.3英寸',
