@@ -76,7 +76,7 @@
 </style>
 
 <body class="color">
-  <div class="container ">
+  <div class="container " id="app">
     <div class="row ">
       <div class="col-xs-12 col-sm-12
         top">
@@ -104,11 +104,11 @@
       <!-- 页面主要代码 -->
 
       <!-- 个人头像 -->
-      <img src="C:\Users\Administrator\Pictures\楠楠\6.jpg" class="img-rounded img">
+      <img :src="userdetails.userImg" class="img-rounded img">
       <!-- 个人姓名 -->
-      <h3 class="name">nihao</h3>
+      <h3 class="name">{{userdetails.userNickName}}</h3>
       <!-- 个人id -->
-      <h5 class="id text-muted">我的id：<p class=" idnumber text-muted">xixixi</p></h5>
+      <h5 class="id text-muted">我的id：<p class=" idnumber text-muted">{{userdetails.userName}}</p></h5>
     </div>
     <div class="col-xs-2 col-sm-3">
     </div>
@@ -218,5 +218,28 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
   <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script>
+        var app = new Vue({
+            el : '#app',
+            data : {
+                userdetails : ""
+            },
+            mounted:function() { //钩子函数
+                this.get();
+            },
+            methods:{
+                //发送get请求
+                get:function(){
+                    this.$http.get("http://localhost:8080/apple/user/getuserdetails").then(function(res){
+                        console.log(res);
+                    	this.userdetails = JSON.parse(res.bodyText);
+                    },function(){
+                        console.log('请求失败处理');
+                    });
+                }
+            }
+        })
+    </script>
 </body>
 </html>

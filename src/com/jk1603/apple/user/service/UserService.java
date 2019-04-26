@@ -45,5 +45,11 @@ public class UserService implements UserServiceInterface{
 		List<Goods> goodsList = userdao.getGoods();
 		return goodsList;
 	}
+
+	@Override
+	public List<User> getUserdetails(String username) {
+		userdao.getUserdetails(username);
+		return null;
+	}
 	
 }

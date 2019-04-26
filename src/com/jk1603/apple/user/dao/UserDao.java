@@ -15,8 +15,10 @@ public interface UserDao {
 	void addUser(User user);
 	
 	//通过名称查询用户是否存在
-	@Select("SELECT user_name as userName,user_password as userPassword FROM `user` WHERE user_name=#{userName}")
+	@Select("SELECT user_name as userName,user_password as userPassword,user_nickname as userNickname,user_img as userImg FROM `user` WHERE user_name=#{userName}")
 	User findByUsername(String username);
 	@Select("SELECT NAME,price,specs,details FROM goods")
 	List<Goods> getGoods();
+	@Select("SELECT user_name as userName,user_nickname as userNickName,user_img as userImg FROM `user` WHERE user_name=#{userName}")
+	List<User> getUserdetails(String username);
 }

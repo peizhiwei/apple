@@ -4,6 +4,8 @@ package com.jk1603.apple.user.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -31,9 +33,10 @@ public class UserController {
 		return "index";
 	}
 	@RequestMapping("/userindex")
-	public String userindex(HttpServletRequest request) {
-		Object username = request.getSession().getAttribute("username");
-		if(username==null) {
+	public String userindex(HttpSession session) {
+		Object user = session.getAttribute("user");
+//		Object username = request.getSession().getAttribute("username");
+		if(user==null) {
 			return "login";
 		}else {
 			return "userindex";	
@@ -50,8 +53,9 @@ public class UserController {
 	
 	@RequestMapping("/loginOut")
 	@ResponseBody
-	public ajaxresponse loginOut(HttpServletRequest request) {
-		request.getSession().removeAttribute("username");
+	public ajaxresponse loginOut(HttpSession session) {
+		session.removeAttribute("user");
+//		request.getSession().removeAttribute("username");
 
 		ajaxresponse rs =new ajaxresponse();
 		rs.setFlag(true);
@@ -60,9 +64,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("/selfcenter")
-	public String selfcenter(HttpServletRequest request) {
-		Object username = request.getSession().getAttribute("username");
-		if(username==null) {
+	public String selfcenter(HttpSession session) {
+		Object user = session.getAttribute("user");
+		if(user==null) {
 			return "login";
 		}else {
 			return "selfcenter";
@@ -74,7 +78,7 @@ public class UserController {
 		User user = userService.checkLogin(username,password);
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
-			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("user", user);
 			rs.setFlag(true);
 			rs.setMsg("/apple/user/userindex");
 		}else {
@@ -103,5 +107,11 @@ public class UserController {
 		}
 		return rs;
     }
+	@RequestMapping("/getuserdetails")
+	@ResponseBody
+	public Object getUserDetails(HttpSession session) {
+		Object  userdetails = session.getAttribute("user");
+		return userdetails;
+	}
 
 }
