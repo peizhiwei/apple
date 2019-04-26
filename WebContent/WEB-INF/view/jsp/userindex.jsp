@@ -197,7 +197,6 @@
                 //发送get请求
                 get:function(){
                 	this.$http.get("http://localhost:8080/apple/admini/getgooodstoindex").then(function(res){
-                        console.log(res);
                         this.detailslist = JSON.parse(res.bodyText);
                     },function(){
                         console.log('请求失败处理');
