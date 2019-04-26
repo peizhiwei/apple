@@ -9,7 +9,8 @@ public interface AdminiServiceInterface {
 	void addGoods(Goods g);
 	
 	List<Goods> getGoods(String number);
-	
+
+	List<Goods> getGoodstoindex();
 
 	void addAdmini(Admini ad);
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -94,6 +95,15 @@ public class AdminiController {
 		List<Goods> listgoods = adminiservice.getGoods(number);
 		return listgoods;
 	}
+	
+	@RequestMapping("/getgooodstoindex")
+	@ResponseBody
+	public List<Goods> getGoodstoindex(Model m){
+		List<Goods> goodsList = adminiservice.getGoodstoindex();
+		System.out.println("Êä³ö£º"+goodsList);
+		return goodsList;
+	}
+	
 	@RequestMapping("/addad")
 	public String addad() {
 		return "addaduser";

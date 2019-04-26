@@ -146,7 +146,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(i,k) in items">{{checkList}}
+                            <tr v-for="(i,k) in items">
                             <td><input type="checkbox" v-model='checkList' :value="i.id"></td>
                                 <td>{{i.number}}</td>
                                 <td>{{i.name}}</td>

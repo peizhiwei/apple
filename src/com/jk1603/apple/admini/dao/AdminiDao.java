@@ -20,8 +20,13 @@ public interface AdminiDao {
 	@Select("SELECT `id`,`name`,`price`,`number`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
+	
+	//查询商品显示到index页面上
+	@Select("SELECT `name`,`specs`,`details`,`price`,`img` FROM goods")
+	List<Goods> getGoodstoindex();
+	
 	//添加后台用户
-		@Update("INSERT INTO `admini`(`admini_name`, `ad_password`) VALUES (#{adminiName}, #{adPassword})")
-		void addAdmini(Admini ad);
+	@Update("INSERT INTO `admini`(`admini_name`, `ad_password`) VALUES (#{adminiName}, #{adPassword})")
+	void addAdmini(Admini ad);
 
 }
