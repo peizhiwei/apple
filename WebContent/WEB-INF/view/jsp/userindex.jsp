@@ -150,7 +150,7 @@
 						class="carousel-control right" href="#myCarousel"
 						data-slide="next"><span _ngcontent-c3="" aria-hidden="true"
 						class="glyphicon glyphicon-chevron-right"></span></a>
-				</div>
+				</div> 
 				<div class="row size1">
 					<div class="col-xs-6 text-center" v-for="details in detailslist">
 						<a href="https://item.jd.com/100001860773.html" class="size2"
