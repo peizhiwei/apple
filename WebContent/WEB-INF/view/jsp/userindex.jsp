@@ -201,7 +201,7 @@
 					style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
 				</a><br> <a href="https://item.jd.com/100001860773.html"
 					style="text-decoration: none;"> <font color="red">
-						<h4>{{details.price}}</h4>
+						<h4>￥{{details.price}}</h4>
 				</font>
 				</a>
 			</div>
