@@ -3,7 +3,10 @@ package com.jk1603.apple.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +31,13 @@ public class UserController {
 		return "index";
 	}
 	@RequestMapping("/userindex")
-	public String userindex() {
-		return "userindex";
+	public String userindex(HttpServletRequest request) {
+		Object username = request.getSession().getAttribute("username");
+		if(username==null) {
+			return "login";
+		}else {
+			return "userindex";	
+		}
 	}
 	@RequestMapping("/login")
 	public String login() {
@@ -39,16 +47,34 @@ public class UserController {
 	public String register() {
 		return "register";
 	}
+	
+	@RequestMapping("/loginOut")
+	@ResponseBody
+	public ajaxresponse loginOut(HttpServletRequest request) {
+		request.getSession().removeAttribute("username");
+
+		ajaxresponse rs =new ajaxresponse();
+		rs.setFlag(true);
+		rs.setMsg("/apple/user/index");
+		return rs;
+	}
+	
 	@RequestMapping("/selfcenter")
-	public String selfcenter() {
-		return "selfcenter";
+	public String selfcenter(HttpServletRequest request) {
+		Object username = request.getSession().getAttribute("username");
+		if(username==null) {
+			return "login";
+		}else {
+			return "selfcenter";
+		}
 	}
 	@RequestMapping("/checkLogin")
 	@ResponseBody
-	public ajaxresponse login(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password) {
+	public ajaxresponse login(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password,HttpServletRequest request) {
 		User user = userService.checkLogin(username,password);
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
+			request.getSession().setAttribute("username", username);
 			rs.setFlag(true);
 			rs.setMsg("/apple/user/userindex");
 		}else {

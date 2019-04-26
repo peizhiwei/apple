@@ -132,8 +132,7 @@
 										<li><a href="#">我的收藏</a></li>
 										<li><a href="#">我看过的</a></li>
 										<li role="separator" class="divider"></li>
-										<li><a href="#"
-											onclick="window.location.href = '/apple/user/index'">退出登录</a></li>
+										<li><a href="#" id="loginout">退出登录</a></li>
 									</ul></li>
 							</ul>
 						</div>
@@ -233,6 +232,24 @@
 				}
 			}
 		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	        $("#loginout").click(function(){
+	            $.ajax({
+	                type:'GET',
+	                async:false,
+	                url:"/apple/user/loginOut",
+	                success:function(result){
+	                    if(result.flag==true){
+	                        window.location.href = result.msg;
+	                    }else{
+	                        alert("错误");
+	                    }
+	                }
+	            });
+	        });
+	    }); 
 	</script>
 </body>
 </html>
