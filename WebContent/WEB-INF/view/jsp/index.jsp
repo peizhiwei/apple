@@ -78,7 +78,7 @@
                     <ul class="nav navbar-nav" style="float:none;text-align:center;">
 
                         <li style="float:none;display:inline-block;margin:0em;margin:0px 60px;"><a
-                                href="#">
+                                href="#" onclick="window.location.href='/apple/user/index'">
                                 <font color="white">首页</font>
                             </a></li>
                         <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
@@ -100,7 +100,7 @@
                                 <font color="white">购物车</font>
                             </a></li>
 
-                        <li style="float: right;"><a href="#">
+                        <li style="float: right;"><a href="#" onclick="window.location.href='/apple/user/login'">
                                 <font color="white">登录/注册</font>
                             </a></li>
                     </ul>
