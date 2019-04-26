@@ -89,6 +89,10 @@
 				<div class="blank-line"></div>
 				<div class="blank-line"></div>
 				<div class="form-group">
+					<label for="number"> 出库编号： </label> <input type="text"
+						class="form-control" id="number">
+				</div>
+				<div class="form-group">
 					<label for="number"> 商品名称： </label> <input type="text"
 						class="form-control" id="number">
 				</div>
