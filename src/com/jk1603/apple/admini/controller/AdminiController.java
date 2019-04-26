@@ -1,17 +1,26 @@
 package com.jk1603.apple.admini.controller;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.service.AdminiServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
 
@@ -96,6 +105,35 @@ public class AdminiController {
 		return listgoods;
 	}
 	
+	//商品入库
+	@RequestMapping("/intoStore")
+	@ResponseBody
+	public ajaxresponse intoStore(@RequestParam(value = "number",required = false) String number,
+				 @RequestParam(value = "name",required = false) String name,
+				 @RequestParam(value = "amount",required = false) int amount,
+				 @RequestParam(value = "date",required = false) Date date,
+				 @RequestParam(value = "builder",required = false) String builder) {
+			Intostore ins = new Intostore();
+			ins.setRkNumber(number);
+			ins.setName(name);
+			ins.setAmount(amount);
+			ins.setDate(date);
+			ins.setBuilder(builder);
+			adminiservice.intoStore(ins);
+			ajaxresponse ajaxins = new ajaxresponse();
+			ajaxins.setFlag(true);
+			ajaxins.setMsg("/apple/admini/Intostoredetails");
+			return ajaxins;
+		}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder, WebRequest request) {
+		//转换日期
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为自定义日期编辑器
+	}
+	
+		
 	@RequestMapping("/getgooodstoindex")
 	@ResponseBody
 	public List<Goods> getGoodstoindex(Model m){
@@ -123,3 +161,4 @@ public class AdminiController {
 		     return  ajaxadmini;
 	}
 }
+

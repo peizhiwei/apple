@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.jk1603.apple.admini.dao.AdminiDao;
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Intostore;
 @Service
 public class AdminiService implements AdminiServiceInterface {
 	@Autowired
@@ -32,5 +33,10 @@ public class AdminiService implements AdminiServiceInterface {
 	public List<Goods> getGoodstoindex() {
 		List<Goods> goodsList = adminidao.getGoodstoindex();
 		return goodsList;
+	}
+
+	@Override
+	public void intoStore(Intostore ins) {
+		adminidao.intoStore(ins);
 	}
 }

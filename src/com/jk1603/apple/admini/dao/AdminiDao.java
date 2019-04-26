@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Intostore;
 
 public interface AdminiDao {
 	//添加商品
@@ -20,6 +21,12 @@ public interface AdminiDao {
 	@Select("SELECT `id`,`name`,`price`,`number`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
+	
+	//商品入库
+	@Update("INSERT INTO `intostore_goods` (`rk_number`, `name`, `total`, `date`, `builder` )\r\n" + 
+			"VALUES\r\n" + 
+			"	(#{rkNumber}, #{name}, #{amount}, #{date}, #{builder})")
+	void intoStore(Intostore ins);
 	
 	//查询商品显示到index页面上
 	@Select("SELECT `name`,`specs`,`details`,`price`,`img` FROM goods")
