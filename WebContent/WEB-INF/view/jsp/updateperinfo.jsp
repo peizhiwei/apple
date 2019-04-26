@@ -98,6 +98,7 @@
 			<div class="col-xs-12 col-sm-12 line"></div>
 			<div class="col-xs-9 col-sm-9">
 				<h4>我的id</h4>
+
 			</div>
 			<div class="col-xs-3 col-sm-3">
 				<h4>kkystal</h4>
