@@ -100,7 +100,6 @@ public class AdminiController {
 	@ResponseBody
 	public List<Goods> getGoodstoindex(Model m){
 		List<Goods> goodsList = adminiservice.getGoodstoindex();
-		System.out.println("Êä³ö£º"+goodsList);
 		return goodsList;
 	}
 	
