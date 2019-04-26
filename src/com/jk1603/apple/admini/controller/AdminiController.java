@@ -133,7 +133,6 @@ public class AdminiController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为自定义日期编辑器
 	}
 	
-		
 	@RequestMapping("/getgooodstoindex")
 	@ResponseBody
 	public List<Goods> getGoodstoindex(Model m){

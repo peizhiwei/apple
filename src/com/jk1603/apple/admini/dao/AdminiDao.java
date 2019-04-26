@@ -36,4 +36,5 @@ public interface AdminiDao {
 	@Update("INSERT INTO `admini`(`admini_name`, `ad_password`) VALUES (#{adminiName}, #{adPassword})")
 	void addAdmini(Admini ad);
 
+	
 }

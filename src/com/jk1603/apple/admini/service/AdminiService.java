@@ -34,7 +34,8 @@ public class AdminiService implements AdminiServiceInterface {
 		List<Goods> goodsList = adminidao.getGoodstoindex();
 		return goodsList;
 	}
-
+	
+	//…Ã∆∑»Îø‚
 	@Override
 	public void intoStore(Intostore ins) {
 		adminidao.intoStore(ins);

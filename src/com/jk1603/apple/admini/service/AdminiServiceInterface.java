@@ -16,4 +16,5 @@ public interface AdminiServiceInterface {
 	void addAdmini(Admini ad);
 	
 	void intoStore(Intostore ins);
+	
 }

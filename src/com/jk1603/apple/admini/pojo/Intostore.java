@@ -45,5 +45,4 @@ public class Intostore {
 	public void setBuilder(String builder) {
 		this.builder = builder;
 	}
-	
 }
