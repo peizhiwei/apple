@@ -9,18 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>统计</title>
 
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-
-<link rel="stylesheet"
-	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
-
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -169,10 +160,9 @@
 			</div>
 		</div>
 	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 
 	<script>
 		$(function() {
@@ -231,12 +221,6 @@
 			initTableCheckbox();
 		});
 	</script>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 
 	<script>
 		var app = new Vue({

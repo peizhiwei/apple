@@ -8,12 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>入库</title>
 
-   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
 
 </head>
 
@@ -152,9 +147,9 @@
             </div>
         </div>
     </div>
-   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script>
         $(function () {
             function initTableCheckbox() {
@@ -199,24 +194,6 @@
             }
             initTableCheckbox();
         });
-    </script>
-
-   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#mydiv',
-            data: {
-
-                items: [
-                    {
-                       
-                    }
-                ]
-            }
-
-        })
     </script>
 </body>
 </html>

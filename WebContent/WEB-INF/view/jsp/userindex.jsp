@@ -7,9 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>首页</title>
 
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet"
-	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
 .container-fulid {
 	width: 100%;
@@ -210,40 +209,30 @@
 		</div>
 	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-	<script
-		src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 	<script>
-		var app = new Vue(
-				{
-					el : '#index',
-					data : {
-						detailslist : []
-					},
-					mounted : function() { //钩子函数
-						this.get();
-					},
-					methods : {
-						//发送get请求
-						get : function() {
-							this.$http
-									.get(
-											"http://localhost:8080/apple/admini/getgooodstoindex")
-									.then(
-											function(res) {
-												this.detailslist = JSON
-														.parse(res.bodyText);
-											}, function() {
-												console.log('请求失败处理');
-											});
-						}
-					}
-				})
+		var app = new Vue({
+				el : '#index',
+				data : {
+					detailslist : []
+				},
+				mounted : function() { //钩子函数
+					this.get();
+				},
+				methods : {
+					//发送get请求
+					get : function() {
+						this.$http.get("http://localhost:8080/apple/admini/getgooodstoindex").then(function(res) {
+							this.detailslist = JSON.parse(res.bodyText);
+						}, function() {
+							console.log('请求失败处理');
+					});
+				}
+			}
+		});
 	</script>
 </body>
-
 </html>
