@@ -32,7 +32,6 @@
 				<a class="navbar-brand" href="#">电子商城后台管理系统</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
@@ -46,9 +45,7 @@
 							aria-hidden="true"></span> <span class="caret"></span></a></li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid -->
 	</nav>
 
 	<div class="container-fliud">
@@ -67,6 +64,7 @@
 					<a class="navbar-brand"><span class="glyphicon glyphicon-globe"
 						aria-hidden="true"></span><b>商品详情</b></a>
 				</div>
+		  </div>
 		</nav>
 		<div>
 			<div class="btn-group col-xs-6" role="group" aria-label=""></div>
@@ -125,7 +123,7 @@
 				<div class="col-xs-2 col-sm-3 col-md-3"></div>
 			</div>
 		</div>
-		
+	</div>
 		<script type="text/javascript">
 	$(document).ready(function(){
         $("#sure").click(function(){

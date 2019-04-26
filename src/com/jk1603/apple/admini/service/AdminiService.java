@@ -27,4 +27,10 @@ public class AdminiService implements AdminiServiceInterface {
 	public void addAdmini(Admini ad) {
 		adminidao.addAdmini(ad);
 	}
+
+	@Override
+	public List<Goods> getGoodstoindex() {
+		List<Goods> goodsList = adminidao.getGoodstoindex();
+		return goodsList;
+	}
 }

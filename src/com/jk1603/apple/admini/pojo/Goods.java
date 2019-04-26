@@ -14,6 +14,7 @@ public class Goods {
 	private int amount;//ø‚¥Ê
 	private boolean upshelf;// «∑Ò…œº‹
 	private Data date;
+	private String img;
 	public Integer getId() {
 		return id;
 	}
@@ -67,6 +68,12 @@ public class Goods {
 	}
 	public void setDate(Data date) {
 		this.date = date;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 }
