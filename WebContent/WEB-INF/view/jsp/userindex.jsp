@@ -78,31 +78,30 @@
 								</ul>
 							</div>
 							<div class="col-md-2">
-									<div>
-										<div class="col-md-3 col-md-push-2">
-											<img src="/apple/static/img/set.svg" alt="头像" class="img-circle" style="height: 35px; width: 35px; margin-top: -5px">
-										</div>
-										<div class="col-md-9 col-md-push-1">
-											<ul class="nav navbar-nav navbar-right" style="margin-top: -13px">
-												<li class="dropdown">
-												    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-														<font style="color: rgb(105, 105, 105)">没有好名字了</font>
-														<span class="caret"></span>
-												    </a>
-													<ul class="dropdown-menu">
-														<li><a href="#" onclick="window.location.href = '/apple/user/selfcenter'">我的中心</a></li>
-														<li><a href="#">我的收藏</a></li>
-														<li><a href="#">我看过的</a></li>
-														<li role="separator" class="divider"></li>
-														<li><a href="#" onclick="window.location.href = '/apple/user/index'">退出登录</a></li>
-													</ul>
-												</li>
-											</ul>
-										</div>
+								<div>
+									<div class="col-md-3 col-md-push-2">
+										<img src="/apple/static/img/set.svg" alt="头像" class="img-circle" style="height: 35px; width: 35px; margin-top: -5px">
 									</div>
+									<div class="col-md-9 col-md-push-1">
+										<ul class="nav navbar-nav navbar-right" style="margin-top: -13px">
+											<li class="dropdown">
+											    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+													<font style="color: rgb(105, 105, 105)">没有好名字了</font>
+													<span class="caret"></span>
+											    </a>
+												<ul class="dropdown-menu">
+													<li><a href="#" onclick="window.location.href = '/apple/user/selfcenter'">我的中心</a></li>
+													<li><a href="#">我的收藏</a></li>
+													<li><a href="#">我看过的</a></li>
+													<li role="separator" class="divider"></li>
+													<li><a href="#" onclick="window.location.href = '/apple/user/index'">退出登录</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 		      </nav>
