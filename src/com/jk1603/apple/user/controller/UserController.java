@@ -33,9 +33,10 @@ public class UserController {
 		return "index";
 	}
 	@RequestMapping("/userindex")
-	public String userindex(HttpSession session) {
+	public String userindex(HttpSession session,Model m) {
 		Object user = session.getAttribute("user");
-//		Object username = request.getSession().getAttribute("username");
+		
+		m.addAttribute("userdetails", user);
 		if(user==null) {
 			return "login";
 		}else {

@@ -114,17 +114,22 @@
 					</div>
 					<div class="col-md-2">
 
-						<div class="col-md-3 col-md-push-2">
-							<img src="/apple/static/img/set.svg" alt="头像" class="img-circle"
+						<div class="col-md-3 col-md-push-2" v-if="userdetails.userImg==''">
+							<img src="/apple/static/img/imgnull.jpg" alt="头像" class="img-circle"
 								style="height: 35px; width: 35px; margin-top: 8px">
 						</div>
+						<div class="col-md-3 col-md-push-2" v-else>
+                            <img :src="userdetails.userImg" alt="头像" class="img-circle"
+                                style="height: 35px; width: 35px; margin-top: 8px">
+                        </div>
 						<div class="col-md-9 col-md-push-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
-									aria-expanded="false"> <font
-										style="color: rgb(105, 105, 105)">没有好名字了</font> <span
-										class="caret"></span>
+									aria-expanded="false"> 
+									<font style="color: rgb(105, 105, 105)" v-if="userdetails.userNickName==''">{{userdetails.userName}}</font> 
+									<font style="color: rgb(105, 105, 105)" v-else)>{{userdetails.userNickName}}</font>
+									<span class="caret"></span>
 								</a>
 									<ul class="dropdown-menu">
 										<li><a href="#"
@@ -214,22 +219,31 @@
 	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 	<script>
 		var app = new Vue({
-				el : '#index',
-				data : {
-					detailslist : []
-				},
-				mounted : function() { //钩子函数
-					this.get();
-				},
-				methods : {
-					//发送get请求
-					get : function() {
-						this.$http.get("http://localhost:8080/apple/admini/getgooodstoindex").then(function(res) {
-							this.detailslist = JSON.parse(res.bodyText);
-						}, function() {
-							console.log('请求失败处理');
+			el : '#index',
+			data : {
+				detailslist : [],
+				userdetails : ""
+			},
+			mounted : function() { //钩子函数
+				this.get();
+			    this.getUserdetails();
+			},
+			methods : {
+				//发送get请求
+				get : function() {
+					this.$http.get("http://localhost:8080/apple/admini/getgooodstoindex").then(function(res) {
+						this.detailslist = JSON.parse(res.bodyText);
+					}, function() {
+						console.log('请求失败处理');
 					});
-				}
+				},
+				getUserdetails : function() {
+                    this.$http.get("http://localhost:8080/apple/user/getuserdetails").then(function(userdata){
+                        this.userdetails=JSON.parse(userdata.bodyText);
+                    },function(){
+                        console.log("请求失败处理");
+                    });
+                }
 			}
 		});
 	</script>

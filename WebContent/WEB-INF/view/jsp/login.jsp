@@ -102,7 +102,6 @@
                      data:{"username":username,"password":password},
                      success:function(result){
                          if(result.flag==true){
-                             alert("登录成功！");
                              window.location.href = result.msg;
                          }else{
                              alert(result.msg);

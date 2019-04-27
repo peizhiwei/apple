@@ -104,9 +104,11 @@
       <!-- 页面主要代码 -->
 
       <!-- 个人头像 -->
-      <img :src="userdetails.userImg" class="img-rounded img">
+      <span v-if="userdetails.userImg==''"><img src="/apple/static/img/imgnull.jpg" class="img-rounded img"></span>
+      <span v-else><img :src="userdetails.userImg" class="img-rounded img"></span>
       <!-- 个人姓名 -->
-      <h3 class="name">{{userdetails.userNickName}}</h3>
+      <h3 class="name" v-if="userdetails.userNickName==''">设置一个昵称吧</h3>
+      <h3 class="name" v-else>{{userdetails.userNickName}}</h3>
       <!-- 个人id -->
       <h5 class="id text-muted">我的id：<p class=" idnumber text-muted">{{userdetails.userName}}</p></h5>
     </div>
