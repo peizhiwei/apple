@@ -41,15 +41,14 @@ public class UserService implements UserServiceInterface{
 	}
 
 	@Override
-	public List<Goods> getGoods() {
-		List<Goods> goodsList = userdao.getGoods();
-		return goodsList;
-	}
-
-	@Override
 	public List<User> getUserdetails(String username) {
 		userdao.getUserdetails(username);
 		return null;
+	}
+
+	@Override
+	public void updataUserdetails(User user) {
+		userdao.updataUserdetails(user);
 	}
 	
 }

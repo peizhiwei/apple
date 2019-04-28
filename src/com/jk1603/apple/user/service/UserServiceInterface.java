@@ -12,7 +12,8 @@ public interface UserServiceInterface {
 	
 	User checkUser(String username);
 	
-	List<Goods> getGoods();
 	//查询用户详细信息
 	List<User> getUserdetails(String username);
+	//修改用户信息
+	void updataUserdetails(User user);
 }

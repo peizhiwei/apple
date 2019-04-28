@@ -104,10 +104,10 @@
       <!-- 页面主要代码 -->
 
       <!-- 个人头像 -->
-      <span v-if="userdetails.userImg==''"><img src="/apple/static/img/imgnull.jpg" class="img-rounded img"></span>
+      <span v-if="userdetails.userImg==''||userdetails.userImg==null"><img src="/apple/static/img/imgnull.jpg" class="img-rounded img"></span>
       <span v-else><img :src="userdetails.userImg" class="img-rounded img"></span>
       <!-- 个人姓名 -->
-      <h3 class="name" v-if="userdetails.userNickName==''">设置一个昵称吧</h3>
+      <h3 class="name" v-if="userdetails.userNickName==''||userdetails.userNickName==null">设置一个昵称吧</h3>
       <h3 class="name" v-else>{{userdetails.userNickName}}</h3>
       <!-- 个人id -->
       <h5 class="id text-muted">我的id：<p class=" idnumber text-muted">{{userdetails.userName}}</p></h5>
@@ -209,7 +209,7 @@
       <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/set.svg"></div>
       <div class="col-xs-10 col-sm-10">
         <div class="col-xs-12 col-sm-12" style="height:16px"></div>
-        <p><a href="#">设置</a></p>
+        <p><a href="#" onclick="window.location.href = '/apple/user/selfmassage'">设置</a></p>
       </div>
     </div>
 

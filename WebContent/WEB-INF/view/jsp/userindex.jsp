@@ -127,8 +127,8 @@
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
 									aria-expanded="false"> 
-									<font style="color: rgb(105, 105, 105)" v-if="userdetails.userNickName==''">{{userdetails.userName}}</font> 
-									<font style="color: rgb(105, 105, 105)" v-else)>{{userdetails.userNickName}}</font>
+									<font style="color: rgb(105, 105, 105)" v-if="userdetails.userNickName==null||userdetails.userNickName==''">{{userdetails.userName}}</font> 
+									<font style="color: rgb(105, 105, 105)" v-else>{{userdetails.userNickName}}</font>
 									<span class="caret"></span>
 								</a>
 									<ul class="dropdown-menu">
