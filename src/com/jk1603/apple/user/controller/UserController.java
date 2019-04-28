@@ -29,6 +29,12 @@ public class UserController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("/details")
+	public String details() {
+		return "details";
+	}
+	
 	@RequestMapping("/userindex")
 	public String userindex(HttpSession session) {
 		Object user = session.getAttribute("user");

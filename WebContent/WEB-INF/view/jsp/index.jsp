@@ -149,20 +149,20 @@
 
         <div class="row size1">
                     <div class="col-xs-6 text-center" v-for="details in detailslist">
-                        <a href="https://item.jd.com/100001860773.html" class="size2"
-                            style="text-decoration: none;">
+                        <a class="size2"
+                            style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
                             <img alt="" v-bind:src="details.img">
                         </a>
                         <a class="size2" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
                             <h3>{{details.name}}</h3>
                         </a>
-                        <a href="https://item.jd.com/100001860773.html"
+                        <a onclick="window.location.href='/apple/user/details'"
                             style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
                         </a><br>
-                        <a href="https://item.jd.com/100001860773.html"
+                        <a onclick="window.location.href='/apple/user/details'"
                             style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
                         </a><br>
-                        <a href="https://item.jd.com/100001860773.html"
+                        <a onclick="window.location.href='/apple/user/details'"
                             style="text-decoration: none;"> 
                         <font color="red">
                                 <h4>￥{{details.price}}</h4>
