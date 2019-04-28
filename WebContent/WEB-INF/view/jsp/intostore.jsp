@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,166 +15,239 @@
 </head>
 
 <body>
-<div id="app">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">电子商城后台管理系统</a>
-            </div>
+    <div id="app">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">电子商城后台管理系统</a>
+                </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span><span
-                                class="badge">10</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><span
-                                class="badge">5</span></a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span><span
+                                    class="badge">10</span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><span
+                                    class="badge">5</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"
+                                    aria-hidden="true"></span>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
 
-    <div class="container-fliud">
-        <div class="col-lg-1 col-sm-2 col-xs-3">
-            <div class="btn-group-vertical" role="group" aria-label="...">
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Goods'">商品</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/IntoStore'">入库</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Stock'">库存</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/OutStore'">出库</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Management'">用户管理</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Statistics'">统计</button>
+        <div class="container-fliud">
+            <div class="col-lg-1 col-sm-2 col-xs-3">
+                <div class="btn-group-vertical" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/Goods'">商品</button>
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/IntoStore'">入库</button>
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/Stock'">库存</button>
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/OutStore'">出库</button>
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/Management'">用户管理</button>
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
+                    <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                        onclick="window.location.href='/apple/admini/Statistics'">统计</button>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-11 col-sm-10 col-xs-9">
-            <ol class="breadcrumb">
-                <li><a><span
-                            class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
-                <li class="active">入库管理</li>
-            </ol>
-            <div>
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand"><span class="glyphicon glyphicon-globe"
-                                    aria-hidden="true"></span><b>入库管理</b></a>
-                        </div>
-                     </div>
-                </nav>
+            <div class="col-lg-11 col-sm-10 col-xs-9">
+                <ol class="breadcrumb">
+                    <li><a><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
+                    <li class="active">入库管理</li>
+                </ol>
                 <div>
-                    <div class="btn-group col-xs-6" role="group" aria-label="">
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Intostoredetails'"><span class="glyphicon glyphicon-plus"
-                                aria-hidden="true"></span>新增</button>
-                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Intostoredetails'"><span class="glyphicon glyphicon-pencil"
-                                aria-hidden="true"></span>编辑</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
-                                aria-hidden="true"></span>删除</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"
-                                aria-hidden="true"></span>刷新</button>
-                    </div>
-                </div>&nbsp;&nbsp;
-                <div class="container">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="exampleInputName2">入库编号:</label>
-                            <input type="text" v-model="inputNumber" class="form-control" id="exampleInputName2" name="exampleInputName2" placeholder="请输入入库编号">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand"><span class="glyphicon glyphicon-globe"
+                                        aria-hidden="true"></span><b>入库管理</b></a>
+                            </div>
                         </div>
-                        <div class="form-group">
+                    </nav>
+                    <div>
+                        <div class="btn-group col-xs-6" role="group" aria-label="">
                         </div>
-                        <button type="button" class="btn btn-default" @click="getintostorelist()"><span class="glyphicon glyphicon-search"
-                                aria-hidden="true" name="search"></span>搜索</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"
-                                aria-hidden="true"></span>清空搜索条件</button>
-                    </form>
-                </div>&nbsp;&nbsp;
-                <div class="container">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                            <th><input type="checkbox" v-model='checked' v-on:click='checkedAll'></th>
-                                <th>编号</th>
-                                <th>商品名称</th>
-                                <th>货品总数</th>
-                                <th>创建时间</th>
-                                <th>创建人</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(i,k) in items">
-                            <td><input type="checkbox" v-model='checkList' :value="i.id"></td>
-                                <td>{{i.rkNumber}}</td>
-                                <td>{{i.name}}</td>
-                                <td>{{i.amount}}</td>
-                                <td>{{i.date}}</td>
-                                <td>{{i.builder}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <div class="col-xs-6 text-right">
+                            <button type="button" class="btn btn-default"
+                                onclick="window.location.href='/apple/admini/Intostoredetails'"><span
+                                    class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                data-target="#myModal"><span class="glyphicon glyphicon-pencil"
+                                    aria-hidden="true"></span>
+                                编辑
+                            </button>
+                            
+
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $("#sure").click(function () {
+                                        var number = $("#number").val();
+                                        var name = $("#name").val();
+                                        var amount = $("#amount").val();
+                                        var date = $("#date").val();
+                                        var builder = $("#builder").val();
+
+                                        if (number == "" || name == "" || amount == "" || date == "" || builder == "") {
+                                            alert("内容不能为空");
+                                        } else {
+                                            $.ajax({
+                                                type: 'POST',
+                                                async: false,
+                                                dataType: "json",
+                                                url: "",
+                                                data: { "number": number, "name": name, "amount": amount, "date": date, "builder": builder },
+                                                success: function (result) {
+                                                    if (result.flag == true) {
+                                                        alert("修改成功");
+                                                        window.location.href = result.msg;
+                                                    } else {
+                                                        alert("修改失败");
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    });
+                                }); 
+                            </script>
+
+
+
+
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
+                                    aria-hidden="true"></span>删除</button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"
+                                    aria-hidden="true"></span>刷新</button>
+                        </div>
+                    </div>&nbsp;&nbsp;
+                    <div class="container">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">入库编号:</label>
+                                <input type="text" v-model="inputNumber" class="form-control" id="exampleInputName2"
+                                    name="exampleInputName2" placeholder="请输入入库编号">
+                            </div>
+                            <div class="form-group">
+                            </div>
+                            <button type="button" class="btn btn-default" @click="getintostorelist()"><span
+                                    class="glyphicon glyphicon-search" aria-hidden="true"
+                                    name="search"></span>搜索</button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"
+                                    aria-hidden="true"></span>清空搜索条件</button>
+                        </form>
+                    </div>&nbsp;&nbsp;
+                    <div class="container">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" v-model='checked' v-on:click='checkedAll'></th>
+                                    <th>编号</th>
+                                    <th>商品名称</th>
+                                    <th>货品总数</th>
+                                    <th>创建时间</th>
+                                    <th>创建人</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(i,k) in items">
+                                    <td><input type="checkbox" v-model='checkList' :value="i.id"></td>
+                                    <td>{{i.rkNumber}}</td>
+                                    <td>{{i.name}}</td>
+                                    <td>{{i.amount}}</td>
+                                    <td>{{i.date}}</td>
+                                    <td>{{i.builder}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="height:550px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="float:left;">修改</h4>
+            </div>
+            <div class="modal-body" >
+                <div>商品编号：<input type='text' value='' code='' class='rkNumber form-control' /></div>
+                <br />
+                <div>商品名称：<input type='text' value='' code='' class='name form-control' /></div><br />
+                <div>商品总数：<input type='text' value='' code='' class='amount form-control' /></div><br />
+                <div>创建时间：<input type='text' value='' code='' class='date form-control' /></div><br />
+                <div>创建人 ：<input type='text' value='' code=''
+                        class='builder form-control' /></div><br />
+            </div>
+            <br>
+            <div class="modal-footer">
+                　　<button type="button" class="btn btn-default"
+                    data-dismiss="modal">关闭</button>
+                　　<button type="button" class="btn btn-primary" id="tijiao">提交</button>
+            </div>
+        </div>
+    </div>
+</div>　
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-    
+
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-            	inputNumber:"",
-                items:[],
+                inputNumber: "",
+                items: [],
                 checked: false, //全选框
                 checkList: []
             },
-            methods:{
-            	getintostorelist:function(data){
+            methods: {
+                getintostorelist: function (data) {
                     //发送get请求
-                    this.$http.get("http://localhost:8080/apple/admini/getintostore?number="+this.inputNumber).then(function(res){
-                    	this.items =  JSON.parse(res.bodyText);
-                        
-                    },function(){
+                    this.$http.get("http://localhost:8080/apple/admini/getintostore?number=" + this.inputNumber).then(function (res) {
+                        this.items = JSON.parse(res.bodyText);
+
+                    }, function () {
                         console.log('请求失败处理');
                     });
                 },
@@ -188,7 +262,7 @@
                         });
                     }
                 }
-            
+
             },
             watch: {
                 'checkList': {
@@ -204,5 +278,8 @@
             }
         });
     </script>
+
+
 </body>
+
 </html>
