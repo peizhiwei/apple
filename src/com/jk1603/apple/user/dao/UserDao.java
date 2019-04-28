@@ -20,7 +20,10 @@ public interface UserDao {
 	
 	@Select("SELECT user_name as userName,user_nickname as userNickName,user_img as userImg FROM `user` WHERE user_name=#{userName}")
 	List<User> getUserdetails(String username);
-	//修改用户头像、昵称
-	@Update("UPDATE user SET user_nickname=#{userNickName},user_img=#{userImg} WHERE user_name=#{userName}")
-	void updataUserdetails(User user);
+	//修改用户头像
+	@Update("UPDATE user SET user_img=#{userImg} WHERE user_name=#{userName}")
+	void updataUserimg(User user);
+	//修改用户昵称
+	@Update("UPDATE user SET user_nickname=#{userNickName} WHERE user_name=#{userName}")
+	void updataUsernickname(User user);
 }

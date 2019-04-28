@@ -143,7 +143,7 @@
                 	var formData = new FormData();
                     formData.append('file1',$('#file1')[0].files[0]);
                     $.ajax({
-                        url: '/apple/user/userdetailsupload', 
+                        url: '/apple/user/userimgupload', 
                         type: 'POST',  
                         data: formData,  
                         cache: false,  
@@ -151,7 +151,21 @@
                         contentType: false,
                         success: function(result){
                             app.get();
-                            alert("保存成功");
+                        }
+                    });
+                    var nicheng=$("#nicheng").val();
+                    $.ajax({
+                        url: '/apple/user/usernicknameupdata', 
+                        type: 'POST',
+                        dataType: "json",
+                        data:{"nicheng":nicheng},
+                        success: function(result){
+                        	if(result.flag==true){
+                        		app.get();
+                        		alert("保存成功");
+                        	}else{
+                        		alert(result.msg);
+                        	}
                         }
                     });
                     $("#textchange").val("编辑");

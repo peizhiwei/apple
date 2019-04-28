@@ -47,8 +47,21 @@ public class UserService implements UserServiceInterface{
 	}
 
 	@Override
-	public void updataUserdetails(User user) {
-		userdao.updataUserdetails(user);
+	public void updataUserimg(User user) {
+		userdao.updataUserimg(user);		
 	}
-	
+
+	@Override
+	public void updataUsernickname(User user) {
+		userdao.updataUsernickname(user);		
+	}
+
+	@Override
+	public User getsession(String username) {
+		User user = userdao.findByUsername(username);
+		if(user!=null) {
+			return user;
+		}
+		return null;
+	}
 }
