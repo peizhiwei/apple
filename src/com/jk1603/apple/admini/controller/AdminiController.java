@@ -57,7 +57,7 @@ public class AdminiController {
 	@RequestMapping("/Outstoredetails")
 	public String outstoredetails() {
 		return "outstoredetails";
-		
+		   
 	}
 	@RequestMapping("/Stock")
 	public String stock() {

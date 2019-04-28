@@ -20,7 +20,7 @@ public interface AdminiServiceInterface {
 	
 	List<Intostore> getIntostore(String number);
 	
-	void outStore(Outstore ous);
+	void outStore(Outstore ous); 
 	
 	List<Outstore> getOutstore(String number);
 	

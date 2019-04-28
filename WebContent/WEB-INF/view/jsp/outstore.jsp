@@ -136,7 +136,7 @@
                                 <th>创建时间</th>
                                 <th>创建人</th>
                             </tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                             <tr v-for="(i,k) in items">
                             <td><input type="checkbox" v-model='checkList' :value="i.id"></td>

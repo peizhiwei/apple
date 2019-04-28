@@ -33,7 +33,7 @@ public interface AdminiDao {
 	@Select("SELECT `id`,`rk_number` as rkNumber,`name`,`total` as amount,`date`,`builder` "
 			+ "FROM intostore_goods WHERE `rk_number` = #{rkNumber}")
 	List<Intostore> getIntostore(String number);
-	
+	 
 	//ÉÌÆ·³ö¿â
 	@Update("INSERT INTO `outstore_goods` (`ck_number`, `name`, `total`, `date`, `builder` )\r\n" + 
 				"VALUES\r\n" + 

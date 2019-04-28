@@ -37,7 +37,7 @@ public class Outstore {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
-	}
+	} 
 	public Date getDate() {
 		return date;
 	}

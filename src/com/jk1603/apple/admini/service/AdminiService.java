@@ -53,8 +53,6 @@ public class AdminiService implements AdminiServiceInterface {
 		return listins;
 	}
 
-	
-
 	//ÉÌÆ·³ö¿â
 	@Override
 	public void outStore(Outstore ous) {
