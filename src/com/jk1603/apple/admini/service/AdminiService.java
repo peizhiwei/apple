@@ -9,6 +9,7 @@ import com.jk1603.apple.admini.dao.AdminiDao;
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
+import com.jk1603.apple.admini.pojo.Outstore;
 @Service
 public class AdminiService implements AdminiServiceInterface {
 	@Autowired
@@ -50,5 +51,20 @@ public class AdminiService implements AdminiServiceInterface {
 	public List<Intostore> getIntostore(String number) {
 		List<Intostore> listins = adminidao.getIntostore(number);
 		return listins;
+	}
+
+	
+
+	//商品出库
+	@Override
+	public void outStore(Outstore ous) {
+		adminidao.outStore(ous);
+		
+	}
+	//查询商品出库详情
+	@Override
+	public List<Outstore> getOutstore(String number) {
+		List<Outstore> listous = adminidao.getOutstore(number);
+		return listous;
 	}
 }

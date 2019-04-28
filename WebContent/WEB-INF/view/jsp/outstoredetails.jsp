@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>出库详情</title>
 
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 
@@ -67,10 +67,10 @@
 				<div class="btn-group col-xs-6" role="group" aria-label=""></div>
 				<div class="col-xs-6 text-right">
 					<button type="button" class="btn btn-default"
-						onclick="window.location.href='/apple/admini/OutStore'">
+						onclick="window.location.href='/apple/admini/IntoStore'">
 						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>取消
 					</button>
-					<button type="button" class="btn btn-default">
+					<button type="button" class="btn btn-default" id="sure">
 						<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>确认
 					</button>
 				</div>
@@ -87,27 +87,63 @@
 				<div class="blank-line"></div>
 				<div class="form-group">
 					<label for="number"> 出库编号： </label> <input type="text"
-						class="form-control" id="number">
+						class="form-control" id="number" name="number">
 				</div>
 				<div class="form-group">
 					<label for="number"> 商品名称： </label> <input type="text"
-						class="form-control" id="number">
+						class="form-control" id="name" name="name">
 				</div>
 				<div class="form-group">
 					<label for="name"> 总数量： </label> <input type="text"
-						class="form-control" id="name">
+						class="form-control" id="amount" name="amount">
 				</div>
 				<div class="form-group">
-					<label for="size"> 单位： </label> <input type="text"
-						class="form-control" id="size">
+					<label for="size"> 日期： </label> <input type="text"
+						class="form-control" id="date" name="date">
+				</div>
+				<div class="form-group">
+					<label for="size"> 创建者： </label> <input type="text"
+						class="form-control" id="builder" name="builder">
 				</div>
 			</div>
 			<div class="col-xs-2 col-sm-3 col-md-3"></div>
 		</div>
 	</div>
-	 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+        $("#sure").click(function(){
+        	var number = $("#number").val();
+            var name = $("#name").val();
+            var amount = $("#amount").val();
+            var date = $("#date").val();
+            var builder = $("#builder").val();
+           
+            if(number==""||name==""||amount==""||date==""||builder==""){
+            	alert("内容不能为空");
+            }else{
+            	$.ajax({
+                    type:'POST',
+                    async:false,
+                    dataType:"json",
+                    url:"/apple/admini/outStore",
+                    data:{"number":number,"name":name,"amount":amount,"date":date,"builder":builder},
+                    success:function(result){
+                        if(result.flag==true){
+                            alert("商品出库成功！");
+                            window.location.href = result.msg;
+                        }else{
+                            alert("商品出库失败！");
+                        }
+                    }
+                });
+            }
+        });
+    }); 
+	</script>
 	
 </body>
 

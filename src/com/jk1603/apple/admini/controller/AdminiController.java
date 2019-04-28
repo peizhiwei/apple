@@ -21,6 +21,7 @@ import org.springframework.web.context.request.WebRequest;
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
+import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.service.AdminiServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
 
@@ -51,6 +52,11 @@ public class AdminiController {
 	@RequestMapping("/OutStore")
 	public String outstore() {
 		return "outstore";
+		
+	}
+	@RequestMapping("/Outstoredetails")
+	public String outstoredetails() {
+		return "outstoredetails";
 		
 	}
 	@RequestMapping("/Stock")
@@ -150,11 +156,39 @@ public class AdminiController {
 		List<Goods> goodsList = adminiservice.getGoodstoindex();
 		return goodsList;
 	}
-	
+	//商品出库
+	@RequestMapping("/outStore")
+	@ResponseBody
+	public ajaxresponse outStore(@RequestParam(value = "number",required = false) String number,
+				 @RequestParam(value = "name",required = false) String name,
+				 @RequestParam(value = "amount",required = false) int amount,
+				 @RequestParam(value = "date",required = false) Date date,
+				 @RequestParam(value = "builder",required = false) String builder) {
+			Outstore ous = new Outstore();
+			ous.setCkNumber(number);
+			ous.setName(name);
+			ous.setAmount(amount);
+			ous.setDate(date);
+			ous.setBuilder(builder);
+			adminiservice.outStore(ous);
+			ajaxresponse ajaxins = new ajaxresponse();
+			ajaxins.setFlag(true);
+			ajaxins.setMsg("/apple/admini/Outstoredetails");
+			return ajaxins;
+	}
+	//查询商品出库详情
+		@RequestMapping("/getoutstore")
+		@ResponseBody
+		public List<Outstore> getOutstore(String number){
+			List<Outstore> listous = adminiservice.getOutstore(number);
+			return  listous;
+		}
 	@RequestMapping("/addad")
 	public String addad() {
 		return "addaduser";
 	}
+	
+	//添加后台管理员
 	@RequestMapping("/addAdmini")
     @ResponseBody
 	public ajaxresponse addAdmini(
@@ -167,8 +201,9 @@ public class AdminiController {
 		     adminiservice.addAdmini(admini);
 		     ajaxresponse ajaxadmini = new ajaxresponse();
 		     ajaxadmini.setFlag(true);
-		     ajaxadmini.setMsg("/apple/admini/addad");
+		     ajaxadmini.setMsg("/apple/admini/Management");
 		     return  ajaxadmini;
 	}
+	
 }
 
