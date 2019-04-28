@@ -13,6 +13,11 @@ public interface AdminiServiceInterface {
 	
 	List<Goods> getGoods(String number);
 	
+	//遍历数据库将商品信息展示在前端页面
+	List<Goods> getallGoods();
+	
+	//编辑商品
+	List<Goods> setGoods(String number);
 	
 	List<Stock> getStock(String number);
 	

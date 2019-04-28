@@ -114,6 +114,26 @@ public class AdminiController {
 		return listgoods;
 	}
 	
+	//编辑商品
+	@RequestMapping("/setgoods")
+	@ResponseBody
+	public List<Goods> setGoods(String number) {
+		List<Goods> listsetgoods = adminiservice.getGoods(number);
+		return listsetgoods;
+	}
+	
+	
+	//遍历数据库将商品信息展示在前端页面
+	@RequestMapping("/getallgoods")
+	@ResponseBody
+	public List<Goods> getallGoods(){
+
+		List<Goods> listallgoods = adminiservice.getallGoods();
+//		System.out.println(listallgoods);
+		return listallgoods;
+		
+	}
+	
 	//查询商品的库存
 	@RequestMapping("/getstock")
 	@ResponseBody

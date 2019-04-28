@@ -28,6 +28,12 @@ public class AdminiService implements AdminiServiceInterface {
 		return listgoods;
 	}
 	
+	//编辑商品
+	public List<Goods> setGoods(String number) {
+		List<Goods> listsetgoods = adminidao.getGoods(number);
+		return listsetgoods;
+	}
+	
 	//查询商品库存
 	public List<Stock> getStock(String number){
 		List<Stock> liststock = adminidao.getStock(number);
@@ -71,5 +77,12 @@ public class AdminiService implements AdminiServiceInterface {
 	public List<Outstore> getOutstore(String number) {
 		List<Outstore> listous = adminidao.getOutstore(number);
 		return listous;
+	}
+
+	//遍历数据库将商品信息展示在前端页面
+	@Override
+	public List<Goods> getallGoods() {
+		List<Goods> listallgoods = adminidao.getallGoods();
+		return listallgoods;
 	}
 }
