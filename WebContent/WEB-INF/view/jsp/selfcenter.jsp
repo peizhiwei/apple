@@ -219,7 +219,7 @@
       </div>
        <!--回到主页按钮-->
       <div class="col-xs-10 col-sm-10 backindex right"  >
-      <a href="#"><input type="button" value="回到主页" title="点击回到主页" style="float: right;"></a>
+      <a href="#"><input type="button" value="回到主页" title="点击回到主页" style="float: right;" onclick="window.location.href='/apple/user/userindex'"></a>
     </div>
     </div>
 
