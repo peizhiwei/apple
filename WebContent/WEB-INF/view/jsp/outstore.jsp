@@ -200,7 +200,7 @@
                     deep: true
                 }
             }
-        });
+            });
     </script>
 </body>
 </html>
