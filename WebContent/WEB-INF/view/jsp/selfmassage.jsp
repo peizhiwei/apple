@@ -144,10 +144,10 @@
                     formData.append('file1',$('#file1')[0].files[0]);
                     $.ajax({
                         url: '/apple/user/userimgupload', 
-                        type: 'POST',  
-                        data: formData,  
-                        cache: false,  
-                        processData: false,  
+                        type: 'POST',
+                        data: formData,
+                        cache: false,
+                        processData: false,
                         contentType: false,
                         success: function(result){
                             app.get();
