@@ -33,6 +33,7 @@
     border: 1px solid #fff;
     position: relative;
     left: 10px;
+    margin-right: 20px;
   }
 
   .hi {
@@ -67,6 +68,14 @@
     left:60px;
     top: -15px;
   }
+  .selfmassage{
+    font-size: 17px;
+    margin: 10px 80px;
+  }
+ .backindex{
+    margin: 25px 45px;
+    font-size: 17px;
+  }
   img {
     width: 35px;
     height: 35px;
@@ -85,17 +94,14 @@
       </div>
     </div>
     <div class="hi"></div>
-    <!-- 个人中心标识 -->
-    <p class="top1" style="font-size:17px">
-      <div class="row">
-        <div class="col-xs-6 col-sm-6" style="text-align:center;font-size:18px">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;&nbsp;个人中心
+   <!-- 个人中心标识 -->
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 selfmassage" >
+    <p class="top1">
+        <span class="glyphicon glyphicon-home " style="margin-right: 10px"></span>个人中心
     </p>
+     </div>
   </div>
-  </div>
-
   <!-- 第一块头像姓名id -->
   <div class="row">
     <div class="col-xs-2 col-sm-3">
@@ -211,6 +217,10 @@
         <div class="col-xs-12 col-sm-12" style="height:16px"></div>
         <p><a href="#" onclick="window.location.href = '/apple/user/selfmassage'">设置</a></p>
       </div>
+       <!--回到主页按钮-->
+      <div class="col-xs-10 col-sm-10 backindex right"  >
+      <a href="#"><input type="button" value="回到主页" title="点击回到主页" style="float: right;"></a>
+    </div>
     </div>
 
     <div class="col-xs-2 col-sm-3">

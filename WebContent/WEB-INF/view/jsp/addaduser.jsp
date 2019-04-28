@@ -106,15 +106,20 @@
 	        $("#sure").click(function(){
 	        	 var adminiName = $("#adminiName").val();
 	             var adPassword = $("#adPassword").val();
+	             var adPassword2 = $("#adPassword2").val();
 	             if(adminiName=='' || adPassword==''){
 	            	 alert("用户名或密码为空");
-	             }else{
+	             }
+	             else if(adPassword!=adPassword2){
+		                alert("两次密码输入的不一致");
+		            }
+	             else{
 	            	 $.ajax({
 	                     type:'POST',
 	                     async:false,
 	                     dataType:"json",
 	                     url:"/apple/admini/addAdmini",
-	                     data:{"adminiName":adminiName,"adPassword":adPassword},
+	                     data:{"adminiName":adminiName,"adPassword":adPassword,"adPassword2":adPassword2},
 	                     success:function(result){
 	                         if(result.flag==true){
 	                             alert("添加用户成功！");
