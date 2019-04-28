@@ -22,6 +22,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.service.AdminiServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
 
@@ -111,6 +112,14 @@ public class AdminiController {
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiservice.getGoods(number);
 		return listgoods;
+	}
+	
+	//查询商品的库存
+	@RequestMapping("/getstock")
+	@ResponseBody
+	public List<Stock> getStock(String number) {
+		List<Stock> liststock = adminiservice.getStock(number);
+		return liststock;
 	}
 	
 	//商品入库

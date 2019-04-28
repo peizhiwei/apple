@@ -10,6 +10,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Stock;
 @Service
 public class AdminiService implements AdminiServiceInterface {
 	@Autowired
@@ -25,6 +26,12 @@ public class AdminiService implements AdminiServiceInterface {
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminidao.getGoods(number);
 		return listgoods;
+	}
+	
+	//查询商品库存
+	public List<Stock> getStock(String number){
+		List<Stock> liststock = adminidao.getStock(number);
+		return liststock;
 	}
 	
 	//添加管理员

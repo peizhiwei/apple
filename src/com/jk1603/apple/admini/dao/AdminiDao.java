@@ -9,6 +9,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Stock;
 
 public interface AdminiDao {
 	//添加商品
@@ -20,8 +21,13 @@ public interface AdminiDao {
 
 	//查询商品
 	@Select("SELECT `id`,`name`,`price`,`number`,`specs`,"
-			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
+			+ "`amount`,`details` FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
+	
+	//查询商品库存
+	@Select("SELECT `number`,`name`,`specs`,"
+			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
+	List<Stock> getStock(String number);
 	
 	//商品入库
 	@Update("INSERT INTO `intostore_goods` (`rk_number`, `name`, `total`, `date`, `builder` )\r\n" + 
