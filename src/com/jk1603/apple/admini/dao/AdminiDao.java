@@ -24,6 +24,18 @@ public interface AdminiDao {
 			+ "`amount`,`details` FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
 	
+	//编辑商品
+	@Update("UPDATE `apple`.`goods` SET `name` = ?, "
+			+ "`price` = ?, `number` = ?, `specs` = ?, "
+			+ " `details` = ?, `amount` = ? WHERE `number` = #{number};")
+	List<Goods> setGoods(String number);
+	
+	
+	//遍历数据库将商品信息展示在前端页面
+	@Select("SELECT `id`,`name`,`price`,`number`,`specs`,"
+			+ "`amount`,`details` FROM goods")
+	List<Goods> getallGoods();
+	
 	//查询商品库存
 	@Select("SELECT `number`,`name`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")

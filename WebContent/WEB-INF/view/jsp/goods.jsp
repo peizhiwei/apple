@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<div id="app">
+	<div id="datatable">
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -171,7 +171,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(i,k) in items">
+								<!-- tr v-for="(i,k) in items">
 									<td><input type="checkbox" v-model='checkList'
 										:value="i.id"></td>
 									<td>{{i.number}}</td>
@@ -180,6 +180,16 @@
 									<td>{{i.details}}</td>
 									<td>{{i.specs}}</td>
 									<td>{{i.amount}}</td>
+								</tr -->
+								<tr v-for="g in goodsalldetails">
+									<td><input type="checkbox" v-model='checkList'
+										:value="g.id"></td>
+									<td>{{g.number}}</td>
+									<td>{{g.name}}</td>
+									<td>{{g.price}}</td>
+									<td>{{g.details}}</td>
+									<td>{{g.specs}}</td>
+									<td>{{g.amount}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -237,23 +247,35 @@
 		</div>
 	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-	<script
-		src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-	<script>
-		var app = new Vue({
+	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	var app = new Vue({
 			el : '#app',
 			data : {
 				inputNumber : "",
 				items : [],
 				checked : false, //全选框
-				checkList : []
+				checkList : [],
+				goodsalldetails:[]
+			},
+			mounted:function(){
+				this.getAllGoodsdetails();
 			},
 			methods : {
+				getAllGoodsdetails : function(){
+					//发送get请求
+					this.$http.get(
+							"http://localhost:8080/apple/admini/getallgoods").then(function(res) {
+						this.goodsalldetails = JSON.parse(res.bodyText);
+					}, function() {
+						console.log('请求失败处理');
+					});
+				},
 				getlist : function(data) {
 					//发送get请求
 					this.$http.get(
@@ -292,6 +314,7 @@
 			}
 		});
 	</script>
+	
 </body>
 
 </html>

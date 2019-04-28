@@ -75,5 +75,8 @@ public class Goods {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	
+//	public String toString() {
+//		return "number="+number+",name="+name+",price="+price+",details="+details+",specs="+specs+",amount="+amount;
+//		
+//	}
 }
