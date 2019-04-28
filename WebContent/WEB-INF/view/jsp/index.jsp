@@ -153,8 +153,7 @@
                             style="text-decoration: none;">
                             <img alt="" v-bind:src="details.img">
                         </a>
-                        <a href="https://item.jd.com/100001860773.html" class="size2"
-                            style="text-decoration: none;">
+                        <a class="size2" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
                             <h3>{{details.name}}</h3>
                         </a>
                         <a href="https://item.jd.com/100001860773.html"
