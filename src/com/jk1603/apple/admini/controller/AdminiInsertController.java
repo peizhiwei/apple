@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -21,12 +22,16 @@ import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.service.insert.AdminiInsertServiceInterface;
+import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
 @Controller
 @RequestMapping("/adminiinsert")
 public class AdminiInsertController {
 	@Autowired
 	AdminiInsertServiceInterface adminiinsertservice;
+	
+	@Autowired
+	AdminiSelectServiceInterface adminiselectservice;
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
 		//×ª»»ÈÕÆÚ
@@ -42,7 +47,7 @@ public class AdminiInsertController {
 						 @RequestParam(value = "specs",required = false) String specs,
 						 @RequestParam(value = "amount",required = false) int amount,
 						 @RequestParam(value = "details",required = false) String details,
-						 @RequestParam(value = "typeName",required = false) String typeName
+						 @RequestParam(value = "typename",required = false) String typename
 						 ) {
 		Goods goods = new Goods();
 		goods.setNumber(number);
@@ -53,9 +58,9 @@ public class AdminiInsertController {
 		goods.setDetails(details);
 		
 		Type type = new Type();
-		type.setTypeName(typeName);
-		
-		adminiinsertservice.addGoods(goods,type);
+		type.setId(adminiselectservice.gettypeid(typename));
+		goods.setType(type);
+		adminiinsertservice.addGoods(goods);
 		ajaxresponse ajaxgoods = new ajaxresponse();
 		ajaxgoods.setFlag(true);
 		ajaxgoods.setMsg("/apple/admini/goods");

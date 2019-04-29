@@ -1,5 +1,6 @@
 package com.jk1603.apple.admini.service.insert;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,8 @@ public class AdminiInsertService implements AdminiInsertServiceInterface {
 	AdminiInsertDao admininsertdao;
 	
 	@Override
-	public void addGoods(Goods g,Type type) {
-		admininsertdao.addGoods(g,type);
+	public void addGoods(Goods g) {
+		admininsertdao.addGoods(g);
 	}
 	@Override
 	public void addAdmini(Admini ad) {

@@ -1,5 +1,6 @@
 package com.jk1603.apple.admini.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import com.jk1603.apple.admini.pojo.Admini;
@@ -13,9 +14,8 @@ public interface AdminiInsertDao {
 	@Update("INSERT INTO goods (`name`,`price`,`number`,\r\n" + 
 			"`specs`,`details`,`amount`,`upshelf`,`type_id`)\r\n" + 
 			"VALUES(#{name},#{price},#{number},\r\n" + 
-			"#{specs},#{details},#{amount},#{upshelf},"
-			+ "(SELECT id as typeId FROM type WHERE type_name=#{typeName}))")
-	void addGoods(Goods g,Type sort);
+			"#{specs},#{details},#{amount},#{upshelf},#{type.id})")
+	void addGoods(Goods goods);
 	//添加后台用户
 	@Update("INSERT INTO `admini`(`admini_name`, `ad_password`) VALUES (#{adminiName}, #{adPassword})")
 	void addAdmini(Admini ad);

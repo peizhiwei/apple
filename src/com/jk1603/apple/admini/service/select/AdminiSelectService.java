@@ -65,4 +65,10 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		return id;
 	}
 
+	@Override
+	public int gettypeid(String typeName) {
+		int id = adminiSelectdao.gettypeid(typeName);
+		return id;
+	}
+
 }

@@ -18,6 +18,10 @@ public interface AdminiSelectDao {
 	//查询分类
 	@Select("SELECT id,type_name as typeName FROM type")
 	List<Type> getType();
+	//根据分类名查询分类id
+	@Select("select id from type where type_name=#{typeName}")
+	int gettypeid(String typeName);
+	
 	//遍历数据库将商品信息展示在前端页面
 	@Select("SELECT g.*,t.type_name as 'type.typeName' FROM goods g\r\n" + 
 			"LEFT JOIN type t on g.type_id=t.id")

@@ -110,8 +110,8 @@
 							class="form-control" id="details">
 					</div>
 					<div class="form-group">
-                        <label for="sort"> 类别： </label> <select name="type" type="text"
-                            class="form-control" id="type" >
+                        <label for="sort"> 类别： </label> <select name="typename" type="text"
+                            class="form-control" id="typename" >
                             <option v-for="i in sortlist">{{i.typeName}}</option>
                             </select>
                     </div>
@@ -137,16 +137,16 @@
             var name = $("#name").val();
             var amount = $("#amount").val();
             var details = $("#details").val();
-            var type = $("#type").val();
-            if(number==""||price==""||specs==""||name==""||amount==""||details==""||type==""){
+            var typename = $("#typename").val();
+            if(number==""||price==""||specs==""||name==""||amount==""||details==""||typename==""){
                 alert("内容不能为空");
             }else{
                 $.ajax({
                     type:'POST',
-                    async:true,
+                    async:false,
                     dataType:"json",
                     url:"/apple/adminiinsert/addgoods",
-                    data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details,"type":type},
+                    data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details,"typename":typename},
                     success:function(result){
                         if(result.flag==true){
                         }else{
@@ -161,6 +161,7 @@
                     type: 'POST',
                     data: formData,
                     cache: false,
+                    async:false,
                     processData: false,
                     contentType: false,
                     success: function(result){

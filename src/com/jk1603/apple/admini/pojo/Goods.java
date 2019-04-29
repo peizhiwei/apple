@@ -76,10 +76,11 @@ public class Goods {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public Type getSort() {
+	public Type getType() {
 		return type;
 	}
-	public void setSort(Type type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
+
 }

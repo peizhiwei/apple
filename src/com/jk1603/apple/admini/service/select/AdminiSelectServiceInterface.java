@@ -20,4 +20,6 @@ public interface AdminiSelectServiceInterface {
 	List<Outstore> getOutstore(String number);
 	
 	int getgoodsmaxid();
+	
+	int gettypeid(String typeName);
 }

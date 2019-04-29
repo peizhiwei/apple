@@ -43,7 +43,7 @@ public class AdminiUpdateController {
         
         int id = adminiselectservice.getgoodsmaxid();
     	String img = "/apple/img/"+file.getOriginalFilename();
-
+    	System.out.println(id);
     	Goods goods = new Goods();
     	goods.setId(id);
     	goods.setImg(img);

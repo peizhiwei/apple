@@ -189,7 +189,7 @@
 									<td>{{g.details}}</td>
 									<td>{{g.specs}}</td>
 									<td>{{g.amount}}</td>
-									<td>{{g.sort.typeName}}</td>
+									<td>{{g.type==null?'无分类':g.type.typeName}}</td>
 									<td><img alt="" :src="g.img" style="heigth:100px;width:100px;"></td>
 								    <td v-if="g.upshelf==0">下架</td>
 								    <td v-else>上架</td>
@@ -273,7 +273,6 @@
 				getAllGoodsdetails : function(){
 					//发送get请求
 					this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
-						alert(res);
 						this.goodsalldetails = JSON.parse(res.bodyText);
 						
 						console.log(res);
