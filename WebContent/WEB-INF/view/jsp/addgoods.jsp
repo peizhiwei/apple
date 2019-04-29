@@ -65,7 +65,7 @@
 			<div class="btn-group col-xs-6" role="group" aria-label=""></div>
 			<div class="col-xs-6 text-right">
 				<button type="button" class="btn btn-default"
-					onclick="window.location.href='/apple/admini/Goods'">
+					onclick="window.location.href='/apple/admini/goods'">
 					<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>取消
 				</button>
 				<button type="button" class="btn btn-default" id="sure">
