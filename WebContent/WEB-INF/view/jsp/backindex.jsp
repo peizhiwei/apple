@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,48 +34,61 @@
                     <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><span
                                 class="badge">5</span></a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
+                        <button type="button" class="btn btn-default" style="margin-top: 7px" data-toggle="modal"
+                            data-target="#myModal">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </button>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </nav>
     <div class="container-fliud">
         <div class="col-lg-1 col-sm-2 col-xs-3">
             <div class="btn-group-vertical" role="group" aria-label="...">
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Goods'">商品</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/IntoStore'">入库</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Stock'">库存</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/OutStore'">出库</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Management'">用户管理</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
-                <button type="button"
-                        class="btn btn-default" style="height:50px;width:100px" onclick="window.location.href='/apple/admini/Statistics'">统计</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/Goods'">商品</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/IntoStore'">入库</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/Stock'">库存</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/OutStore'">出库</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/Management'">用户管理</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
+                <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/Statistics'">统计</button>
             </div>
         </div>
         <div class="col-lg-11 col-sm-10 col-xs-9">
             <h1><b>欢迎使用电子商城后台管理系统！</b></h1>
         </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-        
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>用户名：<input type='text' value='' code='' class='admini_name form-control' /></div>
+                        <br />
+                        <div>密码：<input type='text' value='' code='' class='ad_password form-control' /></div><br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+        <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </body>
 </html>
