@@ -17,5 +17,9 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 		List<Goods> listsetgoods = adminiupdatedao.setGoods(number);
 		return listsetgoods;
 	}
+	@Override
+	public void setGoodsImg(Goods goods) {
+		adminiupdatedao.setGoodsImg(goods);
+	}
 
 }
