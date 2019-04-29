@@ -100,8 +100,8 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" style="float:none;text-align:center;">
 
-                        <li style="float:none;display:inline-block;margin:0em;margin:0px 60px;"><a
-                                href="C:\Users\Administrator\Desktop\apple\applepc.html">
+                        <li style="float:none;display:inline-block;margin:0em;margin:0px 60px;">
+                        	<a onclick="window.location.href='/apple/user/index'">
                                 <font color="white">首页</font>
                             </a></li>
                         <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
