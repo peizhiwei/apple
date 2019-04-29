@@ -148,11 +148,23 @@
                     data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details},
                     success:function(result){
                         if(result.flag==true){
-                            alert("添加商品成功！");
-                            window.location.href = result.msg;
                         }else{
                             alert("添加商品失败！");
                         }
+                    }
+                });
+                var formData = new FormData();
+                formData.append('imgfile',$('#imgfile')[0].files[0]);
+                $.ajax({
+                    url: '/apple/adminiupdate/setgoodsimg', 
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function(result){
+                    	alert("添加成功");
+                    	window.location.href="/apple/admini/goods";
                     }
                 });
             }

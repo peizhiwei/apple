@@ -12,4 +12,7 @@ public interface AdminiUpdateDao {
 			+ "`price` = ?, `number` = ?, `specs` = ?, "
 			+ " `details` = ?, `amount` = ? WHERE `number` = #{number};")
 	List<Goods> setGoods(String number);
+	//上传商品图片
+	@Update("UPDATE goods SET img=#{img} WHERE id=#{id}")
+	void setGoodsImg(Goods goods);
 }

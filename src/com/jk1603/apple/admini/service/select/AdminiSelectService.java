@@ -59,4 +59,10 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		return listous;
 	}
 
+	@Override
+	public int getgoodsmaxid() {
+		int id = adminiSelectdao.getgoodsmaxid();
+		return id;
+	}
+
 }

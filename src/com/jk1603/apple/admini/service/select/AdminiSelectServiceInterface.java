@@ -18,4 +18,6 @@ public interface AdminiSelectServiceInterface {
 	List<Goods> getGoodstoindex();
 	List<Intostore> getIntostore(String number);
 	List<Outstore> getOutstore(String number);
+	
+	int getgoodsmaxid();
 }

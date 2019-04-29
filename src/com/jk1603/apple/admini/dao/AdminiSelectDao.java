@@ -39,5 +39,8 @@ public interface AdminiSelectDao {
 	@Select("SELECT `number`,`name`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
 	List<Stock> getStock(String number);
+	//获取goods表中id最大的值
+	@Select("SELECT MAX(id) FROM goods")
+	int getgoodsmaxid();
 		
 }
