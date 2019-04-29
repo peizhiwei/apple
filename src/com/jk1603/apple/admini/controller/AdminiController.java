@@ -70,10 +70,5 @@ public class AdminiController {
 	public String addad() {
 		return "addaduser";
 	}
-	@InitBinder
-	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//转换日期
-		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为自定义日期编辑器
-	}
+
 }
