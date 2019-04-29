@@ -91,12 +91,12 @@
 							class="form-control" id="adminiName">
 					</div>
 					<div class="form-group">
-						<label for="adPassword"> 用户密码： </label> <input name="adPassword" type="password"
-							class="form-control" id="adPassword">
+						<label for="adPassword"> 用户密码： </label> <input name="adPassword1" type="password"
+							class="form-control" id="adPassword1">
                     </div>
                    <div class="form-group">
-						<label for="adPassword1"> 确认密码： </label> <input name="adPassword1" type="password"
-							class="form-control" id="adPassword1">
+						<label for="adPassword1"> 确认密码： </label> <input name="adPassword2" type="password"
+							class="form-control" id="adPassword2">
                     </div>
 				</div>
 				<div class="col-xs-2 col-sm-3 col-md-3"></div>
@@ -110,12 +110,12 @@
 		$(document).ready(function(){
 	        $("#sure").click(function(){
 	        	 var adminiName = $("#adminiName").val();
-	             var adPassword = $("#adPassword").val();
+	             var adPassword1 = $("#adPassword1").val();
 	             var adPassword2 = $("#adPassword2").val();
-	             if(adminiName=='' || adPassword==''){
+	             if(adminiName=='' || adPassword1==''){
 	            	 alert("用户名或密码为空");
 	             }
-	             else if(adPassword!=adPassword2){
+	             else if(adPassword1!=adPassword2){
 		                alert("两次密码输入的不一致");
 		            }
 	             else{
@@ -124,7 +124,7 @@
 	                     async:false,
 	                     dataType:"json",
 	                     url:"/apple/adminiinsert/addAdmini",
-	                     data:{"adminiName":adminiName,"adPassword":adPassword,"adPassword2":adPassword2},
+	                     data:{"adminiName":adminiName,"adPassword1":adPassword1,"adPassword2":adPassword2},
 	                     success:function(result){
 	                         if(result.flag==true){
 	                             alert("添加用户成功！");

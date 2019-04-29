@@ -102,11 +102,11 @@ public class AdminiInsertController {
     @ResponseBody
 	public ajaxresponse addAdmini(
 			 @RequestParam(value = "adminiName",required = false) String adminiName,
-			 @RequestParam(value = "adPassword",required = false) String adPassword)
+			 @RequestParam(value = "adPassword1",required = false) String adPassword1)
 			 {
 	     Admini admini = new Admini();
 	     admini.setAdminiName(adminiName);
-	     admini.setAdPassword(adPassword);
+	     admini.setAdPassword(adPassword1);
 	     adminiinsertservice.addAdmini(admini);
 	     ajaxresponse ajaxadmini = new ajaxresponse();
 	     ajaxadmini.setFlag(true);
