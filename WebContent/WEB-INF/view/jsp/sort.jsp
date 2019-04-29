@@ -95,8 +95,6 @@
                     <div class="col-xs-6 text-right">
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"
                                 aria-hidden="true"></span>新增</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"
-                                aria-hidden="true"></span>编辑</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"

@@ -100,7 +100,7 @@
                     <div class="btn-group col-xs-6" role="group" aria-label="">
                     </div>
                     <div class="col-xs-6 text-right">
-                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Outstoredetails'"><span class="glyphicon glyphicon-plus"
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/outstoredetails'"><span class="glyphicon glyphicon-plus"
                                 aria-hidden="true"></span>新增</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>
@@ -118,7 +118,7 @@
                         </div>
                         <button type="button" class="btn btn-default" @click="getoutstorelist()"><span class="glyphicon glyphicon-search"
                                 aria-hidden="true" name="search"></span>搜索</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-random"
                                 aria-hidden="true"></span>清空搜索条件</button>
                     </form>
                 </div>&nbsp;&nbsp;
