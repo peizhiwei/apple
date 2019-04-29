@@ -97,7 +97,7 @@
                         </div>
                         <div class="col-xs-6 text-right">
                             <button type="button" class="btn btn-default"
-                                onclick="window.location.href='/apple/admini/Intostoredetails'"><span
+                                onclick="window.location.href='/apple/admini/intostoredetails'"><span
                                     class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增</button>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-default" data-toggle="modal"

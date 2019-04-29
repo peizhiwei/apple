@@ -117,7 +117,7 @@
 								<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>下架
 							</button>
 							<a><button type="button" class="btn btn-default"
-									onclick="window.location.href='/apple/adminiinsert/addgoods'">
+									onclick="window.location.href='/apple/admini/addgoods'">
 									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
 								</button></a>
 							<button type="button" class="btn btn-default" data-toggle="modal"
