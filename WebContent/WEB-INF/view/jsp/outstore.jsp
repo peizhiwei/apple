@@ -118,7 +118,7 @@
                         </div>
                         <button type="button" class="btn btn-default" @click="getoutstorelist()"><span class="glyphicon glyphicon-search"
                                 aria-hidden="true" name="search"></span>搜索</button>
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-random"
                                 aria-hidden="true"></span>清空搜索条件</button>
                     </form>
                 </div>&nbsp;&nbsp;
