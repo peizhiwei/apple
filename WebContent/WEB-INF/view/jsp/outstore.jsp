@@ -53,6 +53,7 @@
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
+
     <div class="container-fliud">
         <div class="col-lg-1 col-sm-2 col-xs-3">
             <div class="btn-group-vertical" role="group" aria-label="...">
