@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
-import com.jk1603.apple.admini.pojo.Sort;
+import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
 
 public interface AdminiSelectDao {
@@ -16,15 +16,16 @@ public interface AdminiSelectDao {
 			+ "`amount`,`details` FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
 	//查询分类
-	@Select("SELECT id,sort_name as sortName FROM sort")
-	List<Sort> getSort();
+	@Select("SELECT id,type_name as typeName FROM type")
+	List<Type> getType();
 	//遍历数据库将商品信息展示在前端页面
-	@Select("SELECT g.*,s.sort_name FROM goods g\r\n" + 
-			"LEFT JOIN sort s on g.sort_id=s.id")
+	@Select("SELECT g.*,t.type_name as 'type.typeName' FROM goods g\r\n" + 
+			"LEFT JOIN type t on g.type_id=t.id")
 	List<Goods> getallGoods();
 	//查询商品显示到index页面上
 	@Select("SELECT `name`,`specs`,`details`,`price`,`img` FROM goods")
 	List<Goods> getGoodstoindex();
+	
 	//查询商品出库详情
 	@Select("SELECT `id`,`ck_number` as ckNumber,`name`,`total` as amount,`date`,`builder` "
 				+ "FROM outstore_goods WHERE `ck_number` = #{ckNumber}")

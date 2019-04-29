@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
-import com.jk1603.apple.admini.pojo.Sort;
+import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
 
@@ -21,11 +21,11 @@ public class AdminiSelectController {
 	@Autowired
 	AdminiSelectServiceInterface adminiSelectservice;
 	
-	@RequestMapping("getallsort")
+	@RequestMapping("getallType")
 	@ResponseBody
-	public List<Sort> getSort() {
-		List<Sort> sortlist = adminiSelectservice.getSort();
-		return sortlist;
+	public List<Type> getType() {
+		List<Type> typelist = adminiSelectservice.getType();
+		return typelist;
 	}
 	//≤È—Ø…Ã∆∑
 	@RequestMapping("/getgoods")
@@ -40,7 +40,7 @@ public class AdminiSelectController {
 	public List<Goods> getallGoods(){
 
 		List<Goods> listallgoods = adminiSelectservice.getallGoods();
-		//System.out.println(listallgoods.get(0).getSort().getSortName());
+		System.out.println(listallgoods);
 		return listallgoods;
 		
 	}

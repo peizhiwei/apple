@@ -19,6 +19,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.service.insert.AdminiInsertServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
 @Controller
@@ -41,7 +42,8 @@ public class AdminiInsertController {
 						 @RequestParam(value = "specs",required = false) String specs,
 						 @RequestParam(value = "amount",required = false) int amount,
 						 @RequestParam(value = "details",required = false) String details,
-						 @RequestParam(value = "img",required = false) String img) {
+						 @RequestParam(value = "typeName",required = false) String typeName
+						 ) {
 		Goods goods = new Goods();
 		goods.setNumber(number);
 		goods.setName(name);
@@ -49,9 +51,11 @@ public class AdminiInsertController {
 		goods.setSpecs(specs);
 		goods.setAmount(amount);
 		goods.setDetails(details);
-		//sort_idûд
-		goods.setImg(null);
-		adminiinsertservice.addGoods(goods);
+		
+		Type type = new Type();
+		type.setTypeName(typeName);
+		
+		adminiinsertservice.addGoods(goods,type);
 		ajaxresponse ajaxgoods = new ajaxresponse();
 		ajaxgoods.setFlag(true);
 		ajaxgoods.setMsg("/apple/admini/goods");

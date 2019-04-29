@@ -109,12 +109,12 @@
 						<label for="sort"> 详情： </label> <input name="details" type="text"
 							class="form-control" id="details">
 					</div>
-					<!-- div class="form-group">
-                        <label for="sort"> 类别： </label> <select name="sort" type="text"
-                            class="form-control" id="sort" >
-                            <option v-for="i in sortlist">{{i.sortName}}</option>
+					<div class="form-group">
+                        <label for="sort"> 类别： </label> <select name="type" type="text"
+                            class="form-control" id="type" >
+                            <option v-for="i in sortlist">{{i.typeName}}</option>
                             </select>
-                    </div -->
+                    </div>
 					<div class="form-group">
 						<input type="file" id="imgfile">
 					</div>
@@ -137,7 +137,8 @@
             var name = $("#name").val();
             var amount = $("#amount").val();
             var details = $("#details").val();
-            if(number==""||price==""||specs==""||name==""||amount==""||details==""){
+            var type = $("#type").val();
+            if(number==""||price==""||specs==""||name==""||amount==""||details==""||type==""){
                 alert("内容不能为空");
             }else{
                 $.ajax({
@@ -145,11 +146,11 @@
                     async:true,
                     dataType:"json",
                     url:"/apple/adminiinsert/addgoods",
-                    data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details},
+                    data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details,"type":type},
                     success:function(result){
                         if(result.flag==true){
                         }else{
-                            alert("添加商品失败！");
+                            alert("出错！");
                         }
                     }
                 });
@@ -185,7 +186,7 @@
         	getAllSort : function(){
                 //发送get请求
                 this.$http.get(
-                        "http://localhost:8080/apple/adminiselect/getallsort").then(function(res) {
+                        "http://localhost:8080/apple/adminiselect/getallType").then(function(res) {
                     this.sortlist = JSON.parse(res.bodyText);
                     console.log(res);
                 }, function() {

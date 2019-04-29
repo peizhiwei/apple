@@ -15,7 +15,7 @@ public class Goods {
 	private boolean upshelf;// «∑Ò…œº‹
 	private Data date;
 	private String img;
-	private Sort sort;
+	private Type type;
 	public Integer getId() {
 		return id;
 	}
@@ -76,10 +76,10 @@ public class Goods {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public Sort getSort() {
-		return sort;
+	public Type getSort() {
+		return type;
 	}
-	public void setSort(Sort sort) {
-		this.sort = sort;
+	public void setSort(Type type) {
+		this.type = type;
 	}
 }

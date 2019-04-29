@@ -9,7 +9,7 @@ import com.jk1603.apple.admini.dao.AdminiSelectDao;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
-import com.jk1603.apple.admini.pojo.Sort;
+import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
 @Service
 public class AdminiSelectService implements AdminiSelectServiceInterface {
@@ -17,8 +17,8 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 	AdminiSelectDao adminiSelectdao;
 	
 	@Override
-	public List<Sort> getSort() {
-		List<Sort> allsort = adminiSelectdao.getSort();
+	public List<Type> getType() {
+		List<Type> allsort = adminiSelectdao.getType();
 		return allsort;
 	}
 

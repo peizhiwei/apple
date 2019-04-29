@@ -1,19 +1,19 @@
 package com.jk1603.apple.admini.pojo;
 
-public class Sort {
+public class Type {
 	private Integer id;
-	private String sortName;
+	private String typeName;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getSortName() {
-		return sortName;
+	public String getTypeName() {
+		return typeName;
 	}
-	public void setSortName(String sortName) {
-		this.sortName = sortName;
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 	
 }
