@@ -129,7 +129,7 @@
                     type:'POST',
                     async:false,
                     dataType:"json",
-                    url:"/apple/admini/outStore",
+                    url:"/apple/adminiinsert/outStore",
                     data:{"number":number,"name":name,"amount":amount,"date":date,"builder":builder},
                     success:function(result){
                         if(result.flag==true){

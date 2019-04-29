@@ -43,7 +43,7 @@
 		</div>
 	</nav>
 
-	<div class="container-fliud">
+	<div class="container-fliud" id="app">
 
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -94,25 +94,29 @@
 							class="form-control" id="price">
 					</div>
 					<div class="form-group">
-						<label for="specs"> 规格： </label> <input name="specs" type="text"
+						<label for="specs"> 规格： </label> <select name="specs" type="text"
 							class="form-control" id="specs">
+							 <option>4G+64G</option>
+							 <option>4G+128G</option>
+							 <option>6G+128G</option>
+							</select>
 					</div>
 					<div class="form-group">
 						<label for="amount"> 数量 ： </label> <input name="amount" type="text"
 							class="form-control" id="amount">
 					</div>
 					<div class="form-group">
-						<label for="sort"> 备注： </label> <input name="details" type="text"
+						<label for="sort"> 详情： </label> <input name="details" type="text"
 							class="form-control" id="details">
 					</div>
-
+					<!-- div class="form-group">
+                        <label for="sort"> 类别： </label> <select name="sort" type="text"
+                            class="form-control" id="sort" >
+                            <option v-for="i in sortlist">{{i.sortName}}</option>
+                            </select>
+                    </div -->
 					<div class="form-group">
-						<label for="details"> 商品详情图： </label> <input name="details" type="text"
-							class="form-control" id="details">
-					</div>
-					
-					<div class="form-group">
-						<input type="file" id="exampleInputFile">
+						<input type="file" id="imgfile">
 					</div>
 				</div>
 				<div class="col-xs-2 col-sm-3 col-md-3"></div>
@@ -120,11 +124,12 @@
 		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 	
 	<script type="text/javascript">
-	$(document).ready(function(){
+    $(document).ready(function(){
         $("#sure").click(function(){
         	var number = $("#number").val();
             var price = $("#price").val();
@@ -133,13 +138,13 @@
             var amount = $("#amount").val();
             var details = $("#details").val();
             if(number==""||price==""||specs==""||name==""||amount==""||details==""){
-            	alert("内容不能为空");
+                alert("内容不能为空");
             }else{
-            	$.ajax({
+                $.ajax({
                     type:'POST',
-                    async:false,
+                    async:true,
                     dataType:"json",
-                    url:"/apple/admini/addgoods",
+                    url:"/apple/adminiinsert/addgoods",
                     data:{"number":number,"name":name,"price":price,"specs":specs,"amount":amount,"details":details},
                     success:function(result){
                         if(result.flag==true){
@@ -151,9 +156,32 @@
                     }
                 });
             }
-        	 
         });
-    }); 
+        
+    });
+</script>
+	<script type="text/javascript">
+	var app = new Vue({
+        el : '#app',
+        data : {
+            sortlist:[]
+        },
+        mounted:function(){
+            this.getAllSort();
+        },
+        methods : {
+        	getAllSort : function(){
+                //发送get请求
+                this.$http.get(
+                        "http://localhost:8080/apple/adminiselect/getallsort").then(function(res) {
+                    this.sortlist = JSON.parse(res.bodyText);
+                    console.log(res);
+                }, function() {
+                    console.log('请求失败处理');
+                });
+            }
+       }
+	})
 	</script>
 </body>
 </html>

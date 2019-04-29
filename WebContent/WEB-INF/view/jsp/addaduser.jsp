@@ -118,7 +118,7 @@
 	                     type:'POST',
 	                     async:false,
 	                     dataType:"json",
-	                     url:"/apple/admini/addAdmini",
+	                     url:"/apple/adminiinsert/addAdmini",
 	                     data:{"adminiName":adminiName,"adPassword":adPassword,"adPassword2":adPassword2},
 	                     success:function(result){
 	                         if(result.flag==true){

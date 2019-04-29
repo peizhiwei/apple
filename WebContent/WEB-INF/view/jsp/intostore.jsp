@@ -61,19 +61,19 @@
             <div class="col-lg-1 col-sm-2 col-xs-3">
                 <div class="btn-group-vertical" role="group" aria-label="...">
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Goods'">商品</button>
+                        onclick="window.location.href='/apple/admini/goods'">商品</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/IntoStore'">入库</button>
+                        onclick="window.location.href='/apple/admini/intoStore'">入库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Stock'">库存</button>
+                        onclick="window.location.href='/apple/admini/stock'">库存</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/OutStore'">出库</button>
+                        onclick="window.location.href='/apple/admini/outStore'">出库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Management'">用户管理</button>
+                        onclick="window.location.href='/apple/admini/management'">用户管理</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
+                        onclick="window.location.href='/apple/admini/sort'">商品分类</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Statistics'">统计</button>
+                        onclick="window.location.href='/apple/admini/statistics'">统计</button>
                 </div>
             </div>
             <div class="col-lg-11 col-sm-10 col-xs-9">
@@ -244,7 +244,7 @@
             methods: {
                 getintostorelist: function (data) {
                     //发送get请求
-                    this.$http.get("http://localhost:8080/apple/admini/getintostore?number=" + this.inputNumber).then(function (res) {
+                    this.$http.get("http://localhost:8080/apple/adminiselect/getintostore?number=" + this.inputNumber).then(function (res) {
                         this.items = JSON.parse(res.bodyText);
 
                     }, function () {

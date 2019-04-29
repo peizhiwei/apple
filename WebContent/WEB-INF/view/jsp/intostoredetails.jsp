@@ -67,7 +67,7 @@
 				<div class="btn-group col-xs-6" role="group" aria-label=""></div>
 				<div class="col-xs-6 text-right">
 					<button type="button" class="btn btn-default"
-						onclick="window.location.href='/apple/admini/IntoStore'">
+						onclick="window.location.href='/apple/admini/intoStore'">
 						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>取消
 					</button>
 					<button type="button" class="btn btn-default" id="sure">
@@ -129,7 +129,7 @@
                     type:'POST',
                     async:false,
                     dataType:"json",
-                    url:"/apple/admini/intoStore",
+                    url:"/apple/adminiinsert/intoStore",
                     data:{"number":number,"name":name,"amount":amount,"date":date,"builder":builder},
                     success:function(result){
                         if(result.flag==true){

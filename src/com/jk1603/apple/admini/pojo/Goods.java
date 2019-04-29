@@ -15,6 +15,7 @@ public class Goods {
 	private boolean upshelf;// «∑Ò…œº‹
 	private Data date;
 	private String img;
+	private Sort sort;
 	public Integer getId() {
 		return id;
 	}
@@ -75,8 +76,10 @@ public class Goods {
 	public void setImg(String img) {
 		this.img = img;
 	}
-//	public String toString() {
-//		return "number="+number+",name="+name+",price="+price+",details="+details+",specs="+specs+",amount="+amount;
-//		
-//	}
+	public Sort getSort() {
+		return sort;
+	}
+	public void setSort(Sort sort) {
+		this.sort = sort;
+	}
 }
