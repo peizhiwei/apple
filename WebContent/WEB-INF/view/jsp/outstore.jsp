@@ -100,7 +100,7 @@
                     <div class="btn-group col-xs-6" role="group" aria-label="">
                     </div>
                     <div class="col-xs-6 text-right">
-                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/Outstoredetails'"><span class="glyphicon glyphicon-plus"
+                        <button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/outstoredetails'"><span class="glyphicon glyphicon-plus"
                                 aria-hidden="true"></span>新增</button>
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
                                 aria-hidden="true"></span>删除</button>
