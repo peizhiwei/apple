@@ -9,7 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>入库详情</title>
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 
@@ -39,7 +40,11 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false"><span class="glyphicon glyphicon-user"
-							aria-hidden="true"></span> <span class="caret"></span></a></li>
+							aria-hidden="true"></span> <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a
+								onclick="window.location.href='/apple/admini/backindex'">退出登录</a></li>
+						</ul></li>
 				</ul>
 			</div>
 		</div>
@@ -109,42 +114,60 @@
 			<div class="col-xs-2 col-sm-3 col-md-3"></div>
 		</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-	
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
 	<script type="text/javascript">
-	$(document).ready(function(){
-        $("#sure").click(function(){
-        	var number = $("#number").val();
-            var name = $("#name").val();
-            var amount = $("#amount").val();
-            var date = $("#date").val();
-            var builder = $("#builder").val();
-           
-            if(number==""||name==""||amount==""||date==""||builder==""){
-            	alert("内容不能为空");
-            }else{
-            	$.ajax({
-                    type:'POST',
-                    async:false,
-                    dataType:"json",
-                    url:"/apple/admini/intoStore",
-                    data:{"number":number,"name":name,"amount":amount,"date":date,"builder":builder},
-                    success:function(result){
-                        if(result.flag==true){
-                            alert("商品入库成功！");
-                            window.location.href = result.msg;
-                        }else{
-                            alert("商品入库失败！");
-                        }
-                    }
-                });
-            }
-        });
-    }); 
+		$(document)
+				.ready(
+						function() {
+							$("#sure")
+									.click(
+											function() {
+												var number = $("#number").val();
+												var name = $("#name").val();
+												var amount = $("#amount").val();
+												var date = $("#date").val();
+												var builder = $("#builder")
+														.val();
+
+												if (number == "" || name == ""
+														|| amount == ""
+														|| date == ""
+														|| builder == "") {
+													alert("内容不能为空");
+												} else {
+													$
+															.ajax({
+																type : 'POST',
+																async : false,
+																dataType : "json",
+																url : "/apple/admini/intoStore",
+																data : {
+																	"number" : number,
+																	"name" : name,
+																	"amount" : amount,
+																	"date" : date,
+																	"builder" : builder
+																},
+																success : function(
+																		result) {
+																	if (result.flag == true) {
+																		alert("商品入库成功！");
+																		window.location.href = result.msg;
+																	} else {
+																		alert("商品入库失败！");
+																	}
+																}
+															});
+												}
+											});
+						});
 	</script>
-	
+
 </body>
 
 </html>

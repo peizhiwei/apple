@@ -33,10 +33,15 @@
 							aria-hidden="true"></span><span class="badge">10</span></a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-envelope"
 							aria-hidden="true"></span><span class="badge">5</span></a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false"><span class="glyphicon glyphicon-user"
-							aria-hidden="true"></span> <span class="caret"></span></a></li>
+					<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"
+                                    aria-hidden="true"></span>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a onclick="window.location.href='/apple/admini/backindex'">退出登录</a></li>
+                            </ul>
+                        </li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
