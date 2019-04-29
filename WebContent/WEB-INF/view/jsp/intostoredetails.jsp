@@ -121,7 +121,6 @@
 	<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 
 	<script type="text/javascript">
-<<<<<<< HEAD
 	$(document).ready(function(){
         $("#sure").click(function(){
         	var number = $("#number").val();
@@ -151,53 +150,6 @@
             }
         });
     }); 
-=======
-		$(document)
-				.ready(
-						function() {
-							$("#sure")
-									.click(
-											function() {
-												var number = $("#number").val();
-												var name = $("#name").val();
-												var amount = $("#amount").val();
-												var date = $("#date").val();
-												var builder = $("#builder")
-														.val();
-
-												if (number == "" || name == ""
-														|| amount == ""
-														|| date == ""
-														|| builder == "") {
-													alert("内容不能为空");
-												} else {
-													$
-															.ajax({
-																type : 'POST',
-																async : false,
-																dataType : "json",
-																url : "/apple/admini/intoStore",
-																data : {
-																	"number" : number,
-																	"name" : name,
-																	"amount" : amount,
-																	"date" : date,
-																	"builder" : builder
-																},
-																success : function(
-																		result) {
-																	if (result.flag == true) {
-																		alert("商品入库成功！");
-																		window.location.href = result.msg;
-																	} else {
-																		alert("商品入库失败！");
-																	}
-																}
-															});
-												}
-											});
-						});
->>>>>>> branch 'master' of https://github.com/peizhiwei/apple.git
 	</script>
 
 </body>
