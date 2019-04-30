@@ -75,20 +75,49 @@
                         <h4 class="modal-title" id="myModalLabel">用户登录</h4>
                     </div>
                     <div class="modal-body">
-                        <div>用户名：<input type='text' value='' code='' class='admini_name form-control' /></div>
+                        <div>用户名：<input type='text' name="superadmininame" id="superadmininame" class='admini_name form-control' /></div>
                         <br />
-                        <div>密码：<input type='text' value='' code='' class='ad_password form-control' /></div><br />
+                        <div>密码：<input type='text' name="superadminipassword" id="superadminipassword" class='ad_password form-control' /></div><br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary">登录</button>
+                        <button type="button" class="btn btn-primary" id="login">登录</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-        <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+	        $("#login").click(function(){
+	             var superadmininame = $("#superadmininame").val();
+	             var superadminipassword = $("#superadminipassword").val();
+	             if(superadmininame==''||superadminipassword==''){
+	                 alert("用户名或密码为空");
+	             }else{
+	                 $.ajax({
+	                     type:'POST',
+	                     async:false,
+	                     dataType:"json",
+	                     url:"/apple/adminiselect/checkadminilogin",
+	                     data:{"superadmininame":superadmininame,"superadminipassword":superadminipassword},
+	                     success:function(result){
+	                         if(result.flag==true){
+	                        	 alert("登录成功");
+	                             window.location.href = result.msg;
+	                         }else{
+	                             alert(result.msg);
+	                         }
+	                     }
+	                 });
+	             }
+	            
+	        });
+	    }); 
+    </script>
 </body>
 </html>

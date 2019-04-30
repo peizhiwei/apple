@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jk1603.apple.admini.dao.AdminiSelectDao;
+import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
-import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.SuperAdmini;
+import com.jk1603.apple.admini.pojo.Type;
+
+
 @Service
 public class AdminiSelectService implements AdminiSelectServiceInterface {
 	@Autowired
@@ -70,5 +74,24 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		int id = adminiSelectdao.gettypeid(typeName);
 		return id;
 	}
+
+	@Override
+	public SuperAdmini checkAdminiLogin(String superadmininame,String superadminipassword) {
+		SuperAdmini superadmini = adminiSelectdao.findBySuperAdminiName(superadmininame);
+		if(superadmini!=null&&superadmini.getSuperAdminiPassword().equals(superadminipassword)) {
+			return superadmini;
+		}else {
+			return null;
+		}
+		
+	}
+
+	@Override
+	public List<Admini> getallAdmini() {
+		List<Admini> adminilist = adminiSelectdao.getallAdmini();
+		return adminilist;
+	}
+
+
 
 }

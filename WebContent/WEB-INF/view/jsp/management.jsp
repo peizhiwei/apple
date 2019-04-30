@@ -47,7 +47,7 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container-fliud">
+    <div class="container-fliud" id="app">
         <div class="col-lg-1 col-sm-2 col-xs-3">
             <div class="btn-group-vertical" role="group" aria-label="...">
                 <button type="button"
@@ -105,16 +105,18 @@
                     <table class="table table-striped table-bordered table-hover" id="mydiv">
                         <thead>
                             <tr>
+                                <th><input type="checkbox" id="checkAll" name="checkAll" /></th>
                                 <th>ID</th>
                                 <th>用户名</th>
                                 <th>用户密码</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="i in items">
+                            <tr v-for="i in adminList">
+                                <td><input type="checkbox"></td>
                                 <td>{{i.id}}</td>
-                                <td>{{i.admini_name}}</td>
-                                <td>{{i.ad_password}}</td>
+                                <td>{{i.adminiName}}</td>
+                                <td>{{i.adminiPassword}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -124,12 +126,13 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
     <script>
         $(function () {
             function initTableCheckbox() {
                 var $thr = $('table thead tr');
-                var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
+                //var $checkAllTh = $('<th><input type="checkbox" id="checkAll" name="checkAll" /></th>');
                 /*将全选/反选复选框添加到表头最前，即增加一列*/
                 $thr.prepend($checkAllTh);
                 /*“全选/反选”复选框*/
@@ -153,7 +156,7 @@
                 var $tbr = $('table tbody tr');
                 var $checkItemTd = $('<td><input type="checkbox" name="checkItem" /></td>');
                 /*每一行都在最前面插入一个选中复选框的单元格*/
-                $tbr.prepend($checkItemTd);
+                //$tbr.prepend($checkItemTd);
                 /*点击每一行的选中复选框时*/
                 $tbr.find('input').click(function (event) {
                     /*调整选中行的CSS样式*/
@@ -172,16 +175,21 @@
     </script>
     <script>
         var app = new Vue({
-            el: '#mydiv',
+            el: '#app',
             data: {
-
-                items: [
-                    {
-                        id: '01',
-                        admini_name: 'Mark',
-                        ad_password: '2116110111'
-                    }
-                ]
+                adminList: []
+            },
+            mounted:function(){
+            	this.getadminiList();
+            },
+            methods:{
+            	getadminiList: function(){
+            		this.$http.get("http://localhost:8080/apple/adminiselect/getalladmini").then(function(res){
+                        this.adminList = JSON.parse(res.bodyText);
+                    },function(){
+                        console.log('请求失败处理');
+                    });
+            	}
             }
 
         })

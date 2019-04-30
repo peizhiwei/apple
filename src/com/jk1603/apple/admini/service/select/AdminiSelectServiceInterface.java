@@ -2,11 +2,13 @@ package com.jk1603.apple.admini.service.select;
 
 import java.util.List;
 
+import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.SuperAdmini;
 
 public interface AdminiSelectServiceInterface {
 	//≤È—Ø∑÷¿‡
@@ -22,4 +24,8 @@ public interface AdminiSelectServiceInterface {
 	int getgoodsmaxid();
 	
 	int gettypeid(String typeName);
+	
+	SuperAdmini checkAdminiLogin(String superadmininame,String superadminipassword);
+	
+	List<Admini> getallAdmini();
 }

@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
+import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
+import com.jk1603.apple.user.pojo.ajaxresponse;
 
 @Controller
 @RequestMapping("/adminiselect")
@@ -83,5 +86,27 @@ public class AdminiSelectController {
 	public List<Outstore> getOutstore(String number){
 		List<Outstore> listous = adminiSelectservice.getOutstore(number);
 		return  listous;
+	}
+	//验证超级管理员的登录
+	@RequestMapping("checkadminilogin")
+	@ResponseBody
+	public ajaxresponse checkAdminiLogin(String superadmininame,String superadminipassword) {
+		SuperAdmini superadmini = adminiSelectservice.checkAdminiLogin(superadmininame, superadminipassword);
+		ajaxresponse rs = new ajaxresponse();
+		if(superadmini!=null) {
+			rs.setFlag(true);
+			rs.setMsg("/apple/admini/backindex");
+		}else {
+			rs.setFlag(false);
+			rs.setMsg("登录失败");
+		}
+		return rs;
+	}
+	//查询所有普通管理员用户
+	@RequestMapping("/getalladmini")
+	@ResponseBody
+	public List<Admini> getallAdmini(){
+		List<Admini> adminilist = adminiSelectservice.getallAdmini();
+		return adminilist;
 	}
 }

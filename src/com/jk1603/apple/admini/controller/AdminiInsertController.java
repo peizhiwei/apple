@@ -115,7 +115,7 @@ public class AdminiInsertController {
 			 {
 	     Admini admini = new Admini();
 	     admini.setAdminiName(adminiName);
-	     admini.setAdPassword(adPassword1);
+	     admini.setAdminiPassword(adPassword1);
 	     adminiinsertservice.addAdmini(admini);
 	     ajaxresponse ajaxadmini = new ajaxresponse();
 	     ajaxadmini.setFlag(true);

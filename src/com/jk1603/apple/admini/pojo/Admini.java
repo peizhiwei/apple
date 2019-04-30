@@ -3,7 +3,7 @@ package com.jk1603.apple.admini.pojo;
 public class Admini {
 	private Integer id;
 	private String adminiName;
-	private String adPassword;
+	private String adminiPassword;
 	public Integer getId() {
 		return id;
 	}
@@ -16,10 +16,11 @@ public class Admini {
 	public void setAdminiName(String adminiName) {
 		this.adminiName = adminiName;
 	}
-	public String getAdPassword() {
-		return adPassword;
+	public String getAdminiPassword() {
+		return adminiPassword;
 	}
-	public void setAdPassword(String adPassword) {
-		this.adPassword = adPassword;
+	public void setAdminiPassword(String adminiPassword) {
+		this.adminiPassword = adminiPassword;
 	}
+
 }
