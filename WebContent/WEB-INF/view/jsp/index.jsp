@@ -144,10 +144,108 @@
                     <a class="carousel-control right" href="#myCarousel" data-slide="next"><span _ngcontent-c3=""
                             aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
+                <div>
+                        <ul id="myTab" class="nav nav-tabs" style="float:none;text-align:center;">
+                            <li class="active" style="float:none;display:inline-block;margin:0em;margin:0px 80px;">
+                                <a href="#Mac" data-toggle="tab">
+                                    Mac
+                                </a>
+                            </li>
+                            <li style="float:none;display:inline-block;margin:0em;margin:0px 80px;"><a href="#iPad" data-toggle="tab">iPad</a></li>
+                            <li style="float:none;display:inline-block;margin:0em;margin:0px 80px;"><a href="#iPhone" data-toggle="tab">iPhone</a></li>
+                            <li style="float:none;display:inline-block;margin:0em;margin:0px 80px;"><a href="#Watch" data-toggle="tab">Watch</a></li>
+                        </ul>
+                    <div id="myTabContent" class="tab-content" v-for="details in detailslist">
+                            <div class="tab-pane fade in active col-xs-6 text-center" id="Mac" >
+                                <a class="size2"
+		                            style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
+		                            <img alt="" v-bind:src="details.img">
+		                        </a>
+		                        <a class="size2" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
+		                            <h3>{{details.name}}</h3>
+		                        </a>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> 
+		                        <font color="red">
+		                                <h4>￥{{details.price}}</h4>
+		                        </font>
+		                        </a>
+                            </div>
+                            <div class="tab-pane fade col-xs-6 text-center" id="iPad">
+                                <a class="size2"
+		                            style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
+		                            <img alt="" v-bind:src="details.img">
+		                        </a>
+		                        <a class="size2" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
+		                            <h3>{{details.name}}</h3>
+		                        </a>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> 
+		                        <font color="red">
+		                                <h4>￥{{details.price}}</h4>
+		                        </font>
+		                        </a>
+                            </div>
+                            <div class="tab-pane fade col-xs-6 text-center" id="iPhone">
+                                <a class="size2"
+		                            style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
+		                            <img alt="" v-bind:src="details.img">
+		                        </a>
+		                        <a class="size2" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
+		                            <h3>{{details.name}}</h3>
+		                        </a>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> 
+		                        <font color="red">
+		                                <h4>￥{{details.price}}</h4>
+		                        </font>
+		                        </a>
+                            </div>
+                            <div class="tab-pane fade col-xs-6 text-center" id="Watch">
+                                <a class="size2"
+		                            style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
+		                            <img alt="" v-bind:src="details.img">
+		                        </a>
+		                        <a class="size2" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
+		                            <h3>{{details.name}}</h3>
+		                        </a>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
+		                        </a><br>
+		                        <a onclick="window.location.href='/apple/user/details'"
+		                            style="text-decoration: none;"> 
+		                        <font color="red">
+		                                <h4>￥{{details.price}}</h4>
+		                        </font>
+		                        </a>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
 
-        <div class="row size1">
+        <div class="row size1" hidden="hidden">
                     <div class="col-xs-6 text-center" v-for="details in detailslist">
                         <a class="size2"
                             style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
