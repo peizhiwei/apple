@@ -15,7 +15,7 @@ public class Goods {
 	private String details;//商品详情
 	private int amount;//库存
 	private boolean upshelf;//是否上架
-	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	private Date date;
 	private String img;
 	private Type type;

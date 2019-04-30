@@ -47,8 +47,7 @@ public class AdminiInsertController {
 						 @RequestParam(value = "specs",required = false) String specs,
 						 @RequestParam(value = "amount",required = false) int amount,
 						 @RequestParam(value = "details",required = false) String details,
-						 @RequestParam(value = "typename",required = false) String typename
-						 ) {
+						 @RequestParam(value = "typename",required = false) String typename) {
 		Goods goods = new Goods();
 		goods.setNumber(number);
 		goods.setName(name);
@@ -56,7 +55,8 @@ public class AdminiInsertController {
 		goods.setSpecs(specs);
 		goods.setAmount(amount);
 		goods.setDetails(details);
-		
+		//获取系统当前日期
+		goods.setDate(new Date());
 		Type type = new Type();
 		type.setId(adminiselectservice.gettypeid(typename));
 		goods.setType(type);

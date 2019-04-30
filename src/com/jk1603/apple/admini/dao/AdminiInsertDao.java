@@ -12,9 +12,9 @@ import com.jk1603.apple.admini.pojo.Type;
 public interface AdminiInsertDao {
 	//添加商品
 	@Update("INSERT INTO goods (`name`,`price`,`number`,\r\n" + 
-			"`specs`,`details`,`amount`,`upshelf`,`type_id`)\r\n" + 
+			"`specs`,`details`,`amount`,`upshelf`,`type_id`,`date`)\r\n" + 
 			"VALUES(#{name},#{price},#{number},\r\n" + 
-			"#{specs},#{details},#{amount},#{upshelf},#{type.id})")
+			"#{specs},#{details},#{amount},#{upshelf},#{type.id},#{date})")
 	void addGoods(Goods goods);
 	//添加后台用户
 	@Update("INSERT INTO `admini`(`admini_name`, `ad_password`) VALUES (#{adminiName}, #{adPassword})")
