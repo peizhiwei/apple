@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -90,10 +92,11 @@ public class AdminiSelectController {
 	//验证超级管理员的登录
 	@RequestMapping("checkadminilogin")
 	@ResponseBody
-	public ajaxresponse checkAdminiLogin(String superadmininame,String superadminipassword) {
+	public ajaxresponse checkAdminiLogin(String superadmininame,String superadminipassword,HttpServletRequest request) {
 		SuperAdmini superadmini = adminiSelectservice.checkAdminiLogin(superadmininame, superadminipassword);
 		ajaxresponse rs = new ajaxresponse();
 		if(superadmini!=null) {
+			request.getSession().setAttribute("superadmini", superadmini);
 			rs.setFlag(true);
 			rs.setMsg("/apple/admini/backindex");
 		}else {

@@ -50,7 +50,7 @@ public interface AdminiSelectDao {
 	@Select("SELECT MAX(id) FROM goods")
 	int getgoodsmaxid();
 	//通过用户名查询该超级管理员是否存在
-	@Select("SELECT super_admini_name as superAdminiName,super_admini_password as superAdminiPassword FROM superadmini "
+	@Select("SELECT id, super_admini_name as superAdminiName,super_admini_password as superAdminiPassword FROM superadmini "
 			+ "WHERE super_admini_name=#{superAdminiName}")
 	SuperAdmini findBySuperAdminiName(String superadmininame);
 	//查询所有普通管理员用户
