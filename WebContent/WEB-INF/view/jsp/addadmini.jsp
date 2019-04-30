@@ -57,7 +57,9 @@
 					<a class="navbar-brand"><span class="glyphicon glyphicon-globe"
 						aria-hidden="true"></span><b>新增用户</b></a>
 				</div>
+				</div>
 		</nav>
+		</div>
 		<div>
 			<div class="btn-group col-xs-6" role="group" aria-label=""></div>
 			<div class="col-xs-6 text-right">
