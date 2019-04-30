@@ -46,6 +46,8 @@
     <div class="container-fliud">
         <div class="col-lg-1 col-sm-2 col-xs-3">
             <div class="btn-group-vertical" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" style="height:50px;width:100px"
+                    onclick="window.location.href='/apple/admini/backindex'">首页</button>
                 <button type="button" class="btn btn-default" style="height:50px;width:100px"
                     onclick="window.location.href='/apple/admini/goods'">商品</button>
                 <button type="button" class="btn btn-default" style="height:50px;width:100px"
