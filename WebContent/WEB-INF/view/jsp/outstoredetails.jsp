@@ -77,7 +77,7 @@
 					</button>
 					<button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/outStore'" id="sure"> 
 						<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>确认
-					</button>
+					 </button>
 				</div>
 			</div>
 			&nbsp;&nbsp;
