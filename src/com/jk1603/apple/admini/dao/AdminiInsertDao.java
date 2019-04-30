@@ -2,6 +2,7 @@ package com.jk1603.apple.admini.dao;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
@@ -16,9 +17,7 @@ public interface AdminiInsertDao {
 			"VALUES(#{name},#{price},#{number},\r\n" + 
 			"#{specs},#{details},#{amount},#{upshelf},#{type.id},#{date})")
 	void addGoods(Goods goods);
-	//添加后台用户
-	@Update("INSERT INTO `admini`(`admini_name`, `ad_password`) VALUES (#{adminiName}, #{adPassword})")
-	void addAdmini(Admini ad);
+
 	//商品出库
 	@Update("INSERT INTO `outstore_goods` (`ck_number`, `name`, `total`, `date`, `builder` )\r\n" + 
 				"VALUES(#{ckNumber}, #{name}, #{amount}, #{date}, #{builder})")
@@ -29,4 +28,6 @@ public interface AdminiInsertDao {
 			"VALUES\r\n" + 
 			"	(#{rkNumber}, #{name}, #{amount}, #{date}, #{builder})")
 	void intoStore(Intostore ins);
+	@Update("INSERT INTO admini (`admini_name`, `admini_password`) VALUES (#{adminiName},#{adminiPassword})")
+	void addAdmini(Admini admini);
 }

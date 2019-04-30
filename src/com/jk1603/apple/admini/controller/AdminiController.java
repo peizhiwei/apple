@@ -57,9 +57,9 @@ public class AdminiController {
 	public String sort() {
 		return "sort";
 	}
-	@RequestMapping("/addad")
+	@RequestMapping("/addadmini")
 	public String addad() {
-		return "addaduser";
+		return "addadmini";
 	}
 
 }
