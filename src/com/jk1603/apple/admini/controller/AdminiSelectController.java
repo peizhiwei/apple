@@ -1,12 +1,19 @@
 package com.jk1603.apple.admini.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
@@ -20,6 +27,13 @@ import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
 public class AdminiSelectController {
 	@Autowired
 	AdminiSelectServiceInterface adminiSelectservice;
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder, WebRequest request) {
+		//转换日期
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为自定义日期编辑器
+	}
 	
 	@RequestMapping("getallType")
 	@ResponseBody
@@ -38,9 +52,7 @@ public class AdminiSelectController {
 	@RequestMapping("/getallgoods")
 	@ResponseBody
 	public List<Goods> getallGoods(){
-
 		List<Goods> listallgoods = adminiSelectservice.getallGoods();
-		System.out.println(listallgoods);
 		return listallgoods;
 		
 	}

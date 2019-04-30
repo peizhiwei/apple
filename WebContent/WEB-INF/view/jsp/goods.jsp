@@ -166,6 +166,7 @@
 									<th>数量</th>
 									<th>分类</th>
 									<th>图片</th>
+									<th>最后修改日期</th>
 									<th>状态</th>
 								</tr>
 							</thead>
@@ -191,6 +192,7 @@
 									<td>{{g.amount}}</td>
 									<td>{{g.type==null?'无分类':g.type.typeName}}</td>
 									<td><img alt="" :src="g.img" style="heigth:100px;width:100px;"></td>
+								    <td>{{g.date}}</td>
 								    <td v-if="g.upshelf==0">下架</td>
 								    <td v-else>上架</td>
 								</tr>
@@ -232,7 +234,7 @@
 							class='details form-control' />
 					</div>
 					<br />
-					<div>
+					<div style="width:1px;">
 						规格：<input type='text' value='' code='' class='specs form-control' />
 					</div>
 					<br />
@@ -274,7 +276,6 @@
 					//发送get请求
 					this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
 						this.goodsalldetails = JSON.parse(res.bodyText);
-						
 						console.log(res);
 					}, function() {
 						console.log('请求失败处理');

@@ -12,8 +12,7 @@ import com.jk1603.apple.admini.pojo.Stock;
 
 public interface AdminiSelectDao {
 	//查询商品
-	@Select("SELECT `id`,`name`,`price`,`number`,`specs`,"
-			+ "`amount`,`details` FROM goods WHERE `number`= #{number}")
+	@Select("SELECT * FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
 	//查询分类
 	@Select("SELECT id,type_name as typeName FROM type")

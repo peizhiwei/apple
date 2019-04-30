@@ -1,8 +1,10 @@
 package com.jk1603.apple.admini.pojo;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
-import com.mysql.fabric.xmlrpc.base.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 public class Goods {
 	private Integer id;
@@ -13,7 +15,8 @@ public class Goods {
 	private String details;//商品详情
 	private int amount;//库存
 	private boolean upshelf;//是否上架
-	private Data date;
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+	private Date date;
 	private String img;
 	private Type type;
 	public Integer getId() {
@@ -64,12 +67,7 @@ public class Goods {
 	public void setUpshelf(boolean upshelf) {
 		this.upshelf = upshelf;
 	}
-	public Data getDate() {
-		return date;
-	}
-	public void setDate(Data date) {
-		this.date = date;
-	}
+
 	public String getImg() {
 		return img;
 	}
@@ -81,6 +79,12 @@ public class Goods {
 	}
 	public void setType(Type type) {
 		this.type = type;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }
