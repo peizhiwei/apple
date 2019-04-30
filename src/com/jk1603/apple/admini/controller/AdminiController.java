@@ -108,5 +108,10 @@ public class AdminiController {
 		}
 		return "addadmini";
 	}
+	@RequestMapping("/shoppingcart")
+	public String shoppingcart(HttpSession session) {
+		
+		return "shoppingcart";
+	}
 
 }
