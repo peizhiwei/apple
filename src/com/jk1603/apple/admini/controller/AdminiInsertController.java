@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -62,7 +62,7 @@ public class AdminiInsertController {
 		goods.setType(type);
 		adminiinsertservice.addGoods(goods);
 		ajaxresponse ajaxgoods = new ajaxresponse();
-		ajaxgoods.setFlag(true);
+		ajaxgoods.setFlag(true); 
 		ajaxgoods.setMsg("/apple/admini/goods");
 		return ajaxgoods;
 	}

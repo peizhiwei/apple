@@ -76,10 +76,21 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 	}
 
 	@Override
-	public SuperAdmini checkAdminiLogin(String superadmininame,String superadminipassword) {
+	public SuperAdmini checkSuperAdminiLogin(String superadmininame,String superadminipassword) {
 		SuperAdmini superadmini = adminiSelectdao.findBySuperAdminiName(superadmininame);
 		if(superadmini!=null&&superadmini.getSuperAdminiPassword().equals(superadminipassword)) {
 			return superadmini;
+		}else {
+			return null;
+		}
+		
+	}
+	
+	@Override
+	public Admini checkAdminiLogin(String admininame,String adminipassword) {
+		Admini admini = adminiSelectdao.findByAdminiName(admininame);
+		if(admini!=null&&admini.getAdminiPassword().equals(adminipassword)) {
+			return admini;
 		}else {
 			return null;
 		}

@@ -1,14 +1,14 @@
 package com.jk1603.apple.admini.dao;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.apache.ibatis.annotations.Update;
-import org.springframework.web.bind.annotation.PutMapping;
+
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
-import com.jk1603.apple.admini.pojo.Type;
+
 
 public interface AdminiInsertDao {
 	//添加商品
@@ -28,6 +28,7 @@ public interface AdminiInsertDao {
 			"VALUES\r\n" + 
 			"	(#{rkNumber}, #{name}, #{amount}, #{date}, #{builder})")
 	void intoStore(Intostore ins);
+	//添加管理员
 	@Update("INSERT INTO admini (`admini_name`, `admini_password`) VALUES (#{adminiName},#{adminiPassword})")
 	void addAdmini(Admini admini);
 }

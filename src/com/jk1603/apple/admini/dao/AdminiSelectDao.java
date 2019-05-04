@@ -3,15 +3,14 @@ package com.jk1603.apple.admini.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
-import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
+import com.jk1603.apple.admini.pojo.Type;
 
 public interface AdminiSelectDao {
 	//查询商品
@@ -53,6 +52,10 @@ public interface AdminiSelectDao {
 	@Select("SELECT id, super_admini_name as superAdminiName,super_admini_password as superAdminiPassword FROM superadmini "
 			+ "WHERE super_admini_name=#{superAdminiName}")
 	SuperAdmini findBySuperAdminiName(String superadmininame);
+	//通过用户名查询该管理员是否存在
+	@Select("SELECT id, admini_name as adminiName,admini_password as adminiPassword FROM admini "
+			+ "WHERE admini_name=#{adminiName}")
+	Admini findByAdminiName(String admininame);
 	//查询所有普通管理员用户
 	@Select("SELECT id, admini_name as adminiName,admini_password as adminiPassword FROM admini")
 	List<Admini> getallAdmini();

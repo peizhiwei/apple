@@ -213,28 +213,28 @@
 				</div>
 				<div class="modal-body">
 					<div>
-						编号：<input type='text' value='' code='' class='number form-control' />
+						编号：<input type='text' id="goodCode" value='' code='' class='number form-control' />
 					</div>
 					<br />
 					<div>
-						商品名称：<input type='text' value='' code='' class='name form-control' />
+						商品名称：<input type='text' id='goodName' value='' code='' class='name form-control' />
 					</div>
 					<br />
 					<div>
-						价格：<input type='text' value='' code='' class='price form-control' />
+						价格：<input type='text' id='goodPrice' value='' code='' class='price form-control' />
 					</div>
 					<br />
 					<div>
-						详情：<input type='text' value='' code=''
+						详情：<input type='text' id='goodDetail' value='' code=''
 							class='details form-control' />
 					</div>
 					<br />
-					<div style="width:1px;">
-						规格：<input type='text' value='' code='' class='specs form-control' />
+					<div>
+						规格：<input type='text' id='goodSize' value='' code='' class='specs form-control' />
 					</div>
 					<br />
 					<div>
-						数量：<input type='text' value='' code='' class='amount form-control' />
+						数量：<input type='text' id='goodNum' value='' code='' class='amount form-control' />
 					</div>
 					<br />
 				</div>
@@ -252,6 +252,7 @@
 	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 	
+
 	<script type="text/javascript">
 	
 	var app = new Vue({

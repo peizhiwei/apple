@@ -85,7 +85,7 @@
 							style="float: none; text-align: center;">
 							<li
 								style="float: none; display: inline-block; margin: 0em; margin: 0px 60px;"><a
-								href="#" onclick="window.location.href='/apple/user/index'">
+								href="#" onclick="window.location.href='/apple/user/userindex'">
 									<font color="white">首页</font>
 							</a></li>
 							<li

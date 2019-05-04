@@ -90,13 +90,14 @@ public class AdminiSelectController {
 		return  listous;
 	}
 	//验证超级管理员的登录
-	@RequestMapping("checkadminilogin")
+	@RequestMapping("/checksuperadminilogin")
 	@ResponseBody
-	public ajaxresponse checkAdminiLogin(String superadmininame,String superadminipassword,HttpServletRequest request) {
-		SuperAdmini superadmini = adminiSelectservice.checkAdminiLogin(superadmininame, superadminipassword);
+	public ajaxresponse checkSuperAdminiLogin(String superadmininame,String superadminipassword,HttpServletRequest request) {
+		SuperAdmini superadmini = adminiSelectservice.checkSuperAdminiLogin(superadmininame, superadminipassword);
 		ajaxresponse rs = new ajaxresponse();
 		if(superadmini!=null) {
 			request.getSession().setAttribute("superadmini", superadmini);
+			request.getSession().setAttribute("admini", null);
 			rs.setFlag(true);
 			rs.setMsg("/apple/admini/backindex");
 		}else {
@@ -104,6 +105,24 @@ public class AdminiSelectController {
 			rs.setMsg("登录失败");
 		}
 		return rs;
+	}
+	//验证管理员的登录
+	@RequestMapping("/checkadminilogin")
+	@ResponseBody
+	public ajaxresponse checkAdminiLogin(String admininame,String adminipassword,HttpServletRequest request) {
+		Admini admini = adminiSelectservice.checkAdminiLogin(admininame, adminipassword);
+		ajaxresponse rs = new ajaxresponse();
+		if(admini!=null) {
+			request.getSession().setAttribute("admini", admini);
+			request.getSession().setAttribute("superadmini", null);
+			rs.setFlag(true);
+			rs.setMsg("/apple/admini/backindex");
+		}else {
+			rs.setFlag(false);
+			rs.setMsg("登录失败");
+		}
+		return rs;
+		
 	}
 	//查询所有普通管理员用户
 	@RequestMapping("/getalladmini")

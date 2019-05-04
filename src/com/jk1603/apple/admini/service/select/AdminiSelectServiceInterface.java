@@ -25,7 +25,9 @@ public interface AdminiSelectServiceInterface {
 	
 	int gettypeid(String typeName);
 	
-	SuperAdmini checkAdminiLogin(String superadmininame,String superadminipassword);
+	SuperAdmini checkSuperAdminiLogin(String superadmininame,String superadminipassword);
+	
+	Admini checkAdminiLogin(String admininame,String adminipassword);
 	
 	List<Admini> getallAdmini();
 }

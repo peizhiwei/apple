@@ -22,5 +22,4 @@ public class SuperAdmini {
 	public void setSuperAdminiPassword(String superAdminiPassword) {
 		this.superAdminiPassword = superAdminiPassword;
 	}
-	
 }
