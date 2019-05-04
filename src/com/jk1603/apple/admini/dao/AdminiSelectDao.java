@@ -28,7 +28,9 @@ public interface AdminiSelectDao {
 			"LEFT JOIN type t on g.type_id=t.id")
 	List<Goods> getallGoods();
 	//查询商品显示到index页面上
-	@Select("SELECT `name`,`specs`,`details`,`price`,`img` FROM goods")
+	@Select("SELECT g.`name`,g.`specs`,g.`details`,g.`price`,g.`img`,t.type_name as `type.typeName`"
+			+ " FROM goods g "
+			+ "LEFT JOIN type t on g.type_id=t.id")
 	List<Goods> getGoodstoindex();
 	
 	//查询商品出库详情
