@@ -192,7 +192,7 @@
 		</div>
 
 		<div class="row size1">
-			<div class="col-xs-6 text-center" v-for="details in detailslist">
+			<div class="col-xs-6 text-center" v-for="details in detailslist" v-if="details.upshelf==1">
 				<a href="https://item.jd.com/100001860773.html" class="size2"
 					style="text-decoration: none;"> <img alt=""
 					v-bind:src="details.img">
@@ -231,7 +231,7 @@
 			methods : {
 				//发送get请求
 				get : function() {
-					this.$http.get("http://localhost:8080/apple/adminiselect/getgooodstoindex").then(function(res) {
+					this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
 						this.detailslist = JSON.parse(res.bodyText);
 					}, function() {
 						console.log('请求失败处理');

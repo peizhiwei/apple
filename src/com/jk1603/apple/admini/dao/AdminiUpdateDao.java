@@ -15,4 +15,11 @@ public interface AdminiUpdateDao {
 	//上传商品图片
 	@Update("UPDATE goods SET img=#{img} WHERE id=#{id}")
 	void setGoodsImg(Goods goods);
+	
+	//控制商品上架
+	@Update("UPDATE goods SET upshelf=true WHERE id=#{id}")
+	void setUpshelf(int id);
+	//控制商品上架
+	@Update("UPDATE goods SET upshelf=false WHERE id=#{id}")
+	void setDownshelf(int id);
 }

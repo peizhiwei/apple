@@ -21,5 +21,13 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 	public void setGoodsImg(Goods goods) {
 		adminiupdatedao.setGoodsImg(goods);
 	}
+	@Override
+	public void setUpshelf(int id) {
+		adminiupdatedao.setUpshelf(id);
+	}
+	@Override
+	public void setDownshelf(int id) {
+		adminiupdatedao.setDownshelf(id);
+	}
 
 }

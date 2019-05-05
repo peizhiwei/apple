@@ -9,4 +9,8 @@ public interface AdminiUpdateServiceInterface {
 	List<Goods> setGoods(String number);
 	//上传商品图片
 	void setGoodsImg(Goods goods);
+	//上架
+	void setUpshelf(int id);
+	//下架
+	void setDownshelf(int id);
 }

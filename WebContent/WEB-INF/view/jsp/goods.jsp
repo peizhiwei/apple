@@ -141,9 +141,6 @@
 								<span class="glyphicon glyphicon-search" aria-hidden="true"
 									name="search"></span>搜索
 							</button>
-							<button type="submit" class="btn btn-default">
-								<span class="glyphicon glyphicon-random" aria-hidden="true"></span>清空搜索条件
-							</button>
 						</form>
 					</div>
 					&nbsp;&nbsp;
@@ -163,6 +160,7 @@
 									<th>图片</th>
 									<th>最后修改日期</th>
 									<th>状态</th>
+									<th>操作</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -178,7 +176,7 @@
 								</tr -->
 								<tr v-for="g in goodsalldetails">
 									<td><input type="checkbox" v-model='checkList'
-										:value="g.id"></td>
+										:value="g.id" id="goodsid"></td>
 									<td>{{g.number}}</td>
 									<td>{{g.name}}</td>
 									<td>{{g.price}}</td>
@@ -190,6 +188,8 @@
 								    <td>{{g.date}}</td>
 								    <td v-if="g.upshelf==0">下架</td>
 								    <td v-else>上架</td>
+								    <td v-if="g.upshelf==0"><button type="button" @click="upshelf(g.id)">上架</button></td>
+								    <td v-else><button type="button" @click="downshelf(g.id)">下架</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -254,7 +254,6 @@
 	
 
 	<script type="text/javascript">
-	
 	var app = new Vue({
 			el : '#app',
 			data : {
@@ -279,12 +278,27 @@
 				},
 				getlist : function(data) {
 					//发送get请求
-					this.$http.get(
-							"http://localhost:8080/apple/adminiselect/getgoods?number="+ this.inputNumber).then(function(res) {
+					this.$http.get("http://localhost:8080/apple/adminiselect/getgoods?number="+ this.inputNumber).then(function(res) {
 						this.items = JSON.parse(res.bodyText);
 					}, function() {
 						console.log('请求失败处理');
 					});
+				},
+				upshelf : function(id){
+					this.$http.post("http://localhost:8080/apple/adminiupdate/upshelf?id="+id).then(function(res){
+						alert("修改成功");
+						app.getAllGoodsdetails();
+					},function(){
+						console.log("请求失败处理");
+					});
+				},
+				downshelf : function(id){
+					this.$http.post("http://localhost:8080/apple/adminiupdate/downshelf?id="+id).then(function(res){
+                        console.log("修改成功"); 
+                        app.getAllGoodsdetails();
+                    },function(){
+                        console.log("请求失败处理");
+                    }); 
 				},
 				checkedAll : function() {
 					var che = this;
@@ -313,7 +327,6 @@
 			}
 		});
 	</script>
-	
 </body>
 
 </html>

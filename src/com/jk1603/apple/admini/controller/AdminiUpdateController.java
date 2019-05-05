@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
 import com.jk1603.apple.admini.service.update.AdminiUpdateServiceInterface;
+import com.jk1603.apple.user.pojo.ajaxresponse;
 @Controller
 @RequestMapping("/adminiupdate")
 public class AdminiUpdateController {
@@ -54,5 +55,23 @@ public class AdminiUpdateController {
             return "error";
         }
         return "upload success";
+	}
+	//上架
+	@RequestMapping("/upshelf")
+	public ajaxresponse upshelf(int id) {
+		adminiupdateservice.setUpshelf(id);
+		ajaxresponse rs = new ajaxresponse();
+		rs.setFlag(true);
+		rs.setMsg("成功");
+		return rs;
+	}
+	//下架
+	@RequestMapping("/downshelf")
+	public ajaxresponse setdownshelf(int id) {
+		adminiupdateservice.setDownshelf(id);
+		ajaxresponse rs = new ajaxresponse();
+		rs.setFlag(true);
+		rs.setMsg("成功");
+		return rs;
 	}
 }

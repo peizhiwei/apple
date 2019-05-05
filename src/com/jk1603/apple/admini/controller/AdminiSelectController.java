@@ -75,13 +75,13 @@ public class AdminiSelectController {
 		List<Intostore> listis = adminiSelectservice.getIntostore(number);
 		return listis;
 	}
-	//查询商品显示到index页面上
-	@RequestMapping("/getgooodstoindex")
-	@ResponseBody
-	public List<Goods> getGoodstoindex(Model m){
-		List<Goods> goodsList = adminiSelectservice.getGoodstoindex();
-		return goodsList;
-	}
+//	//查询商品显示到index页面上
+//	@RequestMapping("/getgooodstoindex")
+//	@ResponseBody
+//	public List<Goods> getGoodstoindex(Model m){
+//		List<Goods> goodsList = adminiSelectservice.getGoodstoindex();
+//		return goodsList;
+//	}
 	//查询商品出库详情
 	@RequestMapping("/getoutstore")
 	@ResponseBody

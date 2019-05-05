@@ -25,12 +25,12 @@ public interface AdminiSelectDao {
 	
 	//遍历数据库将商品信息展示在前端页面
 	@Select("SELECT g.*,t.type_name as 'type.typeName' FROM goods g\r\n" + 
-			"LEFT JOIN type t on g.type_id=t.id")
+			"LEFT JOIN type t on g.type_id=t.id ORDER BY g.date")
 	List<Goods> getallGoods();
 	//查询商品显示到index页面上
-	@Select("SELECT g.`name`,g.`specs`,g.`details`,g.`price`,g.`img`,t.type_name as `type.typeName`"
+	@Select("SELECT g.*,t.type_name as `type.typeName`"
 			+ " FROM goods g "
-			+ "LEFT JOIN type t on g.type_id=t.id")
+			+ "LEFT JOIN type t on g.type_id=t.id ORDER BY g.date")
 	List<Goods> getGoodstoindex();
 	
 	//查询商品出库详情
