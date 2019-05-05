@@ -36,7 +36,18 @@ public class AdminiUpdateController {
 	@ResponseBody
 	public String userimgupload(MultipartHttpServletRequest filesRequest) {
         String root = filesRequest.getServletContext().getRealPath("img")+"\\";
-        
+        //判断文件目录是否存在，如果不存在则创建一个目录
+        File Folder = new File(root);
+        if(Folder.exists()) {
+        	if(Folder.isDirectory()) {
+        		System.out.println("dir exists");
+        	}else {
+        		System.out.println("the same name file exists,can not create dir");
+        	}
+        }else {
+        	System.out.println("dir not exists,create it ……");
+        	Folder.mkdir();
+        }
         MultipartFile file = filesRequest.getFile("imgfile");// 读取文件
         
         File newfile = new File(root + file.getOriginalFilename());// 创建新（空）文件，不改变文件名
