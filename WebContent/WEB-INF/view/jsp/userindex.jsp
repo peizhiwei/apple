@@ -15,36 +15,23 @@
 	text-align: center;
 }
 
-.size {
-	width: 1000px;
-	margin: 0 auto;
-	margin-top: -21px;
+.Carousel_size{
+    margin-top: -21px;
 }
 
-.size1 {
-	width: 1000px;
-	margin: 0 auto;
-	padding-left: 20px;
+.goods_size{        
+    color: black;
+    text-decoration: none;
 }
-
-.size2 {
-	color: black;
-	text-decoration: none;
-}
-
-.size3 {
-	text-decoration: none;
-}
-
-.color1 {
-	color: white;
+body{
+	background-color: rgb(245,245,245);
 }
 </style>
 </head>
 
 <body>
 	<div class="container-fluid" id="index">
-		<div class="row" id>
+		<div class="row">
 			<nav class="navbar navbar-default"
 				style="background: rgb(51, 51, 51);">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -147,71 +134,76 @@
 			</nav>
 		</div>
 
-		<div class="row size">
-			<div class="col-md-12">
-				<div id="myCarousel" class="carousel slide" style="width: 1000px;">
-					<!-- 轮播（Carousel）指标 -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
-						<li data-target="#myCarousel" data-slide-to="4"></li>
-					</ol>
-					<!-- 轮播（Carousel）项目 -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="https://item.jd.com/100004311104.html"><img
-								src="/apple/static/img/imac.jpg" alt="First slide"></a>
-						</div>
-						<div class="item">
-							<a href="https://item.jd.com/100000177756.html"><img
-								src="/apple/static/img/iphone_xr1.png" alt="Second slide"></a>
-						</div>
-						<div class="item">
-							<a href="https://item.jd.com/100004325478.html"><img
-								src="/apple/static/img/airpods.jpg" alt="Third slide"></a>
-						</div>
-						<div class="item">
-							<a href="https://item.jd.com/100000384103.html"><img
-								src="/apple/static/img/Watch.jpg" alt="Four slide"></a>
-						</div>
-						<div class="item">
-							<a href="https://item.jd.com/100004245972.html"><img
-								src="/apple/static/img/ipadmini.jpg" alt="Five slide"></a>
-						</div>
+		<!--Carousel(轮播图)-->
+        <div class="row Carousel_size">
+        	<div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div id="myCarousel" class="carousel slide" >
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="https://item.jd.com/100004311104.html"><img src="/apple/static/img/轮播1.jpg"
+                                    alt="First slide"></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://item.jd.com/100000177756.html"><img src="/apple/static/img/轮播2.jpg"
+                                    alt="Second slide"></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://item.jd.com/100004325478.html"><img src="/apple/static/img/轮播3.jpg"
+                                    alt="Third slide"></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://item.jd.com/100000384103.html"><img src="/apple/static/img/轮播4.jpg"
+                                    alt="Four slide"></a>
+                        </div>
+                        <div class="item">
+                            <a href="https://item.jd.com/100004245972.html"><img src="/apple/static/img/轮播1.jpg"
+                                    alt="Five slide"></a>
+                        </div>
 
-					</div>
-					<a class="carousel-control left" href="#myCarousel"
-						data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true"
-						class="glyphicon glyphicon-chevron-left"></span></a> <a
-						class="carousel-control right" href="#myCarousel"
-						data-slide="next"><span _ngcontent-c3="" aria-hidden="true"
-						class="glyphicon glyphicon-chevron-right"></span></a>
-				</div>
-			</div>
-		</div>
-
-		<div class="row size1">
-			<div class="col-xs-6 text-center" v-for="details in detailslist" v-if="details.upshelf==1">
-				<a href="https://item.jd.com/100001860773.html" class="size2"
-					style="text-decoration: none;"> <img alt=""
-					v-bind:src="details.img">
-				</a> <a href="https://item.jd.com/100001860773.html" class="size2"
-					style="text-decoration: none;">
-					<h3>{{details.name}}</h3>
-				</a> <a href="https://item.jd.com/100001860773.html"
-					style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
-				</a><br> <a href="https://item.jd.com/100001860773.html"
-					style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
-				</a><br> <a href="https://item.jd.com/100001860773.html"
-					style="text-decoration: none;"> <font color="red">
-						<h4>￥{{details.price}}</h4>
-				</font>
-				</a>
-			</div>
-
-		</div>
+                    </div>
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev"> <span _ngcontent-c3=""
+                            aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next"><span _ngcontent-c3=""
+                            aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                    <div id="myTabContent" class="tab-content" v-for="details in detailslist">
+                         <div class="thumbnail tab-pane fade in active text-center col-md-3 col-sm-4 col-xs-6">
+                                    <a class="goods_size"
+                                style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
+                                <img alt="" v-bind:src="details.img">
+                            </a>
+                            <a class="goods_size" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
+                                <h3>{{details.name}}</h3>
+                            </a>
+                            <a onclick="window.location.href='/apple/user/details'"
+                                style="text-decoration: none;"> <font color="grey">{{details.specs}}</font>
+                            </a><br>
+                            <a onclick="window.location.href='/apple/user/details'"
+                                style="text-decoration: none;"> <font color="grey">{{details.details}}</font>
+                            </a><br>
+                            <a onclick="window.location.href='/apple/user/details'"
+                                style="text-decoration: none;"> 
+                            <font color="red">
+                                    <h4>￥{{details.price}}</h4>
+                            </font>
+                            </a>
+                            <!-- Indicates a dangerous or potentially negative action -->
+							<button type="button" class="btn btn-danger">加入购物车</button>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-1"></div>
+        </div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
