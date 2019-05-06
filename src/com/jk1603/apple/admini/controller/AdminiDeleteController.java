@@ -19,21 +19,6 @@ public class AdminiDeleteController {
 	@Autowired
 	AdminiDeleteServiceInterface adminideleteserviceinterface;
 
-	@RequestMapping("/deleteAdmini")
-	@ResponseBody
-	public ajaxresponse deleteAdmini(@RequestParam(value = "adminiName", required = false) String adminiName)
-	// @RequestParam(value = "adPassword",required = false) String adPassword
-	{
-		Admini admini = new Admini();
-		admini.setAdminiName(adminiName);
-		// admini.setAdminiPassword(adPassword);
-		adminideleteserviceinterface.deleteAdmini(admini);
-		ajaxresponse ajaxadmini = new ajaxresponse();
-		ajaxadmini.setFlag(true);
-		ajaxadmini.setMsg("/apple/admini/management");
-		return ajaxadmini;
-	}
-
 	@RequestMapping("/deleteAdminis")
 	@ResponseBody
 	public ajaxresponse deleteAdminis(@RequestParam(value = "adminiName", required = false) String adminiName) {
@@ -50,8 +35,9 @@ public class AdminiDeleteController {
 	}
 	@RequestMapping("/deletegoods")
 	@ResponseBody
-	public ajaxresponse deletegoods(@RequestParam(value = "goodsid", required = false) String goodsid) {
-		String[] goodsidStringArray = goodsid.split(",");
+	public ajaxresponse deletegoods(@RequestParam(value = "goodsId", required = false) String goodsId) {
+		System.out.println(goodsId);
+		String[] goodsidStringArray = goodsId.split(",");
 		int[] goodsIdintList = new int[goodsidStringArray.length];
 		for(int i=0;i<goodsidStringArray.length;i++) {
 			goodsIdintList[i]=Integer.parseInt(goodsidStringArray[i]);

@@ -53,6 +53,15 @@ public class UserController {
 	public String register() {
 		return "register";
 	}
+	@RequestMapping("/shoppingcart")
+	public String shoppingcart(HttpSession session) {
+		Object user = session.getAttribute("user");
+		if(user==null) {
+			return "login";
+		}else {
+			return "shoppingcart";
+		}
+	}
 	@RequestMapping("selfmassage")
 	public String selfmassege(HttpSession session) {
 		Object user = session.getAttribute("user");

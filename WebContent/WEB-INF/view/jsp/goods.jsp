@@ -122,7 +122,7 @@
 							</button>
 
 
-							<button type="button" class="btn btn-default">
+							<button type="button" class="btn btn-default" onclick="deleteGoods()">
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
 							</button>
 						</div>
@@ -324,53 +324,6 @@
 			}
 		});
 	</script>
-	<script language="javascript">
-        function MsgBox() //声明标识符
-        {
-            var goodsId = []; 
-            var tbodyObj = document.getElementById('mydiv');
-            $("table :checkbox").each(function(key,value){
-                if($(value).prop('checked')){
-                	goodsId.push(tbodyObj.rows[key].cells[2].innerHTML);
-                    //passwords.push(tbodyObj.rows[key].cells[2].innerHTML);
-                }
-            })
-            if(goodsId == false){
-                alert("没有可删除的记录，请先选中！");
-            }else{
-                if(confirm("是否确认删除？")){
-                    var b = goodsId.join(",")
-                     $.ajax({
-                         type:'POST',
-                         async:false,
-                         dataType:"json",
-                         url:"/apple/adminidelete/deletegoodss",
-                         data:{"goodsId":b},
-                         success:function(result){
-                             if(result.flag==true){
-                                 //alert("登录成功");
-                                 window.location.href = result.msg;
-                             }else{
-                                 alert(result.msg);
-                             }
-                         }
-                     });
-                }
-            }
-        }
-
-        function changeAll() {
-            var sall = document.getElementById("all"); //获取标题栏中的操作对象
-            var seach = document.getElementsByName("each"); //获取内容栏的对象
-            for (var i = 0; i < seach.length; i++) {
-                if (sall.checked) {
-                    seach[i].checked = true;
-                } else {
-                    seach[i].checked = false;
-                }
-            }
-        }
-    </script>
 </body>
 
 </html>
