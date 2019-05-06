@@ -133,14 +133,15 @@
 							</ul>
 						</div>
 						
-						<div class="col-md-3 col-md-push-1" v-else>
-                            <img :src="userdetails.userImg" alt="" class="img-circle"
-                                style="height: 35px; width: 35px; margin-top: 8px">
-                        </div>
+						
 						<div class="col-md-3 col-md-push-1" v-if="userdetails.userImg==''||userdetails.userImg==null">
 							<img src="/apple/static/img/imgnull.jpg" alt="" class="img-circle"
 								style="height: 35px; width: 35px; margin-top: 8px">
 						</div>
+						<div class="col-md-3 col-md-push-1" v-else>
+                            <img :src="userdetails.userImg" alt="" class="img-circle"
+                                style="height: 35px; width: 35px; margin-top: 8px">
+                        </div>
 					</div>
 				</div>
 			</nav>
