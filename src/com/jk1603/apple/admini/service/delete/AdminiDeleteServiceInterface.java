@@ -9,4 +9,6 @@ public interface AdminiDeleteServiceInterface {
 	void deleteAdmini(Admini admini);
 	//批量删除
 	void deleteAdminis(List<String> adminiNameList);
+	//批量删除商品
+	void deleteGoods(int[] goodsid);
 }

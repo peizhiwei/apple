@@ -20,7 +20,12 @@ public class AdminiDeleteService implements AdminiDeleteServiceInterface{
 
 	@Override
 	public void deleteAdminis(List<String> adminiNameList) {
-		// TODO Auto-generated method stub
 		adminideletedao.deleteAdminis(adminiNameList);
+	}
+
+	@Override
+	public void deleteGoods(int[] goodsid) {
+		adminideletedao.deleteGoods(goodsid);
+		
 	} 
 }

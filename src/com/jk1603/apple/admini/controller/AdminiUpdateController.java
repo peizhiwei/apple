@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-
-
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,20 +68,14 @@ public class AdminiUpdateController {
 	}
 	//上架
 	@RequestMapping("/upshelf")
-	public ajaxresponse upshelf(int id) {
+	@ResponseBody
+	public void upshelf(@Param("id") int id) {
 		adminiupdateservice.setUpshelf(id);
-		ajaxresponse rs = new ajaxresponse();
-		rs.setFlag(true);
-		rs.setMsg("成功");
-		return rs;
 	}
 	//下架
 	@RequestMapping("/downshelf")
-	public ajaxresponse setdownshelf(int id) {
+	@ResponseBody
+	public void setdownshelf(@Param("id") int id) {
 		adminiupdateservice.setDownshelf(id);
-		ajaxresponse rs = new ajaxresponse();
-		rs.setFlag(true);
-		rs.setMsg("成功");
-		return rs;
 	}
 }

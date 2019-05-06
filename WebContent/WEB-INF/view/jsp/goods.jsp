@@ -145,11 +145,11 @@
 					</div>
 					&nbsp;&nbsp;
 					<div class="container">
-						<table class="table table-striped table-bordered table-hover">
+						<table class="table table-striped table-bordered table-hover" id="mydiv">
 							<thead>
 								<tr>
-									<th><input type="checkbox" v-model='checked'
-										v-on:click='checkedAll'></th>
+									<th><input type="checkbox" id="all" v-model='checked'
+										onchange="changeAll()"></th>
 									<th>编号</th>
 									<th>商品名称</th>
 									<th>价格</th>
@@ -176,7 +176,7 @@
 								</tr -->
 								<tr v-for="g in goodsalldetails">
 									<td><input type="checkbox" v-model='checkList'
-										:value="g.id" id="goodsid"></td>
+										:value="g.id" id="goodsid" name="each"></td>
 									<td>{{g.number}}</td>
 									<td>{{g.name}}</td>
 									<td>{{g.price}}</td>
@@ -249,7 +249,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 	
 
@@ -271,9 +271,8 @@
 					//发送get请求
 					this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
 						this.goodsalldetails = JSON.parse(res.bodyText);
-						console.log(res);
 					}, function() {
-						console.log('请求失败处理');
+						console.log("请求失败处理");
 					});
 				},
 				getlist : function(data) {
@@ -281,20 +280,18 @@
 					this.$http.get("http://localhost:8080/apple/adminiselect/getgoods?number="+ this.inputNumber).then(function(res) {
 						this.items = JSON.parse(res.bodyText);
 					}, function() {
-						console.log('请求失败处理');
+						console.log("请求失败处理");
 					});
 				},
 				upshelf : function(id){
-					this.$http.post("http://localhost:8080/apple/adminiupdate/upshelf?id="+id).then(function(res){
-						alert("修改成功");
+					this.$http.post("http://localhost:8080/apple/adminiupdate/upshelf",{id:id},{emulateJSON:true}).then(function(res){
 						app.getAllGoodsdetails();
 					},function(){
 						console.log("请求失败处理");
 					});
 				},
 				downshelf : function(id){
-					this.$http.post("http://localhost:8080/apple/adminiupdate/downshelf?id="+id).then(function(res){
-                        console.log("修改成功"); 
+					this.$http.post("http://localhost:8080/apple/adminiupdate/downshelf",{id:id},{emulateJSON:true}).then(function(res){
                         app.getAllGoodsdetails();
                     },function(){
                         console.log("请求失败处理");
@@ -327,6 +324,53 @@
 			}
 		});
 	</script>
+	<script language="javascript">
+        function MsgBox() //声明标识符
+        {
+            var goodsId = []; 
+            var tbodyObj = document.getElementById('mydiv');
+            $("table :checkbox").each(function(key,value){
+                if($(value).prop('checked')){
+                	goodsId.push(tbodyObj.rows[key].cells[2].innerHTML);
+                    //passwords.push(tbodyObj.rows[key].cells[2].innerHTML);
+                }
+            })
+            if(goodsId == false){
+                alert("没有可删除的记录，请先选中！");
+            }else{
+                if(confirm("是否确认删除？")){
+                    var b = goodsId.join(",")
+                     $.ajax({
+                         type:'POST',
+                         async:false,
+                         dataType:"json",
+                         url:"/apple/adminidelete/deletegoodss",
+                         data:{"goodsId":b},
+                         success:function(result){
+                             if(result.flag==true){
+                                 //alert("登录成功");
+                                 window.location.href = result.msg;
+                             }else{
+                                 alert(result.msg);
+                             }
+                         }
+                     });
+                }
+            }
+        }
+
+        function changeAll() {
+            var sall = document.getElementById("all"); //获取标题栏中的操作对象
+            var seach = document.getElementsByName("each"); //获取内容栏的对象
+            for (var i = 0; i < seach.length; i++) {
+                if (sall.checked) {
+                    seach[i].checked = true;
+                } else {
+                    seach[i].checked = false;
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

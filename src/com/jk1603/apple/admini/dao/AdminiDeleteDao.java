@@ -16,4 +16,8 @@ public interface AdminiDeleteDao {
 	//批量删除管理员
 	@DeleteProvider(type = Provider.class, method = "batchDelete")
 	void deleteAdminis(List<String> adminiNameList);
+	
+	//批量删除商品
+	@DeleteProvider(type = Provider.class,method = "batchDelete")
+	void deleteGoods(int[] goodsid);
 }

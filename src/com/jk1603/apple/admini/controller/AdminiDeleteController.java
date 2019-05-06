@@ -48,4 +48,18 @@ public class AdminiDeleteController {
 		ajaxadmini.setMsg("/apple/admini/management");
 		return ajaxadmini;
 	}
+	@RequestMapping("/deletegoods")
+	@ResponseBody
+	public ajaxresponse deletegoods(@RequestParam(value = "goodsid", required = false) String goodsid) {
+		String[] goodsidStringArray = goodsid.split(",");
+		int[] goodsIdintList = new int[goodsidStringArray.length];
+		for(int i=0;i<goodsidStringArray.length;i++) {
+			goodsIdintList[i]=Integer.parseInt(goodsidStringArray[i]);
+		}
+		adminideleteserviceinterface.deleteGoods(goodsIdintList);
+		ajaxresponse ajaxadmini = new ajaxresponse();
+		ajaxadmini.setFlag(true);
+		ajaxadmini.setMsg("/apple/admini/goods");
+		return ajaxadmini;
+	}
 }
