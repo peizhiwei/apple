@@ -30,7 +30,7 @@ body{
 </head>
 
 <body>
-	<div class="container-fluid" id="index">
+	<div class="container-fluid" id="app">
 		<div class="row">
 			<nav class="navbar navbar-default"
 				style="background: rgb(51, 51, 51);">
@@ -95,7 +95,7 @@ body{
 								style="float: none; display: inline-block; margin: 0em; margin: 0px 8px;">
 								<a href="#"><span class="glyphicon glyphicon-shopping-cart"
 									style="color: white; padding-right: 4px;"> </span> <font
-									color="white">购物车</font> </a>
+									color="white" onclick="window.location.href='/apple/user/shoppingcart'">购物车</font> </a>
 							</li>
 						</ul>
 					</div>
@@ -198,7 +198,7 @@ body{
                             </font>
                             </a>
                             <!-- Indicates a dangerous or potentially negative action -->
-							<button type="button" class="btn btn-danger">加入购物车</button>
+							<button type="button" class="btn btn-danger" @click="addshoppingcart(details.id)">加入购物车</button>
                          </div>
                      </div>
                  </div>
@@ -212,7 +212,7 @@ body{
 	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 	<script>
 		var app = new Vue({
-			el : '#index',
+			el : '#app',
 			data : {
 				detailslist : [],
 				userdetails : ""
@@ -236,6 +236,10 @@ body{
                     },function(){
                         console.log("请求失败处理");
                     });
+                },
+                //加入购物车
+                addshoppingcart : function(){
+                	
                 }
 			}
 		});
