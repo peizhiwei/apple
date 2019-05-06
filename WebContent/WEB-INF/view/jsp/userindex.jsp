@@ -113,16 +113,7 @@
 						</ul>
 					</div>
 					<div class="col-md-2">
-
-						<div class="col-md-3 col-md-push-2" v-if="userdetails.userImg==''||userdetails.userImg==null">
-							<img src="/apple/static/img/imgnull.jpg" alt="头像" class="img-circle"
-								style="height: 35px; width: 35px; margin-top: 8px">
-						</div>
-						<div class="col-md-3 col-md-push-2" v-else>
-                            <img :src="userdetails.userImg" alt="头像" class="img-circle"
-                                style="height: 35px; width: 35px; margin-top: 8px">
-                        </div>
-						<div class="col-md-9 col-md-push-1">
+                        <div class="col-md-9 col-md-push-2">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -140,6 +131,15 @@
 										<li><a href="#" id="loginout">退出登录</a></li>
 									</ul></li>
 							</ul>
+						</div>
+						
+						<div class="col-md-3 col-md-push-1" v-else>
+                            <img :src="userdetails.userImg" alt="" class="img-circle"
+                                style="height: 35px; width: 35px; margin-top: 8px">
+                        </div>
+						<div class="col-md-3 col-md-push-1" v-if="userdetails.userImg==''||userdetails.userImg==null">
+							<img src="/apple/static/img/imgnull.jpg" alt="" class="img-circle"
+								style="height: 35px; width: 35px; margin-top: 8px">
 						</div>
 					</div>
 				</div>
