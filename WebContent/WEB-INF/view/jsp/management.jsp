@@ -138,13 +138,10 @@
 			</div>
 		</div>
 	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-	<script
-		src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 
 	<script language="javascript">
 		function MsgBox() //声明标识符
@@ -207,15 +204,12 @@
 					},
 					methods : {
 						getadminiList : function() {
-							this.$http.get("http://localhost:8080/apple/adminiselect/getalladmini")
-							.then(
+							this.$http.get("http://localhost:8080/apple/adminiselect/getalladmini").then(
 									function(res) {
-										this.adminList = JSON
-												.parse(res.bodyText);
+										this.adminList = JSON.parse(res.bodyText);
 									}, function() {
 										console.log('请求失败处理');
-									});			
-									
+									});
 						}
 					}
 

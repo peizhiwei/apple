@@ -14,11 +14,6 @@ public class AdminiDeleteService implements AdminiDeleteServiceInterface{
 	AdminiDeleteDao adminideletedao;
 
 	@Override
-	public void deleteAdmini(Admini admini) {
-		adminideletedao.deleteAdmini(admini);
-	}
-
-	@Override
 	public void deleteAdminis(List<String> adminiNameList) {
 		adminideletedao.deleteAdminis(adminiNameList);
 	}
