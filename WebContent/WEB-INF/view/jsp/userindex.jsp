@@ -173,7 +173,7 @@ body{
                             aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
                     <div id="myTabContent" class="tab-content" v-for="details in detailslist">
-                         <div class="thumbnail tab-pane fade in active text-center col-md-3 col-sm-4 col-xs-6">
+                         <div class="thumbnail tab-pane fade in active text-center col-md-3 col-sm-4 col-xs-6" v-if="details.upshelf==true">
                                     <a class="goods_size"
                                 style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
                                 <img alt="" v-bind:src="details.img">
