@@ -238,8 +238,14 @@ body{
                     });
                 },
                 //加入购物车
-                addshoppingcart : function(){
-                	
+                addshoppingcart : function(id){
+                	var goodsId = id;
+                	var userId = this.userdetails.id;
+                	this.$http.post("http://localhost:8080/apple/userinsert/addshoppingcart",{userId:userId,goodsId:goodsId},{emulateJSON:true}).then(function(res){
+                        alert("已添加");
+                    },function(){
+                        console.log("请求失败处理");
+                    });
                 }
 			}
 		});
