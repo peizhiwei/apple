@@ -124,10 +124,6 @@ body{
                             <a href="https://item.jd.com/100000384103.html"><img src="/apple/static/img/轮播4.jpg"
                                     alt="Four slide"></a>
                         </div>
-                        <div class="item">
-                            <a href="https://item.jd.com/100004245972.html"><img src="/apple/static/img/轮播1.jpg"
-                                    alt="Five slide"></a>
-                        </div>
 
                     </div>
                     <a class="carousel-control left" href="#myCarousel" data-slide="prev"> <span _ngcontent-c3=""
