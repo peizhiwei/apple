@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-hover tablebackground">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 25px;"><input type="checkbox"
+                            <th class="text-center" style="width: 25px;vertical-align:middle;"><input type="checkbox"
                                     style="width:25px;height: 25px;"></th>
                             <th style="width: 100px;"></th>
                             <th style="width: 200px;">商品名称</th>
@@ -51,22 +51,22 @@
                     </thead>
                     <tbody>
                         <tr v-for="i in shoppingcartlist">
-                            <td class="text-center"><input type="checkbox" style="width:25px;height: 25px;vertical-align:middle;"></td>
+                            <td class="text-center" style="vertical-align:middle;"><input type="checkbox" style="width:25px;height: 25px;"></td>
                             <td><img class="center-block" alt="" :src="i.goods.img" style="width:60px;heigth:100px;"></td>
                             <td style="vertical-align:middle;">{{i.goods.name}}</td>
                             <td style="vertical-align:middle;">{{i.goods.price}}</td>
                             <td style="width:150px; vertical-align:middle;">
-                                <div class="col-md-3 col-md-push-1"><span @click="decrease()" id="decrease"
+                                <div class="col-md-3 col-md-push-1"><span @click="decrease(i.id,i.shAmount)" id="decrease"
                                         class="glyphicon glyphicon-minus"></span></div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control input-sm text-center" v-model="i.amount">
+                                    <input type="text" class="form-control input-sm text-center" :value="i.shAmount" v-model="i.shAmount" disabled="disabled">
                                 </div>
-                                <div class="col-md-3 col-md-pull-1"><span @click="plus()" id="plus"
+                                <div class="col-md-3 col-md-pull-1"><span @click="plus(i.id,i.shAmount)" id="plus"
                                         class="glyphicon glyphicon-plus"></span></div>
                             </td>
-                            <td style="vertical-align:middle;">{{i.amount*i.price}}</td>
+                            <td style="vertical-align:middle;">{{i.shAmount*i.goods.price}}</td>
                             <td style="vertical-align:middle;">
-                                <div><a class="glyphicon glyphicon-remove" href=""></a></div>
+                                <div><a @click="remove(i.id)" class="glyphicon glyphicon-remove" href="javascript:void(0)"></a></div>
                             </td>
                         </tr>
                     </tbody>
@@ -78,8 +78,7 @@
                             <th></th>
                             <th class="text-right">总价：</th>
                             <th class="text-danger">{{sum}}</th>
-                            <th class="text-danger" onclick="window.location.href='/apple/user/index'">去结算
-                            </th>
+                            <th class="text-danger" onclick=""><button style="background-color: white;border: 0">付款</button></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -102,17 +101,40 @@
             },
             computed: {
                 sum: function () {
-                    //var sum = 0;
-                    //for (var i in this.shoppingcartlist) {
-                    //    sum = sum + this.shoppingcartlist[i].amount * this.shoppingcartlist[i].price;
-                    //}
-                    //return sum;
+                    var sum = 0;
+                    for (var i in this.shoppingcartlist) {
+                        sum = sum + this.shoppingcartlist[i].shAmount * this.shoppingcartlist[i].goods.price;
+                    }
+                    return sum;
                 }
             },
             methods: {
-                decrease: function () {
-                    //var it = this.shoppingcartlist;
-                    //it.amount=it.amount+1;
+                plus: function (id,shAmount) {
+                	var newamount = shAmount+1;
+                	this.$http.post("http://localhost:8080/apple/userupdate/setshamount",{newamount:newamount,id:id},{emulateJSON:true}).then(function(res){
+                		app.getshoppingcartlist();
+                	},function(res){
+                		console.log("请求失败处理")
+                	});
+                },
+                decrease: function (id,shAmount) {
+                	if(shAmount>1){
+	                	var newamount = shAmount-1;
+	                    this.$http.post("http://localhost:8080/apple/userupdate/setshamount",{newamount:newamount,id:id},{emulateJSON:true}).then(function(res){ 
+	                    	   app.getshoppingcartlist();
+	                    },function(res){
+	                        console.log("请求失败处理")
+	                    });
+                	}else{
+                		alert("数量不能小于1");
+                	}
+                },
+                remove : function(id){
+                	this.$http.post("http://localhost:8080/apple/userdelete/removeshopping",{id:id},{emulateJSON:true}).then(function(res){
+                        app.getshoppingcartlist();
+                    },function(res){
+                        console.log("请求失败处理")
+                    });
                 },
 	          //发送get请求
 	            getshoppingcartlist : function() {

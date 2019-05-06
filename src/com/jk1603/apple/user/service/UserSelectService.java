@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.user.dao.UserSelectDao;
@@ -11,6 +12,7 @@ import com.jk1603.apple.user.pojo.Shoppingcart;
 import com.jk1603.apple.user.pojo.User;
 
 @Service
+@Transactional
 public class UserSelectService implements UserSelectServiceInterface {
 
 	@Autowired
