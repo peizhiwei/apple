@@ -18,6 +18,9 @@
     color: black;
     text-decoration: none;
 }
+body{
+	background-color: rgb(245,245,245);
+}
         
 </style>
 </head>
