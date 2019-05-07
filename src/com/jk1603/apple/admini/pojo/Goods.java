@@ -13,12 +13,13 @@ public class Goods {
 	private String number;//商品编号
 	private String specs;//商品规格
 	private String details;//商品详情
-	private int amount;//库存
 	private boolean upshelf;//是否上架
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	private Date date;
 	private String img;
 	private Type type;
+	private Admini admini;
+	private SuperAdmini superadmini;
 	public Integer getId() {
 		return id;
 	}
@@ -55,12 +56,6 @@ public class Goods {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
 	public boolean isUpshelf() {
 		return upshelf;
 	}
@@ -85,6 +80,18 @@ public class Goods {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public Admini getAdmini() {
+		return admini;
+	}
+	public void setAdmini(Admini admini) {
+		this.admini = admini;
+	}
+	public SuperAdmini getSuperadmini() {
+		return superadmini;
+	}
+	public void setSuperadmini(SuperAdmini superadmini) {
+		this.superadmini = superadmini;
 	}
 
 }

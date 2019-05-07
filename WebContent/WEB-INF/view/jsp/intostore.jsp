@@ -86,93 +86,26 @@
                             </div>
                         </div>
                     </nav>
-                    <div>
-                        <div class="btn-group col-xs-6" role="group" aria-label="">
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <button type="button" class="btn btn-default"
-                                onclick="window.location.href='/apple/admini/intostoredetails'"><span
-                                    class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增</button>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-default" data-toggle="modal"
-                                data-target="#myModal"><span class="glyphicon glyphicon-pencil"
-                                    aria-hidden="true"></span>
-                                编辑
-                            </button>
-                            
-
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#sure").click(function () {
-                                        var number = $("#number").val();
-                                        var name = $("#name").val();
-                                        var amount = $("#amount").val();
-                                        var date = $("#date").val();
-                                        var builder = $("#builder").val();
-
-                                        if (number == "" || name == "" || amount == "" || date == "" || builder == "") {
-                                            alert("内容不能为空");
-                                        } else {
-                                            $.ajax({
-                                                type: 'POST',
-                                                async: false,
-                                                dataType: "json",
-                                                url: "",
-                                                data: { "number": number, "name": name, "amount": amount, "date": date, "builder": builder },
-                                                success: function (result) {
-                                                    if (result.flag == true) {
-                                                        alert("修改成功");
-                                                        window.location.href = result.msg;
-                                                    } else {
-                                                        alert("修改失败");
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    });
-                                }); 
-                            </script>
-
-
-
-
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"
-                                    aria-hidden="true"></span>删除</button>
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-refresh"
-                                    aria-hidden="true"></span>刷新</button>
-                        </div>
-                    </div>&nbsp;&nbsp;
+                    
                     <div class="container">
                         <form class="form-inline">
                             <div class="form-group">
-                                <label for="exampleInputName2">入库编号:</label>
-                                <input type="text" v-model="inputNumber" class="form-control" id="exampleInputName2"
-                                    name="exampleInputName2" placeholder="请输入入库编号">
+                                <label for="exampleInputName2">商品名:</label>
+                                <input type="text" v-model="" class="form-control" id="goods"
+                                    name="goodsname" placeholder="请输入商品名">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputName2">数量:</label>
+                                <input type="text" v-model="" class="form-control" id=""
+                                    name="" placeholder="请输入入库数量">
                             </div>
-                            <button type="button" class="btn btn-default" @click="getintostorelist()"><span
-                                    class="glyphicon glyphicon-search" aria-hidden="true"
-                                    name="search"></span>搜索</button>
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"
-                                    aria-hidden="true"></span>清空搜索条件</button>
                         </form>
                     </div>&nbsp;&nbsp;
                     <div class="container">
                         <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th><input type="checkbox" v-model='checked' v-on:click='checkedAll'></th>
-                                    <th>编号</th>
-                                    <th>商品名称</th>
-                                    <th>货品总数</th>
-                                    <th>创建时间</th>
-                                    <th>创建人</th>
-                                </tr>
-                            </thead>
                             <tbody>
-                                <tr v-for="(i,k) in items">
-                                    <td><input type="checkbox" v-model='checkList' :value="i.id"></td>
+                                <tr v-for="i in items">
+                                    <td><input type="radio" v-model='checkList' :value="i.id"></td>
                                     <td>{{i.rkNumber}}</td>
                                     <td>{{i.name}}</td>
                                     <td>{{i.amount}}</td>
@@ -186,88 +119,31 @@
             </div>
         </div>
     </div>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content" style="height:550px;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style="float:left;">修改</h4>
-            </div>
-            <div class="modal-body" >
-                <div>商品编号：<input type='text' value='' code='' class='rkNumber form-control' /></div>
-                <br />
-                <div>商品名称：<input type='text' value='' code='' class='name form-control' /></div><br />
-                <div>商品总数：<input type='text' value='' code='' class='amount form-control' /></div><br />
-                <div>创建时间：<input type='text' value='' code='' class='date form-control' /></div><br />
-                <div>创建人 ：<input type='text' value='' code=''
-                        class='builder form-control' /></div><br />
-            </div>
-            <br>
-            <div class="modal-footer">
-                　　<button type="button" class="btn btn-default"
-                    data-dismiss="modal">关闭</button>
-                　　<button type="button" class="btn btn-primary" id="tijiao">提交</button>
-            </div>
-        </div>
-    </div>
-</div>　
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                inputNumber: "",
-                items: [],
-                checked: false, //全选框
-                checkList: []
-            },
-            methods: {
-                getintostorelist: function (data) {
-                    //发送get请求
-                    this.$http.get("http://localhost:8080/apple/adminiselect/getintostore?number=" + this.inputNumber).then(function (res) {
-                        this.items = JSON.parse(res.bodyText);
-
-                    }, function () {
-                        console.log('请求失败处理');
-                    });
-                },
-                checkedAll: function () {
-                    var che = this;
-                    if (che.checked) { //实现反选
-                        che.checkList = [];
-                    } else { //实现全选
-                        che.checkList = [];
-                        this.items.forEach(function (item, index) {
-                            che.checkList.push(item.id);
-                        });
-                    }
-                }
-
-            },
-            watch: {
-                'checkList': {
-                    handler: function (val, oldVal) {
-                        if (val.length == this.items.length) {
-                            this.checked = true;
-                        } else {
-                            this.checked = false;
-                        }
-                    },
-                    deep: true
-                }
-            }
-        });
-    </script>
-
-
 </body>
-
+    <script type="text/javascript">
+    var app = new Vue({
+        el : '#app',
+        data : {
+        	goodsalldetails:[]
+        },
+        mounted:function(){
+            this.getAllGoodsdetails();
+        },
+        methods : {
+            getAllGoodsdetails : function(){
+                //发送get请求
+                this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
+                    this.goodsalldetails = JSON.parse(res.bodyText);
+                    console.log(this.goodsalldetails);
+                }, function() {
+                    console.log("请求失败处理");
+                });
+            }
+        }
+    });
+    </script>
 </html>

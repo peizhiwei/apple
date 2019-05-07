@@ -1,6 +1,7 @@
 package com.jk1603.apple.admini.dao;
 
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 
@@ -13,9 +14,9 @@ import com.jk1603.apple.admini.pojo.Outstore;
 public interface AdminiInsertDao {
 	//添加商品
 	@Update("INSERT INTO goods (`name`,`price`,`number`,\r\n" + 
-			"`specs`,`details`,`amount`,`upshelf`,`type_id`,`date`)\r\n" + 
+			"`specs`,`details`,`upshelf`,`type_id`,`date`,`superadmini_id`,`admini_id`)\r\n" + 
 			"VALUES(#{name},#{price},#{number},\r\n" + 
-			"#{specs},#{details},#{amount},#{upshelf},#{type.id},#{date})")
+			"#{specs},#{details},#{upshelf},#{type.id},#{date},#{superadmini.id},#{admini.id})")
 	void addGoods(Goods goods);
 
 	//商品出库
@@ -24,10 +25,10 @@ public interface AdminiInsertDao {
 	void outStore(Outstore ous);
 	
 	//商品入库
-	@Update("INSERT INTO `intostore_goods` (`rk_number`, `name`, `total`, `date`, `builder` )\r\n" + 
-			"VALUES\r\n" + 
-			"	(#{rkNumber}, #{name}, #{amount}, #{date}, #{builder})")
-	void intoStore(Intostore ins);
+	@Update("INSERT INTO store (amount,goods_id,admini_id,superadmini_id) "
+		  + "VALUES (#{amount}, #{goodsId}, #{adminiId}, #{superadminiId})")
+	void intoStore(@Param("intostroe")Intostore intostroe,@Param("operationId")int operationId);
+	
 	//添加管理员
 	@Update("INSERT INTO admini (`admini_name`, `admini_password`) VALUES (#{adminiName},#{adminiPassword})")
 	void addAdmini(Admini admini);

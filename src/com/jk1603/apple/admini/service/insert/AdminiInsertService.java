@@ -22,13 +22,14 @@ public class AdminiInsertService implements AdminiInsertServiceInterface {
 	public void addAdmini(Admini ad) {
 		admininsertdao.addAdmini(ad);
 	}
-	@Override
-	public void intoStore(Intostore ins) {
-		admininsertdao.intoStore(ins);
-		
-	}
+
 	@Override
 	public void outStore(Outstore ous) {
 		admininsertdao.outStore(ous);
+	}
+	@Override
+	public void intoStore(Intostore intostroe, int operationId) {
+		admininsertdao.intoStore(intostroe, operationId);
+		
 	}
 }

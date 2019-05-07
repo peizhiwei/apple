@@ -16,6 +16,9 @@ public interface AdminiSelectDao {
 	//查询商品
 	@Select("SELECT * FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
+//	@Select("SELECT * FROM goods WHERE `name` LIKE '%"+"#{goodsname}"+"%'");
+//	List<Goods> getGoodsList(String goodsname);
+	
 	//查询分类
 	@Select("SELECT id,type_name as typeName FROM type")
 	List<Type> getType();
@@ -24,8 +27,11 @@ public interface AdminiSelectDao {
 	int gettypeid(String typeName);
 	
 	//遍历数据库将商品信息展示在前端页面
-	@Select("SELECT g.*,t.type_name as 'type.typeName' FROM goods g\r\n" + 
-			"LEFT JOIN type t on g.type_id=t.id ORDER BY g.date")
+	@Select("SELECT s.super_admini_name as `superadmini.superAdminiName`, a.admini_name as `admini.adminiName`, g.*,t.type_name as 'type.typeName' FROM goods g\r\n" + 
+			"LEFT JOIN type t on g.type_id=t.id "
+			+"LEFT JOIN admini a ON a.id=g.admini_id "
+			+ "LEFT JOIN superadmini s ON s.id=g.superadmini_id "
+			+ "ORDER BY g.date")
 	List<Goods> getallGoods();
 	//查询商品显示到index页面上
 	@Select("SELECT g.*,t.type_name as `type.typeName`"

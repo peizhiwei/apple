@@ -99,10 +99,6 @@
 							</select>
 					</div>
 					<div class="form-group">
-						<label for="amount"> 数量 ： </label> <input name="amount" type="text"
-							class="form-control" id="amount">
-					</div>
-					<div class="form-group">
 						<label for="sort"> 详情： </label> <input name="details" type="text"
 							class="form-control" id="details">
 					</div>

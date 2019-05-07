@@ -155,10 +155,10 @@
 									<th>价格</th>
 									<th>详情</th>
 									<th>规格</th>
-									<th>数量</th>
 									<th>分类</th>
 									<th>图片</th>
 									<th>最后修改日期</th>
+									<th>操作者</th>
 									<th>状态</th>
 									<th>操作</th>
 								</tr>
@@ -177,19 +177,20 @@
 								<tr v-for="g in goodsalldetails">
 									<td><input type="checkbox" v-model='checkList'
 										:value="g.id" id="goodsid" name="each"></td>
-									<td>{{g.number}}</td>
-									<td>{{g.name}}</td>
-									<td>{{g.price}}</td>
-									<td>{{g.details}}</td>
-									<td>{{g.specs}}</td>
-									<td>{{g.amount}}</td>
-									<td>{{g.type==null?'无分类':g.type.typeName}}</td>
-									<td><img alt="" :src="g.img" style="heigth:100px;width:100px;"></td>
-								    <td>{{g.date}}</td>
-								    <td v-if="g.upshelf==0">下架</td>
-								    <td v-else>上架</td>
-								    <td v-if="g.upshelf==0"><button type="button" @click="upshelf(g.id)">上架</button></td>
-								    <td v-else><button type="button" @click="downshelf(g.id)">下架</button></td>
+									<td style="vertical-align:middle;" class="text-center">{{g.number}}</td>
+									<td style="vertical-align:middle;">{{g.name}}</td>
+									<td style="vertical-align:middle;">{{g.price}}</td>
+									<td style="vertical-align:middle;">{{g.details}}</td>
+									<td style="vertical-align:middle;">{{g.specs}}</td>
+									<td style="vertical-align:middle;">{{g.type==null?'无分类':g.type.typeName}}</td>
+									<td style="vertical-align:middle;"><img alt="" :src="g.img" style="heigth:50px;width:50px;"></td>
+								    <td style="vertical-align:middle;">{{g.date}}</td>
+								    <td style="vertical-align:middle;" v-if="g.admini!=null">{{g.admini.adminiName}}</td>
+								    <td style="vertical-align:middle;" v-else>{{g.superadmini.superAdminiName}}</td>
+								    <td style="vertical-align:middle;" v-if="g.upshelf==0">下架</td>
+								    <td style="vertical-align:middle;" v-else>上架</td>
+								    <td style="vertical-align:middle;" v-if="g.upshelf==0"><button type="button" @click="upshelf(g.id)">上架</button></td>
+								    <td style="vertical-align:middle;" v-else><button type="button" @click="downshelf(g.id)">下架</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -271,6 +272,7 @@
 					//发送get请求
 					this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
 						this.goodsalldetails = JSON.parse(res.bodyText);
+						console.log(this.goodsalldetails);
 					}, function() {
 						console.log("请求失败处理");
 					});

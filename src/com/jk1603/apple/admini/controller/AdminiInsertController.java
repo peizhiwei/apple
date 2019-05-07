@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -20,6 +21,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.service.insert.AdminiInsertServiceInterface;
 import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
@@ -45,46 +47,39 @@ public class AdminiInsertController {
 						 @RequestParam(value = "name",required = false) String name,
 						 @RequestParam(value = "price",required = false) BigDecimal price ,
 						 @RequestParam(value = "specs",required = false) String specs,
-						 @RequestParam(value = "amount",required = false) int amount,
 						 @RequestParam(value = "details",required = false) String details,
-						 @RequestParam(value = "typename",required = false) String typename) {
+						 @RequestParam(value = "typename",required = false) String typename,
+						 HttpSession session) {
 		Goods goods = new Goods();
 		goods.setNumber(number);
 		goods.setName(name);
 		goods.setPrice(price);
 		goods.setSpecs(specs);
-		goods.setAmount(amount);
 		goods.setDetails(details);
 		//获取系统当前日期
 		goods.setDate(new Date());
+		
 		Type type = new Type();
 		type.setId(adminiselectservice.gettypeid(typename));
 		goods.setType(type);
+		
+		Object superadminisession = session.getAttribute("superadmini");
+		Object adminisession = session.getAttribute("admini");
+		if(superadminisession==null) {
+			Admini admini = (Admini)adminisession;
+			admini.getId();
+			goods.setAdmini(admini);
+		}else{
+			SuperAdmini superadmini = (SuperAdmini)superadminisession;
+			superadmini.getId();
+			goods.setSuperadmini(superadmini);
+		}
+		
 		adminiinsertservice.addGoods(goods);
 		ajaxresponse ajaxgoods = new ajaxresponse();
 		ajaxgoods.setFlag(true); 
 		ajaxgoods.setMsg("/apple/admini/goods");
 		return ajaxgoods;
-	}
-	//商品入库
-	@RequestMapping("/intoStore")
-	@ResponseBody
-	public ajaxresponse intoStore(@RequestParam(value = "number",required = false) String number,
-				 @RequestParam(value = "name",required = false) String name,
-				 @RequestParam(value = "amount",required = false) int amount,
-				 @RequestParam(value = "date",required = false) Date date,
-				 @RequestParam(value = "builder",required = false) String builder) {
-		Intostore ins = new Intostore();
-		ins.setRkNumber(number);
-		ins.setName(name);
-		ins.setAmount(amount);
-		ins.setDate(date);
-		ins.setBuilder(builder);
-		adminiinsertservice.intoStore(ins);
-		ajaxresponse ajaxins = new ajaxresponse();
-		ajaxins.setFlag(true);
-		ajaxins.setMsg("/apple/admini/intostoredetails");
-		return ajaxins;
 	}
 	//商品出库
 	@RequestMapping("/outStore")
@@ -121,5 +116,22 @@ public class AdminiInsertController {
 	     ajaxadmini.setFlag(true);
 	     ajaxadmini.setMsg("/apple/admini/management");
 	     return  ajaxadmini;
+	}
+	//入库
+	@RequestMapping("/intostore")
+	@ResponseBody
+	public void intostore(@RequestParam(value = "intostroe",required = false)Intostore intostroe,
+						  @RequestParam(value = "operationId",required = false)int operationId,
+						  HttpSession session) {
+		Object adminisession = session.getAttribute("admini");
+		Object superadminisession = session.getAttribute("superadmini");
+		if(adminisession==null) {
+			SuperAdmini superadmini = (SuperAdmini)superadminisession;
+			operationId = superadmini.getId();
+		}else {
+			Admini admini = (Admini)adminisession;
+			operationId = admini.getId();
+		}
+		adminiinsertservice.intoStore(intostroe, operationId);
 	}
 }

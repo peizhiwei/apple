@@ -36,6 +36,7 @@
     <div class="container" id="app">
         <div class="row">
             <div class="col-md-12">
+            <button onclick="window.location.href='/apple/user/userindex'">返回</button>
                 <table class="table table-bordered table-hover tablebackground">
                     <thead>
                         <tr>
