@@ -64,7 +64,7 @@
 					onclick="window.location.href='/apple/admini/goods'">商品</button>
 				<button type="button" class="btn btn-default"
 					style="height: 50px; width: 100px"
-					onclick="window.location.href='/apple/admini/intoStore'">入库</button>
+					onclick="window.location.href='/apple/admini/intostore'">入库</button>
 				<button type="button" class="btn btn-default"
 					style="height: 50px; width: 100px"
 					onclick="window.location.href='/apple/admini/stock'">库存</button>

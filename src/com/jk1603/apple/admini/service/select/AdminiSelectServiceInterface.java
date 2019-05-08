@@ -11,10 +11,10 @@ import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 
 public interface AdminiSelectServiceInterface {
-	//查询分类
+	//锟斤拷询锟斤拷锟斤拷
 	List<Type> getType();
 	List<Goods> getGoods(String number);
-	//遍历数据库将商品信息展示在前端页面
+	//锟斤拷锟斤拷锟斤拷锟捷库将锟斤拷品锟斤拷息展示锟斤拷前锟斤拷页锟斤拷
 	List<Goods> getallGoods();
 	List<Stock> getStock(String number);
 	List<Goods> getGoodstoindex();
@@ -30,4 +30,6 @@ public interface AdminiSelectServiceInterface {
 	Admini checkAdminiLogin(String admininame,String adminipassword);
 	
 	List<Admini> getallAdmini();
+	
+	List<Goods> getGoodsList(String goodsname);
 }

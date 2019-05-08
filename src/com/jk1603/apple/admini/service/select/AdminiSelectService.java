@@ -26,7 +26,7 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		return allsort;
 	}
 
-	//²éÑ¯ÉÌÆ·
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·
 	@Override
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiSelectdao.getGoods(number);
@@ -101,6 +101,12 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 	public List<Admini> getallAdmini() {
 		List<Admini> adminilist = adminiSelectdao.getallAdmini();
 		return adminilist;
+	}
+
+	@Override
+	public List<Goods> getGoodsList(String goodsname) {
+		List<Goods> goodslist = adminiSelectdao.getGoodsList(goodsname);
+		return goodslist;
 	}
 
 

@@ -51,7 +51,7 @@
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
                         onclick="window.location.href='/apple/admini/goods'">商品</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/intoStore'">入库</button>
+                        onclick="window.location.href='/apple/admini/intostore'">入库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
                         onclick="window.location.href='/apple/admini/stock'">库存</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
@@ -91,7 +91,7 @@
                         <form class="form-inline">
                             <div class="form-group">
                                 <label for="exampleInputName2">商品名:</label>
-                                <input type="text" v-model="" class="form-control" id="goods"
+                                <input type="text" v-model="goodsname" class="form-control" id="goodsname"
                                     name="goodsname" placeholder="请输入商品名">
                             </div>
                             <div class="form-group">
@@ -104,13 +104,13 @@
                     <div class="container">
                         <table class="table table-striped table-bordered table-hover">
                             <tbody>
-                                <tr v-for="i in items">
+                                <tr v-for="i in goodslist">
                                     <td><input type="radio" v-model='checkList' :value="i.id"></td>
-                                    <td>{{i.rkNumber}}</td>
+                                    <td>{{i.number}}</td>
                                     <td>{{i.name}}</td>
-                                    <td>{{i.amount}}</td>
-                                    <td>{{i.date}}</td>
-                                    <td>{{i.builder}}</td>
+                                    <td>{{i.price}}</td>
+                                    <td>{{i.specs}}</td>
+                                    <td>{{i.details}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -123,22 +123,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-</body>
-    <script type="text/javascript">
+	<script type="text/javascript">
     var app = new Vue({
         el : '#app',
         data : {
-        	goodsalldetails:[]
+        	goodslist:[],
+        	goodsname:""
         },
         mounted:function(){
             this.getAllGoodsdetails();
         },
         methods : {
             getAllGoodsdetails : function(){
+            	var goodsname = "iph";
                 //发送get请求
-                this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
-                    this.goodsalldetails = JSON.parse(res.bodyText);
-                    console.log(this.goodsalldetails);
+                this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname="+goodsname).then(function(res) {
+                    this.goodslist = JSON.parse(res.bodyText);
+                    console.log(this.goodslist);
                 }, function() {
                     console.log("请求失败处理");
                 });
@@ -146,4 +147,6 @@
         }
     });
     </script>
+</body>
+    
 </html>

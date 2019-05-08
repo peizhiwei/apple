@@ -35,9 +35,9 @@ public class AdminiSelectController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//×ª»»ÈÕÆÚ
+		//×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorÎª×Ô¶¨ÒåÈÕÆÚ±à¼­Æ÷
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorÎªï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±à¼­ï¿½ï¿½
 	}
 	
 	@RequestMapping("getallType")
@@ -46,14 +46,14 @@ public class AdminiSelectController {
 		List<Type> typelist = adminiSelectservice.getType();
 		return typelist;
 	}
-	//²éÑ¯ÉÌÆ·
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·
 	@RequestMapping("/getgoods")
 	@ResponseBody
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiSelectservice.getGoods(number);
 		return listgoods;
 	}
-	//±éÀúÊý¾Ý¿â½«ÉÌÆ·ÐÅÏ¢Õ¹Ê¾ÔÚÇ°¶ËÒ³Ãæ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿â½«ï¿½ï¿½Æ·ï¿½ï¿½Ï¢Õ¹Ê¾ï¿½ï¿½Ç°ï¿½ï¿½Ò³ï¿½ï¿½
 	@RequestMapping("/getallgoods")
 	@ResponseBody
 	public List<Goods> getallGoods(){
@@ -61,35 +61,35 @@ public class AdminiSelectController {
 		return listallgoods;
 		
 	}
-	//²éÑ¯ÉÌÆ·µÄ¿â´æ
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½Ä¿ï¿½ï¿½
 	@RequestMapping("/getstock")
 	@ResponseBody
 	public List<Stock> getStock(String number) {
 		List<Stock> liststock = adminiSelectservice.getStock(number);
 		return liststock;
 	}
-	//²éÑ¯ÉÌÆ·Èë¿âÏêÇé
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/getintostore")
 	@ResponseBody
 	public List<Intostore> getIntostore(String number){
 		List<Intostore> listis = adminiSelectservice.getIntostore(number);
 		return listis;
 	}
-//	//²éÑ¯ÉÌÆ·ÏÔÊ¾µ½indexÒ³ÃæÉÏ
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½Ê¾ï¿½ï¿½indexÒ³ï¿½ï¿½ï¿½ï¿½
 //	@RequestMapping("/getgooodstoindex")
 //	@ResponseBody
 //	public List<Goods> getGoodstoindex(Model m){
 //		List<Goods> goodsList = adminiSelectservice.getGoodstoindex();
 //		return goodsList;
 //	}
-	//²éÑ¯ÉÌÆ·³ö¿âÏêÇé
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/getoutstore")
 	@ResponseBody
 	public List<Outstore> getOutstore(String number){
 		List<Outstore> listous = adminiSelectservice.getOutstore(number);
 		return  listous;
 	}
-	//ÑéÖ¤³¬¼¶¹ÜÀíÔ±µÄµÇÂ¼
+	//ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Äµï¿½Â¼
 	@RequestMapping("/checksuperadminilogin")
 	@ResponseBody
 	public ajaxresponse checkSuperAdminiLogin(String superadmininame,String superadminipassword,HttpServletRequest request) {
@@ -102,11 +102,11 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("µÇÂ¼Ê§°Ü");
+			rs.setMsg("ï¿½ï¿½Â¼Ê§ï¿½ï¿½");
 		}
 		return rs;
 	}
-	//ÑéÖ¤¹ÜÀíÔ±µÄµÇÂ¼
+	//ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Äµï¿½Â¼
 	@RequestMapping("/checkadminilogin")
 	@ResponseBody
 	public ajaxresponse checkAdminiLogin(String admininame,String adminipassword,HttpServletRequest request) {
@@ -119,16 +119,22 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("µÇÂ¼Ê§°Ü");
+			rs.setMsg("ï¿½ï¿½Â¼Ê§ï¿½ï¿½");
 		}
 		return rs;
 		
 	}
-	//²éÑ¯ËùÓÐÆÕÍ¨¹ÜÀíÔ±ÓÃ»§
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ã»ï¿½
 	@RequestMapping("/getalladmini")
 	@ResponseBody
 	public List<Admini> getallAdmini(){
 		List<Admini> adminilist = adminiSelectservice.getallAdmini();
 		return adminilist;
+	}
+	@RequestMapping("/getgoodslist")
+	@ResponseBody
+	public List<Goods> getgoodslist(String goodsname){
+		List<Goods> goodslist = adminiSelectservice.getGoodsList(goodsname);
+		return goodslist;
 	}
 }

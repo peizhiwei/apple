@@ -13,58 +13,59 @@ import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.pojo.Type;
 
 public interface AdminiSelectDao {
-	//²éÑ¯ÉÌÆ·
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·
 	@Select("SELECT * FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
-//	@Select("SELECT * FROM goods WHERE `name` LIKE '%"+"#{goodsname}"+"%'");
-//	List<Goods> getGoodsList(String goodsname);
+	//æ¨¡ç³ŠæŸ¥è¯¢å•†å“
+	@Select("SELECT * FROM goods WHERE `name` LIKE '%${goodsname}%'")
+	List<Goods> getGoodsList(String goodsname);
 	
-	//²éÑ¯·ÖÀà
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 	@Select("SELECT id,type_name as typeName FROM type")
 	List<Type> getType();
-	//¸ù¾İ·ÖÀàÃû²éÑ¯·ÖÀàid
+	//ï¿½ï¿½ï¿½İ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½id
 	@Select("select id from type where type_name=#{typeName}")
 	int gettypeid(String typeName);
 	
-	//±éÀúÊı¾İ¿â½«ÉÌÆ·ĞÅÏ¢Õ¹Ê¾ÔÚÇ°¶ËÒ³Ãæ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¿â½«ï¿½ï¿½Æ·ï¿½ï¿½Ï¢Õ¹Ê¾ï¿½ï¿½Ç°ï¿½ï¿½Ò³ï¿½ï¿½
 	@Select("SELECT s.super_admini_name as `superadmini.superAdminiName`, a.admini_name as `admini.adminiName`, g.*,t.type_name as 'type.typeName' FROM goods g\r\n" + 
 			"LEFT JOIN type t on g.type_id=t.id "
 			+"LEFT JOIN admini a ON a.id=g.admini_id "
 			+ "LEFT JOIN superadmini s ON s.id=g.superadmini_id "
 			+ "ORDER BY g.date")
 	List<Goods> getallGoods();
-	//²éÑ¯ÉÌÆ·ÏÔÊ¾µ½indexÒ³ÃæÉÏ
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½Ê¾ï¿½ï¿½indexÒ³ï¿½ï¿½ï¿½ï¿½
 	@Select("SELECT g.*,t.type_name as `type.typeName`"
 			+ " FROM goods g "
 			+ "LEFT JOIN type t on g.type_id=t.id ORDER BY g.date")
 	List<Goods> getGoodstoindex();
 	
-	//²éÑ¯ÉÌÆ·³ö¿âÏêÇé
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Select("SELECT `id`,`ck_number` as ckNumber,`name`,`total` as amount,`date`,`builder` "
 				+ "FROM outstore_goods WHERE `ck_number` = #{ckNumber}")
 	List<Outstore> getOutstore(String number);
 	
-	//²éÑ¯ÉÌÆ·Èë¿âÏêÇé
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Select("SELECT `id`,`rk_number` as rkNumber,`name`,`total` as amount,`date`,`builder` "
 			+ "FROM intostore_goods WHERE `rk_number` = #{rkNumber}")
 	List<Intostore> getIntostore(String number);
 	
-	//²éÑ¯ÉÌÆ·¿â´æ
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½
 	@Select("SELECT `number`,`name`,`specs`,"
 			+ "`details`,`amount` FROM goods WHERE `number`= #{number}")
 	List<Stock> getStock(String number);
-	//»ñÈ¡goods±íÖĞid×î´óµÄÖµ
+	//ï¿½ï¿½È¡goodsï¿½ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½Öµ
 	@Select("SELECT MAX(id) FROM goods")
 	int getgoodsmaxid();
-	//Í¨¹ıÓÃ»§Ãû²éÑ¯¸Ã³¬¼¶¹ÜÀíÔ±ÊÇ·ñ´æÔÚ
+	//Í¨ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 	@Select("SELECT id, super_admini_name as superAdminiName,super_admini_password as superAdminiPassword FROM superadmini "
 			+ "WHERE super_admini_name=#{superAdminiName}")
 	SuperAdmini findBySuperAdminiName(String superadmininame);
-	//Í¨¹ıÓÃ»§Ãû²éÑ¯¸Ã¹ÜÀíÔ±ÊÇ·ñ´æÔÚ
+	//Í¨ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã¹ï¿½ï¿½ï¿½Ô±ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 	@Select("SELECT id, admini_name as adminiName,admini_password as adminiPassword FROM admini "
 			+ "WHERE admini_name=#{adminiName}")
 	Admini findByAdminiName(String admininame);
-	//²éÑ¯ËùÓĞÆÕÍ¨¹ÜÀíÔ±ÓÃ»§
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ã»ï¿½
 	@Select("SELECT id, admini_name as adminiName,admini_password as adminiPassword FROM admini")
 	List<Admini> getallAdmini();
 }

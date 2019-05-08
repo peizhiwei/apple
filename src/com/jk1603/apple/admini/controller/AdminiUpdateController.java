@@ -24,7 +24,7 @@ public class AdminiUpdateController {
 	
 	@Autowired
 	AdminiSelectServiceInterface adminiselectservice;
-	//±à¼­ÉÌÆ·
+	//ï¿½à¼­ï¿½ï¿½Æ·
 	@RequestMapping("/setgoods")
 	@ResponseBody
 	public List<Goods> setGoods(String number) {
@@ -34,8 +34,9 @@ public class AdminiUpdateController {
 	@RequestMapping("/setgoodsimg")
 	@ResponseBody
 	public String userimgupload(MultipartHttpServletRequest filesRequest) {
-        String root = filesRequest.getServletContext().getRealPath("img")+"\\";
-        //ÅÐ¶ÏÎÄ¼þÄ¿Â¼ÊÇ·ñ´æÔÚ£¬Èç¹û²»´æÔÚÔò´´½¨Ò»¸öÄ¿Â¼
+        String root = filesRequest.getServletContext().getRealPath("img")+"/";
+        System.out.println(root);
+        //ï¿½Ð¶ï¿½ï¿½Ä¼ï¿½Ä¿Â¼ï¿½Ç·ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò´´½ï¿½Ò»ï¿½ï¿½Ä¿Â¼
         File Folder = new File(root);
         if(Folder.exists()) {
         	if(Folder.isDirectory()) {
@@ -44,12 +45,12 @@ public class AdminiUpdateController {
         		System.out.println("the same name file exists,can not create dir");
         	}
         }else {
-        	System.out.println("dir not exists,create it ¡­¡­");
+        	System.out.println("dir not exists,create it ï¿½ï¿½ï¿½ï¿½");
         	Folder.mkdir();
         }
-        MultipartFile file = filesRequest.getFile("imgfile");// ¶ÁÈ¡ÎÄ¼þ
+        MultipartFile file = filesRequest.getFile("imgfile");// ï¿½ï¿½È¡ï¿½Ä¼ï¿½
         
-        File newfile = new File(root + file.getOriginalFilename());// ´´½¨ÐÂ£¨¿Õ£©ÎÄ¼þ£¬²»¸Ä±äÎÄ¼þÃû
+        File newfile = new File(root + file.getOriginalFilename());// ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Õ£ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
         
         int id = adminiselectservice.getgoodsmaxid();
     	String img = "/apple/img/"+file.getOriginalFilename();
@@ -59,20 +60,20 @@ public class AdminiUpdateController {
     	goods.setImg(img);
     	adminiupdateservice.setGoodsImg(goods);
         try {
-            file.transferTo(newfile);// ±£´æÎÄ¼þ
+            file.transferTo(newfile);// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
         }
         return "upload success";
 	}
-	//ÉÏ¼Ü
+	//ï¿½Ï¼ï¿½
 	@RequestMapping("/upshelf")
 	@ResponseBody
 	public void upshelf(@Param("id") int id) {
 		adminiupdateservice.setUpshelf(id);
 	}
-	//ÏÂ¼Ü
+	//ï¿½Â¼ï¿½
 	@RequestMapping("/downshelf")
 	@ResponseBody
 	public void setdownshelf(@Param("id") int id) {

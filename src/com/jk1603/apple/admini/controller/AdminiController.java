@@ -40,7 +40,7 @@ public class AdminiController {
 		}
 	}
 
-	@RequestMapping("/intoStore")
+	@RequestMapping("/intostore")
 	public String intostore(HttpSession session) {
 		Object superadmini = session.getAttribute("superadmini");
 		Object admini = session.getAttribute("admini");
