@@ -35,7 +35,7 @@ public class AdminiSelectController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//ת������
+		//转换日期
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorΪ�Զ������ڱ༭��
 	}
@@ -46,14 +46,14 @@ public class AdminiSelectController {
 		List<Type> typelist = adminiSelectservice.getType();
 		return typelist;
 	}
-	//��ѯ��Ʒ
+	//查询商品
 	@RequestMapping("/getgoods")
 	@ResponseBody
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiSelectservice.getGoods(number);
 		return listgoods;
 	}
-	//�������ݿ⽫��Ʒ��Ϣչʾ��ǰ��ҳ��
+	//遍历数据库将商品展示在前端页面
 	@RequestMapping("/getallgoods")
 	@ResponseBody
 	public List<Goods> getallGoods(){
@@ -61,21 +61,21 @@ public class AdminiSelectController {
 		return listallgoods;
 		
 	}
-	//��ѯ��Ʒ�Ŀ��
+	//查询商品的库存
 	@RequestMapping("/getstock")
 	@ResponseBody
 	public List<Stock> getStock(String number) {
 		List<Stock> liststock = adminiSelectservice.getStock(number);
 		return liststock;
 	}
-	//��ѯ��Ʒ�������
+	//查询商品入库详情
 	@RequestMapping("/getintostore")
 	@ResponseBody
 	public List<Intostore> getIntostore(String number){
 		List<Intostore> listis = adminiSelectservice.getIntostore(number);
 		return listis;
 	}
-	//��ѯ��Ʒ��ʾ��indexҳ����
+	//
 //	@RequestMapping("/getgooodstoindex")
 //	@ResponseBody
 //	public List<Goods> getGoodstoindex(Model m){
@@ -102,7 +102,7 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("��¼ʧ��");
+			rs.setMsg("登录失败");
 		}
 		return rs;
 	}
@@ -119,7 +119,7 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("��¼ʧ��");
+			rs.setMsg("登录失败");
 		}
 		return rs;
 		

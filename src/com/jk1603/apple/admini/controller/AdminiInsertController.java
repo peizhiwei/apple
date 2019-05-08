@@ -36,11 +36,11 @@ public class AdminiInsertController {
 	AdminiSelectServiceInterface adminiselectservice;
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//×ª»»ÈÕÆÚ
+		//è½¬æ¢æ—¥æœŸ
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorÎª×Ô¶¨ÒåÈÕÆÚ±à¼­Æ÷
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorÎªï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±à¼­ï¿½ï¿½
 	}
-	//Ìí¼ÓÉÌÆ·
+	//æ·»åŠ å•†å“
 	@RequestMapping("/addgoods")
 	@ResponseBody
 	public ajaxresponse addgoods(@RequestParam(value = "number",required = false) String number,
@@ -56,7 +56,7 @@ public class AdminiInsertController {
 		goods.setPrice(price);
 		goods.setSpecs(specs);
 		goods.setDetails(details);
-		//»ñÈ¡ÏµÍ³µ±Ç°ÈÕÆÚ
+		//è·å–ç³»ç»Ÿå½“å‰æ—¥æœŸ
 		goods.setDate(new Date());
 		
 		Type type = new Type();
@@ -81,7 +81,7 @@ public class AdminiInsertController {
 		ajaxgoods.setMsg("/apple/admini/goods");
 		return ajaxgoods;
 	}
-	//ÉÌÆ·³ö¿â
+	
 	@RequestMapping("/outStore")
 	@ResponseBody
 	public ajaxresponse outStore(@RequestParam(value = "number",required = false) String number,
@@ -101,7 +101,7 @@ public class AdminiInsertController {
 		ajaxins.setMsg("/apple/admini/outstoredetails");
 		return ajaxins;
 	}
-	//Ìí¼ÓºóÌ¨¹ÜÀíÔ±
+	//æ·»åŠ ç®¡ç†å‘˜
 	@RequestMapping("/addAdmini")
     @ResponseBody
 	public ajaxresponse addAdmini(
@@ -117,7 +117,7 @@ public class AdminiInsertController {
 	     ajaxadmini.setMsg("/apple/admini/management");
 	     return  ajaxadmini;
 	}
-	//Èë¿â
+	//å‡ºåº“
 	@RequestMapping("/intostore")
 	@ResponseBody
 	public void intostore(@RequestParam(value = "intostroe",required = false)Intostore intostroe,

@@ -45,7 +45,7 @@ public class AdminiUpdateController {
         		System.out.println("the same name file exists,can not create dir");
         	}
         }else {
-        	System.out.println("dir not exists,create it ����");
+        	System.out.println("dir not exists,create it");
         	Folder.mkdir();
         }
         MultipartFile file = filesRequest.getFile("imgfile");// ��ȡ�ļ�

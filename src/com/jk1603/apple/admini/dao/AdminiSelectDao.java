@@ -17,7 +17,7 @@ public interface AdminiSelectDao {
 	@Select("SELECT * FROM goods WHERE `number`= #{number}")
 	List<Goods> getGoods(String number);
 	//模糊查询商品
-	@Select("SELECT * FROM goods WHERE `name` LIKE '%${goodsname}%'")
+	@Select("SELECT * FROM goods WHERE `name`=#{goodsname}")
 	List<Goods> getGoodsList(String goodsname);
 	
 	//��ѯ����

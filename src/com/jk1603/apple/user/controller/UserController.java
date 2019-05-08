@@ -102,7 +102,7 @@ public class UserController {
 			rs.setMsg("/apple/user/userindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("�û������������");
+			rs.setMsg("用户名或密码错误");
 		}
 		return rs;
 	}
@@ -115,7 +115,7 @@ public class UserController {
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
 			rs.setFlag(false);
-			rs.setMsg("�û����Ѵ���");
+			rs.setMsg("用户名已存在");
 		}else {
 			User user1 = new User();
 			user1.setUserName(username);
@@ -146,7 +146,7 @@ public class UserController {
         		System.out.println("the same name file exists,can not create dir");
         	}
         }else {
-        	System.out.println("dir not exists,create it ����");
+        	System.out.println("dir not exists,create it");
         	Folder.mkdir();
         }
         MultipartFile file = filesRequest.getFile("file1");// ��ȡ�ļ�

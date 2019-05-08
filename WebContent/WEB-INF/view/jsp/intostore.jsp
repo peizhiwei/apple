@@ -9,9 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>入库</title>
-
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
 
 <body>
@@ -121,31 +119,19 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-	<script type="text/javascript">
-    var app = new Vue({
-        el : '#app',
-        data : {
-        	goodslist:[],
-        	goodsname:""
-        },
-        mounted:function(){
-            this.getAllGoodsdetails();
-        },
-        methods : {
-            getAllGoodsdetails : function(){
-            	var goodsname = "iph";
-                //发送get请求
-                this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname="+goodsname).then(function(res) {
-                    this.goodslist = JSON.parse(res.bodyText);
-                    console.log(this.goodslist);
-                }, function() {
-                    console.log("请求失败处理");
-                });
+	<script>
+        var app = new Vue({
+            el : '#index',
+            data : {
+                detailslist : []
+            },
+            mounted:function() { 
+            },
+            methods:{
             }
-        }
-    });
+        })
     </script>
 </body>
     
