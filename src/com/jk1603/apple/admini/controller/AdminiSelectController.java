@@ -61,20 +61,7 @@ public class AdminiSelectController {
 		return listallgoods;
 		
 	}
-	//查询商品的库存
-	@RequestMapping("/getstock")
-	@ResponseBody
-	public List<Stock> getStock(String number) {
-		List<Stock> liststock = adminiSelectservice.getStock(number);
-		return liststock;
-	}
-	//查询商品入库详情
-	@RequestMapping("/getintostore")
-	@ResponseBody
-	public List<Intostore> getIntostore(String number){
-		List<Intostore> listis = adminiSelectservice.getIntostore(number);
-		return listis;
-	}
+
 	//
 //	@RequestMapping("/getgooodstoindex")
 //	@ResponseBody
@@ -82,13 +69,7 @@ public class AdminiSelectController {
 //		List<Goods> goodsList = adminiSelectservice.getGoodstoindex();
 //		return goodsList;
 //	}
-	//��ѯ��Ʒ��������
-	@RequestMapping("/getoutstore")
-	@ResponseBody
-	public List<Outstore> getOutstore(String number){
-		List<Outstore> listous = adminiSelectservice.getOutstore(number);
-		return  listous;
-	}
+
 	//��֤��������Ա�ĵ�¼
 	@RequestMapping("/checksuperadminilogin")
 	@ResponseBody

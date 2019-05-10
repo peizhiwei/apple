@@ -39,28 +39,11 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		return listallgoods;
 	}
 
-	@Override
-	public List<Stock> getStock(String number) {
-		List<Stock> liststock = adminiSelectdao.getStock(number);
-		return liststock;
-	}
 
 	@Override
 	public List<Goods> getGoodstoindex() {
 		List<Goods> goodsList = adminiSelectdao.getGoodstoindex();
 		return goodsList;
-	}
-
-	@Override
-	public List<Intostore> getIntostore(String number) {
-		List<Intostore> listins = adminiSelectdao.getIntostore(number);
-		return listins;
-	}
-
-	@Override
-	public List<Outstore> getOutstore(String number) {
-		List<Outstore> listous = adminiSelectdao.getOutstore(number);
-		return listous;
 	}
 
 	@Override

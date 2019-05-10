@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>入库</title>
+
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -35,7 +36,15 @@
                                     class="badge">10</span></a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><span
                                     class="badge">5</span></a></li>
-                       
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"
+                                    aria-hidden="true"></span>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a onclick="window.location.href='/apple/admini/backindex'">退出登录</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -44,22 +53,20 @@
         <div class="container-fliud">
             <div class="col-lg-1 col-sm-2 col-xs-3">
                 <div class="btn-group-vertical" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/backindex'">首页</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/goods'">商品</button>
+                        onclick="window.location.href='/apple/admini/Goods'">商品</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/intostore'">入库</button>
+                        onclick="window.location.href='/apple/admini/Intostore'">入库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/stock'">库存</button>
+                        onclick="window.location.href='/apple/admini/Stock'">库存</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/outStore'">出库</button>
+                        onclick="window.location.href='/apple/admini/OutStore'">出库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/management'">用户管理</button>
+                        onclick="window.location.href='/apple/admini/Management'">用户管理</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/sort'">商品分类</button>
+                        onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/statistics'">统计</button>
+                        onclick="window.location.href='/apple/admini/Statistics'">统计</button>
                 </div>
             </div>
             <div class="col-lg-11 col-sm-10 col-xs-9">
@@ -88,27 +95,42 @@
                     <div class="container">
                         <form class="form-inline">
                             <div class="form-group">
-                                <label for="exampleInputName2">商品名:</label>
-                                <input type="text" v-model="goodsname" class="form-control" id="goodsname"
-                                    name="goodsname" placeholder="请输入商品名">
+                                <label for="exampleInputName2">商品名称:</label>
+                                <input type="text" class="form-control" id="goodsname"
+                                    name="goodsname" placeholder="请输入商品名称">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputName2">数量:</label>
-                                <input type="text" v-model="" class="form-control" id=""
+                            </div>
+                            <button type="button" class="btn btn-default" @click="getintostorelist()"><span
+                                    class="glyphicon glyphicon-search" aria-hidden="true"
+                                    name="search"></span>搜索</button>
+                            <div class="form-group">
+                                <label for="exampleInputName2">入库数量:</label>
+                                <input type="text" class="form-control" id=""
                                     name="" placeholder="请输入入库数量">
                             </div>
                         </form>
                     </div>&nbsp;&nbsp;
                     <div class="container">
                         <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" ></th>
+                                    <th>商品名称</th>
+                                    <th>价格</th>
+                                    <th>规格</th>
+                                    <th>图片</th>
+                                    <th>创建人</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr v-for="i in goodslist">
-                                    <td><input type="radio" v-model='checkList' :value="i.id"></td>
-                                    <td>{{i.number}}</td>
+                                <tr v-for="i in items">
+                                    <td><input type="checkbox"  :value="i.id"></td>
                                     <td>{{i.name}}</td>
                                     <td>{{i.price}}</td>
                                     <td>{{i.specs}}</td>
-                                    <td>{{i.details}}</td>
+                                    <td>{{i.img}}</td>
+                                    <td>{{i.admini}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -117,22 +139,38 @@
             </div>
         </div>
     </div>
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-	<script>
+
+    <script>
         var app = new Vue({
-            el : '#index',
-            data : {
-                detailslist : []
+            el: '#app',
+            data: {
+                inputNumber: "",
+                items: [],
+                checked: false, //全选框
+                checkList: []
             },
-            mounted:function() { 
-            },
-            methods:{
+            methods: {
+                getintostorelist: function (data) {
+                    //发送get请求
+                    this.$http.get("http://localhost:8080/apple/admini/getintostore?number=" + this.inputNumber).then(function (res) {
+                        this.items = JSON.parse(res.bodyText);
+
+                    }, function () {
+                        console.log('请求失败处理');
+                    });
+                }
+
             }
-        })
+        });
     </script>
+
+
 </body>
-    
+
 </html>

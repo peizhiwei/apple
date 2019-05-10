@@ -16,10 +16,7 @@ public interface AdminiSelectServiceInterface {
 	List<Goods> getGoods(String number);
 	//�������ݿ⽫��Ʒ��Ϣչʾ��ǰ��ҳ��
 	List<Goods> getallGoods();
-	List<Stock> getStock(String number);
 	List<Goods> getGoodstoindex();
-	List<Intostore> getIntostore(String number);
-	List<Outstore> getOutstore(String number);
 	
 	int getgoodsmaxid();
 	
