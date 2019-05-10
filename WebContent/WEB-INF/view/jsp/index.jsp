@@ -21,6 +21,12 @@
 body{
 	background-color: rgb(245,245,245);
 }
+#span1,#span2,#span3,#span4,#span5{
+	color:red;
+	text-align:left;
+	margin-top:-15px;
+	height:18px;
+}
         
 </style>
 </head>
@@ -85,9 +91,85 @@ body{
                                 <font color="white">购物车</font>
                             </a></li>
 
-                        <li style="float: right;"><a href="#" onclick="window.location.href='/apple/user/login'">
-                                <font color="white">登录/注册</font>
-                            </a></li>
+                       <li  style="float:right;display:inline-block;margin:0em;margin:8px 8px;">
+                            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" id="login">  
+								    登录 
+								</button>  
+								  
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+								    <div class="modal-dialog" role="document">  
+								        <div class="modal-content">  
+								            <div class="modal-header">  
+								                <button type="button" class="close"  data-toggle="modal" aria-label="Close">  
+								                    <span aria-hidden="true">×</span>  
+								                </button>  
+								                <p class="modal-title" id="myModalLabel" style="font-size: 16px"><span class="glyphicon glyphicon-th-large"></span>欢迎登录手机商城</p>
+								                
+								            </div>  
+								            <div class="modal-body">  
+								            	<form>
+								            	<div class="form-group ">
+								            		<p>
+								            		 <input type="text" name="username" placeholder="请输入用户名" class="form-control input-group-lg" @blur.prevent="checkusername" v-model="user.name"> </p>
+								            	</div>
+								            	<div class="span4" style="color:red;float:left">{{msg}}</div>
+								               <div class="form-group ">
+								               <input type="password" name="password" placeholder="请输入密码" class="form-control input-group-lg" @blur.prevent="checkpassword" v-model="user.pass" />
+								            	</div>  
+								            	<div class="span5" style="color:red;float:left">{{pass}}</div>
+								            	</form>
+								       		</div>
+								            <div class="modal-footer"> 
+								                <button type="button" id="loginbutton" class="btn btn-default" data-dismiss="modal" v-bind:disabled="user.name == ''||user.pass==''" >确认</button>  
+								                <button type="button" class="btn btn-primary">取消</button>  
+								            </div>  
+								        </div>  
+								    </div>  
+								</div>  
+                            </li>
+                            
+                            <li  style="float:right;display:inline-block;margin:0em;margin:8px 8px;">
+                            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModalregister">  
+								    注册 
+								</button>  
+								  
+								<div class="modal fade" id="myModalregister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+								    <div class="modal-dialog" role="document">  
+								        <div class="modal-content">  
+								            <div class="modal-header">  
+								                <button type="button" class="close"  data-toggle="modal" aria-label="Close">  
+								                    <span aria-hidden="flase">×</span>  
+								                </button>  
+								                <p class="modal-title" id="myModalLabel" style="font-size: 16px"><span class="glyphicon glyphicon-th-large"></span>欢迎成为手机商城新用户</p>
+								                
+								            </div>  
+								            <div class="modal-body">  
+								            	<form>
+								            	<div class="form-group ">
+								                <input type="text" name="username" id="registerusername" v-model="register.runame" placeholder="请输入用户名"  @blur.prevent="checkregisterusername" class="form-control input-group-lg"
+								                >
+								            	</div>
+								            	<div id="span1">{{register.msg1}}</div>
+								               <div class="form-group ">
+								                <input type="password" name="password" id="registerpassword" v-model="register.repsd" @blur.prevent="repassword" placeholder="请输入密码" class="
+								                 form-control input-group-lg"> 
+								            	</div>  
+								            	<div id="span2">{{register.msg2}}</div>
+								            	 <div class="form-group">
+								                <input type="password" name="password2"  v-model="register.repsd1" @blur.prevent="checkrepassword" placeholder="请再一次输入密码" class="
+								                 form-control input-group-lg"> 
+								            	</div>  
+								            	<div id="span3">{{register.msg3}}</div>
+								            	</form>
+								       		</div>
+								            <div class="modal-footer"> 
+								                <button type="button" id="registerbutton" class="btn btn-default" data-dismiss="modal" v-bind:disabled="register.runame=='' || register.repsd=='' || register.repsd1=='' || register.msg1!= ' ' || register.msg2 !=' ' || register.msg3!=' '">确认</button>  
+								                <button type="button" class="btn btn-primary">取消</button>  
+								            </div>  
+								        </div>  
+								    </div>  
+								</div>
+                            </li>
                     </ul>
                 </div>
             </nav>
@@ -169,7 +251,23 @@ body{
         var app = new Vue({
             el : '#index',
             data : {
-                detailslist : []
+                detailslist : [],
+                user:{
+                	name:'',
+                	pass:'',
+                	},
+                register:{
+                	runame:'',
+                	repsd:'',
+                	repsd1:'',
+                	msg1:'',
+                	msg2:'' ,	
+                	msg3:'',
+                },
+				msg:'',
+				registermsg:'' ,	
+				pass:'',
+				jugdement:''
             },
             mounted:function() { //钩子函数
                 this.get();
@@ -182,9 +280,95 @@ body{
                     },function(){
                         console.log('请求失败处理');
                     });
+                },//登录验证  用户名不能为空 密码不能为空 两者成立之后登录按钮解除禁用
+                checkusername:function(){
+        			if(this.user.name==''){
+        				this.msg =  "请输入用户名";
+        			}else{
+        				this.msg = '';
+        			}
+        		},
+                checkpassword:function(){
+                	if(this.user.pass==''){
+                		this.pass =  "请输入密码";
+                	}else{
+                		this.pass = '';
+                	}
+                },
+                //注册验证
+        		checkregisterusername:function(){
+        			var patten= /^[a-zA-Z0-9_]*$/;
+        			
+        			if(this.register.runame==''){
+        				this.register.msg1 =  "用户名不能为空 ";
+        			}else if(!patten.test(this.register.runame)){
+        				this.register.msg1 =  "用户名只能由英文大小写或者数字组成";
+        				console.log("runame");
+        			}else{
+        				this.register.msg1 = ' ';
+        			}
+        		},
+                repassword:function(){
+                	if(this.register.repsd==''){
+                		this.register.msg2 =  "请输入密码";
+                	}else{
+                		this.register.msg2 = ' ';
+                	}
+                },
+        		checkrepassword:function(){
+                	if(this.register.repsd1==""){
+                		this.register.msg3 =  "请再一次输入密码 ";
+                	}else if(this.register.repsd!=this.register.repsd1){
+                		this.register.msg3 =  "两次输入密码不一致，请验证后重新输入";
+                	}else{
+                		this.register.msg3 = ' ';
+                	}
                 }
-            }
-        })
+            },
+        });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#loginbutton").click(function(){
+        	 var username = $("#user").val();
+             var password = $("#pass1").val();
+            	 $.ajax({
+                     type:'POST',
+                     async:false,
+                     dataType:"json",
+                     url:"/apple/user/checkregister",
+                     data:{"username":username,"password":password},
+                     success:function(result){
+                         if(result.flag==true){
+                             window.location.href = result.msg;
+                         }else{
+                             alert(result.msg);
+                         }
+                     }
+                 });
+            
+        });
+        $("#registerbutton").click(function(){
+        	var reusername = $("#registerusername").val();
+            var repassword = $("#registerpassword").val();
+            alert("jjjjj");
+            $.ajax({
+            	type:'POST',
+            	asyns:false,
+            	dataType:"json",
+            	url:"/apple/user/checkregister",
+            	data:{"reusername":reusername,"repassword":repassword},
+            	success:function(result){
+            		if(result.flag==true){
+                        window.location.href = result.msg;
+                    }else{
+                        alert(result.msg);
+                    }
+            	}
+            })
+            
+        });
+    }); 
     </script>
 </body>
 </html>

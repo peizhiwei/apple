@@ -109,17 +109,17 @@ public class UserController {
 	
 	@RequestMapping("/checkregister")
 	@ResponseBody
-    public ajaxresponse addUserAjax(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password){
+    public ajaxresponse addUserAjax(@RequestParam(value = "reusername",required = false) String reusername,@RequestParam(value = "repassword",required = false) String repassword){
 		User user = new User();
-		user = userService.checkUser(username);
+		user = userService.checkUser(reusername);
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
 			rs.setFlag(false);
 			rs.setMsg("用户名已存在");
 		}else {
 			User user1 = new User();
-			user1.setUserName(username);
-			user1.setUserPassword(password);
+			user1.setUserName(reusername);
+			user1.setUserPassword(repassword);
 			userService.addUser(user1);
 			rs.setFlag(true);
 			rs.setMsg("/apple/user/login");
