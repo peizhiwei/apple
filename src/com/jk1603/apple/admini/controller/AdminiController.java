@@ -42,11 +42,11 @@ public class AdminiController {
 
 	@RequestMapping("/intostore")
 	public String intostore(HttpSession session) {
-//		Object superadmini = session.getAttribute("superadmini");
-//		Object admini = session.getAttribute("admini");
-//		if (superadmini == null && admini == null) {
-//			return "backindex";
-//		}
+		Object superadmini = session.getAttribute("superadmini");
+		Object admini = session.getAttribute("admini");
+		if (superadmini == null && admini == null) {
+			return "backindex";
+		}
 		return "intostore";
 	}
 
@@ -134,10 +134,10 @@ public class AdminiController {
 		return "addadmini";
 	}
 
-	@RequestMapping("/shoppingcart")
-	public String shoppingcart(HttpSession session) {
-		return "shoppingcart";
-	}
+//	@RequestMapping("/shoppingcart")
+//	public String shoppingcart(HttpSession session) {
+//		return "shoppingcart";
+//	}
 	
 	
 	@RequestMapping("/loginOut")

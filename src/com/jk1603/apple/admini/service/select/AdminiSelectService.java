@@ -91,7 +91,4 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		List<Goods> goodslist = adminiSelectdao.getGoodsList(goodsname);
 		return goodslist;
 	}
-
-
-
 }

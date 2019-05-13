@@ -35,9 +35,9 @@ public class AdminiSelectController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//转换日期
+		//杞崲鏃ユ湡
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorΪ�Զ������ڱ༭��
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为锟皆讹拷锟斤拷锟斤拷锟节编辑锟斤拷
 	}
 	
 	@RequestMapping("getallType")
@@ -46,14 +46,14 @@ public class AdminiSelectController {
 		List<Type> typelist = adminiSelectservice.getType();
 		return typelist;
 	}
-	//查询商品
+	//鏌ヨ鍟嗗搧
 	@RequestMapping("/getgoods")
 	@ResponseBody
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiSelectservice.getGoods(number);
 		return listgoods;
 	}
-	//遍历数据库将商品展示在前端页面
+	//閬嶅巻鏁版嵁搴撳皢鍟嗗搧灞曠ず鍦ㄥ墠绔〉闈�
 	@RequestMapping("/getallgoods")
 	@ResponseBody
 	public List<Goods> getallGoods(){
@@ -70,7 +70,7 @@ public class AdminiSelectController {
 //		return goodsList;
 //	}
 
-	//��֤��������Ա�ĵ�¼
+	//锟斤拷证锟斤拷锟斤拷锟斤拷锟斤拷员锟侥碉拷录
 	@RequestMapping("/checksuperadminilogin")
 	@ResponseBody
 	public ajaxresponse checkSuperAdminiLogin(String superadmininame,String superadminipassword,HttpServletRequest request) {
@@ -83,11 +83,11 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("登录失败");
+			rs.setMsg("鐧诲綍澶辫触");
 		}
 		return rs;
 	}
-	//��֤����Ա�ĵ�¼
+	//锟斤拷证锟斤拷锟斤拷员锟侥碉拷录
 	@RequestMapping("/checkadminilogin")
 	@ResponseBody
 	public ajaxresponse checkAdminiLogin(String admininame,String adminipassword,HttpServletRequest request) {
@@ -100,12 +100,12 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("登录失败");
+			rs.setMsg("鐧诲綍澶辫触");
 		}
 		return rs;
 		
 	}
-	//��ѯ������ͨ����Ա�û�
+	//锟斤拷询锟斤拷锟斤拷锟斤拷通锟斤拷锟斤拷员锟矫伙拷
 	@RequestMapping("/getalladmini")
 	@ResponseBody
 	public List<Admini> getallAdmini(){
@@ -115,6 +115,7 @@ public class AdminiSelectController {
 	@RequestMapping("/getgoodslist")
 	@ResponseBody
 	public List<Goods> getgoodslist(String goodsname){
+		System.out.println(goodsname);
 		List<Goods> goodslist = adminiSelectservice.getGoodsList(goodsname);
 		return goodslist;
 	}

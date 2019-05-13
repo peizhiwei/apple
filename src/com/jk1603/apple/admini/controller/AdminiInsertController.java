@@ -19,8 +19,8 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
-import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.service.insert.AdminiInsertServiceInterface;
@@ -36,9 +36,9 @@ public class AdminiInsertController {
 	AdminiSelectServiceInterface adminiselectservice;
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//转换日期
+		//杞崲鏃ユ湡
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditorΪ�Զ������ڱ༭��
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为锟皆讹拷锟斤拷锟斤拷锟节编辑锟斤拷
 	}
 	//添加商品
 	@RequestMapping("/addgoods")
@@ -56,7 +56,7 @@ public class AdminiInsertController {
 		goods.setPrice(price);
 		goods.setSpecs(specs);
 		goods.setDetails(details);
-		//获取系统当前日期
+		//获取系统当前时间
 		goods.setDate(new Date());
 		
 		Type type = new Type();
@@ -106,8 +106,7 @@ public class AdminiInsertController {
     @ResponseBody
 	public ajaxresponse addAdmini(
 			 @RequestParam(value = "adminiName",required = false) String adminiName,
-			 @RequestParam(value = "adPassword1",required = false) String adPassword1)
-			 {
+			 @RequestParam(value = "adPassword1",required = false) String adPassword1){
 	     Admini admini = new Admini();
 	     admini.setAdminiName(adminiName);
 	     admini.setAdminiPassword(adPassword1);
@@ -117,21 +116,31 @@ public class AdminiInsertController {
 	     ajaxadmini.setMsg("/apple/admini/management");
 	     return  ajaxadmini;
 	}
-	//出库
+	//入库
 	@RequestMapping("/intostore")
 	@ResponseBody
-	public void intostore(@RequestParam(value = "intostroe",required = false)Intostore intostroe,
-						  @RequestParam(value = "operationId",required = false)int operationId,
-						  HttpSession session) {
+	public ajaxresponse intostore(@RequestParam(value = "goodsId",required = false)int goodsId,
+						  @RequestParam(value = "amount",required = false)BigDecimal amount,HttpSession session) {
+		Store store = new Store();
 		Object adminisession = session.getAttribute("admini");
 		Object superadminisession = session.getAttribute("superadmini");
 		if(adminisession==null) {
 			SuperAdmini superadmini = (SuperAdmini)superadminisession;
-			operationId = superadmini.getId();
+			superadmini.getId();
+			store.setSuperadmini(superadmini);
 		}else {
 			Admini admini = (Admini)adminisession;
-			operationId = admini.getId();
+			admini.getId();
+			store.setAdmini(admini);
 		}
-		adminiinsertservice.intoStore(intostroe, operationId);
+		Goods goods = new Goods();
+		goods.setId(goodsId);
+		store.setGoods(goods);
+		store.setAmount(amount);
+		adminiinsertservice.intoStore(store);
+		ajaxresponse rs = new ajaxresponse();
+		rs.setFlag(true);
+		rs.setMsg("/apple/adminiinsert/intostore");
+		return rs;
 	}
 }

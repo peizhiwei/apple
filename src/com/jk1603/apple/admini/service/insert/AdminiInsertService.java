@@ -8,6 +8,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Store;
 
 @Service
 public class AdminiInsertService implements AdminiInsertServiceInterface {
@@ -28,8 +29,9 @@ public class AdminiInsertService implements AdminiInsertServiceInterface {
 		admininsertdao.outStore(ous);
 	}
 	@Override
-	public void intoStore(Intostore intostroe, int operationId) {
-		admininsertdao.intoStore(intostroe, operationId);
+	public void intoStore(Store store) {
+		admininsertdao.intoStore(store);
 		
 	}
+
 }

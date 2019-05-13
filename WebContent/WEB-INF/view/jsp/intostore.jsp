@@ -54,19 +54,19 @@
             <div class="col-lg-1 col-sm-2 col-xs-3">
                 <div class="btn-group-vertical" role="group" aria-label="...">
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Goods'">商品</button>
+                        onclick="window.location.href='/apple/admini/goods'">商品</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Intostore'">入库</button>
+                        onclick="window.location.href='/apple/admini/intostore'">入库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Stock'">库存</button>
+                        onclick="window.location.href='/apple/admini/stock'">库存</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/OutStore'">出库</button>
+                        onclick="window.location.href='/apple/admini/outStore'">出库</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Management'">用户管理</button>
+                        onclick="window.location.href='/apple/admini/management'">用户管理</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Sort'">商品分类</button>
+                        onclick="window.location.href='/apple/admini/sort'">商品分类</button>
                     <button type="button" class="btn btn-default" style="height:50px;width:100px"
-                        onclick="window.location.href='/apple/admini/Statistics'">统计</button>
+                        onclick="window.location.href='/apple/admini/statistics'">统计</button>
                 </div>
             </div>
             <div class="col-lg-11 col-sm-10 col-xs-9">
@@ -97,17 +97,20 @@
                             <div class="form-group">
                                 <label for="exampleInputName2">商品名称:</label>
                                 <input type="text" class="form-control" id="goodsname"
-                                    name="goodsname" placeholder="请输入商品名称">
+                                    v-model="inputname" name="goodsname" placeholder="请输入商品名称">
                             </div>
                             <div class="form-group">
                             </div>
-                            <button type="button" class="btn btn-default" @click="getintostorelist()"><span
+                            <button type="button" class="btn btn-default" @click="getgoodslist()"><span
                                     class="glyphicon glyphicon-search" aria-hidden="true"
                                     name="search"></span>搜索</button>
                             <div class="form-group">
                                 <label for="exampleInputName2">入库数量:</label>
-                                <input type="text" class="form-control" id=""
-                                    name="" placeholder="请输入入库数量">
+                                <input type="number" class="form-control" id="amount"
+                                    name="amount" placeholder="请输入入库数量">
+                            </div>
+                            <div class="form-group">
+                                <input type="button" class="form-control" value="入库" @click="insertstore()">
                             </div>
                         </form>
                     </div>&nbsp;&nbsp;
@@ -115,22 +118,26 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" ></th>
+                                    <th></th>
                                     <th>商品名称</th>
                                     <th>价格</th>
                                     <th>规格</th>
+                                    <th>分类</th>
                                     <th>图片</th>
+                                    <th>创建日期</th>
                                     <th>创建人</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="i in items">
-                                    <td><input type="checkbox"  :value="i.id"></td>
+                                <tr v-for="i in goodslist" @click="getname(i.name,i.id)">
+                                    <td><input type="radio" name="radio"></td>
                                     <td>{{i.name}}</td>
                                     <td>{{i.price}}</td>
                                     <td>{{i.specs}}</td>
+                                    <td>{{i.type.typeName}}</td>
                                     <td>{{i.img}}</td>
-                                    <td>{{i.admini}}</td>
+                                    <td>{{i.date}}</td>
+                                    <td>{{i.admini==null?i.superadmini.superAdminiName:i.admini.adminiName}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -150,22 +157,38 @@
         var app = new Vue({
             el: '#app',
             data: {
-                inputNumber: "",
-                items: [],
-                checked: false, //全选框
-                checkList: []
+            	inputname: "",
+            	goodsId: 0,
+                goodslist: []
             },
             methods: {
-                getintostorelist: function (data) {
+            	getgoodslist: function () {
+            		var goodsname = $("#goodsname").val();
                     //发送get请求
-                    this.$http.get("http://localhost:8080/apple/admini/getintostore?number=" + this.inputNumber).then(function (res) {
-                        this.items = JSON.parse(res.bodyText);
-
+                    this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname=" + "%"+goodsname+"%").then(function (res) {
+                        this.goodslist = JSON.parse(res.bodyText);
+						console.log(this.goodslist);
                     }, function () {
                         console.log('请求失败处理');
                     });
+                },
+                getname:function(name,id){
+                	this.inputname=name;
+                	this.goodsId=id;
+                	console.log(this.goodsId);
+                },
+                insertstore:function(){
+                	var goodsId = this.goodsId;
+                	var amount = $("#amount").val();
+                	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
+                		alert("成功");
+                		if(res.flag==true){
+                			window.location.href=res.smg;
+                		}
+                	},function(res){
+                		console.log("请求失败处理");
+                	});
                 }
-
             }
         });
     </script>
