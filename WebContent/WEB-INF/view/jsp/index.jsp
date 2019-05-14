@@ -110,11 +110,11 @@ body{
 								            	<form>
 								            	<div class="form-group ">
 								            		<p>
-								            		 <input type="text" name="username" placeholder="请输入用户名" class="form-control input-group-lg" @blur.prevent="checkusername" v-model="user.name"> </p>
+								            		 <input type="text" name="username" id="user" placeholder="请输入用户名" class="form-control input-group-lg" @blur.prevent="checkusername" v-model="user.name"> </p>
 								            	</div>
 								            	<div class="span4" style="color:red;float:left">{{msg}}</div>
 								               <div class="form-group ">
-								               <input type="password" name="password" placeholder="请输入密码" class="form-control input-group-lg" @blur.prevent="checkpassword" v-model="user.pass" />
+								               <input type="password" name="password" id="pass1" placeholder="请输入密码" class="form-control input-group-lg" @blur.prevent="checkpassword" v-model="user.pass" />
 								            	</div>  
 								            	<div class="span5" style="color:red;float:left">{{pass}}</div>
 								            	</form>
@@ -332,11 +332,13 @@ body{
         $("#loginbutton").click(function(){
         	 var username = $("#user").val();
              var password = $("#pass1").val();
+             console.log(username);
+             console.log(password);
             	 $.ajax({
                      type:'POST',
                      async:false,
                      dataType:"json",
-                     url:"/apple/user/checkregister",
+                     url:"/apple/user/checkLogin",
                      data:{"username":username,"password":password},
                      success:function(result){
                          if(result.flag==true){
