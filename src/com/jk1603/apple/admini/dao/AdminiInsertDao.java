@@ -13,24 +13,24 @@ import com.jk1603.apple.admini.pojo.Store;
 
 
 public interface AdminiInsertDao {
-	//Ìí¼ÓÉÌÆ·
+	//æ–°å¢å•†å“
 	@Update("INSERT INTO goods (`name`,`price`,`number`,\r\n" + 
 			"`specs`,`details`,`upshelf`,`type_id`,`date`,`superadmini_id`,`admini_id`)\r\n" + 
 			"VALUES(#{name},#{price},#{number},\r\n" + 
 			"#{specs},#{details},#{upshelf},#{type.id},#{date},#{superadmini.id},#{admini.id})")
 	void addGoods(Goods goods);
 
-	//ÉÌÆ·³ö¿â
+	//å‡ºåº“
 	@Update("INSERT INTO `outstore_goods` (`ck_number`, `name`, `total`, `date`, `builder` )\r\n" + 
 				"VALUES(#{ckNumber}, #{name}, #{amount}, #{date}, #{builder})")
 	void outStore(Outstore ous);
 	
-	//ÉÌÆ·Èë¿â
-	@Update("INSERT INTO store (amount,goods_id,admini_id,superadmini_id) "
-		  + "VALUES (#{amount}, #{goods.id}, #{admini.id}, #{superadmini.id})")
+	//å…¥åº“
+	@Update("INSERT INTO store (amount,goods_id,date,admini_id,superadmini_id) "
+		  + "VALUES (#{amount}, #{goods.id},#{date},#{admini.id}, #{superadmini.id})")
 	void intoStore(Store store);
 	
-	//Ìí¼Ó¹ÜÀíÔ±
+	//æ·»åŠ ç®¡ç†å‘˜
 	@Update("INSERT INTO admini (`admini_name`, `admini_password`) VALUES (#{adminiName},#{adminiPassword})")
 	void addAdmini(Admini admini);
 }

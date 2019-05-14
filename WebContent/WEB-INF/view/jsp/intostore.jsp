@@ -185,7 +185,9 @@
                 			//若商品存在则判断仓库中是否已经存在此商品
                 			this.$http.get("http://localhost:8080/apple/adminiselect/getstoregoodsid?goodsId="+goodsId).then(function(res){
                 				//仓库中没有此商品
-                				if(res.body==null){
+                				console.log(res);
+                				console.log(res.body);
+                				if(res.bodyText==null||res.bodyText==""){
                 					var amount = this.amount;
                                 	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
                                 		if(res.body.flag==true){
@@ -200,7 +202,8 @@
                 					//获取仓库中已有商品的库存量
                 					this.beforeamount=res.body.amount;
                 					var newamount=parseInt(this.beforeamount)+parseInt(this.amount);
-                					this.$http.post("http://localhost:8080/apple/adminiupdate/updateamount",{newamount:newamount,goodsId:goodsId},{emulateJSON:true}).then(function(res){
+                					var date = new Date();
+                					this.$http.post("http://localhost:8080/apple/adminiupdate/updateamount",{newamount:newamount,goodsId:goodsId,date:"date"},{emulateJSON:true}).then(function(res){
                 						alert("成功");
                 						this.goodsname="";
                 						this.amount="";

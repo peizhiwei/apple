@@ -120,7 +120,9 @@ public class AdminiInsertController {
 	@RequestMapping("/intostore")
 	@ResponseBody
 	public ajaxresponse intostore(@RequestParam(value = "goodsId",required = false)int goodsId,
-						  @RequestParam(value = "amount",required = false)BigDecimal amount,HttpSession session) {
+						  		  @RequestParam(value = "amount",required = false)BigDecimal amount,
+						  		  @RequestParam(value = "date",required = false)Date date,
+						  		  HttpSession session) {
 		Store store = new Store();
 		Object adminisession = session.getAttribute("admini");
 		Object superadminisession = session.getAttribute("superadmini");
@@ -136,6 +138,7 @@ public class AdminiInsertController {
 		Goods goods = new Goods();
 		goods.setId(goodsId);
 		store.setGoods(goods);
+		store.setDate(new Date());
 		store.setAmount(amount);
 		adminiinsertservice.intoStore(store);
 		ajaxresponse rs = new ajaxresponse();

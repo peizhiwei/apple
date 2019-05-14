@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div id="get">
+<div id="app">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -94,7 +94,7 @@
 				<div>
 					<div class="btn-group col-xs-6" role="group" aria-label=""></div>
 					<div class="col-xs-6 text-right">
-						<button type="button" class="btn btn-default">
+						<button type="button" class="btn btn-default" onclick="window.location.href='/apple/admini/intostore'">
 							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
 						</button>
 						<button type="button" class="btn btn-default">
@@ -113,8 +113,6 @@
 						<div class="form-group"></div>
 						<button type="button" class="btn btn-default"  @click="getstocklist()"><span class="glyphicon glyphicon-search"
                                 aria-hidden="true" name="search"></span>搜索</button>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-random"
-                                aria-hidden="true"></span>清空搜索条件</button>
 					</form>
 				</div>
 				&nbsp;&nbsp;
@@ -125,9 +123,14 @@
 							<th><input type="checkbox" v-model='checked' v-on:click='checkedAll'></th>
 								<th>商品编号</th>
 								<th>商品名称</th>
-								<th>商品规格</th>
-								<th>商品库存</th>
+								<th>价格</th>
+								<th>规格</th>
+								<th>库存</th>
+								<th>分类</th>
 								<th>商品详情</th>
+								<th>图片</th>
+								<th>入库日期</th>
+								<th>入库者</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -154,7 +157,7 @@
 
 	<script>
 	var app = new Vue({
-        el: '#get',
+        el: '#app',
         data: {
         	inputNumber:"",
             items:[],

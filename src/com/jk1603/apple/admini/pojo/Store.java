@@ -1,10 +1,15 @@
 package com.jk1603.apple.admini.pojo;
 
 import java.math.BigDecimal;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Store {
 	private Integer id;
 	private BigDecimal amount;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	private Date date;
 	private Goods goods;
 	private Admini admini;
 	private SuperAdmini superadmini;
@@ -37,6 +42,12 @@ public class Store {
 	}
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 }
