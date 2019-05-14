@@ -94,7 +94,10 @@ public class UserController {
 	@RequestMapping("/checkLogin")
 	@ResponseBody
 	public ajaxresponse login(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password,HttpServletRequest request) {
+		System.out.println(username);
+		System.out.println(password);
 		User user = userService.checkLogin(username,password);
+		
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
 			request.getSession().setAttribute("user", user);
