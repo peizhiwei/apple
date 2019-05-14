@@ -2,27 +2,28 @@ package com.jk1603.apple.admini.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import com.jk1603.apple.admini.pojo.Goods;
 
 public interface AdminiUpdateDao {
-	//±à¼­ÉÌÆ·
+	//æ–°å¢å•†å“
 	@Update("UPDATE `apple`.`goods` SET `name` = ?, "
 			+ "`price` = ?, `number` = ?, `specs` = ?, "
 			+ " `details` = ?, `amount` = ? WHERE `number` = #{number};")
 	List<Goods> setGoods(String number);
-	//ÉÏ´«ÉÌÆ·Í¼Æ¬
+	//ä¸Šä¼ å•†å“å›¾ç‰‡
 	@Update("UPDATE goods SET img=#{img} WHERE id=#{id}")
 	void setGoodsImg(Goods goods);
 	
-	//¿ØÖÆÉÌÆ·ÉÏ¼Ü
+	//ä¸Šæ¶
 	@Update("UPDATE goods SET upshelf=true WHERE id=#{id}")
 	void setUpshelf(int id);
-	//¿ØÖÆÉÌÆ·ÉÏ¼Ü
+	//ä¸‹æ¶
 	@Update("UPDATE goods SET upshelf=false WHERE id=#{id}")
 	void setDownshelf(int id);
-	//ĞŞ¸ÄÉÌÆ·ÊıÁ¿
-	@Update("UPDATE store SET amount = 41 WHERE goods_id=#{goodsId}")
-	void plusstoreamount(int goodsId);
+	//ä¿®æ”¹ä»“åº“å•†å“åº“å­˜é‡ï¼ˆå¢åŠ åº“å­˜ï¼‰
+	@Update("UPDATE store SET amount =#{newamount} WHERE goods_id=#{goodsId}")
+	void plusstoreamount(@Param("newamount")int newamount,@Param("goodsId")int goodsId);
 }

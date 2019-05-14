@@ -167,7 +167,6 @@
                     //发送get请求
                     this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname=" + "%"+this.goodsname+"%").then(function (res) {
                         this.goodslist = JSON.parse(res.bodyText);
-						console.log(this.goodslist);
                     }, function () {
                         console.log('请求失败处理');
                     });
@@ -179,28 +178,35 @@
                 	//根据商品名称查询所有商品
                 	this.$http.get("http://localhost:8080/apple/adminiselect/getgoodsid?goodsname="+this.goodsname).then(function(res){
                 		var goodsId = res.body.id;
-                		this.beforeamount=res.body.amount;
-                		console.log(this.beforeamount);
                 		//判断该商品是否存在
                 		if(goodsId==null){
                 			alert("该商品不存在，请重新选择");
                 		}else{
                 			//若商品存在则判断仓库中是否已经存在此商品
                 			this.$http.get("http://localhost:8080/apple/adminiselect/getstoregoodsid?goodsId="+goodsId).then(function(res){
-                				console.log(res);
                 				//仓库中没有此商品
                 				if(res.body==null){
                 					var amount = this.amount;
                                 	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
                                 		if(res.body.flag==true){
                                 			alert("成功");
-                                			window.location.href=res.body.msg;
+                                			this.goodsname="";
+                    						this.amount="";
                                 		}
                                 	},function(res){
                                 		console.log("请求失败处理");
                                 	});
                 				}else{//仓库中已经存在此商品，只增加商品的数量
-                					
+                					//获取仓库中已有商品的库存量
+                					this.beforeamount=res.body.amount;
+                					var newamount=parseInt(this.beforeamount)+parseInt(this.amount);
+                					this.$http.post("http://localhost:8080/apple/adminiupdate/updateamount",{newamount:newamount,goodsId:goodsId},{emulateJSON:true}).then(function(res){
+                						alert("成功");
+                						this.goodsname="";
+                						this.amount="";
+                					},function(res){
+                						console.log("请求失败处理");
+                					});
                 				}
                 			},function(res){
                 				console.log("请求失败处理");

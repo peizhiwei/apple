@@ -5,14 +5,14 @@ import java.util.List;
 import com.jk1603.apple.admini.pojo.Goods;
 
 public interface AdminiUpdateServiceInterface {
-	//±à¼­ÉÌÆ·
+	//æ–°å¢å•†å“
 	List<Goods> setGoods(String number);
-	//ÉÏ´«ÉÌÆ·Í¼Æ¬
+	//ä¸Šä¼ å•†å“å›¾ç‰‡
 	void setGoodsImg(Goods goods);
-	//ÉÏ¼Ü
+	//ä¸Šæ¶
 	void setUpshelf(int id);
-	//ÏÂ¼Ü
+	//ä¸‹æ¶
 	void setDownshelf(int id);
-	//ĞŞ¸ÄÉÌÆ·ÊıÁ¿
-	void plusstoreamount(int goodsId);
+	//å¢åŠ å•†å“åº“å­˜é‡
+	void plusstoreamount(int newamount,int goodsId);
 }

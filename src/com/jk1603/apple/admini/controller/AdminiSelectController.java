@@ -57,7 +57,6 @@ public class AdminiSelectController {
 	@RequestMapping("/getgoodsid")
 	@ResponseBody
 	public Goods getgoodsid(String goodsname) {
-		System.out.println(goodsname);
 		Goods goodsId = adminiSelectservice.getgoodsid(goodsname);
 		return goodsId;
 	}
