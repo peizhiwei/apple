@@ -1,8 +1,10 @@
 package com.jk1603.apple.admini.pojo;
 
+import java.math.BigDecimal;
+
 public class Store {
 	private Integer id;
-	private int amount;
+	private BigDecimal amount;
 	private Goods goods;
 	private Admini admini;
 	private SuperAdmini superadmini;
@@ -11,12 +13,6 @@ public class Store {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
 	}
 	public Goods getGoods() {
 		return goods;
@@ -35,6 +31,12 @@ public class Store {
 	}
 	public void setSuperadmini(SuperAdmini superadmini) {
 		this.superadmini = superadmini;
+	}
+	public BigDecimal getAmount() {
+		return amount;
+	}
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
 	}
 	
 }

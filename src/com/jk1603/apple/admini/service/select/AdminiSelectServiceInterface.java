@@ -11,15 +11,12 @@ import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 
 public interface AdminiSelectServiceInterface {
-	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	//²éÑ¯·ÖÀà
 	List<Type> getType();
 	List<Goods> getGoods(String number);
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿â½«ï¿½ï¿½Æ·ï¿½ï¿½Ï¢Õ¹Ê¾ï¿½ï¿½Ç°ï¿½ï¿½Ò³ï¿½ï¿½
+	//²éÑ¯ËùÓÐÉÌÆ·
 	List<Goods> getallGoods();
-	List<Stock> getStock(String number);
 	List<Goods> getGoodstoindex();
-	List<Intostore> getIntostore(String number);
-	List<Outstore> getOutstore(String number);
 	
 	int getgoodsmaxid();
 	

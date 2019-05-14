@@ -139,7 +139,7 @@ public class UserController {
 	@RequestMapping("/userimgupload")
 	@ResponseBody
 	public String userimgupload(HttpServletRequest request,HttpSession session,MultipartHttpServletRequest filesRequest) {
-        String root = filesRequest.getServletContext().getRealPath("img")+"/";// ��ȡ��̬��Դ·��/upload/
+        String root = filesRequest.getServletContext().getRealPath("img")+"\\";// ��ȡ��̬��Դ·��/upload/
         System.out.println(root);
         File Folder = new File(root);
         if(Folder.exists()) {

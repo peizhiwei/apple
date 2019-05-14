@@ -9,6 +9,7 @@ import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
+import com.jk1603.apple.admini.pojo.Store;
 
 
 public interface AdminiInsertDao {
@@ -26,8 +27,8 @@ public interface AdminiInsertDao {
 	
 	//商品入库
 	@Update("INSERT INTO store (amount,goods_id,admini_id,superadmini_id) "
-		  + "VALUES (#{amount}, #{goodsId}, #{adminiId}, #{superadminiId})")
-	void intoStore(@Param("intostroe")Intostore intostroe,@Param("operationId")int operationId);
+		  + "VALUES (#{amount}, #{goods.id}, #{admini.id}, #{superadmini.id})")
+	void intoStore(Store store);
 	
 	//添加管理员
 	@Update("INSERT INTO admini (`admini_name`, `admini_password`) VALUES (#{adminiName},#{adminiPassword})")
