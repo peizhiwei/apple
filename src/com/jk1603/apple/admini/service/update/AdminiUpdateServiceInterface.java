@@ -13,4 +13,6 @@ public interface AdminiUpdateServiceInterface {
 	void setUpshelf(int id);
 	//下架
 	void setDownshelf(int id);
+	//修改商品数量
+	void plusstoreamount(int goodsId);
 }

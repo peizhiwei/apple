@@ -8,6 +8,7 @@ import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 
 public interface AdminiSelectServiceInterface {
@@ -17,7 +18,8 @@ public interface AdminiSelectServiceInterface {
 	//查询所有商品
 	List<Goods> getallGoods();
 	List<Goods> getGoodstoindex();
-	
+	//根据商品名查询商品id
+	Goods getgoodsid(String goodsname);
 	int getgoodsmaxid();
 	
 	int gettypeid(String typeName);
@@ -29,4 +31,6 @@ public interface AdminiSelectServiceInterface {
 	List<Admini> getallAdmini();
 	
 	List<Goods> getGoodsList(String goodsname);
+	
+	Store getstoregoodsid(int goodsId);
 }

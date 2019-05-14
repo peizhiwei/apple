@@ -24,7 +24,7 @@ public class AdminiUpdateController {
 	
 	@Autowired
 	AdminiSelectServiceInterface adminiselectservice;
-	//ï¿½à¼­ï¿½ï¿½Æ·
+	//±à¼­ÉÌÆ·
 	@RequestMapping("/setgoods")
 	@ResponseBody
 	public List<Goods> setGoods(String number) {
@@ -36,7 +36,7 @@ public class AdminiUpdateController {
 	public String userimgupload(MultipartHttpServletRequest filesRequest) {
         String root = filesRequest.getServletContext().getRealPath("img")+"/";
         System.out.println(root);
-        //ï¿½Ð¶ï¿½ï¿½Ä¼ï¿½Ä¿Â¼ï¿½Ç·ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò´´½ï¿½Ò»ï¿½ï¿½Ä¿Â¼
+        //ÅÐ¶ÏÎÄ¼þÄ¿Â¼ÊÇ·ñ´æÔÚ£¬Èç¹û²»´æÔÚÔò´´½¨Ò»¸öÄ¿Â¼
         File Folder = new File(root);
         if(Folder.exists()) {
         	if(Folder.isDirectory()) {
@@ -48,9 +48,9 @@ public class AdminiUpdateController {
         	System.out.println("dir not exists,create it");
         	Folder.mkdir();
         }
-        MultipartFile file = filesRequest.getFile("imgfile");// ï¿½ï¿½È¡ï¿½Ä¼ï¿½
+        MultipartFile file = filesRequest.getFile("imgfile");//¶ÁÈ¡ÎÄ¼þ
         
-        File newfile = new File(root + file.getOriginalFilename());// ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Õ£ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+        File newfile = new File(root + file.getOriginalFilename());// ´´½¨ÐÂ£¨¿Õ£©ÎÄ¼þ£¬²»¸Ä±äÎÄ¼þÃû
         
         int id = adminiselectservice.getgoodsmaxid();
     	String img = "/apple/img/"+file.getOriginalFilename();
@@ -60,23 +60,27 @@ public class AdminiUpdateController {
     	goods.setImg(img);
     	adminiupdateservice.setGoodsImg(goods);
         try {
-            file.transferTo(newfile);// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+            file.transferTo(newfile);//  ±£´æÎÄ¼þ
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
         }
         return "upload success";
 	}
-	//ï¿½Ï¼ï¿½
+	//ÉÏ¼Ü
 	@RequestMapping("/upshelf")
 	@ResponseBody
 	public void upshelf(@Param("id") int id) {
 		adminiupdateservice.setUpshelf(id);
 	}
-	//ï¿½Â¼ï¿½
+	//ÏÂ¼Ü
 	@RequestMapping("/downshelf")
 	@ResponseBody
 	public void setdownshelf(@Param("id") int id) {
 		adminiupdateservice.setDownshelf(id);
+	}
+	@RequestMapping("/updateamount")
+	public void plusstoreamout(int goodsId) {
+		adminiupdateservice.plusstoreamount(goodsId);
 	}
 }

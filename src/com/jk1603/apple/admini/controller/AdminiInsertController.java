@@ -140,7 +140,7 @@ public class AdminiInsertController {
 		adminiinsertservice.intoStore(store);
 		ajaxresponse rs = new ajaxresponse();
 		rs.setFlag(true);
-		rs.setMsg("/apple/adminiinsert/intostore");
+		rs.setMsg("/apple/admini/intostore");
 		return rs;
 	}
 }

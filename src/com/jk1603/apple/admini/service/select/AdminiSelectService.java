@@ -11,6 +11,7 @@ import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.pojo.Type;
 
@@ -26,7 +27,6 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 		return allsort;
 	}
 
-	//��ѯ��Ʒ
 	@Override
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiSelectdao.getGoods(number);
@@ -90,5 +90,17 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 	public List<Goods> getGoodsList(String goodsname) {
 		List<Goods> goodslist = adminiSelectdao.getGoodsList(goodsname);
 		return goodslist;
+	}
+
+	@Override
+	public Goods getgoodsid(String goodsname) {
+		Goods goodsId = adminiSelectdao.getgoodsid(goodsname);
+		return goodsId;
+	}
+
+	@Override
+	public Store getstoregoodsid(int goodsId) {
+		Store storegoodsid = adminiSelectdao.getstoregoodsid(goodsId);
+		return storegoodsid;
 	}
 }

@@ -97,7 +97,7 @@
                             <div class="form-group">
                                 <label for="exampleInputName2">商品名称:</label>
                                 <input type="text" class="form-control" id="goodsname"
-                                    v-model="inputname" name="goodsname" placeholder="请输入商品名称">
+                                    v-model="goodsname" name="goodsname" placeholder="请输入商品名称">
                             </div>
                             <div class="form-group">
                             </div>
@@ -106,8 +106,8 @@
                                     name="search"></span>搜索</button>
                             <div class="form-group">
                                 <label for="exampleInputName2">入库数量:</label>
-                                <input type="number" class="form-control" id="amount"
-                                    name="amount" placeholder="请输入入库数量">
+                                <input type="text" class="form-control" id="amount"
+                                   v-model="amount" name="amount" placeholder="请输入入库数量">
                             </div>
                             <div class="form-group">
                                 <input type="button" class="form-control" value="入库" @click="insertstore()">
@@ -129,7 +129,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="i in goodslist" @click="getname(i.name,i.id)">
+                                <tr v-for="i in goodslist" @click="getname(i.name)">
                                     <td><input type="radio" name="radio"></td>
                                     <td>{{i.name}}</td>
                                     <td>{{i.price}}</td>
@@ -157,36 +157,58 @@
         var app = new Vue({
             el: '#app',
             data: {
-            	inputname: "",
-            	goodsId: 0,
+            	goodsname: "",
+            	amount:0,
+            	beforeamount:0,
                 goodslist: []
             },
             methods: {
             	getgoodslist: function () {
-            		var goodsname = $("#goodsname").val();
                     //发送get请求
-                    this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname=" + "%"+goodsname+"%").then(function (res) {
+                    this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname=" + "%"+this.goodsname+"%").then(function (res) {
                         this.goodslist = JSON.parse(res.bodyText);
 						console.log(this.goodslist);
                     }, function () {
                         console.log('请求失败处理');
                     });
                 },
-                getname:function(name,id){
-                	this.inputname=name;
-                	this.goodsId=id;
-                	console.log(this.goodsId);
+                getname:function(name){
+                	this.goodsname=name;
                 },
                 insertstore:function(){
-                	var goodsId = this.goodsId;
-                	var amount = $("#amount").val();
-                	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
-                		alert("成功");
-                		if(res.flag==true){
-                			window.location.href=res.smg;
+                	//根据商品名称查询所有商品
+                	this.$http.get("http://localhost:8080/apple/adminiselect/getgoodsid?goodsname="+this.goodsname).then(function(res){
+                		var goodsId = res.body.id;
+                		this.beforeamount=res.body.amount;
+                		console.log(this.beforeamount);
+                		//判断该商品是否存在
+                		if(goodsId==null){
+                			alert("该商品不存在，请重新选择");
+                		}else{
+                			//若商品存在则判断仓库中是否已经存在此商品
+                			this.$http.get("http://localhost:8080/apple/adminiselect/getstoregoodsid?goodsId="+goodsId).then(function(res){
+                				console.log(res);
+                				//仓库中没有此商品
+                				if(res.body==null){
+                					var amount = this.amount;
+                                	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
+                                		if(res.body.flag==true){
+                                			alert("成功");
+                                			window.location.href=res.body.msg;
+                                		}
+                                	},function(res){
+                                		console.log("请求失败处理");
+                                	});
+                				}else{//仓库中已经存在此商品，只增加商品的数量
+                					
+                				}
+                			},function(res){
+                				console.log("请求失败处理");
+                			});
+                			
                 		}
                 	},function(res){
-                		console.log("请求失败处理");
+                		alert("请求失败处理");
                 	});
                 }
             }

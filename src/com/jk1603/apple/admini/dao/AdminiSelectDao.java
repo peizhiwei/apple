@@ -9,6 +9,7 @@ import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.pojo.Type;
 
@@ -23,7 +24,12 @@ public interface AdminiSelectDao {
 			"LEFT JOIN admini a ON a.id=g.admini_id\r\n" + 
 			"WHERE g.`name` LIKE #{goodsname}")
 	List<Goods> getGoodsList(String goodsname);
-	
+	//根据商品名称查询商品id
+	@Select("SELECT id FROM goods WHERE name=#{goodsname}")
+	Goods getgoodsid(String goodsname);
+	//查询仓库中是否已经存在此商品
+	@Select("SELECT * FROM store WHERE goods_id=#{goodsId}")
+	Store getstoregoodsid(int goodsId);
 	//查询所有分类
 	@Select("SELECT id,type_name as typeName FROM type")
 	List<Type> getType();

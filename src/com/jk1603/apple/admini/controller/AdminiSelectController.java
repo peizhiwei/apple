@@ -23,6 +23,7 @@ import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
+import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
@@ -35,9 +36,9 @@ public class AdminiSelectController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		//杞崲鏃ユ湡
+		//转换日期
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor为锟皆讹拷锟斤拷锟斤拷锟节编辑锟斤拷
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));//CustomDateEditor为自定义日期编辑器
 	}
 	
 	@RequestMapping("getallType")
@@ -46,14 +47,28 @@ public class AdminiSelectController {
 		List<Type> typelist = adminiSelectservice.getType();
 		return typelist;
 	}
-	//鏌ヨ鍟嗗搧
+	//查询商品
 	@RequestMapping("/getgoods")
 	@ResponseBody
 	public List<Goods> getGoods(String number) {
 		List<Goods> listgoods = adminiSelectservice.getGoods(number);
 		return listgoods;
 	}
-	//閬嶅巻鏁版嵁搴撳皢鍟嗗搧灞曠ず鍦ㄥ墠绔〉闈�
+	@RequestMapping("/getgoodsid")
+	@ResponseBody
+	public Goods getgoodsid(String goodsname) {
+		System.out.println(goodsname);
+		Goods goodsId = adminiSelectservice.getgoodsid(goodsname);
+		return goodsId;
+	}
+	//查看仓库中是否已经存在此商品
+	@RequestMapping("/getstoregoodsid")
+	@ResponseBody
+	public Store getstoregoodsid(int goodsId) {
+		Store storegoodsid = adminiSelectservice.getstoregoodsid(goodsId);
+		return storegoodsid;
+	}
+	//遍历数据库将商品信息展示在前端页面
 	@RequestMapping("/getallgoods")
 	@ResponseBody
 	public List<Goods> getallGoods(){
@@ -70,7 +85,7 @@ public class AdminiSelectController {
 //		return goodsList;
 //	}
 
-	//锟斤拷证锟斤拷锟斤拷锟斤拷锟斤拷员锟侥碉拷录
+	//验证超级管理员的登录
 	@RequestMapping("/checksuperadminilogin")
 	@ResponseBody
 	public ajaxresponse checkSuperAdminiLogin(String superadmininame,String superadminipassword,HttpServletRequest request) {
@@ -83,11 +98,11 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("鐧诲綍澶辫触");
+			rs.setMsg("登录失败");
 		}
 		return rs;
 	}
-	//锟斤拷证锟斤拷锟斤拷员锟侥碉拷录
+	//验证管理员的登录
 	@RequestMapping("/checkadminilogin")
 	@ResponseBody
 	public ajaxresponse checkAdminiLogin(String admininame,String adminipassword,HttpServletRequest request) {
@@ -100,12 +115,12 @@ public class AdminiSelectController {
 			rs.setMsg("/apple/admini/backindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("鐧诲綍澶辫触");
+			rs.setMsg("登录失败");
 		}
 		return rs;
 		
 	}
-	//锟斤拷询锟斤拷锟斤拷锟斤拷通锟斤拷锟斤拷员锟矫伙拷
+	//查询所有普通管理员用户
 	@RequestMapping("/getalladmini")
 	@ResponseBody
 	public List<Admini> getallAdmini(){
@@ -115,7 +130,6 @@ public class AdminiSelectController {
 	@RequestMapping("/getgoodslist")
 	@ResponseBody
 	public List<Goods> getgoodslist(String goodsname){
-		System.out.println(goodsname);
 		List<Goods> goodslist = adminiSelectservice.getGoodsList(goodsname);
 		return goodslist;
 	}

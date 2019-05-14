@@ -29,5 +29,10 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 	public void setDownshelf(int id) {
 		adminiupdatedao.setDownshelf(id);
 	}
+	@Override
+	public void plusstoreamount(int goodsId) {
+		adminiupdatedao.plusstoreamount(goodsId);
+		
+	}
 
 }

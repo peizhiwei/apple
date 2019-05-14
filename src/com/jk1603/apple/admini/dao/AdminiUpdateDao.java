@@ -22,4 +22,7 @@ public interface AdminiUpdateDao {
 	//控制商品上架
 	@Update("UPDATE goods SET upshelf=false WHERE id=#{id}")
 	void setDownshelf(int id);
+	//修改商品数量
+	@Update("UPDATE store SET amount = 41 WHERE goods_id=#{goodsId}")
+	void plusstoreamount(int goodsId);
 }
