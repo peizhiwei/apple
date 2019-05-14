@@ -31,9 +31,7 @@
     width: 1px;
     height: 5px;
     border: 1px solid #fff;
-    position: relative;
-    left: 10px;
-    margin-right: 20px;
+    margin: 20px 20px;
   }
 
   .hi {
@@ -70,11 +68,7 @@
   }
   .selfmassage{
     font-size: 17px;
-    margin: 10px 80px;
-  }
- .backindex{
-    margin: 25px 45px;
-    font-size: 17px;
+  
   }
   img {
     width: 35px;
@@ -85,18 +79,19 @@
 </style>
 
 <body class="color">
-  <div class="container " id="app">
+  <div class="container-fiuld" id="app">
     <div class="row ">
-      <div class="col-xs-12 col-sm-12
-        top">
+      <div class="col-xs-12 col-sm-12 top">
+        <div class="col-xs-4 col-sm-4 col-sm-offset-1 col-sm-offset-1 top">
         <p class="top1" style="color:white">
-          <span class="glyphicon glyphicon-th-large slit" style="color:white"></span>&nbsp;&nbsp;&nbsp;&nbsp;手机商城</p>
+          <span class="glyphicon glyphicon-th-large slit" style="color:white"></span>手机商城</p>
+        </div>
       </div>
     </div>
     <div class="hi"></div>
    <!-- 个人中心标识 -->
     <div class="row">
-        <div class="col-xs-4 col-sm-4 selfmassage" >
+        <div class="col-sm-4 col-md-4 col-sm-offset-2 col-md-offset-2 selfmassage" >
     <p class="top1">
         <span class="glyphicon glyphicon-home " style="margin-right: 10px"></span>个人中心
     </p>
@@ -104,9 +99,9 @@
   </div>
   <!-- 第一块头像姓名id -->
   <div class="row">
-    <div class="col-xs-2 col-sm-3">
+    <div class="col-sm-3 col-md-3">
     </div>
-    <div class="col-xs-8 col-sm-6 massage" style="height:120px">
+    <div class="col-sm-6 col-md-6 massage" style="height:120px">
       <!-- 页面主要代码 -->
 
       <!-- 个人头像 -->
@@ -118,16 +113,16 @@
       <!-- 个人id -->
       <h5 class="id text-muted">我的id：<p class=" idnumber text-muted">{{userdetails.userName}}</p></h5>
     </div>
-    <div class="col-xs-2 col-sm-3">
+    <div class="col-sm-3 col-md-3">
     </div>
   </div>
 
   <div style="height:9px"></div>
   <!-- 第二块查询订单加精品推荐 -->
   <div class="row">
-    <div class="col-xs-2 col-sm-3"></div>
+    <div class="col-xs-3 col-sm-3"></div>
 
-    <div class="col-xs-8 col-sm-6 massage">
+    <div class="col-xs-6 col-sm-6 massage">
       <!--我的订单-->
       <div>
         <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/dingdan.svg"></div>
@@ -209,21 +204,24 @@
 
   <div style="height:6px"></div>
   <div class="row">
-    <div class="col-xs-2 col-sm-3">
+    <div class="col-xs-3 col-sm-3">
     </div>
-    <div class="col-xs-8 col-sm-6 massage" style="height:50px;">
+    <div class="col-xs-6 col-sm-6 massage" style="height:50px;">
       <div class="col-xs-2 col-sm-2"><img src="/apple/static/img/set.svg"></div>
       <div class="col-xs-10 col-sm-10">
         <div class="col-xs-12 col-sm-12" style="height:16px"></div>
         <p><a href="#" onclick="window.location.href = '/apple/user/selfmassage'">设置</a></p>
       </div>
+       <div class="col-xs-12 col-sm-12" style="height:20px"></div>
        <!--回到主页按钮-->
-      <div class="col-xs-10 col-sm-10 backindex right"  >
-      <a href="#"><input type="button" value="回到主页" title="点击回到主页" style="float: right;" onclick="window.location.href='/apple/user/userindex'"></a>
+      <div class="col-sm-4 col-md-4 col-sm-offset-9 
+      col-md-offset-9 "  >
+        <a class="btn btn-default" href="'/apple/user/userindex'" role="button">点击回到主页</a>
+      
     </div>
     </div>
 
-    <div class="col-xs-2 col-sm-3">
+    <div class="col-xs-3 col-sm-3">
     </div>
   </div>
   </div>
