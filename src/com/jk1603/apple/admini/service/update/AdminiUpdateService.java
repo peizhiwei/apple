@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jk1603.apple.admini.dao.AdminiUpdateDao;
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Store;
 
 @Service
 public class AdminiUpdateService implements AdminiUpdateServiceInterface {
@@ -31,8 +32,8 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 		adminiupdatedao.setDownshelf(id);
 	}
 	@Override
-	public void plusstoreamount(int newamount,int goodsId) {
-		adminiupdatedao.plusstoreamount(newamount,goodsId);
+	public void plusstoreamount(Store store) {
+		adminiupdatedao.plusstoreamount(store);
 		
 	}
 

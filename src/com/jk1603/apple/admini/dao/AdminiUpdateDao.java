@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Store;
 
 public interface AdminiUpdateDao {
 	//新增商品
@@ -25,6 +26,6 @@ public interface AdminiUpdateDao {
 	@Update("UPDATE goods SET upshelf=false WHERE id=#{id}")
 	void setDownshelf(int id);
 	//修改仓库商品库存量（增加库存）
-	@Update("UPDATE store SET amount =#{newamount} WHERE goods_id=#{goodsId}")
-	void plusstoreamount(@Param("newamount")int newamount,@Param("goodsId")int goodsId);
+	@Update("UPDATE store SET amount =#{amount},date=#{date} WHERE goods_id=#{goods.id}")
+	void plusstoreamount(Store store);
 }

@@ -65,4 +65,13 @@ public interface AdminiSelectDao {
 	//查询所有管理员信息
 	@Select("SELECT id, admini_name as adminiName,admini_password as adminiPassword FROM admini")
 	List<Admini> getallAdmini();
+	//查询库存
+	@Select("SELECT g.number AS `goods.number`,g.`name` AS `goods.name`,g.price AS `goods.price`,g.specs AS `goods.specs`,g.details AS `goods.details`,g.img AS `goods.img`,\r\n" + 
+			"t.type_name AS `type_name`,s.amount,s.date,a.admini_name AS `admini.admini_name`,su.super_admini_name AS `superadmini.super_admini_name` FROM store s\r\n" + 
+			"LEFT JOIN goods g ON g.id=s.goods_id\r\n" + 
+			"LEFT JOIN type t ON t.id=g.type_id\r\n" + 
+			"LEFT JOIN admini a ON a.id=s.admini_id\r\n" + 
+			"LEFT JOIN superadmini su ON su.id=s.superadmini_id\r\n" + 
+			"ORDER BY s.date")
+	List<Store> getallstore();
 }

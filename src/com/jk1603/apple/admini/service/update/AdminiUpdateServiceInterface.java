@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Store;
 
 public interface AdminiUpdateServiceInterface {
 	//新增商品
@@ -15,5 +16,5 @@ public interface AdminiUpdateServiceInterface {
 	//下架
 	void setDownshelf(int id);
 	//增加商品库存量
-	void plusstoreamount(int newamount,int goodsId);
+	void plusstoreamount(Store store);
 }

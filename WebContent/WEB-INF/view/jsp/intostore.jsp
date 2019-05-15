@@ -106,8 +106,8 @@
                                     name="search"></span>搜索</button>
                             <div class="form-group">
                                 <label for="exampleInputName2">入库数量:</label>
-                                <input type="text" class="form-control" id="amount"
-                                   v-model="amount" name="amount" placeholder="请输入入库数量">
+                                <input type="text" class="form-control" id="newamount"
+                                   v-model="newamount" name="newamount" placeholder="请输入入库数量">
                             </div>
                             <div class="form-group">
                                 <input type="button" class="form-control" value="入库" @click="insertstore()">
@@ -158,7 +158,7 @@
             el: '#app',
             data: {
             	goodsname: "",
-            	amount:0,
+            	newamount:0,
             	beforeamount:0,
                 goodslist: []
             },
@@ -185,15 +185,13 @@
                 			//若商品存在则判断仓库中是否已经存在此商品
                 			this.$http.get("http://localhost:8080/apple/adminiselect/getstoregoodsid?goodsId="+goodsId).then(function(res){
                 				//仓库中没有此商品
-                				console.log(res);
-                				console.log(res.body);
                 				if(res.bodyText==null||res.bodyText==""){
-                					var amount = this.amount;
+                					var amount = this.newamount;
                                 	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
                                 		if(res.body.flag==true){
                                 			alert("成功");
                                 			this.goodsname="";
-                    						this.amount="";
+                    						this.newamount="";
                                 		}
                                 	},function(res){
                                 		console.log("请求失败处理");
@@ -201,12 +199,11 @@
                 				}else{//仓库中已经存在此商品，只增加商品的数量
                 					//获取仓库中已有商品的库存量
                 					this.beforeamount=res.body.amount;
-                					var newamount=parseInt(this.beforeamount)+parseInt(this.amount);
-                					var date = new Date();
-                					this.$http.post("http://localhost:8080/apple/adminiupdate/updateamount",{newamount:newamount,goodsId:goodsId,date:"date"},{emulateJSON:true}).then(function(res){
+                					var mount=parseInt(this.beforeamount)+parseInt(this.newamount);
+                					this.$http.post("http://localhost:8080/apple/adminiupdate/updateamount",{mount:mount,goodsId:goodsId},{emulateJSON:true}).then(function(res){
                 						alert("成功");
                 						this.goodsname="";
-                						this.amount="";
+                						this.newamount="";
                 					},function(res){
                 						console.log("请求失败处理");
                 					});

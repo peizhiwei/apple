@@ -2,6 +2,7 @@ package com.jk1603.apple.admini.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.jk1603.apple.admini.pojo.Goods;
+import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.service.select.AdminiSelectServiceInterface;
 import com.jk1603.apple.admini.service.update.AdminiUpdateServiceInterface;
 import com.jk1603.apple.user.pojo.ajaxresponse;
@@ -26,7 +28,7 @@ public class AdminiUpdateController {
 	
 	@Autowired
 	AdminiSelectServiceInterface adminiselectservice;
-	//�༭��Ʒ
+	//编辑商品
 	@RequestMapping("/setgoods")
 	@ResponseBody
 	public List<Goods> setGoods(String number) {
@@ -37,8 +39,7 @@ public class AdminiUpdateController {
 	@ResponseBody
 	public String userimgupload(MultipartHttpServletRequest filesRequest) {
         String root = filesRequest.getServletContext().getRealPath("img")+"/";
-        System.out.println(root);
-        //�ж��ļ�Ŀ¼�Ƿ���ڣ�����������򴴽�һ��Ŀ¼
+        //
         File Folder = new File(root);
         if(Folder.exists()) {
         	if(Folder.isDirectory()) {
@@ -83,8 +84,14 @@ public class AdminiUpdateController {
 	}
 	@RequestMapping("/updateamount")
 	@ResponseBody
-	public void plusstoreamout(@RequestParam(value = "newamount",required = false)int newamount,
+	public void plusstoreamout(@RequestParam(value = "mount",required = false)BigDecimal amount,
 							   @RequestParam(value = "goodsId",required = false)int goodsId) {
-		adminiupdateservice.plusstoreamount(newamount,goodsId);
+		Store store = new Store();
+		store.setAmount(amount);
+		Goods goods = new Goods();
+		goods.setId(goodsId);
+		store.setGoods(goods);
+		store.setDate(new Date());
+		adminiupdateservice.plusstoreamount(store);
 	}
 }
