@@ -15,11 +15,6 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 	@Autowired
 	AdminiUpdateDao adminiupdatedao;
 	@Override
-	public List<Goods> setGoods(String number) {
-		List<Goods> listsetgoods = adminiupdatedao.setGoods(number);
-		return listsetgoods;
-	}
-	@Override
 	public void setGoodsImg(Goods goods) {
 		adminiupdatedao.setGoodsImg(goods);
 	}
@@ -35,6 +30,10 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 	public void plusstoreamount(Store store) {
 		adminiupdatedao.plusstoreamount(store);
 		
+	}
+	@Override
+	public void updategoods(Goods goods) {
+		adminiupdatedao.updategoods(goods);
 	}
 
 }

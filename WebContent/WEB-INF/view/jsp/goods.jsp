@@ -115,13 +115,7 @@
 									onclick="window.location.href='/apple/admini/addgoods'">
 									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
 								</button></a>
-							<button type="button" class="btn btn-default" data-toggle="modal"
-								data-target="#myModal">
-								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-								编辑
-							</button>
-
-
+							
 							<button type="button" class="btn btn-default" onclick="deleteGoods()">
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
 							</button>
@@ -160,7 +154,7 @@
 									<th>最后修改日期</th>
 									<th>操作者</th>
 									<th>状态</th>
-									<th>操作</th>
+									<th class="text-center">操作</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -189,8 +183,16 @@
 								    <td style="vertical-align:middle;" v-else>{{g.superadmini.superAdminiName}}</td>
 								    <td style="vertical-align:middle;" v-if="g.upshelf==0">下架</td>
 								    <td style="vertical-align:middle;" v-else>上架</td>
-								    <td style="vertical-align:middle;" v-if="g.upshelf==0"><button type="button" @click="upshelf(g.id)">上架</button></td>
-								    <td style="vertical-align:middle;" v-else><button type="button" @click="downshelf(g.id)">下架</button></td>
+								    <td style="vertical-align:middle;" v-if="g.upshelf==0" class="text-center">
+									    <button type="button" @click="upshelf(g.id)" class="btn btn-default">上架</button>
+									    <button @click="change(g.number,g.name,g.price,g.details,g.specs,g.type.typeName,g.img)" type="button" class="btn btn-default" data-toggle="modal"
+											data-target="#myModal">编辑</button>
+								    </td>
+								    <td style="vertical-align:middle;" v-else class="text-center">
+									    <button type="button" @click="downshelf(g.id)" class="btn btn-default">下架</button>
+									    <button @click="change(g.number,g.name,g.price,g.details,g.specs,g.type.typeName,g.img)" type="button" class="btn btn-default" data-toggle="modal"
+									   		data-target="#myModal">编辑</button>
+								    </td>
 								</tr>
 							</tbody>
 						</table>
@@ -198,10 +200,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content" style="height: 650px;">
@@ -214,28 +213,40 @@
 				</div>
 				<div class="modal-body">
 					<div>
-						编号：<input type='text' id="goodCode" value='' code='' class='number form-control' />
+						编号：<input type='text' id="goodsNumber" value="" code='' class='number form-control' />
 					</div>
 					<br />
 					<div>
-						商品名称：<input type='text' id='goodName' value='' code='' class='name form-control' />
+						商品名称：<input type='text' id='goodsName' value='' code='' class='name form-control' />
 					</div>
 					<br />
 					<div>
-						价格：<input type='text' id='goodPrice' value='' code='' class='price form-control' />
+						价格：<input type='text' id='goodsPsrice' value='' code='' class='price form-control' />
 					</div>
 					<br />
 					<div>
-						详情：<input type='text' id='goodDetail' value='' code=''
+						详情：<input type='text' id='goodsDetails' value='' code=''
 							class='details form-control' />
 					</div>
 					<br />
-					<div>
-						规格：<input type='text' id='goodSize' value='' code='' class='specs form-control' />
+					<div class="form-group">
+						<label for="specs"> 规格： </label> <select name="specs" type="text"
+							class="form-control" id='goodsSpecs'>
+							 <option>4G+64G</option>
+							 <option>4G+128G</option>
+							 <option>6G+128G</option>
+							</select>
 					</div>
 					<br />
-					<div>
-						数量：<input type='text' id='goodNum' value='' code='' class='amount form-control' />
+					<div class="form-group">
+						<label for="sort"> 类别：</label><select name="typename" type='text' id='typename' value='' class='amount form-control'>
+						<option v-for="i in sortlist">{{i.typeName}}</option>
+                        </select>
+					</div>
+					<br />
+					<div class="form-group">
+						图片：<img alt="" id='goodsimg' src="" style="height: 70px; width: 50px;">
+							<input type="file" id="imgfile">
 					</div>
 					<br />
 				</div>
@@ -247,7 +258,7 @@
 			</div>
 		</div>
 	</div>
-
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
@@ -260,12 +271,14 @@
 			data : {
 				inputNumber : "",
 				items : [],
+				sortlist:[],
 				checked : false, //全选框
 				checkList : [],
 				goodsalldetails:[]
 			},
 			mounted:function(){
 				this.getAllGoodsdetails();
+				this.getAllSort();
 			},
 			methods : {
 				getAllGoodsdetails : function(){
@@ -299,30 +312,28 @@
                         console.log("请求失败处理");
                     }); 
 				},
-				checkedAll : function() {
-					var che = this;
-					if (che.checked) { //实现反选
-						che.checkList = [];
-					} else { //实现全选
-						che.checkList = [];
-						this.items.forEach(function(item, index) {
-							che.checkList.push(item.id);
-						});
-					}
-				}
-
-			},
-			watch : {
-				'checkList' : {
-					handler : function(val, oldVal) {
-						if (val.length == this.items.length) {
-							this.checked = true;
-						} else {
-							this.checked = false;
-						}
-					},
-					deep : true
-				}
+				//编辑商品
+				change : function(number,name,price,details,specs,type,img,date){
+					$("#goodsNumber").val(number);
+					$("#goodsName").val(name);
+					$("#goodsPsrice").val(price);
+					$("#goodsDetails").val(details);
+					$("#goodsSpecs").val(specs);
+					$("#goodsType").val(type);
+					$("#goodsimg").attr("src",img);
+					$("#goodsDate").val(date);
+					
+				},
+				getAllSort : function(){
+	                //发送get请求
+	                this.$http.get(
+	                        "http://localhost:8080/apple/adminiselect/getallType").then(function(res) {
+	                    this.sortlist = res.body;
+	                    console.log(res);
+	                }, function() {
+	                    console.log('请求失败处理');
+	                });
+	            }
 			}
 		});
 	</script>

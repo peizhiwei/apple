@@ -7,8 +7,6 @@ import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Store;
 
 public interface AdminiUpdateServiceInterface {
-	//新增商品
-	List<Goods> setGoods(String number);
 	//上传商品图片
 	void setGoodsImg(Goods goods);
 	//上架
@@ -17,4 +15,6 @@ public interface AdminiUpdateServiceInterface {
 	void setDownshelf(int id);
 	//增加商品库存量
 	void plusstoreamount(Store store);
+	//修改商品信息
+	void updategoods(Goods goods);
 }

@@ -10,11 +10,7 @@ import com.jk1603.apple.admini.pojo.Goods;
 import com.jk1603.apple.admini.pojo.Store;
 
 public interface AdminiUpdateDao {
-	//新增商品
-	@Update("UPDATE `apple`.`goods` SET `name` = ?, "
-			+ "`price` = ?, `number` = ?, `specs` = ?, "
-			+ " `details` = ?, `amount` = ? WHERE `number` = #{number};")
-	List<Goods> setGoods(String number);
+	
 	//上传商品图片
 	@Update("UPDATE goods SET img=#{img} WHERE id=#{id}")
 	void setGoodsImg(Goods goods);
@@ -28,4 +24,8 @@ public interface AdminiUpdateDao {
 	//修改仓库商品库存量（增加库存）
 	@Update("UPDATE store SET amount =#{amount},date=#{date} WHERE goods_id=#{goods.id}")
 	void plusstoreamount(Store store);
+	
+	//修改商品信息
+	@Update("UPDATE goods SET `name` = #{name}, `price` = #{price}, `number` = #{number}, `specs` =#{specs},`details` = #{details},`type_id` = #{type.id},  WHERE `id` = #{id}")
+	void updategoods(Goods goods);
 }

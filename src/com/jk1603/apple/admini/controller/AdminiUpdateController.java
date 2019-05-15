@@ -28,13 +28,6 @@ public class AdminiUpdateController {
 	
 	@Autowired
 	AdminiSelectServiceInterface adminiselectservice;
-	//编辑商品
-	@RequestMapping("/setgoods")
-	@ResponseBody
-	public List<Goods> setGoods(String number) {
-		List<Goods> listsetgoods = adminiupdateservice.setGoods(number);
-		return listsetgoods;
-	}
 	@RequestMapping("/setgoodsimg")
 	@ResponseBody
 	public String userimgupload(MultipartHttpServletRequest filesRequest) {
