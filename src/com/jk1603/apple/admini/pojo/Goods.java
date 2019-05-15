@@ -10,10 +10,10 @@ public class Goods {
 	private Integer id;
 	private String name;
 	private BigDecimal price;
-	private String number;//商品编号
-	private String specs;//商品规格
-	private String details;//商品详情
-	private boolean upshelf;//是否上架
+	private String number;
+	private String specs;//瑙勬牸
+	private String details;
+	private boolean upshelf;
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	private Date date;
 	private String img;

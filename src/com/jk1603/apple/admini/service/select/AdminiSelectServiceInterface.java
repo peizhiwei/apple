@@ -4,21 +4,18 @@ import java.util.List;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
-import com.jk1603.apple.admini.pojo.Intostore;
-import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
-import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 
 public interface AdminiSelectServiceInterface {
-	//²éÑ¯·ÖÀà
+	//è·å–åˆ†ç±»
 	List<Type> getType();
 	List<Goods> getGoods(String number);
-	//²éÑ¯ËùÓĞÉÌÆ·
+	//æŸ¥è¯¢æ‰€æœ‰å•†å“
 	List<Goods> getallGoods();
 	List<Goods> getGoodstoindex();
-	//¸ù¾İÉÌÆ·Ãû²éÑ¯ÉÌÆ·id
+	//æ ¹æ®å•†å“åè·å–å•†å“id
 	Goods getgoodsid(String goodsname);
 	int getgoodsmaxid();
 	
@@ -33,4 +30,6 @@ public interface AdminiSelectServiceInterface {
 	List<Goods> getGoodsList(String goodsname);
 	
 	Store getstoregoodsid(int goodsId);
+	//æŸ¥è¯¢æ‰€æœ‰åº“å­˜
+	List<Store> getallstore();
 }

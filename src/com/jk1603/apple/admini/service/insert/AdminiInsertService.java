@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.jk1603.apple.admini.dao.AdminiInsertDao;
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
-import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Store;
 

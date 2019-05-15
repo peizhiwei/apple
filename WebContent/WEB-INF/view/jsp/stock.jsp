@@ -111,7 +111,7 @@
 								placeholder="请输入商品编号">
 						</div>
 						<div class="form-group"></div>
-						<button type="button" class="btn btn-default"  @click="getstocklist()"><span class="glyphicon glyphicon-search"
+						<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"
                                 aria-hidden="true" name="search"></span>搜索</button>
 					</form>
 				</div>
@@ -120,7 +120,7 @@
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-							<th><input type="checkbox" v-model='checked' v-on:click='checkedAll'></th>
+							<th><input type="checkbox"></th>
 								<th>商品编号</th>
 								<th>商品名称</th>
 								<th>价格</th>
@@ -134,13 +134,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="(i,k) in items">
-                            <td><input type="checkbox" v-model='checkList' :value="i.id"></td>
-								<td>{{i.number}}</td>
-								<td>{{i.name}}</td>
-								<td>{{i.specs}}</td>
+							<tr v-for="(i,k) in sotrelist">
+                            <td><input type="checkbox" :value="i.id"></td>
+								<td>{{i.goods.number}}</td>
+								<td>{{i.goods.name}}</td>
+								<td>{{i.goods.price}}</td>
+								<td>{{i.goods.specs}}</td>
 								<td>{{i.amount}}</td>
-								<td>{{i.details}}</td>
+								<td>{{i.goods.type.typeName}}</td>
+								<td>{{i.goods.details}}</td>
+								<td><img alt="" :src="i.goods.img" style="height: 70px;width: 50px;"></td>
+								<td>{{i.date}}</td>
+								<td>{{i.admini==null?i.superadmini.superAdminiName:i.admini.adminiName}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -160,44 +165,20 @@
         el: '#app',
         data: {
         	inputNumber:"",
-            items:[],
-            checked: false, //全选框
-            checkList: []
+            sotrelist:[]
+        },
+        mounted:function() { //钩子函数
+            this.get();
         },
         methods:{
-        	getstocklist:function(data){
-                //发送get请求
-                this.$http.get("http://localhost:8080/apple/adminiselect/getstock?number="+this.inputNumber).then(function(res){
-                    
-                	this.items =  JSON.parse(res.bodyText);
-                },function(){
-                    console.log('请求失败处理');
-                });
-            },
-            checkedAll: function () {
-                var che = this;
-                if (che.checked) { //实现反选
-                    che.checkList = [];
-                } else { //实现全选
-                    che.checkList = [];
-                    this.items.forEach(function (item, index) {
-                        che.checkList.push(item.id);
-                    });
-                }
-            }
-        
-        },
-        watch: {
-            'checkList': {
-                handler: function (val, oldVal) {
-                    if (val.length == this.items.length) {
-                        this.checked = true;
-                    } else {
-                        this.checked = false;
-                    }
-                },
-                deep: true
-            }
+        	//获取库存信息显示在页面
+        	get:function(){
+        		this.$http.get("http://localhost:8080/apple/adminiselect/getallsotre").then(function(res){
+        			this.sotrelist=res.body;
+        		},function(){
+        			console.log("请求失败处理");
+        		});
+        	}
         }
     });
     </script>

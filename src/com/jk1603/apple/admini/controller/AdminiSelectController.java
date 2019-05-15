@@ -19,7 +19,6 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
-import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Type;
 import com.jk1603.apple.admini.pojo.Stock;
@@ -131,5 +130,11 @@ public class AdminiSelectController {
 	public List<Goods> getgoodslist(String goodsname){
 		List<Goods> goodslist = adminiSelectservice.getGoodsList(goodsname);
 		return goodslist;
+	}
+	@RequestMapping("/getallsotre")
+	@ResponseBody
+	public List<Store>  getallstore() {
+		List<Store> storelist = adminiSelectservice.getallstore();
+		return storelist;
 	}
 }

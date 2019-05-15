@@ -135,7 +135,7 @@
                                     <td>{{i.price}}</td>
                                     <td>{{i.specs}}</td>
                                     <td>{{i.type.typeName}}</td>
-                                    <td>{{i.img}}</td>
+                                    <td><img alt="" :src="i.img" style="height: 70px;width: 50px;"></td>
                                     <td>{{i.date}}</td>
                                     <td>{{i.admini==null?i.superadmini.superAdminiName:i.admini.adminiName}}</td>
                                 </tr>

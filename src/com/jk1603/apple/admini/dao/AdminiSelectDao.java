@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Select;
 
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
-import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.pojo.Store;
@@ -67,7 +66,7 @@ public interface AdminiSelectDao {
 	List<Admini> getallAdmini();
 	//查询库存
 	@Select("SELECT g.number AS `goods.number`,g.`name` AS `goods.name`,g.price AS `goods.price`,g.specs AS `goods.specs`,g.details AS `goods.details`,g.img AS `goods.img`,\r\n" + 
-			"t.type_name AS `type_name`,s.amount,s.date,a.admini_name AS `admini.admini_name`,su.super_admini_name AS `superadmini.super_admini_name` FROM store s\r\n" + 
+			"t.type_name AS `goods.type.typeName`,s.amount,s.date,a.admini_name AS `admini.adminiName`,su.super_admini_name AS `superadmini.superAdminiName` FROM store s\r\n" + 
 			"LEFT JOIN goods g ON g.id=s.goods_id\r\n" + 
 			"LEFT JOIN type t ON t.id=g.type_id\r\n" + 
 			"LEFT JOIN admini a ON a.id=s.admini_id\r\n" + 

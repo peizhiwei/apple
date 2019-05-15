@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.jk1603.apple.admini.dao.AdminiSelectDao;
 import com.jk1603.apple.admini.pojo.Admini;
 import com.jk1603.apple.admini.pojo.Goods;
-import com.jk1603.apple.admini.pojo.Intostore;
 import com.jk1603.apple.admini.pojo.Outstore;
 import com.jk1603.apple.admini.pojo.Stock;
 import com.jk1603.apple.admini.pojo.Store;
@@ -102,5 +101,11 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 	public Store getstoregoodsid(int goodsId) {
 		Store storegoodsid = adminiSelectdao.getstoregoodsid(goodsId);
 		return storegoodsid;
+	}
+
+	@Override
+	public List<Store> getallstore() {
+		List<Store> storelist = adminiSelectdao.getallstore();
+		return storelist;
 	}
 }
