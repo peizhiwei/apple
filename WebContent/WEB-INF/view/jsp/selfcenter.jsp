@@ -216,7 +216,7 @@
        <!--回到主页按钮-->
       <div class="col-sm-4 col-md-4 col-sm-offset-9 
       col-md-offset-9 "  >
-        <a class="btn btn-default" href="'/apple/user/userindex'" role="button">点击回到主页</a>
+        <a class="btn btn-default" onclick="window.location.href='/apple/user/userindex'" role="button">点击回到主页</a>
       
     </div>
     </div>
