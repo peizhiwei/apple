@@ -35,5 +35,10 @@ public class AdminiUpdateService implements AdminiUpdateServiceInterface {
 	public void updategoods(Goods goods) {
 		adminiupdatedao.updategoods(goods);
 	}
+	@Override
+	public void updategoodsimg(Goods goods) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

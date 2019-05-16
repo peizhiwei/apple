@@ -26,6 +26,10 @@ public interface AdminiUpdateDao {
 	void plusstoreamount(Store store);
 	
 	//修改商品信息
-	@Update("UPDATE goods SET `name` = #{name}, `price` = #{price}, `number` = #{number}, `specs` =#{specs},`details` = #{details},`type_id` = #{type.id},  WHERE `id` = #{id}")
+	@Update("UPDATE goods SET `name` = #{name}, `price` = #{price}, `number` = #{number}, `specs` =#{specs},`details` = #{details},`type_id` = #{type.id} WHERE `id` = #{id}")
 	void updategoods(Goods goods);
+	//修改商品的图片
+	@Update("UPDATE goods SET img=#{img} WHERE id=#{id}")
+	void updategoodsimg(Goods goods);
+	
 }

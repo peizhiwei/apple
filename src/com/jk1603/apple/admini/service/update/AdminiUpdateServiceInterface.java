@@ -17,4 +17,6 @@ public interface AdminiUpdateServiceInterface {
 	void plusstoreamount(Store store);
 	//修改商品信息
 	void updategoods(Goods goods);
+	//修改商品的图片
+	void updategoodsimg(Goods goods);
 }

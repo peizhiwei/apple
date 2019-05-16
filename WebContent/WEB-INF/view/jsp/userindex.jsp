@@ -176,7 +176,7 @@ body{
                          <div class="thumbnail tab-pane fade in active text-center col-md-3 col-sm-4 col-xs-6" v-if="details.upshelf==true">
                                     <a class="goods_size"
                                 style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
-                                <img alt="" v-bind:src="details.img">
+                                <img alt="" v-bind:src="details.img" style="height: 190px;width: 130px;">
                             </a>
                             <a class="goods_size" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
                                 <h3>{{details.name}}</h3>

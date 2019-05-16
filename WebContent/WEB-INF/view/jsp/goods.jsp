@@ -2,9 +2,8 @@
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>商品</title>
@@ -190,7 +189,7 @@
 								    </td>
 								    <td style="vertical-align:middle;" v-else class="text-center">
 									    <button type="button" @click="downshelf(g.id)" class="btn btn-default">下架</button>
-									    <button @click="change(g.number,g.name,g.price,g.details,g.specs,g.type.typeName,g.img)" type="button" class="btn btn-default" data-toggle="modal"
+									    <button @click="change(g.id,g.number,g.name,g.price,g.details,g.specs,g.type.typeName,g.img)" type="button" class="btn btn-default" data-toggle="modal"
 									   		data-target="#myModal">编辑</button>
 								    </td>
 								</tr>
@@ -213,20 +212,19 @@
 				</div>
 				<div class="modal-body">
 					<div>
-						编号：<input type='text' id="goodsNumber" value="" code='' class='number form-control' />
+						编号：<input type='text' id="goodsNumber"  class='number form-control' />
 					</div>
 					<br />
 					<div>
-						商品名称：<input type='text' id='goodsName' value='' code='' class='name form-control' />
+						商品名称：<input type='text' id='goodsName' class='name form-control' />
 					</div>
 					<br />
 					<div>
-						价格：<input type='text' id='goodsPsrice' value='' code='' class='price form-control' />
+						价格：<input type='text' id='goodsPsrice'  class='price form-control' />
 					</div>
 					<br />
 					<div>
-						详情：<input type='text' id='goodsDetails' value='' code=''
-							class='details form-control' />
+						详情：<input type='text' id='goodsDetails' class='details form-control' />
 					</div>
 					<br />
 					<div class="form-group">
@@ -239,7 +237,7 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<label for="sort"> 类别：</label><select name="typename" type='text' id='typename' value='' class='amount form-control'>
+						<label for="sort"> 类别：</label><select name="typename" type='text' id='goodsType' class='amount form-control'>
 						<option v-for="i in sortlist">{{i.typeName}}</option>
                         </select>
 					</div>
@@ -253,7 +251,7 @@
 				<br>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" id="tijiao">提交</button>
+					<button type="button" class="btn btn-primary" id="tijiao" @click="tijiao()">提交</button>
 				</div>
 			</div>
 		</div>
@@ -274,7 +272,8 @@
 				sortlist:[],
 				checked : false, //全选框
 				checkList : [],
-				goodsalldetails:[]
+				goodsalldetails:[],
+				changegoodsid:0
 			},
 			mounted:function(){
 				this.getAllGoodsdetails();
@@ -312,24 +311,63 @@
                         console.log("请求失败处理");
                     }); 
 				},
-				//编辑商品
-				change : function(number,name,price,details,specs,type,img,date){
+				//弹出模态框并设置相应的内容
+				change : function(id,number,name,price,details,specs,typeName,img,date){
+					this.changegoodsid = id;
 					$("#goodsNumber").val(number);
 					$("#goodsName").val(name);
 					$("#goodsPsrice").val(price);
 					$("#goodsDetails").val(details);
 					$("#goodsSpecs").val(specs);
-					$("#goodsType").val(type);
+					$("#goodsType").val(typeName);
 					$("#goodsimg").attr("src",img);
-					$("#goodsDate").val(date);
-					
+				},
+				//修改商品信息
+				tijiao : function(){
+					var id = this.changegoodsid;
+					var number = $("#goodsNumber").val();
+					var name = $("#goodsName").val();
+					var price = $("#goodsPsrice").val();
+					var details = $("#goodsDetails").val();
+					var specs = $("#goodsSpecs").val();
+					var typeName = $("#goodsType").val();
+					console.log(details);
+					console.log(id);
+					$.ajax({
+						type:'POST',
+						async:false,
+						dataType:"json",
+						url:"/apple/adminiupdate/updategoods",
+						data:{"id":id,"number":number,"name":name,
+							  "price":price,"details":details,"specs":specs,
+							  "typeName":typeName},
+						success:function(result){
+							if(result.flag==true){
+								//app.getAllGoodsdetails();
+							}
+						}
+					});
+					var formData = new FormData();
+					formData.append('imgfile',$('#imgfile')[0].files[0]);
+	                $.ajax({
+	                    url: '/apple/adminiupdate/updategoodsimg', 
+	                    type: 'POST',
+	                    data: formData,
+	                    cache: false,
+	                    async:false,
+	                    processData: false,
+	                    contentType: false,
+	                    success: function(result){
+	                    	alert(result);
+	                    	app.getAllGoodsdetails();
+	                    }
+	                });
 				},
 				getAllSort : function(){
 	                //发送get请求
 	                this.$http.get(
 	                        "http://localhost:8080/apple/adminiselect/getallType").then(function(res) {
 	                    this.sortlist = res.body;
-	                    console.log(res);
 	                }, function() {
 	                    console.log('请求失败处理');
 	                });
