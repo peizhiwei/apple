@@ -84,49 +84,46 @@ body{
                         <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;"><a href="#">
                                 <font color="white">Watch</font>
                             </a></li>
+                            
                         <li style="float:none;display:inline-block;margin:0em;margin:0px 8px;">
                             <a href="#"><span class="glyphicon glyphicon-shopping-cart"
                                     style="color:white;padding-right: 4px;">
                                 </span>
                                 <font color="white">购物车</font>
                             </a></li>
-
                        <li  style="float:right;display:inline-block;margin:0em;margin:8px 8px;">
-                            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" id="login">  
+                       <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" id="login">  
 								    登录 
-								</button>  
-								  
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
-								    <div class="modal-dialog" role="document">  
-								        <div class="modal-content">  
-								            <div class="modal-header">  
-								                <button type="button" class="close"  data-toggle="modal" aria-label="Close">  
-								                    <span aria-hidden="true">×</span>  
-								                </button>  
-								                <p class="modal-title" id="myModalLabel" style="font-size: 16px"><span class="glyphicon glyphicon-th-large"></span>欢迎登录手机商城</p>
-								                
-								            </div>  
-								            <div class="modal-body">  
-								            	<form>
-								            	<div class="form-group ">
-								            		<p>
-								            		 <input type="text" name="username" id="user" placeholder="请输入用户名" class="form-control input-group-lg" @blur.prevent="checkusername" v-model="user.name"> </p>
-								            	</div>
-								            	<div class="span4" style="color:red;float:left">{{msg}}</div>
-								               <div class="form-group ">
-								               <input type="password" name="password" id="pass1" placeholder="请输入密码" class="form-control input-group-lg" @blur.prevent="checkpassword" v-model="user.pass" />
-								            	</div>  
-								            	<div class="span5" style="color:red;float:left">{{pass}}</div>
-								            	</form>
-								       		</div>
-								            <div class="modal-footer"> 
-								                <button type="button" id="loginbutton" class="btn btn-default" data-dismiss="modal" v-bind:disabled="user.name == ''||user.pass==''" >确认</button>  
-								                <button type="button" class="btn btn-primary">取消</button>  
-								            </div>  
-								        </div>  
-								    </div>  
-								</div>  
-                            </li>
+						</button>  
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					       <button type="button" id="deng" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					      </div>
+					      <div class="modal-body">
+					        <form>
+					        	<div class="form-group ">
+					        		<p>
+					        		 <input type="text" name="username" id="user" placeholder="请输入用户名" class="form-control input-group-lg" @blur.prevent="checkusername" v-model="user.name"> </p>
+					        	</div>
+					        	<div class="span4" style="color:red;float:left">{{msg}}</div>
+					           <div class="form-group ">
+					           <input type="password" name="password" id="pass1" placeholder="请输入密码" class="form-control input-group-lg" @blur.prevent="checkpassword" v-model="user.pass" />
+					        	</div>  
+					        	<div class="span5" style="color:red;float:left">{{pass}}</div>
+					        	</form>
+					      </div>
+					      <div class="modal-footer">
+					         <button type="button" id="loginbutton" class="btn btn-default" data-dismiss="modal" v-bind:disabled="user.name == ''||user.pass==''" >确认</button>  
+						     <button type="button" class="btn btn-primary">取消</button>  
+					      </div>
+					    </div>
+					  </div>
+					</div>
+							 </li>
                             
                             <li  style="float:right;display:inline-block;margin:0em;margin:8px 8px;">
                             <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModalregister">  
@@ -137,7 +134,7 @@ body{
 								    <div class="modal-dialog" role="document">  
 								        <div class="modal-content">  
 								            <div class="modal-header">  
-								                <button type="button" class="close"  data-toggle="modal" aria-label="Close">  
+								                <button type="button" class="close" id="zhu" data-toggle="modal" aria-label="Close">  
 								                    <span aria-hidden="flase">×</span>  
 								                </button>  
 								                <p class="modal-title" id="myModalLabel" style="font-size: 16px"><span class="glyphicon glyphicon-th-large"></span>欢迎成为手机商城新用户</p>
@@ -329,6 +326,13 @@ body{
     </script>
     <script type="text/javascript">
     $(document).ready(function(){
+    	$("#deng").click(function(){
+    		$("#myModal").modal('hide');
+    	});
+		$("#zhu").click(function(){
+			$("#myModalregister").modal('hide');
+    	});
+    	
         $("#loginbutton").click(function(){
         	 var username = $("#user").val();
              var password = $("#pass1").val();
@@ -353,7 +357,6 @@ body{
         $("#registerbutton").click(function(){
         	var reusername = $("#registerusername").val();
             var repassword = $("#registerpassword").val();
-            alert("jjjjj");
             $.ajax({
             	type:'POST',
             	asyns:false,
@@ -370,6 +373,9 @@ body{
             })
             
         });
+        $("#").click(function(){
+        	
+        })
     }); 
     </script>
 </body>
