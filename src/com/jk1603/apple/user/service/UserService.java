@@ -24,7 +24,6 @@ public class UserService implements UserServiceInterface{
 	public User checkLogin(String username,String password) {
 		User user = new User();
 		user = userdao.findByUsername(username);
-		System.out.println(user);
 		if(user!=null&&user.getUserPassword().equals(password)) {
 			return user;
 		}

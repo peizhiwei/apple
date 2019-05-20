@@ -126,6 +126,7 @@ public class AdminiUpdateController {
 	public String updategoodsimg(MultipartHttpServletRequest filesRequest) {
         String root = filesRequest.getServletContext().getRealPath("img")+"/";
         //
+        System.out.println(root);
         File Folder = new File(root);
         if(Folder.exists()) {
         	if(Folder.isDirectory()) {

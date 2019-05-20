@@ -94,8 +94,6 @@ public class UserController {
 	@RequestMapping("/checkLogin")
 	@ResponseBody
 	public ajaxresponse login(@RequestParam(value = "username",required = false) String username,@RequestParam(value = "password",required = false) String password,HttpServletRequest request) {
-		System.out.println(username);
-		System.out.println(password);
 		User user = userService.checkLogin(username,password);
 		
 		ajaxresponse rs = new ajaxresponse();
@@ -105,7 +103,7 @@ public class UserController {
 			rs.setMsg("/apple/user/userindex");
 		}else {
 			rs.setFlag(false);
-			rs.setMsg("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			rs.setMsg("å¤±è´¥");
 		}
 		return rs;
 	}
@@ -118,7 +116,7 @@ public class UserController {
 		ajaxresponse rs = new ajaxresponse();
 		if(user!=null) {
 			rs.setFlag(false);
-			rs.setMsg("ÓÃ»§ÃûÒÑ´æÔÚ");
+			rs.setMsg("ç”¨æˆ·å·²å­˜åœ¨");
 		}else {
 			User user1 = new User();
 			user1.setUserName(reusername);
@@ -139,8 +137,7 @@ public class UserController {
 	@RequestMapping("/userimgupload")
 	@ResponseBody
 	public String userimgupload(HttpServletRequest request,HttpSession session,MultipartHttpServletRequest filesRequest) {
-        String root = filesRequest.getServletContext().getRealPath("img")+"/";//¶ÁÈ¡¾²Ì¬×ÊÔ´Â·¾¶/upload
-        System.out.println(root);
+        String root = filesRequest.getServletContext().getRealPath("img")+"/";//ï¿½ï¿½È¡ï¿½ï¿½Ì¬ï¿½ï¿½Ô´Â·ï¿½ï¿½/upload
         File Folder = new File(root);
         if(Folder.exists()) {
         	if(Folder.isDirectory()) {
@@ -149,22 +146,22 @@ public class UserController {
         		System.out.println("the same name file exists,can not create dir");
         	}
         }else {
-        	System.out.println("dir not exists,create it ¡­¡­");
+        	System.out.println("dir not exists,create it ï¿½ï¿½ï¿½ï¿½");
         	Folder.mkdir();
         }
-        MultipartFile file = filesRequest.getFile("file1");//¶ÁÈ¡ÎÄ¼þ
+        MultipartFile file = filesRequest.getFile("file1");//ï¿½ï¿½È¡ï¿½Ä¼ï¿½
         
-        File newfile = new File(root + file.getOriginalFilename());//´´½¨ÐÂ£¨¿Õ£©ÎÄ¼þ£¬²»¸Ä±äÎÄ¼þÃû
+        File newfile = new File(root + file.getOriginalFilename());//ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Õ£ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
        
-        //¸üÐÂsession
+        //ï¿½ï¿½ï¿½ï¿½session
         User usersession = (User)session.getAttribute("user");
         usersession.setUserImg("/apple/img/"+file.getOriginalFilename());
-        //´æÈëÐÂµÄsession
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½session
         
     	request.getSession().setAttribute("user",usersession);
     	userService.updataUserimg(usersession);
         try {
-            file.transferTo(newfile);//±£´æÎÄ¼þ
+            file.transferTo(newfile);//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
@@ -174,14 +171,14 @@ public class UserController {
 	@RequestMapping("/usernicknameupdata")
 	@ResponseBody
 	public ajaxresponse usernicknameupdata(String nicheng,HttpServletRequest request,HttpSession session) {
-		//¸üÐÂsession
-		//»ñÈ¡Ô­ÓÐµÄsession
+		//ï¿½ï¿½ï¿½ï¿½session
+		//ï¿½ï¿½È¡Ô­ï¿½Ðµï¿½session
 		User usersession = (User) session.getAttribute("user");
-		//ÖØÐÂÉèÖÃêÇ³Æ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½
 		usersession.setUserNickName(nicheng);
 		
 		ajaxresponse rs = new ajaxresponse();
-		//´æÈëÐÂµÄsession
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½session
 		request.getSession().setAttribute("user", usersession);
 		userService.updataUsernickname(usersession);
 		rs.setFlag(true);

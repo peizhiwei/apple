@@ -1,4 +1,4 @@
-package com.jk1603.apple.user.service;
+package com.jk1603.apple.user.service.select;
 
 import java.util.List;
 
@@ -22,6 +22,18 @@ public class UserSelectService implements UserSelectServiceInterface {
 	public List<Shoppingcart> getshoppingcart(int id) {
 		List<Shoppingcart> goodsList = userselectdao.getshoppingcart(id);
 		return goodsList;
+	}
+
+	@Override
+	public List<Shoppingcart> getshopping(Shoppingcart shoppingcart) {
+		List<Shoppingcart> goods = userselectdao.getshopping(shoppingcart);
+		return goods;
+	}
+
+	@Override
+	public int getshoppingamount(int goodsId) {
+		int shAmount = userselectdao.getshoppingamount(goodsId);
+		return shAmount;
 	}
 
 }

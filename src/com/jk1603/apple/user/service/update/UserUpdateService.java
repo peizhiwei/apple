@@ -1,4 +1,4 @@
-package com.jk1603.apple.user.service;
+package com.jk1603.apple.user.service.update;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +12,8 @@ public class UserUpdateService implements UserUpdateServiceInterface {
 	@Autowired
 	UserUpdateDao userupdatedao;
 	@Override
-	public void setshAmount(int newamount, int id) {
-		userupdatedao.setshAmount(newamount, id);
+	public void setshAmount(int newamount, int goodsId) {
+		userupdatedao.setshAmount(newamount, goodsId);
 		
 	}
 

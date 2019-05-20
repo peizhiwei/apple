@@ -40,7 +40,7 @@
                 <table class="table table-bordered table-hover tablebackground">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 25px;vertical-align:middle;"><input type="checkbox"
+                            <th class="text-center" style="width: 25px;vertical-align:middle;"><input type="checkbox" v-model="checked" v-on:click="checkedAll"
                                     style="width:25px;height: 25px;"></th>
                             <th style="width: 100px;"></th>
                             <th style="width: 200px;">商品名称</th>
@@ -52,17 +52,18 @@
                     </thead>
                     <tbody>
                         <tr v-for="i in shoppingcartlist">
-                            <td class="text-center" style="vertical-align:middle;"><input type="checkbox" style="width:25px;height: 25px;"></td>
+                        <span>{{checkList}}</span>
+                            <td class="text-center" style="vertical-align:middle;"><input type="checkbox" v-model="checkList" :value="i.id" style="width:25px;height: 25px;"></td>
                             <td><img class="center-block" alt="" :src="i.goods.img" style="width:60px;heigth:100px;"></td>
                             <td style="vertical-align:middle;">{{i.goods.name}}</td>
                             <td style="vertical-align:middle;">{{i.goods.price}}</td>
                             <td style="width:150px; vertical-align:middle;">
-                                <div class="col-md-3 col-md-push-1"><span @click="decrease(i.id,i.shAmount)" id="decrease"
+                                <div class="col-md-3 col-md-push-1"><span @click="decrease(i.goods.id,i.shAmount)" id="decrease"
                                         class="glyphicon glyphicon-minus"></span></div>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control input-sm text-center" :value="i.shAmount" v-model="i.shAmount" disabled="disabled">
                                 </div>
-                                <div class="col-md-3 col-md-pull-1"><span @click="plus(i.id,i.shAmount)" id="plus"
+                                <div class="col-md-3 col-md-pull-1"><span @click="plus(i.goods.id,i.shAmount)" id="plus"
                                         class="glyphicon glyphicon-plus"></span></div>
                             </td>
                             <td style="vertical-align:middle;">{{i.shAmount*i.goods.price}}</td>
@@ -94,7 +95,9 @@
         var app = new Vue({
             el: '#app',
             data: {
-                shoppingcartlist: []
+                shoppingcartlist: [],
+                checkList:[],
+                checked:false//全选框
             },
             mounted : function() { //钩子函数
                 this.getshoppingcartlist();
@@ -110,18 +113,29 @@
                 }
             },
             methods: {
-                plus: function (id,shAmount) {
+            	checkedAll:function(){
+            		var che = this;
+            		if(che.checked){
+            			che.checkList = [];
+            		}else{
+            			che.checkList = [];
+            			this.shoppingcartlist.forEach(function (item, index) {
+                            che.checkList.push(item.id);
+                        });
+            		}
+            	},
+                plus: function (goodsId,shAmount) {
                 	var newamount = shAmount+1;
-                	this.$http.post("http://localhost:8080/apple/userupdate/setshamount",{newamount:newamount,id:id},{emulateJSON:true}).then(function(res){
+                	this.$http.post("http://localhost:8080/apple/userupdate/setshamount",{newamount:newamount,goodsId:goodsId},{emulateJSON:true}).then(function(res){
                 		app.getshoppingcartlist();
                 	},function(res){
                 		console.log("请求失败处理")
                 	});
                 },
-                decrease: function (id,shAmount) {
+                decrease: function (goodsId,shAmount) {
                 	if(shAmount>1){
 	                	var newamount = shAmount-1;
-	                    this.$http.post("http://localhost:8080/apple/userupdate/setshamount",{newamount:newamount,id:id},{emulateJSON:true}).then(function(res){ 
+	                    this.$http.post("http://localhost:8080/apple/userupdate/setshamount",{newamount:newamount,goodsId:goodsId},{emulateJSON:true}).then(function(res){ 
 	                    	   app.getshoppingcartlist();
 	                    },function(res){
 	                        console.log("请求失败处理")
@@ -141,13 +155,24 @@
 	            getshoppingcartlist : function() {
 	                this.$http.get("http://localhost:8080/apple/userselect/getshoppingcart").then(function(res) {
 	                    this.shoppingcartlist = JSON.parse(res.bodyText);
-	                    console.log(this.shoppingcartlist);
 	                }, function() {
 	                    console.log('请求失败处理');
 	                });
 	            }
+            },
+            watch:{
+            	'checkList':{
+            		handler: function (val, oldVal) {
+                        if (val.length === this.shoppingcartlist.length) {
+                            this.checked = false;
+                        } else {
+                            this.checked = true;
+                        }
+                    },
+                    deep: true
+            	}
             }
-        })
+        });
     </script>
 
 </body>

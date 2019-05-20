@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 public interface UserUpdateDao {
-	@Update("UPDATE shoppingcart SET sh_amount=#{newamount} WHERE id=#{id}")
-	void setshAmount(@Param("newamount")int newamount,@Param("id")int id);
+	//购物车中已存在该商品则增加商品的数量
+	@Update("UPDATE shoppingcart SET sh_amount=#{newamount} WHERE goods_id=#{goodsId}")
+	void setshAmount(@Param("newamount")int newamount,@Param("goodsId")int goodsId);
 }

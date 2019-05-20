@@ -5,14 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jk1603.apple.user.service.UserDeleteServiceInterface;
+import com.jk1603.apple.user.service.delete.UserDeleteServiceInterface;
 
 @Controller
 @RequestMapping("/userdelete")
 public class UserDeleteController {
 	@Autowired
 	UserDeleteServiceInterface userdeleteservice;
-	//É¾³ý¹ºÎï³µÖÐÖ¸¶¨µÄÉÌÆ·
+	//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï³µï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
 	@RequestMapping("/removeshopping")
 	@ResponseBody
 	public void remove(int id) {

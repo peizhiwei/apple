@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jk1603.apple.user.pojo.User;
-import com.jk1603.apple.user.service.UserInsertServiceInterface;
+import com.jk1603.apple.user.service.insert.UserInsertServiceInterface;
 
 @Controller
 @RequestMapping("/userinsert")
@@ -19,10 +19,7 @@ public class UserInsertController {
 	@RequestMapping("/addshoppingcart")
 	@ResponseBody
 	public void addshoppingcart(@RequestParam(value = "goodsId",required = false)int goodsId,
-								@RequestParam(value = "userId",required = false)int userId,
-								HttpSession session) {
-//		User usersession = (User)session.getAttribute("user");
-//		userId = usersession.getId();
+								@RequestParam(value = "userId",required = false)int userId) {
 		userinsertservice.addShoppingcart(goodsId, userId);
 	}
 }

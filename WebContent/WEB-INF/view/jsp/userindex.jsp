@@ -237,16 +237,56 @@ body{
                 addshoppingcart : function(id){
                 	var goodsId = id;
                 	var userId = this.userdetails.id;
-                	//如果该商品已经在购物车则增加数量
-                	// if(){
+                	$.ajax({
+                		type:'GET',
+                		async:false,
+                		url:"/apple/userselect/getshopping",
+                		data:{"goodsId":goodsId,"userId":userId},
+                		success:function(result){
+                			if(result==null||result==""){//购物车中没有改商品则添加该商品
+                				$.ajax({
+                					type:'POST',
+                					async:false,
+                					url:"/apple/userinsert/addshoppingcart",
+                					data:{"userId":userId,"goodsId":goodsId},
+                					success:function(){
+                						alert("已添加");
+                					},
+                					error:function(){
+                						alert("请求失败");
+                					}
+                				});
+                			}else{//购物车已存在该商品，增加商品数量
+                				var amount = 0;
+                				$.ajax({
+                					type:'GET',
+                					async: false,
+                					url:"/apple/userselect/getshoppingamount",
+                					data:{"goodsId":goodsId},
+                					success:function(result){
+                						amount=result;
+                					},
+                					error:function(result){
+                						alert("请求失败");
+                					}
+                				});
+                				var newamount=amount+1;
+                				$.ajax({
+                					type:'POST',
+                					async: false,
+                					url:"/apple/userupdate/setshamount",
+                					data:{"goodsId":goodsId,"newamount":newamount},
+                					success:function(){
+                						alert("已添加");
+                					},
+                					error:function(){
+                						alert("添加失败");
+                					}
+                				});
+                			}
+                		}
                 		
-                	// }else{//如果购物车里没有该商品则添加该商品
-	                	this.$http.post("http://localhost:8080/apple/userinsert/addshoppingcart",{userId:userId,goodsId:goodsId},{emulateJSON:true}).then(function(res){
-	                        alert("已添加");
-	                    },function(){
-	                        console.log("请求失败处理");
-	                    });
-                	// }
+                	});
                 }
 			}
 		});

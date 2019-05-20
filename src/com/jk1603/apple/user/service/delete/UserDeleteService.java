@@ -1,4 +1,4 @@
-package com.jk1603.apple.user.service;
+package com.jk1603.apple.user.service.delete;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
