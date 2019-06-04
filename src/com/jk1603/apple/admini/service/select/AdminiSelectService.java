@@ -86,8 +86,8 @@ public class AdminiSelectService implements AdminiSelectServiceInterface {
 	}
 
 	@Override
-	public List<Goods> getGoodsList(String goodsname) {
-		List<Goods> goodslist = adminiSelectdao.getGoodsList(goodsname);
+	public List<Goods> getGoodsList(String goodsnumber) {
+		List<Goods> goodslist = adminiSelectdao.getGoodsList(goodsnumber);
 		return goodslist;
 	}
 

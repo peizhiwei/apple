@@ -55,8 +55,8 @@ public class AdminiSelectController {
 	}
 	@RequestMapping("/getgoodsid")
 	@ResponseBody
-	public Goods getgoodsid(String goodsname) {
-		Goods goodsId = adminiSelectservice.getgoodsid(goodsname);
+	public Goods getgoodsid(String goodsnumber) {
+		Goods goodsId = adminiSelectservice.getgoodsid(goodsnumber);
 		return goodsId;
 	}
 	//查看仓库中是否已经存在此商品
@@ -127,8 +127,8 @@ public class AdminiSelectController {
 	}
 	@RequestMapping("/getgoodslist")
 	@ResponseBody
-	public List<Goods> getgoodslist(String goodsname){
-		List<Goods> goodslist = adminiSelectservice.getGoodsList(goodsname);
+	public List<Goods> getgoodslist(String goodsnumber){
+		List<Goods> goodslist = adminiSelectservice.getGoodsList(goodsnumber);
 		return goodslist;
 	}
 	@RequestMapping("/getallsotre")

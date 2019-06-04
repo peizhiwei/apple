@@ -9,14 +9,14 @@ import com.jk1603.apple.admini.pojo.Store;
 import com.jk1603.apple.admini.pojo.SuperAdmini;
 
 public interface AdminiSelectServiceInterface {
-	//获取分类
+	//鑾峰彇鍒嗙被
 	List<Type> getType();
 	List<Goods> getGoods(String number);
-	//查询所有商品
+	//鏌ヨ鎵�鏈夊晢鍝�
 	List<Goods> getallGoods();
 	List<Goods> getGoodstoindex();
-	//根据商品名获取商品id
-	Goods getgoodsid(String goodsname);
+	//鏍规嵁鍟嗗搧鍚嶈幏鍙栧晢鍝乮d
+	Goods getgoodsid(String goodsnumber);
 	int getgoodsmaxid();
 	
 	int gettypeid(String typeName);
@@ -27,9 +27,9 @@ public interface AdminiSelectServiceInterface {
 	
 	List<Admini> getallAdmini();
 	
-	List<Goods> getGoodsList(String goodsname);
+	List<Goods> getGoodsList(String goodsnumber);
 	
 	Store getstoregoodsid(int goodsId);
-	//查询所有库存
+	//鏌ヨ鎵�鏈夊簱瀛�
 	List<Store> getallstore();
 }

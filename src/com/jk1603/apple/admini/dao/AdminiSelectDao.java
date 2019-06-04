@@ -21,10 +21,10 @@ public interface AdminiSelectDao {
 			"LEFT JOIN type t ON g.type_id=t.id\r\n" + 
 			"LEFT JOIN superadmini s ON g.superadmini_id=s.id\r\n" + 
 			"LEFT JOIN admini a ON a.id=g.admini_id\r\n" + 
-			"WHERE g.`name` LIKE #{goodsname}")
-	List<Goods> getGoodsList(String goodsname);
+			"WHERE g.`number` LIKE #{goodsnumber}")
+	List<Goods> getGoodsList(String goodsnumber);
 	//根据商品名称查询商品id
-	@Select("SELECT id FROM goods WHERE name=#{goodsname}")
+	@Select("SELECT id FROM goods WHERE number=#{goodsnumber}")
 	Goods getgoodsid(String goodsname);
 	//查询仓库中是否已经存在此商品
 	@Select("SELECT * FROM store WHERE goods_id=#{goodsId}")
