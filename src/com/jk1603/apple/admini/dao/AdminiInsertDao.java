@@ -12,7 +12,7 @@ import com.jk1603.apple.admini.pojo.Store;
 
 
 public interface AdminiInsertDao {
-	//新增商品
+	//鏂板鍟嗗搧
 	@Update("INSERT INTO goods (`name`,`price`,`number`,\r\n" + 
 			"`specs`,`details`,`upshelf`,`type_id`,`date`,`superadmini_id`,`admini_id`)\r\n" + 
 			"VALUES(#{name},#{price},#{number},\r\n" + 
@@ -20,8 +20,8 @@ public interface AdminiInsertDao {
 	void addGoods(Goods goods);
 
 	//出库
-	@Update("INSERT INTO `outstore_goods` (`ck_number`, `name`, `total`, `date`, `builder` )\r\n" + 
-				"VALUES(#{ckNumber}, #{name}, #{amount}, #{date}, #{builder})")
+	@Update("INSERT INTO store (amount,goods_id,date,admini_id,superadmini_id) "
+			  + "VALUES (#{amount}, #{goods.id},#{date},#{admini.id}, #{superadmini.id})")
 	void outStore(Outstore ous);
 	
 	//入库
@@ -29,7 +29,7 @@ public interface AdminiInsertDao {
 		  + "VALUES (#{amount}, #{goods.id},#{date},#{admini.id}, #{superadmini.id})")
 	void intoStore(Store store);
 	
-	//添加管理员
+	//娣诲姞绠＄悊鍛�
 	@Update("INSERT INTO admini (`admini_name`, `admini_password`) VALUES (#{adminiName},#{adminiPassword})")
 	void addAdmini(Admini admini);
 }

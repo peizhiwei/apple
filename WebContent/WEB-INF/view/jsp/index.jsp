@@ -210,11 +210,18 @@ body{
                     <a class="carousel-control right" href="#myCarousel" data-slide="next"><span _ngcontent-c3=""
                             aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
+                
+                	<ul class="nav nav-pills nav-justified" >
+						<li role="presentation" v-for="n in navList" v-bind:class="{'active':navName==n.name}" @mouseover="change(n.name)"><a href="#"
+							style="color: black;">{{n.name}}</a></li>
+					</ul>
+                
+                	
                     <div id="myTabContent" class="tab-content" v-for="details in detailslist">
-                         <div class="thumbnail tab-pane fade in active text-center col-md-3 col-sm-4 col-xs-6" v-if="details.upshelf==true">
+                         <div class="thumbnail tab-pane fade in active text-center col-md-2 col-sm-4 col-xs-6"  v-if="details.type.typeName==navName">
                                     <a class="goods_size"
                                 style="text-decoration: none;" onclick="window.location.href='/apple/user/details'">
-                                <img alt="" v-bind:src="details.img" style="height: 190px; width: 130px;">
+                                <img alt="" v-bind:src="details.img" >
                             </a>
                             <a class="goods_size" onclick="window.location.href='/apple/user/details'" style="text-decoration: none;">
                                 <h3>{{details.name}}</h3>
@@ -264,7 +271,21 @@ body{
 				msg:'',
 				registermsg:'' ,	
 				pass:'',
-				jugdement:''
+				jugdement:'',
+				navName:'iPhone',
+				navList : [ {
+					id : 1,
+					name : 'iPhone'
+				}, {
+					id : 2,
+					name : 'iPad'
+				}, {
+					id : 3,
+					name : 'Mac'
+				}, {
+					id : 4,
+					name : 'Watch'
+				}]
             },
             mounted:function() { //钩子函数
                 this.get();
@@ -320,6 +341,9 @@ body{
                 	}else{
                 		this.register.msg3 = ' ';
                 	}
+                },
+                change:function(name){
+                	this.navName=name;
                 }
             },
         });
