@@ -13,4 +13,6 @@ public interface UserSelectServiceInterface {
 	List<Shoppingcart> getshopping(Shoppingcart shoppingcart);
 	//查询购物车中指定商品的数量
 	int getshoppingamount(int goodsId);
+	
+	boolean selectgoodsupshlf(int goodsId);
 }

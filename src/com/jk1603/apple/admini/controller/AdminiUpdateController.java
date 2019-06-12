@@ -125,8 +125,7 @@ public class AdminiUpdateController {
 	@ResponseBody
 	public String updategoodsimg(MultipartHttpServletRequest filesRequest) {
         String root = filesRequest.getServletContext().getRealPath("img")+"/";
-        //
-        System.out.println(root);
+//        System.out.println(root);
         File Folder = new File(root);
         if(Folder.exists()) {
         	if(Folder.isDirectory()) {
@@ -139,7 +138,9 @@ public class AdminiUpdateController {
         	Folder.mkdir();
         }
         MultipartFile file = filesRequest.getFile("imgfile");//��ȡ�ļ�
-        
+        if(file==null) {
+        	return "成功";
+        }
         File newfile = new File(root + file.getOriginalFilename());// �����£��գ��ļ������ı��ļ���
     	String newimg = "/apple/img/"+file.getOriginalFilename();
     	Goods goods = new Goods();

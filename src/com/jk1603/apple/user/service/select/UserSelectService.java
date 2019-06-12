@@ -36,4 +36,9 @@ public class UserSelectService implements UserSelectServiceInterface {
 		return shAmount;
 	}
 
+	@Override
+	public boolean selectgoodsupshlf(int goodsId) {
+		return userselectdao.selectgoodsupshlf(goodsId);
+	}
+
 }

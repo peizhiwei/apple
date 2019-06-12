@@ -25,4 +25,7 @@ public interface UserSelectDao {
 	//查询购物车中指定商品的数量
 	@Select("SELECT sh_amount as shAmount FROM shoppingcart WHERE goods_id=#{goodsId}")
 	int getshoppingamount(int goodsId);
+	
+	@Select("SELECT upshelf FROM goods WHERE id=#{goodsId}")
+	boolean selectgoodsupshlf(int goodsId);
 }

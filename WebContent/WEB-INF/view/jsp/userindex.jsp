@@ -249,11 +249,11 @@ body{
                 					async:false,
                 					url:"/apple/userinsert/addshoppingcart",
                 					data:{"userId":userId,"goodsId":goodsId},
-                					success:function(){
-                						alert("已添加");
+                					success:function(result){
+                						alert(result.msg);
                 					},
                 					error:function(){
-                						alert("请求失败");
+                						console.log("请求失败");
                 					}
                 				});
                 			}else{//购物车已存在该商品，增加商品数量
