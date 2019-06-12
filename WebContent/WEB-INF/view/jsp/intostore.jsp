@@ -95,9 +95,9 @@
                     <div class="container">
                         <form class="form-inline">
                             <div class="form-group">
-                                <label for="exampleInputName2">商品名称:</label>
-                                <input type="text" class="form-control" id="goodsname"
-                                    v-model="goodsname" name="goodsname" placeholder="请输入商品名称">
+                                <label for="exampleInputName2">商品编号:</label>
+                                <input type="text" class="form-control" id="goodsnumber"
+                                    v-model="goodsnumber" name="goodsnumber" placeholder="请输入商品编号">
                             </div>
                             <div class="form-group">
                             </div>
@@ -119,6 +119,7 @@
                             <thead>
                                 <tr>
                                     <th></th>
+                                    <th>商品编号</th>
                                     <th>商品名称</th>
                                     <th>价格</th>
                                     <th>规格</th>
@@ -129,8 +130,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="i in goodslist" @click="getname(i.name)">
+                                <tr v-for="i in goodslist" @click="getnumber(i.number,i.id)">
                                     <td><input type="radio" name="radio"></td>
+                                    <td>{{i.number}}</td>
                                     <td>{{i.name}}</td>
                                     <td>{{i.price}}</td>
                                     <td>{{i.specs}}</td>
@@ -157,26 +159,35 @@
         var app = new Vue({
             el: '#app',
             data: {
-            	goodsname: "",
+            	goodsnumber:'',
             	newamount:0,
             	beforeamount:0,
-                goodslist: []
+                goodslist: [],
+                goodsId:0
             },
             methods: {
             	getgoodslist: function () {
-                    //发送get请求
-                    this.$http.get("http://localhost:8080/apple/adminiselect/getgoodslist?goodsname=" + "%"+this.goodsname+"%").then(function (res) {
-                        this.goodslist = JSON.parse(res.bodyText);
-                    }, function () {
-                        console.log('请求失败处理');
-                    });
+            		$.ajax({
+            			url:'/apple/adminiselect/getgoodslist',
+            			type:'GET',
+            			data:{"goodsnumber":"%"+app.goodsnumber+"%"},
+            			dataType:'JSON',
+            			success:function(result){
+            				console.log(result);
+            				app.goodslist=result;
+            			},
+            			error:function(){
+            				console.log("请求失败处理");
+            			}
+            		});
                 },
-                getname:function(name){
-                	this.goodsname=name;
+                getnumber:function(number,id){
+                	this.goodsnumber=number;
+                	this.goodsId=id;
                 },
                 insertstore:function(){
                 	//根据商品名称查询所有商品
-                	this.$http.get("http://localhost:8080/apple/adminiselect/getgoodsid?goodsname="+this.goodsname).then(function(res){
+                	this.$http.get("http://localhost:8080/apple/adminiselect/getgoodsid?goodsnumber="+this.goodsnumber).then(function(res){
                 		var goodsId = res.body.id;
                 		//判断该商品是否存在
                 		if(goodsId==null){
@@ -190,7 +201,7 @@
                                 	this.$http.post("http://localhost:8080/apple/adminiinsert/intostore",{goodsId:goodsId,amount:amount},{emulateJSON:true}).then(function(res){
                                 		if(res.body.flag==true){
                                 			alert("成功");
-                                			this.goodsname="";
+                                			this.goodsnumber="";
                     						this.newamount="";
                                 		}
                                 	},function(res){
@@ -202,7 +213,7 @@
                 					var mount=parseInt(this.beforeamount)+parseInt(this.newamount);
                 					this.$http.post("http://localhost:8080/apple/adminiupdate/updateamount",{mount:mount,goodsId:goodsId},{emulateJSON:true}).then(function(res){
                 						alert("成功");
-                						this.goodsname="";
+                						this.goodsnumber="";
                 						this.newamount="";
                 					},function(res){
                 						console.log("请求失败处理");

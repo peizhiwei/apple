@@ -10,7 +10,7 @@
         http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
     
     <mybatis:scan base-package="com.jk1603.apple.admini.dao"/>
-    <mybatis:scan base-package="com.jk1603.apple.user.dao"/>
+    <mybatis:scan base-package="com.jk1603.apple.user.dao"/> 
     
     <!-- dataSource：可以使用pool -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
