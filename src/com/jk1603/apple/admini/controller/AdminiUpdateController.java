@@ -28,10 +28,10 @@ public class AdminiUpdateController {
 	
 	@Autowired
 	AdminiSelectServiceInterface adminiselectservice;
-	//ä¿®æ”¹å•†å“æ˜¯ç”¨åˆ°çš„id
+	//ĞŞ¸ÄÉÌÆ·ÊÇÓÃµ½µÄid
 	public Integer goodsId;
 	
-	//å¢åŠ å•†å“æ˜¯ä¸Šä¼ å›¾ç‰‡
+	//Ôö¼ÓÉÌÆ·ÊÇÉÏ´«Í¼Æ¬
 	@RequestMapping("/setgoodsimg")
 	@ResponseBody
 	public String userimgupload(MultipartHttpServletRequest filesRequest) {
@@ -66,13 +66,13 @@ public class AdminiUpdateController {
         }
         return "upload success";
 	}
-	//ä¸Šæ¶
+	//ÉÏ¼Ü
 	@RequestMapping("/upshelf")
 	@ResponseBody
 	public void upshelf(@Param("id") int id) {
 		adminiupdateservice.setUpshelf(id);
 	}
-	//ä¸‹æ¶
+	//ÏÂ¼Ü
 	@RequestMapping("/downshelf")
 	@ResponseBody
 	public void setdownshelf(@Param("id") int id) {
@@ -90,7 +90,7 @@ public class AdminiUpdateController {
 		store.setDate(new Date());
 		adminiupdateservice.plusstoreamount(store);
 	}
-	//ä¿®æ”¹å•†å“ä¿¡æ¯
+	//ĞŞ¸ÄÉÌÆ·ĞÅÏ¢
 	@RequestMapping("/updategoods")
 	@ResponseBody
 	public ajaxresponse updategoods(@RequestParam(value = "number",required = false)String number,
@@ -117,10 +117,10 @@ public class AdminiUpdateController {
 		adminiupdateservice.updategoods(goods);
 		ajaxresponse rs = new ajaxresponse();
 		rs.setFlag(true);
-		rs.setMsg("æˆåŠŸ");
+		rs.setMsg("³É¹¦");
 		return rs;
 	}
-	//ä¿®æ”¹å•†å“çš„å›¾ç‰‡
+	//ĞŞ¸ÄÉÌÆ·µÄÍ¼Æ¬
 	@RequestMapping("/updategoodsimg")
 	@ResponseBody
 	public String updategoodsimg(MultipartHttpServletRequest filesRequest) {
@@ -139,7 +139,7 @@ public class AdminiUpdateController {
         }
         MultipartFile file = filesRequest.getFile("imgfile");//ï¿½ï¿½È¡ï¿½Ä¼ï¿½
         if(file==null) {
-        	return "æˆåŠŸ";
+        	return "³É¹¦";
         }
         File newfile = new File(root + file.getOriginalFilename());// ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Õ£ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
     	String newimg = "/apple/img/"+file.getOriginalFilename();
@@ -151,9 +151,9 @@ public class AdminiUpdateController {
             file.transferTo(newfile);//  ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
         } catch (IOException e) {
             e.printStackTrace();
-            return "å¤±è´¥";
+            return "Ê§°Ü";
         }
-        return "æˆåŠŸ";
+        return "³É¹¦";
 	}
 	
 }
