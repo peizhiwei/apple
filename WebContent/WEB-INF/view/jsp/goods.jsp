@@ -284,7 +284,6 @@
 					//发送get请求
 					this.$http.get("http://localhost:8080/apple/adminiselect/getallgoods").then(function(res) {
 						this.goodsalldetails = JSON.parse(res.bodyText);
-						console.log(this.goodsalldetails);
 					}, function() {
 						console.log("请求失败处理");
 					});
